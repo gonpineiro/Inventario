@@ -13,7 +13,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   2 Notebooks <br>
   3 Print/Scan  <br>
   4 Telefonos IP  <br>
-  
+
 ### Networking:
 
   10 Modems <br>
