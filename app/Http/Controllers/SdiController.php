@@ -560,6 +560,39 @@ class SdiController extends Controller
 
     }
 
+    public function formSirena(Request $request){
+      $cliente = Cliente::orderBy('name')->get();
+      $modelo = Modelo::where('host_type_id',45)->get();
+      $panel_alarm = Host::where('host_type_id',40)->get();
+
+      return view('dispositivos.forms.sdis.add_sirena', [
+        'clientes' => $cliente,
+        'modelos'  => $modelo,
+        'panel_alarms'  => $panel_alarm,
+
+       ]);
+
+    }
+
+    public function createSirena(Request $request){
+
+        $user = $request->user();
+        $host = Host::create([
+
+        'host_type_id' => 45,
+        'estado_id' => 1,
+        'name' => $request->input('name'),
+        'modelo_id' => $request->input('modelo_id'),
+        'serial' => $request->input('serial'),
+        'cctv_id' => $request->input('cctv_id'),
+        'valor' => $request->input('valor'),
+        'zona' => $request->input('zona'),
+        'comentario' => $request->input('comentario'),
+          ]);
+
+      return redirect('/sirenas');
+    }
+
 
 
 

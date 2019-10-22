@@ -22,7 +22,7 @@
                   <tr>
                     @if ($host->host->host_type->id == 40)
                       <td>{{$host->id}}</td>
-                      <td><a href="/only_sensor/{{$host->id}}">{{$host->name}}</a></td>
+                      <td><a href="/only_sirena/{{$host->id}}">{{$host->name}}</a></td>
                       <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td>
                       <td>{{$host->host->abonado->numero}}</td>
                       <td>{{$host->host->abonado->cliente->name}}</td>
