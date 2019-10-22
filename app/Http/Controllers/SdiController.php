@@ -552,6 +552,17 @@ class SdiController extends Controller
 
 
 
+    public function showSirena(Request $request){
+      $host = Host::where('host_type_id',45)->get();
+      return view('dispositivos.tables.sdis.sirenas', [
+        'hosts' => $host,
+      ]);
+
+    }
+
+
+
+
     public function showSensor(Request $request){
       $host = Host::where('host_type_id',43)->get();
       return view('dispositivos.tables.sdis.sensors', [
