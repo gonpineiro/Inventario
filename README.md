@@ -9,37 +9,63 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
 
 ### Host de usuarios:
 
-  1 Computadoras<br>
-  2 Notebooks<br>
-  3 Print/Scan<br>
-  4 Telefonos IP<br>
+  1 Computadoras <br>
+  2 Notebooks
+  3 Print/Scan
+  4 Telefonos IP
+  5
+  6
+  7
+  8
+  9
 
 ### Networking:
 
-  10 Modems<br>
-  11 Routers<br>
-  12 Switchs<br>
-  13 AccesPoint<br>
+  10 Modems
+  11 Routers
+  12 Switchs
+  13 AccesPoint
+  14
+  15
+  16
+  17
+  18
+  19
+
 ### Dispositivos de Seguridad:
 
-  20 Camara IP<br>
-  21 DVRs<br>
-  22 NVRs<br>
-  23 XVRs<br>
-  24 Camaras Analogicas<br>
+  20 Camara IP
+  21 DVRs
+  22 NVRs
+  23 XVRs
+  24 Camaras Analogicas
+  25
+  26
+  27
+  28
+  29
 
 ### Perifericos:
 
-  30 Monitor<br>
-  31 Televisor<br>
-  32 Teclado<br>
-  33 Mouse<br>
-  34 Camara Web<br>
+  30 Monitor
+  31 Televisor
+  32 Teclado
+  33 Mouse
+  34 Camara Web
+  35
+  36
+  37
+  38
+  39
 
 ### SDI
 
-  40 Paneles<br>
-  41 Expansoras<br>
-  42 Comunicadores<br>
-  43 Sensores<br>
-  44 Teclados <br>
+  40 Paneles
+  41 Expansoras
+  42 Comunicadores
+  43 Sensores
+  44 Teclados
+  45
+  46
+  47
+  48
