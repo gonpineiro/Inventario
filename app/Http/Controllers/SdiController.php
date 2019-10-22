@@ -15,43 +15,43 @@ use Illuminate\Http\Request;
 
 class SdiController extends Controller
 {
-      public function showAbonados(Request $request){
-        $abonado = Abonado::all();
-        return view('dispositivos.tables.sdis.abonados', [
-          'abonados' => $abonado,
-        ]);
+    public function showAbonados(Request $request){
+      $abonado = Abonado::all();
+      return view('dispositivos.tables.sdis.abonados', [
+        'abonados' => $abonado,
+      ]);
 
-      }
+    }
 
-      public function formAbonado(Request $request){
-        $cliente = Cliente::orderBy('name')->get();
+    public function formAbonado(Request $request){
+      $cliente = Cliente::orderBy('name')->get();
 
-        return view('dispositivos.forms.sdis.add_abonado', [
-          'clientes' => $cliente,
+      return view('dispositivos.forms.sdis.add_abonado', [
+        'clientes' => $cliente,
 
-         ]);
+       ]);
 
-      }
+    }
 
-      public function createAbonado(Request $request){
+    public function createAbonado(Request $request){
 
-          $user = $request->user();
-          $abonado = Abonado::create([
+        $user = $request->user();
+        $abonado = Abonado::create([
 
-            'cliente_id' => $request->input('cliente_id'),
-            'type' => $request->input('type'),
-            'email' => $request->input('email'),
-            'direccion' => $request->input('direccion'),
-            'cp' => $request->input('cp'),
-            'localidad' => $request->input('localidad'),
-            'numero' => $request->input('numero'),
-            'partido' => $request->input('partido'),
-            'provincia' => $request->input('provincia'),
-            'comentario' => $request->input('comentario'),
-              ]);
+          'cliente_id' => $request->input('cliente_id'),
+          'type' => $request->input('type'),
+          'email' => $request->input('email'),
+          'direccion' => $request->input('direccion'),
+          'cp' => $request->input('cp'),
+          'localidad' => $request->input('localidad'),
+          'numero' => $request->input('numero'),
+          'partido' => $request->input('partido'),
+          'provincia' => $request->input('provincia'),
+          'comentario' => $request->input('comentario'),
+            ]);
 
-        return redirect('/abonados');
-      }
+      return redirect('/abonados');
+    }
 
 
 
