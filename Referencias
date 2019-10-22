@@ -1,0 +1,127 @@
+host_types
+
+* Host de usuarios:
+
+  1 Computadoras
+  2 Notebooks
+  3 Print/Scan
+  4 Telefonos IP
+  5
+  6
+  7
+  8
+  9
+
+* Networking:
+
+  10 Modems
+  11 Routers
+  12 Switchs
+  13 AccesPoint
+  14
+  15
+  16
+  17
+  18
+  19
+
+* Dispositivos de Seguridad:
+
+  20 Camara IP
+  21 DVRs
+  22 NVRs
+  23 XVRs
+  24 Camaras Analogicas
+  25
+  26
+  27
+  28
+  29
+
+* Perifericos:
+
+  30 Monitor
+  31 Televisor
+  32 Teclado
+  33 Mouse
+  34 Camara Web
+  35
+  36
+  37
+  38
+  39
+
+* SDI
+
+  40 Paneles
+  41 Expansoras
+  42 Comunicadores
+  43 Sensores
+  44 Teclados
+  45
+  46
+  47
+  48
+
+
+
+
+
+  <br/>
+<div class="card">
+  <div class="card-header">Agregar registro de trabajo</div>
+    <div class="card-body">
+      <form action="/add_work/{{$host->id}}" method="post" name="form-edit">
+        {{ csrf_field() }}
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="modelo">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha">
+          </div>
+
+          <div class="form-group col-md-9">
+            <label for="serial">Trabajo </label>
+            <input type="text" class="form-control" id="trabajo" name="trabajo">
+          </div>
+        </div>
+        <div class="form-row">
+              <div class="form-group col-md">
+                <label for="comentario">Observación</label>
+                <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario"></textarea>
+              </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Agregar</button>
+      </form>
+
+    </div>
+  </div>
+  <br/>
+  <div class="card">
+    <div class="card-header">Registros de trabajo</div>
+      <div class="card-body">
+        <div class="col cl-6">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Trabajo</th>
+                  <th scope="col">Obs</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($hostworks as $hostwork)
+                    <tr>
+                      <td>{{$hostwork->id}}</td>
+                      <td>{{$hostwork->fecha}}</td>
+                      <td>{{$hostwork->trabajo}}</td>
+                      <td>{{$hostwork->comentario}}</td>
+                    </tr>
+              @endforeach
+              </tbody>
+            </table>
+        </div>
+
+      </div>
+    </div>
