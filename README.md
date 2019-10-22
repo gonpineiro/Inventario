@@ -1,2 +1,6 @@
 # Inventario
-## Este es un sistema pensado para una empresa/pyme en el cual quiere realizar un inventario del parque tecnologico
+
+## Proyecto
+Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
+
+## Instalacion
