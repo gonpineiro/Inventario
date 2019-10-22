@@ -106,6 +106,7 @@
                                 <a class="dropdown-item" href="/expansoras"><span>Expansoras</span></a>
                                 <a class="dropdown-item" href="/comunicators"><span>Comunicadores</span></a>
                                 <a class="dropdown-item" href="/sensors"><span>Sensores</span></a>
+                                <a class="dropdown-item" href="/sirenas"><span>Sirenas</span></a>
                                 <a class="dropdown-item" href="/panics"><span>Panicos</span></a>
                                 <a class="dropdown-item" href="/trackers"><span>Trackers</span></a>
                                 <span>- - - - - - - - - - - - - -</span>

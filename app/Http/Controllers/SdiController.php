@@ -566,7 +566,7 @@ class SdiController extends Controller
       $hostwork = Host_work::where('host_id', $id)->get();
       $now = Carbon::now();
 
-      return view('dispositivos.onlys.sdis.sensor', [
+      return view('dispositivos.onlys.sdis.sirena', [
           'host' => $host,
           'hostworks' => $hostwork,
           'now' => $now,
@@ -605,6 +605,48 @@ class SdiController extends Controller
 
       return redirect('/sirenas');
     }
+
+    public function editSirena($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $estado = Estado::all();
+      $modelo = Modelo::where('host_type_id',43)->get();
+
+      $panel_alarm = Host::where('host_type_id',40)->get();
+
+        return view('dispositivos.edit.sdis.sirena', [
+            'host' => $host,
+            'estados' => $estado,
+            'modelos' => $modelo,
+            'panel_alarms' => $panel_alarm,
+        ]);
+
+    }
+
+    public function updateSirena($id, Request $request){
+
+      $user = $request->user();
+      $host = $this->findByIdHost($id);
+      $host->name = $request->input('name');
+      $host->serial = $request->input('serial');
+      $host->estado_id = $request->input('estado');
+      $host->modelo_id = $request->input('modelo_id');
+      $host->cctv_id = $request->input('cctv_id');
+      $host->zona = $request->input('zona');
+      $host->valor = $request->input('valor');
+      $host->comentario = $request->input('comentario');
+      $host->estado_id = 1;
+      $host->save();
+
+      $historial = Historial::create([
+          'user_id' => $user->id,
+          'host_id' => $host->id,
+          'type' => 1,
+        ]);
+
+
+      return redirect('/only_sirena/' . $id);
+      }
 
 
 
@@ -658,7 +700,6 @@ class SdiController extends Controller
         'name' => $request->input('name'),
         'modelo_id' => $request->input('modelo_id'),
         'serial' => $request->input('serial'),
-        'cantzona' => $request->input('cantzona'),
         'cctv_id' => $request->input('cctv_id'),
         'valor' => $request->input('valor'),
         'zona' => $request->input('zona'),
@@ -698,7 +739,6 @@ class SdiController extends Controller
       $host->estado_id = $request->input('estado');
       $host->modelo_id = $request->input('modelo_id');
       $host->cctv_id = $request->input('cctv_id');
-      $host->cantzona = $request->input('cantzona');
       $host->zona = $request->input('zona');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
