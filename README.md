@@ -9,7 +9,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
 
 ### Host de usuarios:
 
-  1 Computadoras 
+  1 Computadoras <br>
   2 Notebooks
   3 Print/Scan
   4 Telefonos IP
