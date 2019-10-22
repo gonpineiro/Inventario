@@ -44,3 +44,4 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   42 Comunicadores <br>
   43 Sensores <br>
   44 Teclados <br>
+  45 Sirenas <br>

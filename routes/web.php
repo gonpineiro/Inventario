@@ -235,6 +235,13 @@
   Route::post('/update_sensor/{id}', 'SdiController@updateSensor');
   Route::get('/edit_sensor/{id}', 'SdiController@editSensor');
 
+  Route::get('/sirenas', 'SdiController@showSirena');
+  Route::get('/only_sirena/{id}', 'SdiController@onlySirena');
+  Route::get('/form_sirena', 'SdiController@formSirena');
+  Route::post('/add_sirena', 'SdiController@createSirena');
+  Route::post('/update_sirena/{id}', 'SdiController@updateSirena');
+  Route::get('/edit_sirena/{id}', 'SdiController@editSirena');
+
   Route::get('/card_sims', 'CardsimController@showCardsim');
   Route::post('/add_card_sim', 'CardsimController@createCardsim');
   ////////////////////////////////////////////////////////////////////////
