@@ -560,6 +560,19 @@ class SdiController extends Controller
 
     }
 
+    public function onlySirena($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $hostwork = Host_work::where('host_id', $id)->get();
+      $now = Carbon::now();
+
+      return view('dispositivos.onlys.sdis.sensor', [
+          'host' => $host,
+          'hostworks' => $hostwork,
+          'now' => $now,
+      ]);
+      }
+
     public function formSirena(Request $request){
       $cliente = Cliente::orderBy('name')->get();
       $modelo = Modelo::where('host_type_id',45)->get();
