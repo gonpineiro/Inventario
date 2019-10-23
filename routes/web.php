@@ -46,7 +46,9 @@
   Route::get('/computadoras', 'HostsController@showComputadoras');
   Route::get('/only_computadora/{id}', 'HostsController@onlyComputadora');
   Route::get('/form_computadora', 'HostsController@formComputadora');
-  Route::post('/add_computadora', 'HostsController@createComputaora');
+
+  Route::post('/add_computadora', 'HostsController@createComputaora')->name('computadora.create')->middleware('can:computadora.show');
+
   Route::post('/update_computadora/{id}', 'HostsController@updateComputadora');
   Route::get('/edit_computadora/{id}', 'HostsController@editComputadora');
 
