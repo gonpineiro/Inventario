@@ -5,9 +5,36 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
 
 ### Esta rama esta en  modo de prueba
 
+  1.  Se Agrego la libreria de shinobi.
+
+  ```
+  composer require caffeinated/shinobi
+  ```
+
+  2.  Publish de la configuracion para traer las migration
+
+  ```
+  php artisan vendor:publish --provider="Caffeinated\Shinobi\ShinobiServiceProvider" --tag="config"
+  ```
+
+  3. Modifico la linea 90 del archivo: config/shinobi
+
+  ```
+  config/shinobi
+  ```
+
+  ```
+  'migrate' => false,
+  ```
+
+  4. Creacion del Seeder de PermissionsTable
+
+  ```
+  ohp artisan db:seed --class="PermissionsTableSeeder"
+  ```
+
+
 ## Referencias
-
-
 
 ### Host de usuarios:
 
