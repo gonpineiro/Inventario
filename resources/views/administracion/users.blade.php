@@ -24,36 +24,24 @@
             </tbody>
           </table>
       </div>
-
-      <div class="col cl-6">
-        <h1>Agregar usuario</h1>
+      <div class="col col-md-4">
+        <h1>Agregar Usuario</h1>
         <div class="card">
-            <div class="card-header">{{ __('Registrar') }}</div>
-
+            <div class="card-header">Agregar Usuario</div>
             <div class="card-body">
                 <form method="POST" action="/register">
                     @csrf
-
-                    <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                            @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="line_phone">Nombre</label>
+                            <input id="name" type="text" class="form-control" name="name" value="" required>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="cod_sim">Email</label>
+                            <input id="email" type="email" class="form-control" name="email" value="" required>
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -62,12 +50,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="line_phone">Password</label>
+                            <input id="password" type="text" class="form-control" name="password" value="" required>
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -76,21 +62,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                        </div>
-                    </div>
 
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-dark">
-                                {{ __('Registrar') }}
-                            </button>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
             </div>
         </div>

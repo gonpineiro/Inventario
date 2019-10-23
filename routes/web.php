@@ -276,17 +276,21 @@
 
   //ADMINISTRACION
   Route::get('/administracion', 'AdministracionController@index')->name('administracion');
-  Route::get('/users', 'AdministracionController@showUsers');
   Route::get('/users_host', 'AdministracionController@showUsersHost');
   Route::post('/add_user_host', 'AdministracionController@createUserhost');
   Route::get('/historial', 'AdministracionController@showHistorials');
-  Route::post('/register', 'AdministracionController@createUser');
   Route::get('/modelos', 'ModelosController@show');
   Route::post('/add_model', 'ModelosController@createModel');
   Route::get('/clientes', 'ClientesController@show');
   Route::post('/add_cliente', 'ClientesController@CreateCliente');
   Route::get('/departaments', 'AdministracionController@showDepartaments');
   Route::post('/add_departament', 'AdministracionController@createDepartament');
+
+  ////////////////////////////////////////////////////////////////////////
+
+  //USERS DEL SISTEMA
+  Route::get('/users', 'AdministracionController@showUsers');
+  Route::post('/create_user', 'AdministracionController@createUser');
 
   ////////////////////////////////////////////////////////////////////////
 

@@ -8,6 +8,7 @@ use App\Host;
 use App\Historial;
 use App\Departament;
 use App\Cliente;
+use Caffeinated\Shinobi\Models\Role;
 use App\User_host;
 use Carbon\Carbon;
 
@@ -35,9 +36,10 @@ class AdministracionController extends Controller
   }
   public function showUsers(Request $request){
     $user = User::all();
+    $role = Role::all();
     return view('administracion.users', [
-
       'users' => $user,
+      'roles' => $role,
     ]);
 
   }
