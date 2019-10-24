@@ -292,6 +292,7 @@
   Route::get('/users', 'UserController@showUsers');
   Route::post('/create_user', 'UserController@createUser');
   Route::get('/edit_user/{id}', 'UserController@editUser');
+  Route::post('/update_user/{id}', 'UserController@updateUser');
 
   ////////////////////////////////////////////////////////////////////////
 

@@ -11,8 +11,6 @@ use App\Cliente;
 use App\User_host;
 use Carbon\Carbon;
 
-use Illuminate\Support\Facades\Hash;
-
 class AdministracionController extends Controller
 {
   /**
