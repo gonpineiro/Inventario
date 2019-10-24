@@ -17,7 +17,7 @@ class UserController extends Controller
     $user = User::all();
     $role = Role::all();
     $ver = "agregar";
-    return view('administracion.users', [
+    return view('administracion.users.users', [
       'users' => $user,
       'roles' => $role,
       'ver' => $ver,
@@ -46,7 +46,7 @@ class UserController extends Controller
     $role = Role::all();
     $ver = "editar";
 
-      return view('administracion.users', [
+      return view('administracion.users.users', [
           'users' => $user,
           'onlyUser' => $onlyUser,
           'roles' => $role,

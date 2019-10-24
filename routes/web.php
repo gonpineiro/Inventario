@@ -294,6 +294,10 @@
   Route::get('/edit_user/{id}', 'UserController@editUser');
   Route::post('/update_user/{id}', 'UserController@updateUser');
 
+  //ROLES DE USUARIO
+  Route::get('/roles', 'RoleController@showRoles');
+  Route::get('/form_role', 'RoleController@formRole');
+
   ////////////////////////////////////////////////////////////////////////
 
   //BUSQUEDAS

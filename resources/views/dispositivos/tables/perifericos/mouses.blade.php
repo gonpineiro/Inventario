@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Mouses<a href="/form_mouse"> +</a></h1></h1>
+        <h1>Mouses<a href="/form_mouse"> +</a></h1>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
