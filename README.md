@@ -17,7 +17,13 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   php artisan vendor:publish --provider="Caffeinated\Shinobi\ShinobiServiceProvider" --tag="config"
   ```
 
-  3. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
+  3.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
+
+  ```
+  BigInt()
+  ```
+
+  4. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
 
   ```
   public function persmissions(){
@@ -33,7 +39,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   ```  
 
 
-  4. Modifico la linea 90 del archivo: config/shinobi
+  5. Modifico la linea 90 del archivo: config/shinobi
 
   ```
   /vendor/caffeinated/shinobi/src/Models/Role.php
@@ -43,7 +49,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   'migrate' => false,
   ```
 
-  5. Creacion del Seeder de PermissionsTable
+  6. Creacion del Seeder de PermissionsTable
 
   ```
   ohp artisan db:seed --class="PermissionsTableSeeder"
