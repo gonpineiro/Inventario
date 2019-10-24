@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -228,6 +229,8 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

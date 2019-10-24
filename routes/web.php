@@ -297,6 +297,7 @@
   //ROLES DE USUARIO
   Route::get('/roles', 'RoleController@showRoles');
   Route::get('/form_role', 'RoleController@formRole');
+  Route::post('/create_role', 'RoleController@createRole');
 
   ////////////////////////////////////////////////////////////////////////
 

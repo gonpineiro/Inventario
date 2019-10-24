@@ -23,4 +23,12 @@ class RoleController extends Controller
 
       ]);
     }
+
+    public function createRole(Request $request){
+          dd($request->input('permissions'));
+          $permision->persmissions()->sync($request->input('permissions'));
+
+
+      return redirect('/roles');
+    }
 }

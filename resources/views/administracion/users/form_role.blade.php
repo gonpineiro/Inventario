@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col col-md-12">
-        <form method="POST" action="/create_user">
+        <form method="POST" action="/create_role">
         @csrf
           <div class="card">
             <div class="card-header">
@@ -32,19 +32,58 @@
               <h2>Lista de permisos</h2><br>
 
               <div class="form-row">
-                <ul class="list-group ">
+                <ul class="list-group" style="margin-right: 15px">
                   @foreach ($permissions as $permission)
-                    {{Form::checkbox('permission[]'), $permission->id ,null}}
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                        {{-- <li class="list-group-item"><input type="checkbox" id="permisions[]" value={{$permission->id}}> {{$permission->name}}</li> --}}
+                    </li>
                   @endforeach
                 </ul>
 
-                <ul class="list-group ">
-                  <li class="list-group-item"><input type="checkbox" value=""> {{$permission->name}}</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Morbi leo risus</li>
-                  <li class="list-group-item">Porta ac consectetur ac</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
+                <ul class="list-group"  style="margin-right: 15px">
+                  @foreach ($permissions as $permission)
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                        {{-- <li class="list-group-item"><input type="checkbox" id="permisions[]" value={{$permission->id}}> {{$permission->name}}</li> --}}
+                    </li>
+                  @endforeach
                 </ul>
+              </div>
+              <div class="">
+
+              </div>
+              <br>
+              <div class="form-row">
+                <ul class="list-group" style="margin-right: 15px">
+                  @foreach ($permissions as $permission)
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                        {{-- <li class="list-group-item"><input type="checkbox" id="permisions[]" value={{$permission->id}}> {{$permission->name}}</li> --}}
+                    </li>
+                  @endforeach
+                </ul>
+
+                <ul class="list-group" style="margin-right: 15px">
+                  @foreach ($permissions as $permission)
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                        {{-- <li class="list-group-item"><input type="checkbox" id="permisions[]" value={{$permission->id}}> {{$permission->name}}</li> --}}
+                    </li>
+                  @endforeach
+                </ul>
+              </div>
+
+              <div class="form-group row mb-0">
+                  <div class="col-md-6 offset-md-4">
+                      <button type="submit" class="btn btn-dark">
+                          {{ __('Agregar') }}
+                      </button>
+                  </div>
               </div>
 
 
