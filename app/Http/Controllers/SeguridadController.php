@@ -476,7 +476,7 @@ class SeguridadController extends Controller{
     ->orwhere('host_type_id', 22)
     ->orwhere('host_type_id', 20)
     ->get();
-    $ver = 1;
+    $ver = "agregar";
 
     return view('dispositivos.tables.cctvs.credentials', [
       'creds' => $cred,
@@ -490,8 +490,8 @@ class SeguridadController extends Controller{
   public function showAddcred($id, Request $request){
 
     $cred = Credential::orderBy('host_id','desc')->get();
-    $host = Host::where('id', $id)->firstOrFail();;
-    $ver = 1;
+    $host = Host::where('id', $id)->firstOrFail();
+    $ver = "agregar";
 
     return view('dispositivos.tables.cctvs.credentials', [
       'creds' => $cred,
@@ -523,7 +523,7 @@ class SeguridadController extends Controller{
     $cred = Credential::all();
     $onlyCred = $this->findByIdCred($id);
     $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->orwhere('host_type_id', 20)->get();
-    $ver = 2;
+    $ver = "editar";
 
       return view('dispositivos.tables.cctvs.credentials', [
           'creds' => $cred,

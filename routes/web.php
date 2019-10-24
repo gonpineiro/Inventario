@@ -289,8 +289,9 @@
   ////////////////////////////////////////////////////////////////////////
 
   //USERS DEL SISTEMA
-  Route::get('/users', 'AdministracionController@showUsers');
-  Route::post('/create_user', 'AdministracionController@createUser');
+  Route::get('/users', 'UserController@showUsers');
+  Route::post('/create_user', 'UserController@createUser');
+  Route::get('/edit_user/{id}', 'UserController@editUser');
 
   ////////////////////////////////////////////////////////////////////////
 

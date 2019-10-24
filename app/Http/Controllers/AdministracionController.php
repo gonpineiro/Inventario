@@ -8,7 +8,6 @@ use App\Host;
 use App\Historial;
 use App\Departament;
 use App\Cliente;
-use Caffeinated\Shinobi\Models\Role;
 use App\User_host;
 use Carbon\Carbon;
 
@@ -33,25 +32,6 @@ class AdministracionController extends Controller
   public function index() {
       return view('administracion');
 
-  }
-  public function showUsers(Request $request){
-    $user = User::all();
-    $role = Role::all();
-    return view('administracion.users', [
-      'users' => $user,
-      'roles' => $role,
-    ]);
-
-  }
-
-  public function createUser(Request $request){
-
-        $user = User::create([
-        'name' => $request->input('name'),
-        'email' =>$request->input('email'),
-        'password' => Hash::make($request->input('password')),
-      ]);
-    return redirect('/users');
   }
 
   public function showUsershost(Request $request){
