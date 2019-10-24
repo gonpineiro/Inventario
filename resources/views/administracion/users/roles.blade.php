@@ -19,7 +19,12 @@
                   <tr>
                     <td style="width:7%">{{$role->id}}</td>
                     <td style="width:13%">{{$role->name}}</td>
-                    <td style="width:70%">{{$role->description}}</td>
+                    <td style="width:70%">
+                      @foreach ($role->permissions as $permission )
+                        <span class="badge badge-pill badge-dark">{{$permission->name}}</span>
+
+                      @endforeach
+                    </td>
                     <td style="width:10%"></td>
                   </tr>
                 @endforeach

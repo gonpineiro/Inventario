@@ -9,6 +9,7 @@ use Caffeinated\Shinobi\Models\Permission;
 class RoleController extends Controller
 {
   public function showRoles(Request $request){
+
     $role = Role::all();
     return view('administracion.users.roles', [
       'roles' => $role,
@@ -25,8 +26,14 @@ class RoleController extends Controller
     }
 
     public function createRole(Request $request){
-          dd($request->input('permissions'));
-          $permision->persmissions()->sync($request->input('permissions'));
+          $role = Role::create([
+            'name' => $request->input('name'),
+            'slug' => $request->input('slug'),
+            'description' => $request->input('description'),
+          ]);
+
+
+          $role->persmissions()->sync($request->input('permissions'));
 
 
       return redirect('/roles');

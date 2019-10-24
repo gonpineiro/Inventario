@@ -16,15 +16,15 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="name" class="col-md-4 col-form-label text-md-center">{{ __('Nombre') }}</label>
+                  <label for="name" class="col-md-4 col-form-label text-md-center">{{ __('Slug') }}</label>
                   <div class="col-md-8">
-                      <input id="name" type="text" class="form-control" name="name" value="" required>
+                      <input id="slug" type="text" class="form-control" name="slug" value="" required>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="name" class="col-md-4 col-form-label text-md-center">{{ __('Nombre') }}</label>
+                  <label for="description" class="col-md-4 col-form-label text-md-center">{{ __('Descripcion') }}</label>
                   <div class="col-md-8">
-                      <input id="name" type="text" class="form-control" name="name" value="" required>
+                      <input id="description" type="text" class="form-control" name="description" value="" required>
                   </div>
                 </div>
               </div>
