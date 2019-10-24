@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
       DB::table('host_types')->insert(['name' => 'Comunicador','id' => 42]);
       DB::table('host_types')->insert(['name' => 'Sensor','id' => 43]);
       DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
+      DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
     }
 }
