@@ -11,6 +11,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Email</th>
+                <th scope="col">Rol</th>
                 <th scope="col">Editar</th>
               </tr>
             </thead>
@@ -20,6 +21,7 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->roles[0]->name}}</td>
                     <td><a href="/edit_user/{{$user->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
                   </tr>
                 @endforeach
@@ -68,7 +70,7 @@
                     <div class="form-group row">
                         <div class="col-md-12">
                           <label for="name" >Roles</label>
-                          <select class="form-control" name="role_id" required>
+                          <select class="form-control" name="role" required>
                             <option value="">- - - Seleccione - - -</option>
                             @foreach ($roles as $role)
                               <option value="{{$role->id}}">{{$role->name}} </option>
@@ -113,16 +115,17 @@
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                          <label for="name" >Roles</label>
-                          <select class="form-control" name="role_id" required>
-                            <option value="">- - - Seleccione - - -</option>
+                          <label for="name" >Rol</label>
+                          <select class="form-control" name="role" required>
+                            <option value={{$rol->id}}>{{$rol->name}} </option>
+                            <option disabled>Roles</option>
                             @foreach ($roles as $role)
                               <option value="{{$role->id}}">{{$role->name}} </option>
                             @endforeach
                           </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark">Agregar</button>
+                    <button type="submit" class="btn btn-dark">Modificar</button>
                 </form>
               @endif
             </div>
