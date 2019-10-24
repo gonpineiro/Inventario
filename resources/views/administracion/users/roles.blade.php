@@ -22,7 +22,6 @@
                     <td style="width:70%">
                       @foreach ($role->permissions as $permission )
                         <span class="badge badge-pill badge-dark">{{$permission->name}}</span>
-
                       @endforeach
                     </td>
                     <td style="width:10%"></td>
