@@ -10,19 +10,19 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   composer require caffeinated/shinobi
   ```
 
-  2.  Publish de la configuracion para traer las migration
+####  2.  Publish de la configuracion para traer las migration
 
   ```
   php artisan vendor:publish --provider="Caffeinated\Shinobi\ShinobiServiceProvider" --tag="config"
   ```
 
-  3.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
+####  3.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
 
   ```
   BigInt()
   ```
 
-  4. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
+####  4. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
 
   ```
   public function persmissions(){
@@ -31,20 +31,20 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   }
   ```
 
-  Ubicación:
+#####  Ubicación:
 
   ```
   /vendor/caffeinated/shinobi/src/Models/Role.php
   ```
 
-  5. Modifico la linea 90 del archivo: config/shinobi
+####  5. Modifico la linea 90 del archivo: config/shinobi
 
 
   ```
   'migrate' => false,
   ```
 
-  6. Creacion del Seeder de PermissionsTable
+####  6. Creacion del Seeder de PermissionsTable
 
   ```
   ohp artisan db:seed --class="PermissionsTableSeeder"
