@@ -7,7 +7,6 @@ use App\Modelo;
 use App\Departament;
 use App\Historial;
 use App\Credential;
-use App\Card_sim;
 use App\Host_work;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

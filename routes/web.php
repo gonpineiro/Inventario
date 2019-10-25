@@ -92,7 +92,7 @@
 
 
   Route::get('/switchs', 'NetworkingController@showSwitchs')->middleware('can:switchs.show');
-  Route::get('/only_switch/{id}', 'NetworkingController@onlySwitch')->middleware('can:switchs.edit');
+  Route::get('/only_switch/{id}', 'NetworkingController@onlySwitch')->middleware('can:switchs.only');
   Route::get('/form_switch', 'NetworkingController@formSwitch')->middleware('can:switchs.create');
   Route::post('/add_switch', 'NetworkingController@createSwitch')->middleware('can:switchs.create');
   Route::post('/update_switch/{id}', 'NetworkingController@updateSwitch')->middleware('can:switchs.edit');
@@ -100,7 +100,7 @@
 
 
   Route::get('/accespoints', 'NetworkingController@showAccespoints')->middleware('can:switchs.show');
-  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint')->middleware('can:switchs.edit');
+  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint')->middleware('can:switchs.only');
   Route::get('/form_accespoint', 'NetworkingController@formAccespoint')->middleware('can:switchs.create');
   Route::post('/add_accespoint', 'NetworkingController@createAccespoint')->middleware('can:switchs.create');
   Route::post('/update_accespoint/{id}', 'NetworkingController@updateAccespoint')->middleware('can:switchs.edit');
@@ -118,32 +118,29 @@
   //SEGURIDAD
   Route::get('/seguridads', 'SeguridadController@show');
 
-  Route::get('/camarasip', 'SeguridadController@showCamarasIp');
-  Route::get('/only_camaraip/{id}', 'SeguridadController@onlyCamaraIp');
-  Route::get('/form_camaraip', 'SeguridadController@formCamaraIp');
-  Route::post('/add_camaraip', 'SeguridadController@createCamaraIp');
-  Route::post('/update_camaraip/{id}', 'SeguridadController@updateCamaraIp');
-  Route::get('/edit_camaraip/{id}', 'SeguridadController@editCamaraIp');
+  Route::get('/camarasip', 'SeguridadController@showCamarasIp')->middleware('can:camaraips.show');
+  Route::get('/only_camaraip/{id}', 'SeguridadController@onlyCamaraIp')->middleware('can:camaraips.only');
+  Route::get('/form_camaraip', 'SeguridadController@formCamaraIp')->middleware('can:camaraips.create');
+  Route::post('/add_camaraip', 'SeguridadController@createCamaraIp')->middleware('can:camaraips.create');
+  Route::post('/update_camaraip/{id}', 'SeguridadController@updateCamaraIp')->middleware('can:camaraips.edit');
+  Route::get('/edit_camaraip/{id}', 'SeguridadController@editCamaraIp')->middleware('can:camaraips.edit');
 
-  Route::get('/dvrs', 'SeguridadController@showDvrs');
-  Route::get('/only_dvr/{id}', 'SeguridadController@onlyDvr');
-  Route::get('/form_dvr', 'SeguridadController@formDvr');
-  Route::post('/add_dvr', 'SeguridadController@createDvr');
-  Route::post('/update_dvr/{id}', 'SeguridadController@updateDvr');
-  Route::get('/edit_dvr/{id}', 'SeguridadController@editDvr');
+  Route::get('/dvrs', 'SeguridadController@showDvrs')->middleware('can:dvrs.show');
+  Route::get('/only_dvr/{id}', 'SeguridadController@onlyDvr')->middleware('can:dvrs.only');
+  Route::get('/form_dvr', 'SeguridadController@formDvr')->middleware('can:dvrs.create');
+  Route::post('/add_dvr', 'SeguridadController@createDvr')->middleware('can:dvrs.create');
+  Route::post('/update_dvr/{id}', 'SeguridadController@updateDvr')->middleware('can:dvrs.edit');
+  Route::get('/edit_dvr/{id}', 'SeguridadController@editDvr')->middleware('can:dvrs.edit');
 
-  Route::get('/camarasana', 'SeguridadController@showCamarasAna');
-  Route::get('/only_camaraana/{id}', 'SeguridadController@onlyCamaraAna');
-  Route::get('/form_camaraana', 'SeguridadController@formCamaraAna');
-  Route::post('/add_camaraana', 'SeguridadController@createCamaraAna');
-  Route::post('/update_camaraana/{id}', 'SeguridadController@updateCamaraAna');
-  Route::get('/edit_camaraana/{id}', 'SeguridadController@editCamaraAna');
-
-  Route::get('/card_sims', 'SeguridadController@showSims');
-  Route::post('/add_sim', 'SeguridadController@createDvr');
+  Route::get('/camarasana', 'SeguridadController@showCamarasAna')->middleware('can:dvrs.show');
+  Route::get('/only_camaraana/{id}', 'SeguridadController@onlyCamaraAna')->middleware('can:dvrs.only');
+  Route::get('/form_camaraana', 'SeguridadController@formCamaraAna')->middleware('can:dvrs.create');
+  Route::post('/add_camaraana', 'SeguridadController@createCamaraAna')->middleware('can:dvrs.create');
+  Route::post('/update_camaraana/{id}', 'SeguridadController@updateCamaraAna')->middleware('can:dvrs.edit');
+  Route::get('/edit_camaraana/{id}', 'SeguridadController@editCamaraAna')->middleware('can:dvrs.edit');
   ////////////////////////////////////////////////////////////////////////
 
-  //CREDENCIALES
+  //CREDENCIALES CCTV
   Route::get('/form_cred_cctv', 'SeguridadController@showCred');
   Route::get('/form_cred_cctv/{id}', 'SeguridadController@showAddcred');
   Route::post('/add_cred_cctv', 'SeguridadController@createCred');
@@ -155,43 +152,40 @@
   //PERIFERICOS
   Route::get('/perifericos', 'PerifericoController@show');
 
-  Route::get('/monitors', 'PerifericoController@showMonitors');
-  Route::get('/only_monitor/{id}', 'PerifericoController@onlyMonitor');
-  Route::get('/form_monitor', 'PerifericoController@formMonitor');
-  Route::post('/add_monitor', 'PerifericoController@createMonitor');
-  Route::post('/update_monitor/{id}', 'PerifericoController@updateMonitor');
-  Route::get('/edit_monitor/{id}', 'PerifericoController@editMonitor');
+  Route::get('/monitors', 'PerifericoController@showMonitors')->middleware('can:monitors.show');
+  Route::get('/only_monitor/{id}', 'PerifericoController@onlyMonitor')->middleware('can:monitors.only');
+  Route::get('/form_monitor', 'PerifericoController@formMonitor')->middleware('can:monitors.create');
+  Route::post('/add_monitor', 'PerifericoController@createMonitor')->middleware('can:monitors.create');
+  Route::post('/update_monitor/{id}', 'PerifericoController@updateMonitor')->middleware('can:monitors.edit');
+  Route::get('/edit_monitor/{id}', 'PerifericoController@editMonitor')->middleware('can:monitors.edit');
 
-  Route::get('/televisors', 'PerifericoController@showTelevisors');
-  Route::get('/only_televisor/{id}', 'PerifericoController@onlyTelevisor');
-  Route::get('/form_televisor', 'PerifericoController@formTelevisor');
-  Route::post('/add_televisor', 'PerifericoController@createTelevisor');
-  Route::post('/update_televisor/{id}', 'PerifericoController@updateTelevisor');
-  Route::get('/edit_televisor/{id}', 'PerifericoController@editTelevisor');
+  Route::get('/televisors', 'PerifericoController@showTelevisors')->middleware('can:televisors.show');
+  Route::get('/only_televisor/{id}', 'PerifericoController@onlyTelevisor')->middleware('can:televisors.only');
+  Route::get('/form_televisor', 'PerifericoController@formTelevisor')->middleware('can:televisors.create');
+  Route::post('/add_televisor', 'PerifericoController@createTelevisor')->middleware('can:televisors.create');
+  Route::post('/update_televisor/{id}', 'PerifericoController@updateTelevisor')->middleware('can:televisors.edit');
+  Route::get('/edit_televisor/{id}', 'PerifericoController@editTelevisor')->middleware('can:televisors.edit');
 
-  Route::get('/teclados', 'PerifericoController@showTeclados');
-  Route::get('/only_teclado/{id}', 'PerifericoController@onlyTeclado');
-  Route::get('/form_teclado', 'PerifericoController@formTeclado');
-  Route::post('/add_teclado', 'PerifericoController@createTeclado');
-  Route::post('/update_teclado/{id}', 'PerifericoController@updateTeclado');
-  Route::get('/edit_teclado/{id}', 'PerifericoController@editTeclado');
+  Route::get('/teclados', 'PerifericoController@showTeclados')->middleware('can:teclados.show');
+  Route::get('/only_teclado/{id}', 'PerifericoController@onlyTeclado')->middleware('can:teclados.only');
+  Route::get('/form_teclado', 'PerifericoController@formTeclado')->middleware('can:teclados.create');
+  Route::post('/add_teclado', 'PerifericoController@createTeclado')->middleware('can:teclados.create');
+  Route::post('/update_teclado/{id}', 'PerifericoController@updateTeclado')->middleware('can:teclados.edit');
+  Route::get('/edit_teclado/{id}', 'PerifericoController@editTeclado')->middleware('can:teclados.edit');
 
-  Route::get('/mouses', 'PerifericoController@showMouses');
-  Route::get('/only_mouse/{id}', 'PerifericoController@onlyMouse');
-  Route::get('/form_mouse', 'PerifericoController@formMouse');
-  Route::post('/add_mouse', 'PerifericoController@createMouse');
-  Route::post('/update_mouse/{id}', 'PerifericoController@updateMouse');
-  Route::get('/edit_mouse/{id}', 'PerifericoController@editMouse');
+  Route::get('/mouses', 'PerifericoController@showMouses')->middleware('can:mouses.show');
+  Route::get('/only_mouse/{id}', 'PerifericoController@onlyMouse')->middleware('can:mouses.only');
+  Route::get('/form_mouse', 'PerifericoController@formMouse')->middleware('can:mouses.create');
+  Route::post('/add_mouse', 'PerifericoController@createMouse')->middleware('can:mouses.create');
+  Route::post('/update_mouse/{id}', 'PerifericoController@updateMouse')->middleware('can:mouses.edit');
+  Route::get('/edit_mouse/{id}', 'PerifericoController@editMouse')->middleware('can:mouses.edit');
 
-  Route::get('/web_cams', 'PerifericoController@showWebcam');
-  Route::get('/only_web_cam/{id}', 'PerifericoController@onlyWebcam');
-  Route::get('/form_web_cam', 'PerifericoController@formWebcam');
-  Route::post('/add_web_cam', 'PerifericoController@createWebcam');
-  Route::post('/update_web_cam/{id}', 'PerifericoController@updateWebcam');
-  Route::get('/edit_web_cam/{id}', 'PerifericoController@editWebcam');
-
-  //Route::get('/form_periferico', 'PerifericoController@formPeriferico');
-  //Route::post('/add_periferico', 'PerifericoController@createPeriferico');
+  Route::get('/web_cams', 'PerifericoController@showWebcam')->middleware('can:webcams.show');
+  Route::get('/only_web_cam/{id}', 'PerifericoController@onlyWebcam')->middleware('can:webcams.only');
+  Route::get('/form_web_cam', 'PerifericoController@formWebcam')->middleware('can:webcams.create');
+  Route::post('/add_web_cam', 'PerifericoController@createWebcam')->middleware('can:webcams.create');
+  Route::post('/update_web_cam/{id}', 'PerifericoController@updateWebcam')->middleware('can:webcams.edit');
+  Route::get('/edit_web_cam/{id}', 'PerifericoController@editWebcam')->middleware('can:webcams.edit');
   ////////////////////////////////////////////////////////////////////////
 
   //SDI
@@ -200,47 +194,47 @@
   Route::get('/form_abonado', 'SdiController@formAbonado');
   Route::post('/add_abonado', 'SdiController@createAbonado');
 
-  Route::get('/panel_alarms', 'SdiController@showPanelAlarm');
-  Route::get('/only_panel_alarm/{id}', 'SdiController@onlyPanelAlarm');
-  Route::get('/form_panel_alarm', 'SdiController@formPanelAlarm');
-  Route::post('/add_panel_alarm', 'SdiController@createPanelAlarm');
-  Route::post('/update_panel_alarm/{id}', 'SdiController@updatePanelAlarm');
-  Route::get('/edit_panel_alarm/{id}', 'SdiController@editPanelAlarm');
+  Route::get('/panel_alarms', 'SdiController@showPanelAlarm')->middleware('can:panelalarms.show');
+  Route::get('/only_panel_alarm/{id}', 'SdiController@onlyPanelAlarm')->middleware('can:panelalarms.only');
+  Route::get('/form_panel_alarm', 'SdiController@formPanelAlarm')->middleware('can:panelalarms.create');
+  Route::post('/add_panel_alarm', 'SdiController@createPanelAlarm')->middleware('can:panelalarms.create');
+  Route::post('/update_panel_alarm/{id}', 'SdiController@updatePanelAlarm')->middleware('can:panelalarms.edit');
+  Route::get('/edit_panel_alarm/{id}', 'SdiController@editPanelAlarm')->middleware('can:panelalarms.edit');
 
-  Route::get('/teclado_sdis', 'SdiController@showTeclado');
-  Route::get('/only_teclado_sdi/{id}', 'SdiController@onlyTeclado');
-  Route::get('/form_teclado_sdi', 'SdiController@formTeclado');
-  Route::post('/add_teclado_sdi', 'SdiController@createTeclado');
-  Route::post('/update_teclado_sdi/{id}', 'SdiController@updateTeclado');
-  Route::get('/edit_teclado_sdi/{id}', 'SdiController@editTeclado');
+  Route::get('/teclado_sdis', 'SdiController@showTeclado')->middleware('can:tecladosdis.show');
+  Route::get('/only_teclado_sdi/{id}', 'SdiController@onlyTeclado')->middleware('can:tecladosdis.only');
+  Route::get('/form_teclado_sdi', 'SdiController@formTeclado')->middleware('can:tecladosdis.create');
+  Route::post('/add_teclado_sdi', 'SdiController@createTeclado')->middleware('can:tecladosdis.create');
+  Route::post('/update_teclado_sdi/{id}', 'SdiController@updateTeclado')->middleware('can:tecladosdis.edit');
+  Route::get('/edit_teclado_sdi/{id}', 'SdiController@editTeclado')->middleware('can:tecladosdis.edit');
 
-  Route::get('/expansoras', 'SdiController@showExpansora');
-  Route::get('/only_expansora/{id}', 'SdiController@onlyExpansora');
-  Route::get('/form_expansora', 'SdiController@formExpansora');
-  Route::post('/add_expansora', 'SdiController@createExpansora');
-  Route::post('/update_expansora/{id}', 'SdiController@updateExpansora');
-  Route::get('/edit_expansora/{id}', 'SdiController@editExpansora');
+  Route::get('/expansoras', 'SdiController@showExpansora')->middleware('can:expansoras.show');
+  Route::get('/only_expansora/{id}', 'SdiController@onlyExpansora')->middleware('can:expansoras.only');
+  Route::get('/form_expansora', 'SdiController@formExpansora')->middleware('can:expansoras.create');
+  Route::post('/add_expansora', 'SdiController@createExpansora')->middleware('can:expansoras.create');
+  Route::post('/update_expansora/{id}', 'SdiController@updateExpansora')->middleware('can:expansoras.edit');
+  Route::get('/edit_expansora/{id}', 'SdiController@editExpansora')->middleware('can:expansoras.edit');
 
-  Route::get('/comunicators', 'SdiController@showComunicator');
-  Route::get('/only_comunicator/{id}', 'SdiController@onlyComunicator');
-  Route::get('/form_comunicator', 'SdiController@formComunicator');
-  Route::post('/add_comunicator', 'SdiController@createComunicator');
-  Route::post('/update_comunicator/{id}', 'SdiController@updateComunicator');
-  Route::get('/edit_comunicator/{id}', 'SdiController@editComunicator');
+  Route::get('/comunicators', 'SdiController@showComunicator')->middleware('can:comunicators.show');
+  Route::get('/only_comunicator/{id}', 'SdiController@onlyComunicator')->middleware('can:comunicators.only');
+  Route::get('/form_comunicator', 'SdiController@formComunicator')->middleware('can:comunicators.create');
+  Route::post('/add_comunicator', 'SdiController@createComunicator')->middleware('can:comunicators.create');
+  Route::post('/update_comunicator/{id}', 'SdiController@updateComunicator')->middleware('can:comunicators.edit');
+  Route::get('/edit_comunicator/{id}', 'SdiController@editComunicator')->middleware('can:comunicators.edit');
 
-  Route::get('/sensors', 'SdiController@showSensor');
-  Route::get('/only_sensor/{id}', 'SdiController@onlySensor');
-  Route::get('/form_sensor', 'SdiController@formSensor');
-  Route::post('/add_sensor', 'SdiController@createSensor');
-  Route::post('/update_sensor/{id}', 'SdiController@updateSensor');
-  Route::get('/edit_sensor/{id}', 'SdiController@editSensor');
+  Route::get('/sensors', 'SdiController@showSensor')->middleware('can:sensors.show');
+  Route::get('/only_sensor/{id}', 'SdiController@onlySensor')->middleware('can:sensors.only');
+  Route::get('/form_sensor', 'SdiController@formSensor')->middleware('can:sensors.create');
+  Route::post('/add_sensor', 'SdiController@createSensor')->middleware('can:sensors.create');
+  Route::post('/update_sensor/{id}', 'SdiController@updateSensor')->middleware('can:sensors.edit');
+  Route::get('/edit_sensor/{id}', 'SdiController@editSensor')->middleware('can:sensors.edit');
 
-  Route::get('/sirenas', 'SdiController@showSirena');
-  Route::get('/only_sirena/{id}', 'SdiController@onlySirena');
-  Route::get('/form_sirena', 'SdiController@formSirena');
-  Route::post('/add_sirena', 'SdiController@createSirena');
-  Route::post('/update_sirena/{id}', 'SdiController@updateSirena');
-  Route::get('/edit_sirena/{id}', 'SdiController@editSirena');
+  Route::get('/sirenas', 'SdiController@showSirena')->middleware('can:sirenas.edit');
+  Route::get('/only_sirena/{id}', 'SdiController@onlySirena')->middleware('can:sirenas.only');
+  Route::get('/form_sirena', 'SdiController@formSirena')->middleware('can:sirenas.create');
+  Route::post('/add_sirena', 'SdiController@createSirena')->middleware('can:sirenas.create');
+  Route::post('/update_sirena/{id}', 'SdiController@updateSirena')->middleware('can:sirenas.edit');
+  Route::get('/edit_sirena/{id}', 'SdiController@editSirena')->middleware('can:sirenas.edit');
 
   Route::get('/card_sims', 'CardsimController@showCardsim');
   Route::post('/add_card_sim', 'CardsimController@createCardsim');

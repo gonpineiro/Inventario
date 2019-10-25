@@ -4,8 +4,7 @@
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
 
 ### Esta rama esta en  modo de prueba
-
-  1.  Se Agrego la libreria de shinobi.
+####  1.  Se Agrego la libreria de shinobi.
 
   ```
   composer require caffeinated/shinobi
