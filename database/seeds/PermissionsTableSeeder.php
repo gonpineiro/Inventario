@@ -119,6 +119,12 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Mouse','slug'  => 'mouses.only','description'  => 'Detalle de Mouse']);
         DB::table('permissions')->insert(['name'  => 'Editar Mouse','slug'  => 'mouses.edit','description'  => 'Editar de Mouse']);
         DB::table('permissions')->insert(['name'  => 'Crear Mouse','slug'  => 'mouses.create','description'  => 'Crear de Mouse']);
+        //WEBCAMS
+
+        DB::table('permissions')->insert(['name'  => 'Ver Web Cams','slug'  => 'webcams.show','description'  => 'Tabla Web Cams']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Web Cam','slug'  => 'webcams.only','description'  => 'Detalle de Web Cam']);
+        DB::table('permissions')->insert(['name'  => 'Editar Web Cam','slug'  => 'webcams.edit','description'  => 'Editar de Web Cam']);
+        DB::table('permissions')->insert(['name'  => 'Crear Web Cam','slug'  => 'webcams.create','description'  => 'Crear de Web Cam']);
 
 
 
