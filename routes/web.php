@@ -41,72 +41,70 @@
 
 
   //USER HOSTS
-  Route::get('/hosts', 'HostsController@show');
+  Route::get('/hosts', 'HostsController@show')->middleware('can:computadoras.show','can:notebooks.show','can:impresoras.show','can:phoneips.show');
 
-  Route::get('/computadoras', 'HostsController@showComputadoras');
-  Route::get('/only_computadora/{id}', 'HostsController@onlyComputadora');
-  Route::get('/form_computadora', 'HostsController@formComputadora');
+  Route::get('/computadoras', 'HostsController@showComputadoras')->middleware('can:computadoras.show');
+  Route::get('/only_computadora/{id}', 'HostsController@onlyComputadora')->middleware('can:computadoras.only');
+  Route::get('/form_computadora', 'HostsController@formComputadora')->middleware('can:computadoras.create');
+  Route::post('/add_computadora', 'HostsController@createComputaora')->middleware('can:computadoras.create');
+  Route::post('/update_computadora/{id}', 'HostsController@updateComputadora')->middleware('can:computadoras.edit');
+  Route::get('/edit_computadora/{id}', 'HostsController@editComputadora')->middleware('can:computadoras.edit');
 
-  Route::post('/add_computadora', 'HostsController@createComputaora')->name('computadora.create')->middleware('can:computadora.show');
+  Route::get('/notebooks', 'HostsController@showNotebooks')->middleware('can:notebooks.show');
+  Route::get('/only_notebook/{id}', 'HostsController@onlyNotebook')->middleware('can:notebooks.only');
+  Route::get('/form_notebook', 'HostsController@formNotebook')->middleware('can:notebooks.create');
+  Route::post('/add_notebook', 'HostsController@createNotebook')->middleware('can:notebooks.create');
+  Route::post('/update_notebook/{id}', 'HostsController@updateNotebook')->middleware('can:notebooks.edit');
+  Route::get('/edit_notebook/{id}', 'HostsController@editNotebook')->middleware('can:notebooks.edit');
 
-  Route::post('/update_computadora/{id}', 'HostsController@updateComputadora');
-  Route::get('/edit_computadora/{id}', 'HostsController@editComputadora');
+  Route::get('/impresoras', 'HostsController@showImpresoras')->middleware('can:impresoras.show');
+  Route::get('/only_impresora/{id}', 'HostsController@onlyImpresora')->middleware('can:impresoras.only');
+  Route::get('/form_impresora', 'HostsController@formImpresora')->middleware('can:impresoras.create');
+  Route::post('/add_impresora', 'HostsController@createImpresora')->middleware('can:impresoras.create');
+  Route::post('/update_impresora/{id}', 'HostsController@updateImpresora')->middleware('can:impresoras.edit');
+  Route::get('/edit_impresora/{id}', 'HostsController@editImpresora')->middleware('can:impresoras.edit');
 
-  Route::get('/notebooks', 'HostsController@showNotebooks');
-  Route::get('/only_notebook/{id}', 'HostsController@onlyNotebook');
-  Route::get('/form_notebook', 'HostsController@formNotebook');
-  Route::post('/add_notebook', 'HostsController@createNotebook');
-  Route::post('/update_notebook/{id}', 'HostsController@updateNotebook');
-  Route::get('/edit_notebook/{id}', 'HostsController@editNotebook');
-
-  Route::get('/impresoras', 'HostsController@showImpresoras');
-  Route::get('/only_impresora/{id}', 'HostsController@onlyImpresora');
-  Route::get('/form_impresora', 'HostsController@formImpresora');
-  Route::post('/add_impresora', 'HostsController@createImpresora');
-  Route::post('/update_impresora/{id}', 'HostsController@updateImpresora');
-  Route::get('/edit_impresora/{id}', 'HostsController@editImpresora');
-
-  Route::get('/telefoniaip', 'HostsController@showTelefoniaips');
-  Route::get('/only_telefonoip/{id}', 'HostsController@onlyTelefonoip');
-  Route::get('/form_telefonoip', 'HostsController@formTelefonoip');
-  Route::post('/add_telefonoip', 'HostsController@createTelefonoip');
-  Route::post('/update_telefonoip/{id}', 'HostsController@updateTelefonoip');
-  Route::get('/edit_telefonoip/{id}', 'HostsController@editTelefonoip');
+  Route::get('/telefoniaip', 'HostsController@showTelefoniaips')->middleware('can:phoneips.show');
+  Route::get('/only_telefonoip/{id}', 'HostsController@onlyTelefonoip')->middleware('can:phoneips.only');
+  Route::get('/form_telefonoip', 'HostsController@formTelefonoip')->middleware('can:phoneips.create');
+  Route::post('/add_telefonoip', 'HostsController@createTelefonoip')->middleware('can:phoneips.create');
+  Route::post('/update_telefonoip/{id}', 'HostsController@updateTelefonoip')->middleware('can:phoneips.edit');
+  Route::get('/edit_telefonoip/{id}', 'HostsController@editTelefonoip')->middleware('can:phoneips.edit');
   ////////////////////////////////////////////////////////////////////////
 
   //NETWORKING
   Route::get('/networking', 'NetworkingController@show');
 
-  Route::get('/modems', 'NetworkingController@showModems');
-  Route::get('/only_modem/{id}', 'NetworkingController@onlyModem');
-  Route::get('/form_modem', 'NetworkingController@formModem');
-  Route::post('/add_modem', 'NetworkingController@createModem');
-  Route::post('/update_modem/{id}', 'NetworkingController@updateModem');
-  Route::get('/edit_modem/{id}', 'NetworkingController@editModem');
+  Route::get('/modems', 'NetworkingController@showModems')->middleware('can:modems.show');
+  Route::get('/only_modem/{id}', 'NetworkingController@onlyModem')->middleware('can:modems.only');
+  Route::get('/form_modem', 'NetworkingController@formModem')->middleware('can:modems.create');
+  Route::post('/add_modem', 'NetworkingController@createModem')->middleware('can:modems.create');
+  Route::post('/update_modem/{id}', 'NetworkingController@updateModem')->middleware('can:modems.edit');
+  Route::get('/edit_modem/{id}', 'NetworkingController@editModem')->middleware('can:modems.edit');
 
 
-  Route::get('/routers', 'NetworkingController@showRouters');
-  Route::get('/only_router/{id}', 'NetworkingController@onlyRouter');
-  Route::get('/form_router', 'NetworkingController@formRouter');
-  Route::post('/add_router', 'NetworkingController@createRouter');
-  Route::post('/update_router/{id}', 'NetworkingController@updateRouter');
-  Route::get('/edit_router/{id}', 'NetworkingController@editRouter');
+  Route::get('/routers', 'NetworkingController@showRouters')->middleware('can:routers.show');
+  Route::get('/only_router/{id}', 'NetworkingController@onlyRouter')->middleware('can:routers.only');
+  Route::get('/form_router', 'NetworkingController@formRouter')->middleware('can:routers.create');
+  Route::post('/add_router', 'NetworkingController@createRouter')->middleware('can:routers.create');
+  Route::post('/update_router/{id}', 'NetworkingController@updateRouter')->middleware('can:routers.edit');
+  Route::get('/edit_router/{id}', 'NetworkingController@editRouter')->middleware('can:routers.edit');
 
 
-  Route::get('/switchs', 'NetworkingController@showSwitchs');
-  Route::get('/only_switch/{id}', 'NetworkingController@onlySwitch');
-  Route::get('/form_switch', 'NetworkingController@formSwitch');
-  Route::post('/add_switch', 'NetworkingController@createSwitch');
-  Route::post('/update_switch/{id}', 'NetworkingController@updateSwitch');
-  Route::get('/edit_switch/{id}', 'NetworkingController@editSwitch');
+  Route::get('/switchs', 'NetworkingController@showSwitchs')->middleware('can:switchs.show');
+  Route::get('/only_switch/{id}', 'NetworkingController@onlySwitch')->middleware('can:switchs.edit');
+  Route::get('/form_switch', 'NetworkingController@formSwitch')->middleware('can:switchs.create');
+  Route::post('/add_switch', 'NetworkingController@createSwitch')->middleware('can:switchs.create');
+  Route::post('/update_switch/{id}', 'NetworkingController@updateSwitch')->middleware('can:switchs.edit');
+  Route::get('/edit_switch/{id}', 'NetworkingController@editSwitch')->middleware('can:switchs.edit');
 
 
-  Route::get('/accespoints', 'NetworkingController@showAccespoints');
-  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint');
-  Route::get('/form_accespoint', 'NetworkingController@formAccespoint');
-  Route::post('/add_accespoint', 'NetworkingController@createAccespoint');
-  Route::post('/update_accespoint/{id}', 'NetworkingController@updateAccespoint');
-  Route::get('/edit_accespoint/{id}', 'NetworkingController@editAccespoint');
+  Route::get('/accespoints', 'NetworkingController@showAccespoints')->middleware('can:switchs.show');
+  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint')->middleware('can:switchs.edit');
+  Route::get('/form_accespoint', 'NetworkingController@formAccespoint')->middleware('can:switchs.create');
+  Route::post('/add_accespoint', 'NetworkingController@createAccespoint')->middleware('can:switchs.create');
+  Route::post('/update_accespoint/{id}', 'NetworkingController@updateAccespoint')->middleware('can:switchs.edit');
+  Route::get('/edit_accespoint/{id}', 'NetworkingController@editAccespoint')->middleware('can:switchs.edit');
   ////////////////////////////////////////////////////////////////////////
 
   //CREDENCIALES

@@ -35,15 +35,11 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   Ubicación:
 
   ```
-  config/shinobi
-  ```  
-
+  /vendor/caffeinated/shinobi/src/Models/Role.php
+  ```
 
   5. Modifico la linea 90 del archivo: config/shinobi
 
-  ```
-  /vendor/caffeinated/shinobi/src/Models/Role.php
-  ```
 
   ```
   'migrate' => false,
