@@ -70,6 +70,7 @@
                     <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" name="comentario" >{{$host->comentario}} </textarea>
                   </div>
                 </div>
+                @can ('entrega.create') {{-- generar algoritmo inverso --}}
                 @if (!is_null($host->user_host))
                   <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="retirar_host">
@@ -77,6 +78,7 @@
                   </div>
                   <br>
                 @endif
+                @endcan
                 <button type="submit" class="btn btn-dark">Aceptar</button>
               </form>
             </div>

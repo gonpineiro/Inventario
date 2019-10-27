@@ -8,7 +8,6 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_modem/{{$host->id}}" method="get" name="form-edit">
-
                   <div class="form-row">
                       <div class="form-group col-md-4">
                         <label for="inputPassword4">Nombre</label>
@@ -23,7 +22,6 @@
                        <input type="text" class="form-control" id="serial" placeholder="{{$host->serial}}" disabled>
                      </div>
                   </div>
-
                   <div class="form-row">
                     <div class="form-group col-md-6">
                      <label for="mac_adress">Mac address</label>
@@ -50,15 +48,14 @@
                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
                         </div>
                  </div>
-
-                  <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                @can ('modems.edit')  <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>@endcan
                 </form>
               </div>
             </div>
             <br/>
-
+            @can ('crednets.show')
             <div class="card">
-              <div class="card-header">Credenciales <a href="/form_cred_net/{{$host->id}}">+</a></div>
+              <div class="card-header">Credenciales @can ('crednets.create') <a href="/form_cred_net/{{$host->id}}">+</a></div> @endcan
                 <div class="card-body">
                   <div class="col cl-6">
                       <table class="table table-hover" id="host-table">
@@ -68,7 +65,7 @@
                             <th scope="col">Password</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Obs</th>
-                            <th scope="col">Editar</th>
+                            @can ('crednets.edit') <th scope="col">Editar</th> @endcan
                           </tr>
                         </thead>
                         <tbody>
@@ -78,7 +75,7 @@
                                 <td>{{$cred->password}}</td>
                                 <td>{{$cred->type}}</td>
                                 <td>{{$cred->comentario}}</td>
-                                <td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
+                                @can ('crednets.edit') <td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>  @endcan
                               </tr>
                         @endforeach
                         </tbody>
@@ -92,8 +89,9 @@
                 </script>
               </div>
               <br>
-              
+              @endcan
 
+          @can ('hostworks.create')
           <div class="card">
             <div class="card-header">Agregar registro de trabajo</div>
               <div class="card-body">
@@ -104,25 +102,25 @@
                       <label for="modelo">Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha" required>
                     </div>
-
                     <div class="form-group col-md-9">
                       <label for="serial">Trabajo </label>
                       <input type="text" class="form-control" id="trabajo" name="trabajo" required>
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observación</label>
-                          <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observación</label>
+                      <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
+                    </div>
                   </div>
-
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
-
               </div>
             </div>
             <br/>
+            @endcan
+
+            @can ('hostworks.show')
             <div class="card">
               <div class="card-header">Registros de trabajo</div>
                 <div class="card-body">
@@ -150,13 +148,14 @@
                   </div>
                 </div>
                 <script >
-                        $(document).ready(function() {
-                        $('#host-table').DataTable();
-                          } );
+                    $(document).ready(function() {
+                    $('#host-table').DataTable();
+                      } );
                 </script>
               </div>
-
               <br/>
+              @endcan
+
               <div class="card">
                 <div class="card-header text-center">QR</div>
                   <div class="card-body">

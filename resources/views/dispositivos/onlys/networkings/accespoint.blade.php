@@ -4,71 +4,52 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-md-9">
-
           <div class="card">
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_accespoint/{{$host->id}}" method="get" name="form-edit">
-
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                           <label for="inputPassword4">Nombre</label>
-                           <input type="text" class="form-control" id="estad" placeholder="{{$host->name}}" disabled>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="modelo">Modelo</label>
-                            <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="serial">Serial</label>
-                            <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
-                        </div>
+                      <div class="form-group col-md-4">
+                         <label for="inputPassword4">Nombre</label>
+                         <input type="text" class="form-control" id="estad" placeholder="{{$host->name}}" disabled>
                       </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="mac_adress">Mac address</label>
-                            <input type="text" class="form-control" id="mac_adress" placeholder={{$host->mac_adress}} disabled>
-                          </div>
-                        <div class="form-group col-md-4">
-                            <label for="ip_local">Ip local</label>
-                            <input type="text" class="form-control" id="ip_local" placeholder={{$host->ip_local}} disabled>
-                          </div>
-                        <div class="form-group col-md-4">
-                          <label for="acceso">Acceso</label>
-                          @if (is_null($host->acceso))
-                            <input type="text" class="form-control" id="acceso" placeholder="" disabled>
-                          @else
-                            <input type="text" class="form-control" id="acceso" placeholder={{$host->acceso}} disabled>
-                          @endif
-                        </div>
+                      <div class="form-group col-md-4">
+                          <label for="modelo">Modelo</label>
+                          <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="serial">Serial</label>
+                          <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
+                      </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="ssids">SSID</label>
-                            <input type="text" class="form-control" id="ssids" placeholder={{$host->ssids}} disabled>
+                      <div class="form-group col-md-4">
+                          <label for="mac_adress">Mac address</label>
+                          <input type="text" class="form-control" id="mac_adress" placeholder={{$host->mac_adress}} disabled>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="ssid_pass">SSID Password</label>
-                            <input type="text" class="form-control" id="ssid_pass" placeholder={{$host->ssid_pass}} disabled>
+                      <div class="form-group col-md-4">
+                          <label for="ip_local">Ip local</label>
+                          <input type="text" class="form-control" id="ip_local" placeholder={{$host->ip_local}} disabled>
                         </div>
-                    </div>
-
-
-                    @if (!is_null($host->user_1))
-                      <div class="form-row">
-                          <div class="form-group col-md-6">
-                              <label for="user_1">Usuario</label>
-                              <input type="text" class="form-control" id="user_1" placeholder={{$host->user_1}} disabled>
-                          </div>
-                          <div class="form-group col-md-6">
-                              <label for="pass_1">Password</label>
-                              <input type="text" class="form-control" id="pass_1" placeholder={{$host->pass_1}} disabled>
-                          </div>
+                      <div class="form-group col-md-4">
+                        <label for="acceso">Acceso</label>
+                        @if (is_null($host->acceso))
+                          <input type="text" class="form-control" id="acceso" placeholder="" disabled>
+                        @else
+                          <input type="text" class="form-control" id="acceso" placeholder={{$host->acceso}} disabled>
+                        @endif
                       </div>
-                    @endif
-
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label for="ssids">SSID</label>
+                          <input type="text" class="form-control" id="ssids" placeholder={{$host->ssids}} disabled>
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label for="ssid_pass">SSID Password</label>
+                          <input type="text" class="form-control" id="ssid_pass" placeholder={{$host->ssid_pass}} disabled>
+                      </div>
+                    </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="departament">Afectado</label>
@@ -80,19 +61,19 @@
                       </div>
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
                     </div>
-                  <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    @can ('accespoints.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
                   </form>
                 </div>
               </div>
               <br/>
-
+          @can ('crednets.show')
           <div class="card">
-            <div class="card-header">Credenciales <a href="/form_cred_net/{{$host->id}}">+</a></div>
+            <div class="card-header">Credenciales @can ('crednets.create') <a href="/form_cred_net/{{$host->id}}">+</a></div> @endcan
               <div class="card-body">
                 <div class="col cl-6">
                     <table class="table table-hover" id="host-table">
@@ -102,7 +83,7 @@
                           <th scope="col">Password</th>
                           <th scope="col">Tipo</th>
                           <th scope="col">Obs</th>
-                          <th scope="col">Editar</th>
+                          @can ('crednets.edit')<th scope="col">Editar</th> @endcan
                         </tr>
                       </thead>
                       <tbody>
@@ -112,7 +93,7 @@
                               <td>{{$cred->password}}</td>
                               <td>{{$cred->type}}</td>
                               <td>{{$cred->comentario}}</td>
-                              <td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
+                              @can ('crednets.edit')<td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
                             </tr>
                       @endforeach
                       </tbody>
@@ -126,7 +107,9 @@
               </script>
             </div>
             <br>
+            @endcan
 
+          @can ('hostworks.create')
           <div class="card">
             <div class="card-header">Agregar registro de trabajo</div>
               <div class="card-body">
@@ -137,71 +120,71 @@
                       <label for="modelo">Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha" required>
                     </div>
-
                     <div class="form-group col-md-9">
                       <label for="serial">Trabajo </label>
                       <input type="text" class="form-control" id="trabajo" name="trabajo" required>
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observación</label>
-                          <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                        </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-dark">Agregar</button>
-                </form>
-
-              </div>
-            </div>
-            <br/>
-
-          <div class="card">
-            <div class="card-header">Registros de trabajo</div>
-              <div class="card-body">
-                <div class="col cl-6">
-                    <table class="table table-hover" id="host-table">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Fecha</th>
-                          <th scope="col">Trabajo</th>
-                          <th scope="col">Obs</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($hostworks as $hostwork)
-                            <tr>
-                              <td>{{$hostwork->id}}</td>
-                              <td>{{$hostwork->fecha->format('d/m/Y')}}</td>
-                              <td>{{$hostwork->trabajo}}</td>
-                              <td>{{$hostwork->comentario}}</td>
-                            </tr>
-                      @endforeach
-                      </tbody>
-                    </table>
-                </div>
-              </div>
-              <script >
-                      $(document).ready(function() {
-                      $('#host-table').DataTable();
-                        } );
-              </script>
-            </div>
-
-            <br/>
-                <div class="card">
-                  <div class="card-header text-center">QR</div>
-                    <div class="card-body">
-                      <div class="col md-6 text-center">
-                      {!!  QrCode :: size (250) -> generate(env('APP_QR') . $_SERVER["REQUEST_URI"]);    !!}
-                      </div>
-                      <div class="col md-6 text-center">
-                      {{$host->id}}  -  {{$host->name}}
-                      </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observación</label>
+                      <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
                     </div>
                   </div>
+                  <button type="submit" class="btn btn-dark">Agregar</button>
+                </form>
+              </div>
+            </div>
+            <br/>
+            @endcan
+
+            @can ('hostworks.show')
+            <div class="card">
+              <div class="card-header">Registros de trabajo</div>
+                <div class="card-body">
+                  <div class="col cl-6">
+                      <table class="table table-hover" id="host-table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Trabajo</th>
+                            <th scope="col">Obs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach ($hostworks as $hostwork)
+                              <tr>
+                                <td>{{$hostwork->id}}</td>
+                                <td>{{$hostwork->fecha->format('d/m/Y')}}</td>
+                                <td>{{$hostwork->trabajo}}</td>
+                                <td>{{$hostwork->comentario}}</td>
+                              </tr>
+                        @endforeach
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+                <script >
+                        $(document).ready(function() {
+                        $('#host-table').DataTable();
+                          } );
+                </script>
+              </div>
+              <br/>
+              @endcan
+
+              <div class="card">
+                <div class="card-header text-center">QR</div>
+                  <div class="card-body">
+                    <div class="col md-6 text-center">
+                    {!!  QrCode :: size (250) -> generate(env('APP_QR') . $_SERVER["REQUEST_URI"]);    !!}
+                    </div>
+                    <div class="col md-6 text-center">
+                    {{$host->id}}  -  {{$host->name}}
+                    </div>
+                  </div>
+                </div>
       </div>
 
 

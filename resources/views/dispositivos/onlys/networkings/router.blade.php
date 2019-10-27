@@ -8,7 +8,6 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_router/{{$host->id}}" method="get" name="form-edit">
-
                     <div class="form-row">
                       <div class="form-group col-md-4">
                          <label for="inputPassword4">Nombre</label>
@@ -23,7 +22,6 @@
                           <input type="text" class="form-control" id="serial" placeholder="{{$host->serial}}" disabled>
                       </div>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="mac_adress">Mac address</label>
@@ -38,43 +36,31 @@
                           <input type="text" class="form-control" id="acceso" placeholder="{{$host->acceso}}" disabled>
                         </div>
                     </div>
-
-                    @if (!is_null($host->user_1))
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                              <label for="user_1">Usuario</label>
-                              <input type="text" class="form-control" id="user_1" placeholder={{$host->user_1}} disabled>
-                          </div>
-                          <div class="form-group col-md-6">
-                              <label for="pass_1">Password</label>
-                              <input type="text" class="form-control" id="pass_1" placeholder={{$host->pass_1}} disabled>
-                          </div>
-                        </div>
-                        @endif
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="departament">Afectado</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="valor">Valor</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
-                          </div>
-                        </div>
-                        <div class="form-row">
-                              <div class="form-group col-md">
-                                <label for="comentario">Observaciónes</label>
-                                <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                              </div>
-                        </div>
-                    <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="departament">Afectado</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="valor">Valor</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
+                    </div>
+                    @can ('routers.edit') <button type="" href="" class="btn btn-dark">Modificar</button>  @endcan
                 </form>
               </div>
             </div>
             <br/>
 
+            @can ('crednets.show')
             <div class="card">
-              <div class="card-header">Credenciales <a href="/form_cred_net/{{$host->id}}">+</a></div>
+              <div class="card-header">Credenciales @can ('crednets.create') <a href="/form_cred_net/{{$host->id}}">+</a></div>  @endcan
                 <div class="card-body">
                   <div class="col cl-6">
                       <table class="table table-hover" id="host-table">
@@ -84,7 +70,7 @@
                             <th scope="col">Password</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Obs</th>
-                            <th scope="col">Editar</th>
+                            @can ('crednets.edit') <th scope="col">Editar</th>  @endcan
                           </tr>
                         </thead>
                         <tbody>
@@ -94,7 +80,7 @@
                                 <td>{{$cred->password}}</td>
                                 <td>{{$cred->type}}</td>
                                 <td>{{$cred->comentario}}</td>
-                                <td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
+                                @can ('crednets.edit') <td><a href="/edit_cred_net/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
                               </tr>
                         @endforeach
                         </tbody>
@@ -108,7 +94,9 @@
                 </script>
               </div>
               <br>
+              @endcan
 
+          @can ('hostworks.create')
           <div class="card">
             <div class="card-header">Agregar registro de trabajo</div>
               <div class="card-body">
@@ -119,25 +107,24 @@
                       <label for="modelo">Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha" required>
                     </div>
-
                     <div class="form-group col-md-9">
                       <label for="serial">Trabajo </label>
                       <input type="text" class="form-control" id="trabajo" name="trabajo" required>
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observación</label>
-                          <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observación</label>
+                      <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
+                    </div>
                   </div>
-
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
-
               </div>
             </div>
             <br/>
+            @endcan
+            @can ('hostworks.show')
             <div class="card">
               <div class="card-header">Registros de trabajo</div>
                 <div class="card-body">
@@ -170,8 +157,8 @@
                           } );
                 </script>
               </div>
-
               <br/>
+              @endcan
               <div class="card">
                 <div class="card-header text-center">QR</div>
                   <div class="card-body">
