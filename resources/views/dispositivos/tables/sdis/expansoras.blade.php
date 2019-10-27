@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-          <h1>Expansoras <a href="/form_expansora"> +</a></h1>
+          <h1>Expansoras @can ('expansoras.create', $post) <a href="/form_expansora"> +</a> @endcan</h1>
             <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -21,8 +21,8 @@
                 @foreach ($hosts as $host)
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_expansora/{{$host->id}}">{{$host->name}}</a></td>
-                    <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a></td>
+                    @can ('expansoras.only') <td><a href="/only_expansora/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>@endcan
+                    @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a></td>  @else <td>{{$host->host->name}}</td>@endcan
                     <td>{{$host->host->abonado->numero}}</td>
                     <td>{{$host->host->abonado->cliente->name}}</td>
                     <td>{{$host->cantzona}}</td>

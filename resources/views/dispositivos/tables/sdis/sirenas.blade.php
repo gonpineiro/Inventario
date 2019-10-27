@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-          <h1>Sirenas <a href="/form_sirena"> +</a></h1>
+          <h1>Sirenas @can ('sirenas.create') <a href="/form_sirena"> +</a> @endcan </h1>
             <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -22,8 +22,8 @@
                   <tr>
                     @if ($host->host->host_type->id == 40)
                       <td>{{$host->id}}</td>
-                      <td><a href="/only_sirena/{{$host->id}}">{{$host->name}}</a></td>
-                      <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td>
+                      @can ('sirenas.only') <td><a href="/only_sirena/{{$host->id}}">{{$host->name}}</a></td> @endcan
+                      @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td> @else <td>{{$host->host->name}} | (P)</td>
                       <td>{{$host->host->abonado->numero}}</td>
                       <td>{{$host->host->abonado->cliente->name}}</td>
                       <td>{{$host->zona}}</td>

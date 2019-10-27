@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-          <h1>Comunicadores <a href="/form_comunicator"> +</a></h1>
+          <h1>Comunicadores @can ('comunicators.create') <a href="/form_comunicator"> +</a> @endcan </h1>
             <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -21,8 +21,8 @@
                 @foreach ($hosts as $host)
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_comunicator/{{$host->id}}">{{$host->name}}</a></td>
-                    <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</td>
+                    @can ('comunicators.only') <td><a href="/only_comunicator/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
+                    @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</td> @else <td>{{$host->host->name}}</td>  @endcan
                     <td>{{$host->host->abonado->numero}}</td>
                     <td>{{$host->host->abonado->cliente->name}}</td>
                     <td>{{$host->cantzona}}</td>

@@ -15,15 +15,12 @@
               </tr>
             </thead>
             <tbody>
-
                 @foreach ($historials as $historial)
                   <tr>
-
                     <td>{{$historial->id}}</td>
                     <td>{{$historial->created_at->format('d/m/Y')}}</td>
                     <td>{{$historial->user->name}}</td>
                     <td>
-
                         @switch($historial->type)
                           @case(0)
                             Agrego
@@ -32,8 +29,7 @@
                             Modifico
                             @break
                           @endswitch
-                    </td>
-                    
+                    </td>                   
 
                   </tr>
                 @endforeach
