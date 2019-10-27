@@ -9,9 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 // Authentication Routes...
   Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -27,18 +24,7 @@
   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
   Route::group(['middleware' => 'auth'], function () {
-
-
-
-  //ONLYs
-  //Route::get('/hosts/{id}', 'HostsController@only');
-  #Route::get('/edit/{id}', 'HostsController@onlyEdit');
-  #Route::post('/edit_host/{id}', 'HostsController@updateHost');
-
-  //
   Route::get('/', 'HomeController@index')->name('home');
-
-
 
   //USER HOSTS
   Route::get('/hosts', 'HostsController@show')->middleware('can:computadoras.show','can:notebooks.show','can:impresoras.show','can:phoneips.show');
@@ -108,11 +94,11 @@
   ////////////////////////////////////////////////////////////////////////
 
   //CREDENCIALES
-  Route::get('/form_cred_net', 'NetworkingController@showCred');
-  Route::get('/form_cred_net/{id}', 'NetworkingController@showAddcred');
-  Route::post('/add_cred_net', 'NetworkingController@createCred');
-  Route::get('/edit_cred_net/{id}', 'NetworkingController@editCred');
-  Route::post('/update_cred_net/{id}', 'NetworkingController@updateCred');
+  Route::get('/form_cred_net', 'NetworkingController@showCred')->middleware('can:crednets.show');
+  Route::get('/form_cred_net/{id}', 'NetworkingController@showAddcred')->middleware('can:crednets.create');
+  Route::post('/add_cred_net', 'NetworkingController@createCred')->middleware('can:crednets.create');
+  Route::get('/edit_cred_net/{id}', 'NetworkingController@editCred')->middleware('can:crednets.edit');
+  Route::post('/update_cred_net/{id}', 'NetworkingController@updateCred')->middleware('can:crednets.edit');
     ////////////////////////////////////////////////////////////////////////
 
   //SEGURIDAD
@@ -141,11 +127,11 @@
   ////////////////////////////////////////////////////////////////////////
 
   //CREDENCIALES CCTV
-  Route::get('/form_cred_cctv', 'SeguridadController@showCred');
-  Route::get('/form_cred_cctv/{id}', 'SeguridadController@showAddcred');
-  Route::post('/add_cred_cctv', 'SeguridadController@createCred');
-  Route::get('/edit_cred_cctv/{id}', 'SeguridadController@editCred');
-  Route::post('/update_cred_cctv/{id}', 'SeguridadController@updateCred');
+  Route::get('/form_cred_cctv', 'SeguridadController@showCred')->middleware('can:credcctvs.show');
+  Route::get('/form_cred_cctv/{id}', 'SeguridadController@showAddcred')->middleware('can:credcctvs.create');
+  Route::post('/add_cred_cctv', 'SeguridadController@createCred')->middleware('can:credcctvs.create');
+  Route::get('/edit_cred_cctv/{id}', 'SeguridadController@editCred')->middleware('can:credcctvs.edit');
+  Route::post('/update_cred_cctv/{id}', 'SeguridadController@updateCred')->middleware('can:credcctvs.edit');
     ////////////////////////////////////////////////////////////////////////
 
 
@@ -190,9 +176,9 @@
 
   //SDI
 
-  Route::get('/abonados', 'SdiController@showAbonados');
-  Route::get('/form_abonado', 'SdiController@formAbonado');
-  Route::post('/add_abonado', 'SdiController@createAbonado');
+  Route::get('/abonados', 'SdiController@showAbonados')->middleware('can:abonados.show');
+  Route::get('/form_abonado', 'SdiController@formAbonado')->middleware('can:abonados.create');
+  Route::post('/add_abonado', 'SdiController@createAbonado')->middleware('can:abonados.create');
 
   Route::get('/panel_alarms', 'SdiController@showPanelAlarm')->middleware('can:panelalarms.show');
   Route::get('/only_panel_alarm/{id}', 'SdiController@onlyPanelAlarm')->middleware('can:panelalarms.only');
@@ -236,66 +222,63 @@
   Route::post('/update_sirena/{id}', 'SdiController@updateSirena')->middleware('can:sirenas.edit');
   Route::get('/edit_sirena/{id}', 'SdiController@editSirena')->middleware('can:sirenas.edit');
 
-  Route::get('/card_sims', 'CardsimController@showCardsim');
-  Route::post('/add_card_sim', 'CardsimController@createCardsim');
+  Route::get('/card_sims', 'CardsimController@showCardsim')->middleware('can:cardsims.show');
+  Route::post('/add_card_sim', 'CardsimController@createCardsim')->middleware('can:cardsims.create');
   ////////////////////////////////////////////////////////////////////////
 
   //REPORTES
-  Route::get('computadoras_pdf/{tipo}', 'PdfController@ReporteComputadorasPdf');
-  Route::get('notebooks_pdf/{tipo}', 'PdfController@ReporteNotebooksPdf');
-  Route::get('impresoras_pdf/{tipo}', 'PdfController@ReporteImpresorasPdf');
-  Route::get('telefonos_pdf/{tipo}', 'PdfController@ReporteTelefonosIpPdf');
-  Route::get('modems_pdf/{tipo}', 'PdfController@ReporteModemsPdf');
-  Route::get('routers_pdf/{tipo}', 'PdfController@ReporteRoutersPdf');
-  Route::get('switchs_pdf/{tipo}', 'PdfController@ReporteSwitchsPdf');
-  Route::get('accespoints_pdf/{tipo}', 'PdfController@ReporteAccespointsPdf');
-  Route::get('camarasip_pdf/{tipo}', 'PdfController@ReporteCamarasIpPdf');
-  Route::get('camarasana_pdf/{tipo}', 'PdfController@ReporteCamarasanaPdf');
-  Route::get('abonado_pdf/{id}', 'PdfController@ReporteAbonadosPdf');
-  Route::get('dvr_pdf/{tipo}', 'PdfController@ReporteDvrsPdf');
+  Route::get('computadoras_pdf/{tipo}', 'PdfController@ReporteComputadorasPdf')->middleware('can:computadoras.show');
+  Route::get('notebooks_pdf/{tipo}', 'PdfController@ReporteNotebooksPdf')->middleware('can:notebook.show');
+  Route::get('impresoras_pdf/{tipo}', 'PdfController@ReporteImpresorasPdf')->middleware('can:impresoras.show');
+  Route::get('telefonos_pdf/{tipo}', 'PdfController@ReporteTelefonosIpPdf')->middleware('can:phoneips.show');
+  Route::get('modems_pdf/{tipo}', 'PdfController@ReporteModemsPdf')->middleware('can:modems.show');
+  Route::get('routers_pdf/{tipo}', 'PdfController@ReporteRoutersPdf')->middleware('can:routers.show');
+  Route::get('switchs_pdf/{tipo}', 'PdfController@ReporteSwitchsPdf')->middleware('can:switchs.show');
+  Route::get('accespoints_pdf/{tipo}', 'PdfController@ReporteAccespointsPdf')->middleware('can:accespoints.show');
+  Route::get('camarasip_pdf/{tipo}', 'PdfController@ReporteCamarasIpPdf')->middleware('can:camaraips.show');
+  Route::get('camarasana_pdf/{tipo}', 'PdfController@ReporteCamarasanaPdf')->middleware('can:camarasanas.show');
+  Route::get('abonado_pdf/{id}', 'PdfController@ReporteAbonadosPdf')->middleware('can:abonado.only');
+  Route::get('dvr_pdf/{tipo}', 'PdfController@ReporteDvrsPdf')->middleware('can:dvrs.show');
 
 
-  Route::get('report_dvr/{id}', 'PdfController@ReporteDvrPdf');
+  Route::get('report_dvr/{id}', 'PdfController@ReporteDvrPdf')->middleware('can:dvrs.only');
   ////////////////////////////////////////////////////////////////////////
 
   //FICHAS
-  Route::get('entregas', 'FichaentregaController@showFichaentrega');
-  Route::get('form_entregas', 'FichaentregaController@formFichaentrega');
-  Route::get('form_entregas/{id}', 'FichaentregaController@formFichaentregaonly');
-  Route::post('add_ficha_entrega', 'FichaentregaController@createFichaentrega');
-  Route::get('entregas/{id}/{type}', 'FichaentregaController@downdFichaentrega');
+  Route::get('entregas', 'FichaentregaController@showFichaentrega')->middleware('can:entregas.show');
+  Route::get('form_entregas', 'FichaentregaController@formFichaentrega')->middleware('can:entregas.create');
+  Route::get('form_entregas/{id}', 'FichaentregaController@formFichaentregaonly')->middleware('can:entregas.create');
+  Route::post('add_ficha_entrega', 'FichaentregaController@createFichaentrega')->middleware('can:entregas.create');
+  Route::get('entregas/{id}/{type}', 'FichaentregaController@downdFichaentrega')->middleware('can:entregas.create');
   ////////////////////////////////////////////////////////////////////////
 
   //ADMINISTRACION
   Route::get('/administracion', 'AdministracionController@index')->name('administracion');
-  Route::get('/users_host', 'AdministracionController@showUsersHost');
-  Route::post('/add_user_host', 'AdministracionController@createUserhost');
-  Route::get('/historial', 'AdministracionController@showHistorials');
-  Route::get('/modelos', 'ModelosController@show');
-  Route::post('/add_model', 'ModelosController@createModel');
-  Route::get('/clientes', 'ClientesController@show');
-  Route::post('/add_cliente', 'ClientesController@CreateCliente');
-  Route::get('/departaments', 'AdministracionController@showDepartaments');
-  Route::post('/add_departament', 'AdministracionController@createDepartament');
+
+  Route::get('/users_host', 'AdministracionController@showUsersHost')->middleware('can:userhosts.show');
+  Route::post('/add_user_host', 'AdministracionController@createUserhost')->middleware('can:userhost.create');
+  Route::get('/historial', 'AdministracionController@showHistorials')->middleware('can:historials.show');
+  Route::get('/modelos', 'ModelosController@show')->middleware('can:modelos.show');
+  Route::post('/add_model', 'ModelosController@createModel')->middleware('can:modelos.create');
+  Route::get('/clientes', 'ClientesController@show')->middleware('can:clients.show');
+  Route::post('/add_cliente', 'ClientesController@CreateCliente')->middleware('can:clients.create');
+  Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:entregas.create');
+  Route::post('/add_departament', 'AdministracionController@createDepartament')->middleware('can:entregas.create');
 
   ////////////////////////////////////////////////////////////////////////
 
   //USERS DEL SISTEMA
-  Route::get('/users', 'UserController@showUsers');
-  Route::post('/create_user', 'UserController@createUser');
-  Route::get('/edit_user/{id}', 'UserController@editUser');
-  Route::post('/update_user/{id}', 'UserController@updateUser');
+  Route::get('/users', 'UserController@showUsers')->middleware('can:users.show');
+  Route::post('/create_user', 'UserController@createUser')->middleware('can:users.create');
+  Route::get('/edit_user/{id}', 'UserController@editUser')->middleware('can:users.edit');
+  Route::post('/update_user/{id}', 'UserController@updateUser')->middleware('can:users.edit');
 
   //ROLES DE USUARIO
-  Route::get('/roles', 'RoleController@showRoles');
-  Route::get('/form_role', 'RoleController@formRole');
-  Route::post('/create_role', 'RoleController@createRole');
+  Route::get('/roles', 'RoleController@showRoles')->middleware('can:roles.show');
+  Route::get('/form_role', 'RoleController@formRole')->middleware('can:roles.create');
+  Route::post('/create_role', 'RoleController@createRole')->middleware('can:roles.create');
 
   ////////////////////////////////////////////////////////////////////////
-
-  //BUSQUEDAS
-  Route::get('entregas', 'FichaentregaController@showFichaentrega');
-
 
   //REGISTRO DE TRABAJOS POR HOST
   Route::post('/add_work/{id}', 'HostworksController@createHostwork');

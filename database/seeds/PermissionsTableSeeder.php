@@ -68,6 +68,12 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Acces Point','slug'  => 'accespoints.only','description'  => 'Detalle de Acces Point']);
         DB::table('permissions')->insert(['name'  => 'Editar Acces Point','slug'  => 'accespoints.edit','description'  => 'Editar de Acce Point']);
         DB::table('permissions')->insert(['name'  => 'Crear Acces Point','slug'  => 'accespoints.create','description'  => 'Crear de Acces Point']);
+
+        //CREDENCIALES_NETWORKING
+        DB::table('permissions')->insert(['name'  => 'Ver Credenciales','slug'  => 'crednets.show','description'  => 'Tabla Credenciales']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Credencial','slug'  => 'crednets.only','description'  => 'Detalle de Credencial']);
+        DB::table('permissions')->insert(['name'  => 'Editar Credencial','slug'  => 'crednets.edit','description'  => 'Editar de Credencial']);
+        DB::table('permissions')->insert(['name'  => 'Crear Credencial','slug'  => 'crednets.create','description'  => 'Crear de Credencial']);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -91,6 +97,12 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Camara Ana.','slug'  => 'camarasanas.only','description'  => 'Detalle de Camara Ana.']);
         DB::table('permissions')->insert(['name'  => 'Editar Camara Ana.','slug'  => 'camarasanas.edit','description'  => 'Editar de Camara Ana.']);
         DB::table('permissions')->insert(['name'  => 'Crear Camara Ana.','slug'  => 'camarasanas.create','description'  => 'Crear de Camara Ana.']);
+
+        //CREDENCIALES_CCTV
+        DB::table('permissions')->insert(['name'  => 'Ver Credenciales','slug'  => 'credcctvs.show','description'  => 'Tabla Credenciales']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Credencial','slug'  => 'credcctvs.only','description'  => 'Detalle de Credencial']);
+        DB::table('permissions')->insert(['name'  => 'Editar Credencial','slug'  => 'credcctvs.edit','description'  => 'Editar de Credencial']);
+        DB::table('permissions')->insert(['name'  => 'Crear Credencial','slug'  => 'credcctvs.create','description'  => 'Crear de Credencial']);
 
 
 
@@ -131,6 +143,12 @@ class PermissionsTableSeeder extends Seeder
 
         //SDI
         //PANEL DE ALARMA
+        DB::table('permissions')->insert(['name'  => 'Ver Abonados','slug'  => 'abonados.show','description'  => 'Tabla Abonados']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Abonado','slug'  => 'abonados.only','description'  => 'Detalle de Abonado']);
+        DB::table('permissions')->insert(['name'  => 'Editar Abonado','slug'  => 'abonados.edit','description'  => 'Editar de Abonado']);
+        DB::table('permissions')->insert(['name'  => 'Crear Abonado','slug'  => 'abonados.create','description'  => 'Crear de Abonado']);
+
+        //PANEL DE ALARMA
         DB::table('permissions')->insert(['name'  => 'Ver Paneles','slug'  => 'panelalarms.show','description'  => 'Tabla Paneles']);
         DB::table('permissions')->insert(['name'  => 'Detalle Panel','slug'  => 'panelalarms.only','description'  => 'Detalle de Panel']);
         DB::table('permissions')->insert(['name'  => 'Editar Panel','slug'  => 'panelalarms.edit','description'  => 'Editar de Panel']);
@@ -165,6 +183,68 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Sirena','slug'  => 'sirenas.only','description'  => 'Detalle de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Editar Sirena','slug'  => 'sirenas.edit','description'  => 'Editar de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Crear Sirena','slug'  => 'sirenas.create','description'  => 'Crear de Sirena']);
+        //SIMS_CARDS
+
+        DB::table('permissions')->insert(['name'  => 'Ver SIMs','slug'  => 'cardsims.show','description'  => 'Tabla SIMs']);
+        DB::table('permissions')->insert(['name'  => 'Detalle SIM','slug'  => 'cardsims.only','description'  => 'Detalle de SIM']);
+        DB::table('permissions')->insert(['name'  => 'Editar SIM','slug'  => 'cardsims.edit','description'  => 'Editar de SIM']);
+        DB::table('permissions')->insert(['name'  => 'Crear SIM','slug'  => 'cardsims.create','description'  => 'Crear de SIM']);
+
+
+
+
+        //ADMINISTRACION
+        //USUARIOS DEL SISTEMA
+
+        DB::table('permissions')->insert(['name'  => 'Ver Usuarios','slug'  => 'users.show','description'  => 'Tabla Usuarios']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Usuario','slug'  => 'users.only','description'  => 'Detalle de Usuario']);
+        DB::table('permissions')->insert(['name'  => 'Editar Usuario','slug'  => 'users.edit','description'  => 'Editar de Usuario']);
+        DB::table('permissions')->insert(['name'  => 'Crear Usuario','slug'  => 'users.create','description'  => 'Crear de Usuario']);
+        //ROLES
+
+        DB::table('permissions')->insert(['name'  => 'Ver Roles','slug'  => 'roles.show','description'  => 'Tabla Roles']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Rol','slug'  => 'roles.only','description'  => 'Detalle de Rol']);
+        DB::table('permissions')->insert(['name'  => 'Editar Usuario','slug'  => 'roles.edit','description'  => 'Editar de Rol']);
+        DB::table('permissions')->insert(['name'  => 'Crear Rol','slug'  => 'roles.create','description'  => 'Crear de Rol']);
+        //USUARIOS DE HOST
+
+        DB::table('permissions')->insert(['name'  => 'Ver Usuarios','slug'  => 'userhosts.show','description'  => 'Tabla Usuarios']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Usuario','slug'  => 'userhosts.only','description'  => 'Detalle de Usuario']);
+        DB::table('permissions')->insert(['name'  => 'Editar Usuario','slug'  => 'userhosts.edit','description'  => 'Editar de Usuario']);
+        DB::table('permissions')->insert(['name'  => 'Crear Usuario','slug'  => 'userhosts.create','description'  => 'Crear de Usuario']);
+        //MARCAS
+
+        DB::table('permissions')->insert(['name'  => 'Ver Marcas','slug'  => 'marcas.show','description'  => 'Tabla Marcas']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Marca','slug'  => 'marcas.only','description'  => 'Detalle de Marca']);
+        DB::table('permissions')->insert(['name'  => 'Editar Marca','slug'  => 'marcas.edit','description'  => 'Editar de Marca']);
+        DB::table('permissions')->insert(['name'  => 'Crear Marca','slug'  => 'marcas.create','description'  => 'Crear de Marca']);
+        //DEPARTAMENTOS
+
+        DB::table('permissions')->insert(['name'  => 'Ver Departamentos','slug'  => 'departaments.show','description'  => 'Tabla Departamentos']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Departamento','slug'  => 'departaments.only','description'  => 'Detalle de Departamento']);
+        DB::table('permissions')->insert(['name'  => 'Editar Departamento','slug'  => 'departaments.edit','description'  => 'Editar de Departamento']);
+        DB::table('permissions')->insert(['name'  => 'Crear Departamento','slug'  => 'departaments.create','description'  => 'Crear de Departamento']);
+        //CLIENTES
+
+        DB::table('permissions')->insert(['name'  => 'Ver Clientes','slug'  => 'clients.show','description'  => 'Tabla Clientes']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Cliente','slug'  => 'clients.only','description'  => 'Detalle de Cliente']);
+        DB::table('permissions')->insert(['name'  => 'Editar Cliente','slug'  => 'clients.edit','description'  => 'Editar de Cliente']);
+        DB::table('permissions')->insert(['name'  => 'Crear Cliente','slug'  => 'clients.create','description'  => 'Crear de Cliente']);
+        //HISTORIAL
+
+        DB::table('permissions')->insert(['name'  => 'Ver Historial','slug'  => 'historials.show','description'  => 'Tabla Historial']);
+        //FICHA DE ENTREGA
+
+        DB::table('permissions')->insert(['name'  => 'Ver Entregas','slug'  => 'entregas.show','description'  => 'Tabla Entregas']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Entrega','slug'  => 'entregas.only','description'  => 'Detalle de Entrega']);
+        DB::table('permissions')->insert(['name'  => 'Editar Entrega','slug'  => 'entregas.edit','description'  => 'Editar de Entrega']);
+        DB::table('permissions')->insert(['name'  => 'Crear Entrega','slug'  => 'entregas.create','description'  => 'Crear de Entrega']);
+        //HOST_WORK
+
+        DB::table('permissions')->insert(['name'  => 'Ver Registros de Trabajo','slug'  => 'hostworks.show','description'  => 'Tabla Registros de Trabajo']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Registro de Trabajo','slug'  => 'hostworks.only','description'  => 'Detalle de Registro de Trabajo']);
+        DB::table('permissions')->insert(['name'  => 'Editar Registro de Trabajo','slug'  => 'hostworks.edit','description'  => 'Editar de Registro de Trabajo']);
+        DB::table('permissions')->insert(['name'  => 'Crear Registro de Trabajo','slug'  => 'hostworks.create','description'  => 'Crear de Registro de Trabajo']);
 
 
     }
