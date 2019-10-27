@@ -520,7 +520,7 @@ class NetworkingController extends Controller
     ->orwhere('host_type_id', 12)
     ->orwhere('host_type_id', 13)
     ->get();
-    $ver = 1;
+    $ver = "agregar";
 
     return view('dispositivos.tables.networkings.credentials', [
       'creds' => $cred,
@@ -535,7 +535,7 @@ class NetworkingController extends Controller
 
     $cred = Credential::orderBy('host_id','desc')->get();
     $host = Host::where('id', $id)->firstOrFail();;
-    $ver = 1;
+    $ver = "agregar";
 
     return view('dispositivos.tables.networkings.credentials', [
       'creds' => $cred,
@@ -567,7 +567,7 @@ class NetworkingController extends Controller
     $cred = Credential::all();
     $onlyCred = $this->findByIdCred($id);
     $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->orwhere('host_type_id', 20)->get();
-    $ver = 2;
+    $ver = "editar";
 
       return view('dispositivos.tables.networkings.credentials', [
           'creds' => $cred,

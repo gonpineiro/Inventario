@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Televisores<a href="/form_televisor"> +</a></h1></h1>
+        <h1>Televisores @can ('televisors.create') <a href="/form_televisor"> +</a> @endcan </h1>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -19,7 +19,7 @@
 
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_televisor/{{$host->id}}">{{$host->name}}</a></td>
+                    @can ('televisors.only') <td><a href="/only_televisor/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td> @endcan
                     <td>{{$host->host->name}} </td>
                     <td>{{$host->modelo->name}}</td>
                     <td> @if (!is_null($host->host->user_host)){{$host->host->user_host->name}} {{$host->host->user_host->apellido}} @endif</td>

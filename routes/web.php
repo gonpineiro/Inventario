@@ -85,12 +85,12 @@
   Route::get('/edit_switch/{id}', 'NetworkingController@editSwitch')->middleware('can:switchs.edit');
 
 
-  Route::get('/accespoints', 'NetworkingController@showAccespoints')->middleware('can:switchs.show');
-  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint')->middleware('can:switchs.only');
-  Route::get('/form_accespoint', 'NetworkingController@formAccespoint')->middleware('can:switchs.create');
-  Route::post('/add_accespoint', 'NetworkingController@createAccespoint')->middleware('can:switchs.create');
-  Route::post('/update_accespoint/{id}', 'NetworkingController@updateAccespoint')->middleware('can:switchs.edit');
-  Route::get('/edit_accespoint/{id}', 'NetworkingController@editAccespoint')->middleware('can:switchs.edit');
+  Route::get('/accespoints', 'NetworkingController@showAccespoints')->middleware('can:accespoints.show');
+  Route::get('/only_accespoint/{id}', 'NetworkingController@onlyAccespoint')->middleware('can:accespoints.only');
+  Route::get('/form_accespoint', 'NetworkingController@formAccespoint')->middleware('can:accespoints.create');
+  Route::post('/add_accespoint', 'NetworkingController@createAccespoint')->middleware('can:accespoints.create');
+  Route::post('/update_accespoint/{id}', 'NetworkingController@updateAccespoint')->middleware('can:accespoints.edit');
+  Route::get('/edit_accespoint/{id}', 'NetworkingController@editAccespoint')->middleware('can:accespoints.edit');
   ////////////////////////////////////////////////////////////////////////
 
   //CREDENCIALES

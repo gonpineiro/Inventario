@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Switchs <a href="/form_switch"> +</a></h1>
+        <h1>Switchs @can ('switchs.create') <a href="/form_switch"> +</a> @endcan </h1>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -19,7 +19,7 @@
                 @foreach ($hosts as $host)
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_switch/{{$host->id}}">{{$host->name}}</a></td>
+                    @can ('switchs.only') <td><a href="/only_switch/{{$host->id}}">{{$host->name}}</a></td>  @else <td>{{$host->name}}</td> @endcan
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
                     <td>{{$host->modelo->name}}</td>

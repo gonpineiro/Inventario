@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>AccesPoint <a href="/form_accespoint"> +</a></h1>
+        <h1>AccesPoint @can ('accespoints.create') <a href="/form_accespoint"> +</a> @endcan </h1>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -20,7 +20,7 @@
                 @foreach ($hosts as $host)
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_accespoint/{{$host->id}}">{{$host->name}}</a></td>
+                    @can ('accespoints.only') <td><a href="/only_accespoint/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->mac_adress}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>

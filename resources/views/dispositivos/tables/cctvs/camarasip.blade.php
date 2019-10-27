@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Cámaras IP<a href="/form_camaraip"> +</a></h1>
+        <h1>Cámaras IP @can ('camaraips.create') <a href="/form_camaraip"> +</a> @endcan</h1>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -21,11 +21,11 @@
                 @foreach ($hosts as $host)
                   <tr>
                     <td>{{$host->id}}</td>
-                    <td><a href="/only_camaraip/{{$host->id}}">{{$host->name}}</a></td>
+                    @can ('camaraips.only') <td><a href="/only_camaraip/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td> @endcan
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->tcp}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
-                    <td><a href="/only_dvr/{{$host->host->id}}">{{$host->host->name}}</a></td>
+                    @can ('dvrs.only') <td><a href="/only_dvr/{{$host->host->id}}">{{$host->host->name}}</a></td> @else <td>{{$host->host->name}}</td> @endcan
                     <td>{{$host->modelo->name}}</td>
                   </tr>
                 @endforeach

@@ -24,10 +24,10 @@
                     <td>{{$cred->password}}</td>
                     <td>{{$cred->type}}</td>
                     <td>
-                      @if ($cred->host->host_type_id == 10)  <a href="/only_modem/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
-                      @if ($cred->host->host_type_id == 11)  <a href="/only_router/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
-                      @if ($cred->host->host_type_id == 12)  <a href="/only_switch/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
-                      @if ($cred->host->host_type_id == 13)  <a href="/only_accespoint/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
+                      @if ($cred->host->host_type_id == 10)  @can ('modems.only') <a href="/only_modem/{{$cred->host_id}}"> @endcan {{$cred->host->name}}</a> @endif
+                      @if ($cred->host->host_type_id == 11)  @can ('routes.only') <a href="/only_router/{{$cred->host_id}}"> @endcan {{$cred->host->name}}</a> @endif
+                      @if ($cred->host->host_type_id == 12)  @can ('switchs.only') <a href="/only_switch/{{$cred->host_id}}"> @endcan {{$cred->host->name}}</a> @endif
+                      @if ($cred->host->host_type_id == 13)  @can ('accespoints.only') <a href="/only_accespoint/{{$cred->host_id}}"> @endcan {{$cred->host->name}}</a> @endif
                     </td>
                     <td>{{$cred->comentario}}</td>
                   </tr>
@@ -37,15 +37,14 @@
           </table>
       </div>
       <div class="col-md-4 cl-4">
-        @if ($ver == 1) <h1>Agregar</h1> @endif
-        @if ($ver == 2) <h1>Modificando</h1> @endif
-        <div class="card">
+      @can ('crednets.create') @if ($ver == "agregar") <h1>Agregar</h1> @endif  @endcan
+      @can ('crednets.edit') @if ($ver == "editar") <h1>Modificando</h1> @endif @endcan
+          @can('crednets.create') <div class="card"> @else @can ('crednets.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
             <div class="card-header">{{ __('Agregar') }}</div>
             <div class="card-body">
-                @if ($ver == 1)
+                @if ($ver == "agregar")
                   <form method="POST" action="/add_cred_net">
                       @csrf
-
                       <div class="form-group row">
                         <div class="col-md-12">
                           <label for="name" >Usuario</label>
@@ -94,7 +93,8 @@
                           </div>
                       </div>
                   </form>
-                @else
+                @endif
+                @if ($ver == "editar")
                   <form method="POST" action="/update_cred_net/{{$onlyCred->id}}">
                       @csrf
                       <div class="form-group row">
@@ -137,7 +137,6 @@
                       </div>
                   </form>
                 @endif
-
             </div>
         </div>
       </div>

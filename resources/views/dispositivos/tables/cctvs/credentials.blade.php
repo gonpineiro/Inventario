@@ -3,7 +3,6 @@
 @section('content')
   <div class="container">
     <div class="row mt-2">
-
       <div class="col-md-8 cl-8">
         <h1>Credenciales </h1>
           <table class="table table-hover" id="host-table">
@@ -24,8 +23,8 @@
                     <td>{{$cred->password}}</td>
                     <td>{{$cred->type}}</td>
                     <td>
-                      @if ($cred->host->host_type_id == 20)  <a href="/only_camaraip/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
-                      @if ($cred->host->host_type_id == 21)  <a href="/only_dvr/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif
+                      @can ('camaraips.only') @if ($cred->host->host_type_id == 20)  <a href="/only_camaraip/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif @else @if ($cred->host->host_type_id == 20)  {{$cred->host->name}} @endif  @endcan
+                      @can ('dvrs.only') @if ($cred->host->host_type_id == 21)  <a href="/only_dvr/{{$cred->host_id}}">{{$cred->host->name}}</a> @endif @endcan
                     </td>
                     <td>{{$cred->comentario}}</td>
                   </tr>
@@ -35,15 +34,16 @@
           </table>
       </div>
       <div class="col-md-4 cl-4">
-        @if ($ver == "agregar") <h1>Agregar</h1> @endif
-        @if ($ver == "editar") <h1>Modificando</h1> @endif
-        <div class="card">
+        @can ('credcctvs.create') @if ($ver == "agregar") <h1>Agregar</h1> @endif  @endcan
+        @can ('credcctvs.edit') @if ($ver == "editar") <h1>Modificando</h1> @endif @endcan
+
+        @can('credcctvs.create') <div class="card"> @else @can ('credcctvs.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
             <div class="card-header">{{ __('Agregar') }}</div>
             <div class="card-body">
+              @can ('credcctvs.create')
                 @if ($ver == "agregar")
                   <form method="POST" action="/add_cred_cctv">
                       @csrf
-
                       <div class="form-group row">
                         <div class="col-md-12">
                           <label for="name" >Usuario</label>
@@ -93,49 +93,53 @@
                       </div>
                   </form>
                 @endif
-                @if ($ver == "editar")
-                  <form method="POST" action="/update_cred_cctv/{{$onlyCred->id}}">
-                      @csrf
-                      <div class="form-group row">
-                          <div class="col-md-12">
-                            <label for="name" >Usuario</label>
-                            <input id="username" type="text" class="form-control" name="username" value="{{$onlyCred->username}}" required>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-md-12">
-                            <label for="name">Tipo</label>
-                            <input id="name" type="text" class="form-control" name="type" value="{{$onlyCred->type}}" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-md-12">
-                              <label for="name">Password</label>
-                              <input id="name" type="text" class="form-control" name="password" value="{{$onlyCred->password}}" required>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-md-12">
-                              <label for="name">Dispositivo</label>
-                              <input id="name" type="text" class="form-control" name="" value="{{$onlyCred->host->name}}" disabled>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-md-12">
-                              <label for="name" class=>Observación</label>
-                              <input id="name" type="text" class="form-control" name="comentario" value="{{$onlyCred->comentario}}" required>
-                          </div>
-                      </div>
+              @endcan
 
-                      <div class="form-group row mb-0">
-                          <div class="col-md-6">
-                              <button type="submit" class="btn btn-dark">
-                                  {{ __('Modificar') }}
-                              </button>
-                          </div>
+              @can ('credcctvs.edit')
+              @if ($ver == "editar")
+                <form method="POST" action="/update_cred_cctv/{{$onlyCred->id}}">
+                    @csrf
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                          <label for="name" >Usuario</label>
+                          <input id="username" type="text" class="form-control" name="username" value="{{$onlyCred->username}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-md-12">
+                          <label for="name">Tipo</label>
+                          <input id="name" type="text" class="form-control" name="type" value="{{$onlyCred->type}}" required>
                       </div>
-                  </form>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="name">Password</label>
+                            <input id="name" type="text" class="form-control" name="password" value="{{$onlyCred->password}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="name">Dispositivo</label>
+                            <input id="name" type="text" class="form-control" name="" value="{{$onlyCred->host->name}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="name" class=>Observación</label>
+                            <input id="name" type="text" class="form-control" name="comentario" value="{{$onlyCred->comentario}}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-dark">
+                                {{ __('Modificar') }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
                 @endif
+                @endcan
             </div>
         </div>
       </div>
