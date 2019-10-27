@@ -37,12 +37,12 @@
                       </div>
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
                     </div>
-                <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    @can ('expansoras.edit') <button class="btn btn-dark">Modificar</button> @endcan
                 </form>
              </div>
            </div>

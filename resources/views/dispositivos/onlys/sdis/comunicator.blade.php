@@ -23,19 +23,19 @@
                       </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="name">SIM I</label>
-                            <input type="text" class="form-control" id="name" placeholder=@if (!is_null($host->sim_i)) {{$host->sim_i->line_phone}} @else "" @endif disabled>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="modelo">SIM II</label>
-                            <input type="text" class="form-control" id="modelo" placeholder=@if (!is_null($host->sim_ii)) {{$host->sim_ii->line_phone}} @else "" @endif disabled>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="serial">SIM III</label>
-                            <input type="text" class="form-control" id="serial" placeholder=@if (!is_null($host->sim_iii)) {{$host->sim_iii->line_phone}} @else "" @endif disabled>
-                        </div>
+                      <div class="form-group col-md-4">
+                          <label for="name">SIM I</label>
+                          <input type="text" class="form-control" id="name" placeholder=@if (!is_null($host->sim_i)) {{$host->sim_i->line_phone}} @else "" @endif disabled>
                       </div>
+                      <div class="form-group col-md-4">
+                          <label for="modelo">SIM II</label>
+                          <input type="text" class="form-control" id="modelo" placeholder=@if (!is_null($host->sim_ii)) {{$host->sim_ii->line_phone}} @else "" @endif disabled>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="serial">SIM III</label>
+                          <input type="text" class="form-control" id="serial" placeholder=@if (!is_null($host->sim_iii)) {{$host->sim_iii->line_phone}} @else "" @endif disabled>
+                      </div>
+                    </div>
                     <div class="form-row">
                       <div class="form-group col-md-5">
                         <label for="cctv">Conectado</label>
@@ -51,12 +51,12 @@
                       </div>
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
                     </div>
-                <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    @can ('comunicators.edit') <button class="btn btn-dark">Modificar</button> @endcan
                 </form>
              </div>
            </div>

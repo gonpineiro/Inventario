@@ -8,7 +8,6 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_mouse/{{$host->id}}" method="get" name="form-edit">
-
                   <div class="form-row">
                       <div class="form-group col-md-4">
                           <label for="modelo">Modelo</label>
@@ -37,12 +36,12 @@
                     @endif
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
                     </div>
-                <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    @can ('mouses.edit') <button class="btn btn-dark">Modificar</button> @endcan
                 </form>
              </div>
            </div>
