@@ -8,7 +8,6 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_notebook/{{$host->id}}" method="get" name="form-edit">
-
                   <div class="form-row">
                     <div class="form-group col-md-3">
                       <label for="inputPassword4">Nombre</label>
@@ -28,47 +27,44 @@
                     </div>
                   </div>
                   <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="inputEmail4">Usuario</label>
+                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
+                    </div>
                       <div class="form-group col-md-4">
-                        <label for="inputEmail4">Usuario</label>
-                        <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
-
+                        <label for="inputEmail4">Mac address</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
                       </div>
-                          <div class="form-group col-md-4">
-                            <label for="inputEmail4">Mac address</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
-                          </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputPassword4">Ip local</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
-                      </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputPassword4">Ip local</label>
+                      <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
+                    </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="departament">Afectado</label>
-                          <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->departament->name}} - {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="valor">Valor</label>
-                          <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
-                        </div>
+                    <div class="form-group col-md-6">
+                      <label for="departament">Afectado</label>
+                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->departament->name}} - {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="valor">Valor</label>
+                      <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
+                    </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observaciónes</label>
-                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observaciónes</label>
+                      <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                    </div>
                   </div>
-
-                  <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
-                  @if (is_null($host->user_host))<a href="/form_entregas/{{$host->id}}" class="btn btn-dark">Generar documento de entrega</a> @endif
-
+                  @can ('notebooks.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
+                  @can ('entregas.create') @if (is_null($host->user_host))<a href="/form_entregas/{{$host->id}}" class="btn btn-dark">Generar documento de entrega</a> @endif @endcan
 
                 </form>
-
               </div>
               </div>
-
               <br/>
+
+            @can ('hostworks.create')
             <div class="card">
               <div class="card-header">Agregar registro de trabajo</div>
                 <div class="card-body">
@@ -79,25 +75,25 @@
                         <label for="modelo">Fecha</label>
                         <input type="date" class="form-control" id="fecha" name="fecha" required>
                       </div>
-
                       <div class="form-group col-md-9">
                         <label for="serial">Trabajo </label>
                         <input type="text" class="form-control" id="trabajo" name="trabajo" required>
                       </div>
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observación</label>
-                            <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observación</label>
+                        <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
+                      </div>
                     </div>
-
                     <button type="submit" class="btn btn-dark">Agregar</button>
                   </form>
-
                 </div>
               </div>
               <br/>
+              @endcan
+
+              @can ('hostworks.show')
               <div class="card">
                 <div class="card-header">Registros de trabajo</div>
                   <div class="card-body">
@@ -131,8 +127,9 @@
                             } );
                   </script>
                 </div>
-
                 <br/>
+                @endcan
+
                 <div class="card">
                   <div class="card-header text-center">QR</div>
                     <div class="card-body">

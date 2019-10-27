@@ -118,12 +118,12 @@
   Route::post('/update_dvr/{id}', 'SeguridadController@updateDvr')->middleware('can:dvrs.edit');
   Route::get('/edit_dvr/{id}', 'SeguridadController@editDvr')->middleware('can:dvrs.edit');
 
-  Route::get('/camarasana', 'SeguridadController@showCamarasAna')->middleware('can:dvrs.show');
-  Route::get('/only_camaraana/{id}', 'SeguridadController@onlyCamaraAna')->middleware('can:dvrs.only');
-  Route::get('/form_camaraana', 'SeguridadController@formCamaraAna')->middleware('can:dvrs.create');
-  Route::post('/add_camaraana', 'SeguridadController@createCamaraAna')->middleware('can:dvrs.create');
-  Route::post('/update_camaraana/{id}', 'SeguridadController@updateCamaraAna')->middleware('can:dvrs.edit');
-  Route::get('/edit_camaraana/{id}', 'SeguridadController@editCamaraAna')->middleware('can:dvrs.edit');
+  Route::get('/camarasana', 'SeguridadController@showCamarasAna')->middleware('can:camarasanas.show');
+  Route::get('/only_camaraana/{id}', 'SeguridadController@onlyCamaraAna')->middleware('can:camarasanas.only');
+  Route::get('/form_camaraana', 'SeguridadController@formCamaraAna')->middleware('can:camarasanas.create');
+  Route::post('/add_camaraana', 'SeguridadController@createCamaraAna')->middleware('can:camarasanas.create');
+  Route::post('/update_camaraana/{id}', 'SeguridadController@updateCamaraAna')->middleware('can:camarasanas.edit');
+  Route::get('/edit_camaraana/{id}', 'SeguridadController@editCamaraAna')->middleware('can:camarasanas.edit');
   ////////////////////////////////////////////////////////////////////////
 
   //CREDENCIALES CCTV

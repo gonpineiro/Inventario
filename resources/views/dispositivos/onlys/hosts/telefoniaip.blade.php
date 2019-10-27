@@ -17,13 +17,11 @@
                         <label for="modelo">Modelo</label>
                         <input type="text" class="form-control" id="modelo" placeholder="{{$host->modelo->name}}" disabled>
                       </div>
-
                       <div class="form-group col-md-4">
                         <label for="serial">Serial</label>
                         <input type="text" class="form-control" id="serial" placeholder="{{$host->serial}}" disabled>
                       </div>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="mac_adress">Mac address</label>
@@ -38,7 +36,6 @@
                           <input type="number" class="form-control" id="interno" placeholder={{$host->interno}} disabled>
                         </div>
                     </div>
-
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="departament">Afectado</label>
@@ -50,19 +47,18 @@
                       </div>
                     </div>
                     <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                      <div class="form-group col-md">
+                        <label for="comentario">Observaciónes</label>
+                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                      </div>
                     </div>
-
-                    <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                    @can ('phoneips.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
                     </form>
-
                   </div>
                 </div>
                 <br/>
 
+              @can ('hostworks.create')
               <div class="card">
                 <div class="card-header">Agregar registro de trabajo</div>
                   <div class="card-body">
@@ -73,25 +69,25 @@
                           <label for="modelo">Fecha</label>
                           <input type="date" class="form-control" id="fecha" name="fecha" required>
                         </div>
-
                         <div class="form-group col-md-9">
                           <label for="serial">Trabajo </label>
                           <input type="text" class="form-control" id="trabajo" name="trabajo" required>
                         </div>
                       </div>
                       <div class="form-row">
-                            <div class="form-group col-md">
-                              <label for="comentario">Observación</label>
-                              <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                            </div>
+                        <div class="form-group col-md">
+                          <label for="comentario">Observación</label>
+                          <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
+                        </div>
                       </div>
-
                       <button type="submit" class="btn btn-dark">Agregar</button>
                     </form>
-
                   </div>
                 </div>
                 <br/>
+                @endcan
+
+                @can ('hostworks.show')
                 <div class="card">
                   <div class="card-header">Registros de trabajo</div>
                     <div class="card-body">
@@ -124,8 +120,9 @@
                               } );
                     </script>
                   </div>
-
                   <br/>
+                  @endcan
+                  
                   <div class="card">
                     <div class="card-header text-center">QR</div>
                       <div class="card-body">

@@ -4,63 +4,64 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-md-9">
-          <div class="card">
-            <div class="card-header">{{$host->name}}</div>
-              <div class="card-body">
-                <form action="/edit_camaraana/{{$host->id}}" method="get" name="form-edit">
+        <div class="card">
+          <div class="card-header">{{$host->name}}</div>
+            <div class="card-body">
+              <form action="/edit_camaraana/{{$host->id}}" method="get" name="form-edit">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                     <label for="inputPassword4">Nombre</label>
+                     <input type="text" class="form-control" id="estad" placeholder="{{$host->name}}" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="modelo">Modelo</label>
+                      <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="serial">Serial</label>
+                      <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
+                    </div>
+                  </div>
                   <div class="form-row">
-                      <div class="form-group col-md-4">
-                       <label for="inputPassword4">Nombre</label>
-                       <input type="text" class="form-control" id="estad" placeholder="{{$host->name}}" disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="modelo">Modelo</label>
-                        <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="serial">Serial</label>
-                        <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
-                      </div>
+                  @if (is_null($host->cctv_id))
+                    <div class="form-group col-md-3">
+                      <label for="cctv">Grabando en...</label>
+                      <input type="text" class="form-control" id="cctv" placeholder="  "  name="cctv" disabled>
                     </div>
-                    <div class="form-row">
-                    @if (is_null($host->cctv_id))
-                      <div class="form-group col-md-3">
-                        <label for="cctv">Grabando en...</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="  "  name="cctv" disabled>
-                      </div>
-                    @else
-                      <div class="form-group col-md-12">
-                        <label for="cctv">Grabando en...</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - {{$cctv->departament->name}} - {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
-                      </div>
-                    @endif
+                  @else
+                    <div class="form-group col-md-12">
+                      <label for="cctv">Grabando en...</label>
+                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - {{$cctv->departament->name}} - {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
                     </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label for="departament">Afectado</label>
-                        <input type="text" class="form-control" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="valor">Ubicacion/Zona</label>
-                        <input type="text" class="form-control"  placeholder={{$host->zona}} disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="valor">Valor</label>
-                        <input type="text" class="form-control" placeholder={{$host->valor}} disabled>
-                      </div>
+                  @endif
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="departament">Afectado</label>
+                      <input type="text" class="form-control" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
                     </div>
-                    <div class="form-row">
-                          <div class="form-group col-md">
-                            <label for="comentario">Observaciónes</label>
-                            <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                          </div>
+                    <div class="form-group col-md-4">
+                      <label for="valor">Ubicacion/Zona</label>
+                      <input type="text" class="form-control"  placeholder={{$host->zona}} disabled>
                     </div>
-                <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
-                </form>
-              </div>
+                    <div class="form-group col-md-4">
+                      <label for="valor">Valor</label>
+                      <input type="text" class="form-control" placeholder={{$host->valor}} disabled>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                        <div class="form-group col-md">
+                          <label for="comentario">Observaciónes</label>
+                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                        </div>
+                  </div>
+              @can ('camarasanas.edit') <button type=""  class="btn btn-dark">Modificar</button> @endcan
+              </form>
             </div>
+          </div>
+          <br/>
 
-            <br/>
+          @can ('hostworks.create')
           <div class="card">
             <div class="card-header">Agregar registro de trabajo</div>
               <div class="card-body">
@@ -90,6 +91,9 @@
               </div>
             </div>
             <br/>
+            @endcan
+
+            @can ('hostworks.show')
             <div class="card">
               <div class="card-header">Registros de trabajo</div>
                 <div class="card-body">
@@ -122,8 +126,8 @@
                   </script>
                 </div>
               </div>
-
               <br/>
+              @endcan
               <div class="card">
                 <div class="card-header text-center">QR</div>
                   <div class="card-body">

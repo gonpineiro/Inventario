@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Caffeinated\Shinobi\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+      Role::create(['name'  => 'Admin','slug'  => 'admin','special'  => 'all-access',]);
+      DB::table('role_user')->insert(['role_id' => '1','user_id' => 1]);
 
       DB::table('host_types')->insert(['name' => 'Panel de alarma','id' => 40]);
       DB::table('host_types')->insert(['name' => 'Expansora','id' => 41]);

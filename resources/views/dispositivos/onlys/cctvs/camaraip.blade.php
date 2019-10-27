@@ -131,18 +131,19 @@
                   </div>
                 </div>
                 <div class="form-row">
-                      <div class="form-group col-md">
-                        <label for="comentario">Observaciónes</label>
-                        <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                      </div>
+                  <div class="form-group col-md">
+                    <label for="comentario">Observaciónes</label>
+                    <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                  </div>
                 </div>
-                <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button>
+                @can ('camaraips.edit') <button type="" href="" class="btn btn-dark">Modificar</button>@endcan
                 </form>
               </div>
             </div>
             <br/>
+            @can ('credcctvs.show')
             <div class="card">
-              <div class="card-header">Credenciales <a href="/form_cred_cctv/{{$host->id}}">+</a></div>
+              <div class="card-header">Credenciales @can ('credcctvs.create') <a href="/form_cred_cctv/{{$host->id}}">+</a> @endcan</div>
                 <div class="card-body">
                   <div class="col cl-6">
                       <table class="table table-hover" id="host-table">
@@ -152,7 +153,7 @@
                             <th scope="col">Password</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Obs</th>
-                            <th scope="col">Editar</th>
+                            @can ('credcctvs.show') <th scope="col">Editar</th> @endcan
                           </tr>
                         </thead>
                         <tbody>
@@ -162,7 +163,7 @@
                                 <td>{{$cred->password}}</td>
                                 <td>{{$cred->type}}</td>
                                 <td>{{$cred->comentario}}</td>
-                                <td><a href="/edit_cred_cctv/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
+                                @can ('credcctvs.edit') <td><a href="/edit_cred_cctv/{{$cred->id}}" target="_blank"><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
                               </tr>
                         @endforeach
                         </tbody>
@@ -177,9 +178,10 @@
                           } );
                 </script>
               </div>
-
               <br>
+            @endcan
 
+          @can ('hostworks.create')
           <div class="card">
             <div class="card-header">Agregar registro de trabajo</div>
               <div class="card-body">
@@ -205,10 +207,12 @@
 
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
-
               </div>
             </div>
             <br/>
+            @endcan
+
+            @can ('hostworks.show')
             <div class="card">
               <div class="card-header">Registros de trabajo</div>
                 <div class="card-body">
@@ -241,8 +245,10 @@
                           } );
                 </script>
               </div>
-
               <br/>
+              @endcan
+
+
               <div class="card">
                 <div class="card-header text-center">QR</div>
                   <div class="card-body">

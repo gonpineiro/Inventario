@@ -19,10 +19,14 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
 ####  3.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
 
   ```
-  BigInt()
+  BigInt(20)
   ```
 
-####  4. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
+####  4.  Cambiar a NULL la columna departament_id en la Tabla fichas_entregas
+
+
+
+####  5. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
 
   ```
   public function persmissions(){
@@ -37,14 +41,14 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   /vendor/caffeinated/shinobi/src/Models/Role.php
   ```
 
-####  5. Modifico la linea 90 del archivo: config/shinobi
+####  6. Modifico la linea 90 del archivo: config/shinobi
 
 
   ```
   'migrate' => false,
   ```
 
-####  6. Creacion del Seeder de PermissionsTable
+####  7. Creacion del Seeder de PermissionsTable
 
   ```
   ohp artisan db:seed --class="PermissionsTableSeeder"

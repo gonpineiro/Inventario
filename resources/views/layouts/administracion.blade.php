@@ -47,6 +47,7 @@
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Usuarios</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/users"><span>Usuarios del sistema</span></a>
+                                <a class="dropdown-item" href="/roles"><span>Roles</span></a>
                                 <a class="dropdown-item" href="/users_host"><span>Usuarios de host</span></a>
                             </div>
                         </li>

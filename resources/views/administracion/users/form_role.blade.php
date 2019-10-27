@@ -310,6 +310,75 @@
                 </ul>
                 <br>
               </div>
+
+              <br><h3>Periféricos</h3><br>
+              <div class="form-row justify-content-around">
+                <ul class="list-group" style="margin-right: 15px; width: 20%">
+                  <h6>Televisores</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'televisors')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+                <ul class="list-group" style="margin-right: 15px; width: 20%">
+                  <h6>Monitores</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'monitors')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+                <ul class="list-group" style="margin-right: 15px; width: 20%">
+                  <h6>Web Cams</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'webcams')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+              </div>
+              <br><br>
+              <div class="form-row justify-content-around">
+                <ul class="list-group" style="margin-right: 15px; width: 20%">
+                  <h6>Teclados</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'teclados')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+                <ul class="list-group" style="margin-right: 15px; width: 20%">
+                  <h6>Mouse</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'mouses')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+              </div>
+
+
               <br><h3>Administracion</h3><br>
               <div class="form-row justify-content-around">
               <ul class="list-group" style="margin-right: 15px; width: 20%">
