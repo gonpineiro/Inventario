@@ -19,7 +19,6 @@
                   <tr>
                     <td>{{$modelo->id}}</td>
                     <td>{{$modelo->name}}</td>
-
                     <td>{{$modelo->marca}}</td>
                     <td>{{$modelo->host_type->name}}</td>
                   </tr>

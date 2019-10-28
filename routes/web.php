@@ -275,6 +275,7 @@
 
   //ROLES DE USUARIO
   Route::get('/roles', 'RoleController@showRoles')->middleware('can:roles.show');
+  Route::get('/edit_role/{id}', 'RoleController@editRole');
   Route::get('/form_role', 'RoleController@formRole')->middleware('can:roles.create');
   Route::post('/create_role', 'RoleController@createRole')->middleware('can:roles.create');
 

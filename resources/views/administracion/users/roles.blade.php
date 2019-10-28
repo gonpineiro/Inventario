@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-12">
-        <h1>Roles de usuario<a href="/form_role"> +</a></h1>
+        <h1>Roles de usuario @can ('roles.create') <a href="/form_role"> +</a>  @endcan</h1>
           <table class="table table-hover" id="host-table" style="width:100%">
             <thead>
               <tr>

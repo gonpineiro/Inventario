@@ -8,22 +8,23 @@ use Caffeinated\Shinobi\Models\Permission;
 
 class RoleController extends Controller
 {
-  public function showRoles(Request $request){
 
-    $role = Role::all();
-    return view('administracion.users.roles', [
-      'roles' => $role,
-    ]);
+    public function showRoles(Request $request){
 
-  }
-
-  public function formRole(Request $request){
-    $permission = Permission::all();
-      return view('administracion.users.form_role', [
-        'permissions' => $permission,
-
+      $role = Role::all();
+      return view('administracion.users.roles', [
+        'roles' => $role,
       ]);
+
     }
+
+    public function formRole(Request $request){
+      $permission = Permission::all();
+        return view('administracion.users.form_role', [
+          'permissions' => $permission,
+
+        ]);
+      }
 
     public function createRole(Request $request){
           $role = Role::create([
@@ -38,4 +39,19 @@ class RoleController extends Controller
 
       return redirect('/roles');
     }
-}
+
+    public function editRole($id, Request $request){
+
+          $role = $this->findByIdRole($id);
+          $permission = Permission::all();
+
+          return view('administracion.users.edit_role', [
+            'role' => $role,
+            'permissions' => $permission,
+          ]);
+    }
+
+    private function findByIdRole($id){
+        return Role::where('id', $id)->firstOrFail();
+    }
+  }

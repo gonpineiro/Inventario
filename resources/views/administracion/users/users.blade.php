@@ -12,7 +12,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Email</th>
                 <th scope="col">Rol</th>
-                <th scope="col">Editar</th>
+                @can ('users.edit') <th scope="col">Editar</th> @endcan
               </tr>
             </thead>
             <tbody>
@@ -22,16 +22,17 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->roles[0]->name}}</td>
-                    <td><a href="/edit_user/{{$user->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td>
+                    @can ('users.edit') <td><a href="/edit_user/{{$user->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
                   </tr>
                 @endforeach
             </tbody>
           </table>
       </div>
       <div class="col col-md-4">
-        @if ($ver == "agregar") <h1>Agregar</h1> @endif
-        @if ($ver == "editar") <h1>Modificando</h1> @endif
-        <div class="card">
+        @can ('users.create') @if ($ver == "agregar") <h1>Agregar</h1> @endif @endcan
+        @can ('users.edit') @if ($ver == "editar") <h1>Modificando</h1> @endif @endcan
+
+        @can('users.create') <div class="card"> @else @can ('users.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
           @if ($ver == "agregar") <div class="card-header">Agregar Usuario</div> @endif
           @if ($ver == "editar") <div class="card-header">Modificando {{$onlyUser->name}}</div> @endif
             <div class="card-body">

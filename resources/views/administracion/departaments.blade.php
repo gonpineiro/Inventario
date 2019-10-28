@@ -29,20 +29,15 @@
         <h1>Agregar departamento</h1>
         <div class="card">
             <div class="card-header">{{ __('Agregar') }}</div>
-
             <div class="card-body">
                 <form method="POST" action="/add_departament">
                     @csrf
-
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
-
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control" name="name" value="" required >
-
                         </div>
                     </div>
-
                     <div class="form-group row">
                       <label for="cliente_id" class="col-md-4 col-form-label text-md-right">{{ __('Cliente') }}</label>
                       <div class="col-md-6">
