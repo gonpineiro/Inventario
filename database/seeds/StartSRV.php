@@ -57,6 +57,14 @@ class StartSRV extends Seeder
       DB::table('host_types')->insert(['name' => 'Mouse','id' => 33]);
       DB::table('host_types')->insert(['name' => 'Web cam','id' => 34]);
 
+      DB::table('host_types')->insert(['name' => 'Panel de alarma','id' => 40]);
+      DB::table('host_types')->insert(['name' => 'Expansora','id' => 41]);
+      DB::table('host_types')->insert(['name' => 'Comunicador','id' => 42]);
+      DB::table('host_types')->insert(['name' => 'Sensor','id' => 43]);
+      DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
+      DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
+    }
+
       DB::table('users')->insert(['name' => 'administrador','email' => 'administrador@sab5.com.ar','password' => '$2y$10$6gJTsnUyPc8XJ7J/C1f14euqL1pgDKnQt8xzPkNbkgZo53syKl3aK']);
 
       //MODELOS

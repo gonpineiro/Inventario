@@ -26,7 +26,7 @@
             </tbody>
           </table>
       </div>
-
+      @can ('userhosts.create')
       <div class="col cl-6">
         <h1>Agregar Usuario</h1>
         <div class="card">
@@ -82,6 +82,7 @@
                   } );
         </script>
     </div>
+    @endcan
 </div>
 
 

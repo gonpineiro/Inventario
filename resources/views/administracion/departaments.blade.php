@@ -24,7 +24,7 @@
             </tbody>
           </table>
       </div>
-
+      @can ('departaments.create')
       <div class="col cl-6">
         <h1>Agregar departamento</h1>
         <div class="card">
@@ -48,9 +48,6 @@
                         </select>
                         </div>
                       </div>
-
-
-
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-dark">
@@ -62,6 +59,7 @@
             </div>
         </div>
       </div>
+        @endcan
       <script >
               $(document).ready(function() {
               $('#host-table').DataTable();

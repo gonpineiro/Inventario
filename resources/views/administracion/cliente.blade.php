@@ -22,6 +22,7 @@
             </tbody>
           </table>
       </div>
+      @can ('clients.create')
       <div class="col cl-6">
         <h1>Agregar cliente</h1>
         <div class="card">
@@ -46,6 +47,7 @@
             </div>
         </div>
       </div>
+      @endcan
       <script >
               $(document).ready(function() {
               $('#host-table').DataTable();

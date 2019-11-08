@@ -26,12 +26,12 @@
             </tbody>
           </table>
       </div>
+      @can ('marcas.create')
 
       <div class="col cl-6">
         <h1>Agregar modelo</h1>
         <div class="card">
             <div class="card-header">{{ __('Agregar') }}</div>
-
             <div class="card-body">
                 <form method="POST" action="/add_model">
                     @csrf
@@ -41,16 +41,13 @@
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="name" name="name" placeholder="" required>
-
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="marca" class="col-md-4 col-form-label text-md-right">{{ __('Marca') }}</label>
-
                         <div class="col-md-6">
                           <input type="text" class="form-control" id="marca" name="marca" placeholder="" required>
-
                         </div>
                     </div>
 
@@ -81,6 +78,7 @@
             </div>
         </div>
       </div>
+      @endcan
       <script >
               $(document).ready(function() {
               $('#host-table').DataTable();

@@ -258,12 +258,12 @@
   Route::get('/users_host', 'AdministracionController@showUsersHost')->middleware('can:userhosts.show');
   Route::post('/add_user_host', 'AdministracionController@createUserhost')->middleware('can:userhost.create');
   Route::get('/historial', 'AdministracionController@showHistorials')->middleware('can:historials.show');
-  Route::get('/modelos', 'ModelosController@show')->middleware('can:modelos.show');
-  Route::post('/add_model', 'ModelosController@createModel')->middleware('can:modelos.create');
+  Route::get('/modelos', 'ModelosController@show')->middleware('can:marcas.show');
+  Route::post('/add_model', 'ModelosController@createModel')->middleware('can:marcas.create');
   Route::get('/clientes', 'ClientesController@show')->middleware('can:clients.show');
   Route::post('/add_cliente', 'ClientesController@CreateCliente')->middleware('can:clients.create');
-  Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:entregas.create');
-  Route::post('/add_departament', 'AdministracionController@createDepartament')->middleware('can:entregas.create');
+  Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:departaments.show');
+  Route::post('/add_departament', 'AdministracionController@createDepartament')->middleware('can:departaments.create');
 
   ////////////////////////////////////////////////////////////////////////
 
@@ -275,7 +275,7 @@
 
   //ROLES DE USUARIO
   Route::get('/roles', 'RoleController@showRoles')->middleware('can:roles.show');
-  Route::get('/edit_role/{id}', 'RoleController@editRole');
+  //Route::get('/edit_role/{id}', 'RoleController@editRole');
   Route::get('/form_role', 'RoleController@formRole')->middleware('can:roles.create');
   Route::post('/create_role', 'RoleController@createRole')->middleware('can:roles.create');
 
