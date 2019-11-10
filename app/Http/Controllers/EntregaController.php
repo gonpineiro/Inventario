@@ -11,7 +11,7 @@ use App\Fichas_entregas;
 use Carbon\Carbon;
 
 
-class FichaentregaController extends Controller
+class EntregaController extends Controller
 {
 
   public function showFichaentrega(Request $request){
@@ -27,8 +27,7 @@ class FichaentregaController extends Controller
 
     $last = Fichas_entregas::all()->max('id')+1;
     $modelo = Modelo::all();
-    $marca = Cliente::all();
-    $host = Host::all();
+    $host = Host::whereNull('user_host_id')->get();
     $departament = Departament::all();
     $userhost = User_host::all();
     $cliente = Cliente::all();
@@ -36,7 +35,6 @@ class FichaentregaController extends Controller
 
     return view('administracion.fichasentrega.add_fichaentrega', [
       'departaments' => $departament,
-      'modelos' => $modelo,
       'clientes' => $cliente,
       'userhosts' => $userhost,
       'hosts' => $host,
@@ -63,14 +61,28 @@ class FichaentregaController extends Controller
 
   public function createFichaentrega(Request $request){
       $detalle = $request->input('detalle');
-      $host = $this->findById($detalle[0]['host_id']);
-      $host->user_host_id = $request->input('user_host_id');
-      $host->save();
+
+      for ($i=0; $i < count($detalle); $i++) {
+        $host_id = (int)$detalle[$i]['host_id'];
+        if ($host_id != 0) {
+          $host = $this->findById($host_id);
+          $host->user_host_id = $request->input('user_host_id');
+          $host->save();
+        }
+      }
+
+
+
+      dd($host);
+      //$host = $this->findById($detalle[0]['host_id']);
+      //$host->user_host_id = $request->input('user_host_id');
+
 
       $fichas = Fichas_entregas::create([
       'name' => Carbon::now()->format('Ymd')."USH".$request->input('user_host_id')."DPR".User_host::where('id',$request->input('user_host_id'))->firstOrFail()->departament->name,
       'user_host_id' => $request->input('user_host_id'),
       'detalle'=> $request->input('detalle'),
+
       'fecha'=> $request->input('fecha'),
       ]);
       switch ($request->input('reddi')) {

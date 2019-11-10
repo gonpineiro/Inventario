@@ -245,11 +245,11 @@
   ////////////////////////////////////////////////////////////////////////
 
   //FICHAS
-  Route::get('entregas', 'FichaentregaController@showFichaentrega')->middleware('can:entregas.show');
-  Route::get('form_entregas', 'FichaentregaController@formFichaentrega')->middleware('can:entregas.create');
-  Route::get('form_entregas/{id}', 'FichaentregaController@formFichaentregaonly')->middleware('can:entregas.create');
-  Route::post('add_ficha_entrega', 'FichaentregaController@createFichaentrega')->middleware('can:entregas.create');
-  Route::get('entregas/{id}/{type}', 'FichaentregaController@downdFichaentrega')->middleware('can:entregas.create');
+  Route::get('entregas', 'EntregaController@showFichaentrega')->middleware('can:entregas.show');
+  Route::get('form_entregas', 'EntregaController@formFichaentrega')->middleware('can:entregas.create');
+  Route::get('form_entregas/{id}', 'EntregaController@formFichaentregaonly')->middleware('can:entregas.create');
+  Route::post('add_ficha_entrega', 'EntregaController@createFichaentrega')->middleware('can:entregas.create');
+  Route::get('entregas/{id}/{type}', 'EntregaController@downdFichaentrega')->middleware('can:entregas.create');
   ////////////////////////////////////////////////////////////////////////
 
   //ADMINISTRACION
