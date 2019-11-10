@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-          <h1>Expansoras @can ('expansoras.create', $post) <a href="/form_expansora"> +</a> @endcan</h1>
+          <h1>Expansoras @can ('expansoras.create') <a href="/form_expansora"> +</a> @endcan</h1>
             <table class="table table-hover" id="host-table">
             <thead>
               <tr>

@@ -26,10 +26,6 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-
-
-
-
 @laravelPWA
 </head>
 <body>
@@ -50,7 +46,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Hosts de usuarios</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/hosts"><span>Todos</span></a>
+                                {{-- <a class="dropdown-item" href="/hosts"><span>Todos</span></a> --}}
                                 @can ('computadoras.show') <a class="dropdown-item" href="/computadoras"><span>Computadoras</span></a>@endcan
                                 @can ('notebooks.show') <a class="dropdown-item" href="/notebooks"><span>Notebooks</span></a>@endcan
                                 @can ('impresoras.show') <a class="dropdown-item" href="/impresoras"><span>Impresoras</span></a>@endcan
@@ -70,7 +66,7 @@
                                 @can ('switchs.show')<a class="dropdown-item" href="/switchs"><span>Switchs</span></a> @endcan
                                 @can ('accespoints.show')<a class="dropdown-item" href="/accespoints"><span>AccesPoints</span></a> @endcan
                                 <span>- - - - - - - - - - - - - -</span>
-                                <a class="dropdown-item" href="/form_cred_net"><span>Credenciales</span></a>
+                                @can ('crednets.show') <a class="dropdown-item" href="/form_cred_net"><span>Credenciales</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -79,12 +75,12 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">CCTV</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/seguridads"><span>Todos</span></a>
+                                {{-- <a class="dropdown-item" href="/seguridads"><span>Todos</span></a> --}}
                                 @can ('camaraips.show')<a class="dropdown-item" href="/camarasip"><span>Cámaras IP</span></a> @endcan
                                 @can ('camarasanas.show')<a class="dropdown-item" href="/camarasana"><span>Cámaras Analogicas</span></a> @endcan
                                 @can ('dvrs.show')<a class="dropdown-item" href="/dvrs"><span>DVR</span></a> @endcan
                                 <span>- - - - - - - - - - - - - -</span>
-                                <a class="dropdown-item" href="/form_cred_cctv"><span>Credenciales</span></a>
+                                @can ('credcctvs.show') <a class="dropdown-item" href="/form_cred_cctv"><span>Credenciales</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -93,17 +89,17 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">SDI / GNSS</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/abonados"><span>Abonados</span></a>
+                                @can ('abonados.show')<a class="dropdown-item" href="/abonados"><span>Abonados</span></a> @endcan
                                 @can ('camaraips.show')<a class="dropdown-item" href="/panel_alarms"><span>Paneles de alarma</span></a> @endcan
                                 @can ('tecladosdis.show')<a class="dropdown-item" href="/teclado_sdis"><span>Teclados</span></a> @endcan
                                 @can ('expansoras.show')<a class="dropdown-item" href="/expansoras"><span>Expansoras</span></a> @endcan
                                 @can ('comunicators.show')<a class="dropdown-item" href="/comunicators"><span>Comunicadores</span></a> @endcan
                                 @can ('sensors.show')<a class="dropdown-item" href="/sensors"><span>Sensores</span></a> @endcan
                                 @can ('sirenas.show')<a class="dropdown-item" href="/sirenas"><span>Sirenas</span></a> @endcan
-                                <a class="dropdown-item" href="/panics"><span>Panicos</span></a>
-                                <a class="dropdown-item" href="/trackers"><span>Trackers</span></a>
+                                @can ('panics.show')<a class="dropdown-item" href="/panics"><span>Panicos</span></a>@endcan
+                                @can ('trackers.show')<a class="dropdown-item" href="/trackers"><span>Trackers</span></a>@endcan
                                 <span>- - - - - - - - - - - - - -</span>
-                                <a class="dropdown-item" href="/card_sims"><span>SIMS</span></a>
+                                @can ('cardsims.show')<a class="dropdown-item" href="/card_sims"><span>SIMS</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -112,7 +108,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Periférico</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/perifericos"><span>Todos</span></a>
+                                {{-- <a class="dropdown-item" href="/perifericos"><span>Todos</span></a> --}}
                                 @can ('televisors.show')<a class="dropdown-item" href="/televisors"><span>Televisores</span></a> @endcan
                                 @can ('monitors.show')<a class="dropdown-item" href="/monitors"><span>Monitores</span></a> @endcan
                                 @can ('teclados.show')<a class="dropdown-item" href="/teclados"><span>Teclados</span></a> @endcan
