@@ -85,7 +85,7 @@
                   <div class="form-group col-md-3">
                     @php
                     if ($host->ip_publica != "127.0.0.1") {
-                      if (!is_null(ping($host->ip_publica, $host->tcp_ext, 1))) {
+                      if (!is_null(ping($host->ip_publica, $host->tcp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">TCP (ext)</label>';
                       }else{
                         echo  '<label for="tcp" style="color: red; font-weight: bold;">TCP (ext)</label>';
@@ -99,7 +99,7 @@
                   <div class="form-group col-md-3">
                     @php
                     if ($host->ip_publica != "127.0.0.1") {
-                      if (!is_null(ping($host->ip_publica, $host->udp_ext, 1))) {
+                      if (!is_null(ping($host->ip_publica, $host->udp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">UDP (ext)</label>';
                       }else{
                         echo  '<label for="tcp" style="color: red; font-weight: bold;">UDP (ext)</label>';
@@ -113,7 +113,7 @@
                   <div class="form-group col-md-2">
                     @php
                     if ($host->ip_publica != "127.0.0.1") {
-                      if (!is_null(ping($host->ip_publica, $host->http_ext, 1))) {
+                      if (!is_null(ping($host->ip_publica, $host->http_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">HTTP (ext)</label>';
                       }else{
                         echo  '<label for="tcp" style="color: red; font-weight: bold;">HTTP (ext)</label>';
@@ -127,7 +127,7 @@
                   <div class="form-group col-md-2">
                     @php
                     if ($host->ip_publica != "127.0.0.1") {
-                      if (!is_null(ping($host->ip_publica, $host->https_ext, 1))) {
+                      if (!is_null(ping($host->ip_publica, $host->https_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">HTTPs (ext)</label>';
                       }else{
                         echo  '<label for="tcp" style="color: red; font-weight: bold;">HTTPs (ext)</label>';
@@ -141,7 +141,7 @@
                   <div class="form-group col-md-2">
                     @php
                     if ($host->ip_publica != "127.0.0.1") {
-                      if (!is_null(ping($host->ip_publica, $host->rtsp_ext, 1))) {
+                      if (!is_null(ping($host->ip_publica, $host->rtsp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">RTSP (ext)</label>';
                       }else{
                         echo  '<label for="tcp" style="color: red; font-weight: bold;">RTSP (ext)</label>';
@@ -296,11 +296,11 @@
 @endsection
 
 @php
-    function ping($host, $port, $timeout)
+    function ping($host, $port)
     {
       try {
         $tB = microtime(true);
-        $fP = fSockOpen($host, $port, $errno, $errstr, $timeout);
+        $fP = fSockOpen($host, $port, $errno, $errstr, 0.1);
         if (!$fP) { return "down"; }
         $tA = microtime(true);
         return round((($tA - $tB) * 1000), 0);
