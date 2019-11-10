@@ -245,7 +245,8 @@
   ////////////////////////////////////////////////////////////////////////
 
   //FICHAS
-  Route::get('entregas', 'EntregaController@showFichaentrega')->middleware('can:entregas.show');
+  Route::get('fichas_entrega', 'EntregaController@showFichaentrega')->middleware('can:entregas.show');
+  Route::get('entregas', 'EntregaController@showEntregas')->middleware('can:entregas.show');
   Route::get('form_entregas', 'EntregaController@formFichaentrega')->middleware('can:entregas.create');
   Route::get('form_entregas/{id}', 'EntregaController@formFichaentregaonly')->middleware('can:entregas.create');
   Route::post('add_ficha_entrega', 'EntregaController@createFichaentrega')->middleware('can:entregas.create');

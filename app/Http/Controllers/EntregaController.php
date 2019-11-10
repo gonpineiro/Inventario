@@ -7,6 +7,7 @@ use App\Departament;
 use App\User_host;
 use App\Cliente;
 use App\Host;
+use App\Host_mov;
 use App\Fichas_entregas;
 use Carbon\Carbon;
 
@@ -19,6 +20,15 @@ class EntregaController extends Controller
 
     return view('administracion.fichasentrega.fichasentrega', [
       'fichas' => $ficha,
+    ]);
+
+  }
+
+  public function showEntregas(Request $request){
+    $host_mov = Host_mov::all();
+
+    return view('administracion.fichasentrega.entregas', [
+      'host_movs' => $host_mov,
     ]);
 
   }
@@ -62,29 +72,29 @@ class EntregaController extends Controller
   public function createFichaentrega(Request $request){
       $detalle = $request->input('detalle');
 
-      for ($i=0; $i < count($detalle); $i++) {
-        $host_id = (int)$detalle[$i]['host_id'];
-        if ($host_id != 0) {
-          $host = $this->findById($host_id);
-          $host->user_host_id = $request->input('user_host_id');
-          $host->save();
+      $fichas = Fichas_entregas::create([
+        'name' => Carbon::now()->format('Ymd')."USH".$request->input('user_host_id')."DPR".User_host::where('id',$request->input('user_host_id'))->firstOrFail()->departament->name,
+        'user_host_id' => $request->input('user_host_id'),
+        'detalle'=> $request->input('detalle'),
+        'fecha'=> $request->input('fecha'),
+      ]);
+
+
+        for ($i=0; $i < count($detalle); $i++) {
+          $host_id = (int)$detalle[$i]['host_id'];
+          if ($host_id != 0) {
+          $entrega = Host_mov::create([
+            'host_id' => $host_id,
+            'ficha_entrega_id' => $fichas->id,
+            'user_host_id' => $request->input('user_host_id'),
+            'type' => 1,
+          ]);
         }
       }
 
 
 
-      dd($host);
-      //$host = $this->findById($detalle[0]['host_id']);
-      //$host->user_host_id = $request->input('user_host_id');
 
-
-      $fichas = Fichas_entregas::create([
-      'name' => Carbon::now()->format('Ymd')."USH".$request->input('user_host_id')."DPR".User_host::where('id',$request->input('user_host_id'))->firstOrFail()->departament->name,
-      'user_host_id' => $request->input('user_host_id'),
-      'detalle'=> $request->input('detalle'),
-
-      'fecha'=> $request->input('fecha'),
-      ]);
       switch ($request->input('reddi')) {
         case 0:
            if ($host->host_type_id == 1) { return redirect('/only_computadora/'.$host->id); }
@@ -151,8 +161,11 @@ class EntregaController extends Controller
     if ($type == "v") {return $pdf->stream($fichasentrega->name.'.pdf');}
   }
 
-  private function findById($id){
+  private function findByIdHost($id){
       return Host::where('id', $id)->firstOrFail();
+  }
+  private function findByIdHostmov($id){
+      return Host_mov::where('id', $id)->firstOrFail();
   }
 
 

@@ -89,7 +89,8 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Entregas</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/entregas"><span>Consultar</span></a>
+                                <a class="dropdown-item" href="/fichas_entrega"><span>Consultar fichas</span></a>
+                                <a class="dropdown-item" href="/entregas"><span>Consultar entregas</span></a>
                                 <a class="dropdown-item" href="/form_entregas"><span>Generar entrega</span></a>
                             </div>
                         </li>

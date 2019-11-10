@@ -105,4 +105,5 @@ class Host extends Model
       return $this->hasMany('App\Host','cctv_id', 'id')->where('host_type_id',43);
     }
 
+
 }
