@@ -5,7 +5,7 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h1>Entregas realizadas</h1>
-          <table class="table table-hover" style="width:100%">
+          <table class="table table-hover" style="width:100%" id="host-table">
             <thead>
               <tr>
                 <th scope="col" style="width:5%">#</th>
@@ -27,7 +27,11 @@
                 @endforeach
             </tbody>
           </table>
-          <div class="text-center"> {!!$fichas->links();!!} </div>
+          <script >
+            $(document).ready(function() {
+            $('#host-table').DataTable();
+              } );
+          </script>
       </div>
     </div>
 </div>

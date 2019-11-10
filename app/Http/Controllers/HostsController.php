@@ -10,6 +10,7 @@ use App\Historial;
 use App\Cliente;
 use App\Host_work;
 use App\User_host;
+use App\Host_mov;
 use Carbon\Carbon;
 use App\Credential;
 
@@ -139,9 +140,15 @@ class HostsController extends Controller
             $host->estado_id = 1;
             if ($request->input('retirar_host') == TRUE) {
               $host->user_host_id = NULL;
-            }else {
-              $host->user_host_id = $request->input('user_host_id');
+
+              $entrega = Host_mov::create([
+                'host_id' => $host->id,
+                //'ficha_entrega_id' => $fichas->id,
+                'user_host_id' => $request->input('user_host_id'),
+                'type' => 0,
+              ]);
             }
+
             $host->save();
 
             $historial = Historial::create([
@@ -264,8 +271,13 @@ class HostsController extends Controller
             $host->estado_id = 1;
             if ($request->input('retirar_host') == TRUE) {
               $host->user_host_id = NULL;
-            }else {
-              $host->user_host_id = $request->input('user_host_id');
+
+              $entrega = Host_mov::create([
+                'host_id' => $host->id,
+                //'ficha_entrega_id' => $fichas->id,
+                'user_host_id' => $request->input('user_host_id'),
+                'type' => 0,
+              ]);
             }
             $host->save();
 
@@ -516,6 +528,10 @@ class HostsController extends Controller
 
         private function findByIdHost($id){
             return Host::where('id', $id)->firstOrFail();
+        }
+
+        private function findByIdHostmov($id){
+            return Host_mov::where('id', $id)->firstOrFail();
         }
 
 

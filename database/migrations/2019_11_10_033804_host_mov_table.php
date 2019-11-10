@@ -17,7 +17,7 @@ class HostMovTable extends Migration
           $table->increments('id');
           $table->integer('host_id')->unsigned();
           $table->integer('user_host_id')->unsigned();
-          $table->integer('ficha_entrega_id')->unsigned();
+          $table->integer('ficha_entrega_id')->unsigned()->nullable();
           $table->integer('type')->unsigned();
           $table->timestamps();
         });

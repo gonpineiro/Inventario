@@ -16,7 +16,7 @@ class EntregaController extends Controller
 {
 
   public function showFichaentrega(Request $request){
-    $ficha = Fichas_entregas::orderBy('id','DESC')->paginate();
+    $ficha = Fichas_entregas::orderBy('id','DESC')->get();
 
     return view('administracion.fichasentrega.fichasentrega', [
       'fichas' => $ficha,
@@ -25,7 +25,7 @@ class EntregaController extends Controller
   }
 
   public function showEntregas(Request $request){
-    $host_mov = Host_mov::all();
+    $host_mov = Host_mov::orderBy('ficha_entrega_id','DESC')->get();
 
     return view('administracion.fichasentrega.entregas', [
       'host_movs' => $host_mov,
@@ -37,7 +37,12 @@ class EntregaController extends Controller
 
     $last = Fichas_entregas::all()->max('id')+1;
     $modelo = Modelo::all();
-    $host = Host::whereNull('user_host_id')->get();
+
+    $host = Host::whereNull('user_host_id')
+      ->whereIn('host_type_id', [1, 2])
+      ->orderBy('host_type_id','DESC')
+      ->get();
+
     $departament = Departament::all();
     $userhost = User_host::all();
     $cliente = Cliente::all();
@@ -89,12 +94,15 @@ class EntregaController extends Controller
             'user_host_id' => $request->input('user_host_id'),
             'type' => 1,
           ]);
+          $host = $this->findByIdHost($host_id);
+          $host->user_host_id = $request->input('user_host_id');
+          $host->save();
         }
       }
 
 
 
-
+      //dd($host->id);
       switch ($request->input('reddi')) {
         case 0:
            if ($host->host_type_id == 1) { return redirect('/only_computadora/'.$host->id); }
