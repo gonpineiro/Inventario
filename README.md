@@ -1,5 +1,5 @@
-# Inventario v1.2
-
+# Inventario v1.2.1 Entregas
+#### Entregas
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
