@@ -1,4 +1,5 @@
-# Inventario
+# Inventario v1.2
+
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
@@ -23,7 +24,6 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   ```
 
 ####  4.  Cambiar a NULL la columna departament_id en la Tabla fichas_entregas
-
 
 
 ####  5. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
@@ -51,7 +51,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
 ####  7. Creacion del Seeder de PermissionsTable
 
   ```
-  ohp artisan db:seed --class="PermissionsTableSeeder"
+  php artisan db:seed --class="PermissionsTableSeeder"
   ```
 
 

@@ -46,7 +46,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <p style='margin-left: 8em'></p>
-                      @can ('computadoras.show | notebooks.show | impresoras.show | phoneips.show')
                       <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Hosts de usuarios</span></a>
@@ -60,7 +59,6 @@
                         </li>
                       </ul>
                       <p style='margin-left: 2em'></p>
-                      @endcan
 
                       <ul class="navbar-nav">
                         <li class="nav-item dropdown">
