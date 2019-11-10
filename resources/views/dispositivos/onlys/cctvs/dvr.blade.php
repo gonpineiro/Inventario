@@ -83,23 +83,73 @@
 
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="tcp">TCP (ext)</label>
+                    @php
+                    if ($host->ip_publica != "127.0.0.1") {
+                      if (!is_null(ping($host->ip_publica, $host->tcp_ext, 1))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">TCP (ext)</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">TCP (ext)</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">TCP (ext)</label>';
+                    }
+                    @endphp
                     <input type="text" class="form-control" id="tcp_ext" placeholder="{{$host->tcp_ext}}" name="tcp_ext" disabled>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="udp">UDP (ext)</label>
+                    @php
+                    if ($host->ip_publica != "127.0.0.1") {
+                      if (!is_null(ping($host->ip_publica, $host->udp_ext, 1))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">UDP (ext)</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">UDP (ext)</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">UDP (ext)</label>';
+                    }
+                    @endphp
                     <input type="text" class="form-control" id="udp_ext" placeholder="{{$host->udp_ext}}"  name="udp_ext" disabled>
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="http">HTTP (ext)</label>
+                    @php
+                    if ($host->ip_publica != "127.0.0.1") {
+                      if (!is_null(ping($host->ip_publica, $host->http_ext, 1))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">HTTP (ext)</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">HTTP (ext)</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">HTTP (ext)</label>';
+                    }
+                    @endphp
                     <input type="text" class="form-control" id="http_ext" placeholder="{{$host->http_ext}}"  name="http_ext" disabled>
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="https">HTTPs (ext)</label>
+                    @php
+                    if ($host->ip_publica != "127.0.0.1") {
+                      if (!is_null(ping($host->ip_publica, $host->https_ext, 1))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">HTTPs (ext)</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">HTTPs (ext)</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">HTTPs (ext)</label>';
+                    }
+                    @endphp
                     <input type="text" class="form-control" id="https_ext" placeholder="{{$host->https_ext}}"  name="https_ext" disabled>
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="rtsp">RTSP (ext)</label>
+                    @php
+                    if ($host->ip_publica != "127.0.0.1") {
+                      if (!is_null(ping($host->ip_publica, $host->rtsp_ext, 1))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">RTSP (ext)</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">RTSP (ext)</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">RTSP (ext)</label>';
+                    }
+                    @endphp
                     <input type="text" class="form-control" id="rtsp_ext" placeholder="{{$host->rtsp_ext}}"  name="rtsp_ext" disabled>
                   </div>
                 </div>
@@ -244,3 +294,18 @@
 
 
 @endsection
+
+@php
+    function ping($host, $port, $timeout)
+    {
+      try {
+        $tB = microtime(true);
+        $fP = fSockOpen($host, $port, $errno, $errstr, $timeout);
+        if (!$fP) { return "down"; }
+        $tA = microtime(true);
+        return round((($tA - $tB) * 1000), 0);
+      } catch (\Exception $e) {}
+    }
+
+
+@endphp
