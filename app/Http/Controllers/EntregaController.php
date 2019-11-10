@@ -83,8 +83,7 @@ class EntregaController extends Controller
         'detalle'=> $request->input('detalle'),
         'fecha'=> $request->input('fecha'),
       ]);
-
-
+      
         for ($i=0; $i < count($detalle); $i++) {
           $host_id = (int)$detalle[$i]['host_id'];
           if ($host_id != 0) {
@@ -100,9 +99,6 @@ class EntregaController extends Controller
         }
       }
 
-
-
-      //dd($host->id);
       switch ($request->input('reddi')) {
         case 0:
            if ($host->host_type_id == 1) { return redirect('/only_computadora/'.$host->id); }

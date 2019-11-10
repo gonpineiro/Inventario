@@ -140,7 +140,6 @@ class HostsController extends Controller
             $host->estado_id = 1;
             if ($request->input('retirar_host') == TRUE) {
               $host->user_host_id = NULL;
-
               $entrega = Host_mov::create([
                 'host_id' => $host->id,
                 //'ficha_entrega_id' => $fichas->id,
