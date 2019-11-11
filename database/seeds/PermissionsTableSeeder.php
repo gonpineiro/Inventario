@@ -183,6 +183,12 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Sirena','slug'  => 'sirenas.only','description'  => 'Detalle de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Editar Sirena','slug'  => 'sirenas.edit','description'  => 'Editar de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Crear Sirena','slug'  => 'sirenas.create','description'  => 'Crear de Sirena']);
+        //PANICOS
+
+        DB::table('permissions')->insert(['name'  => 'Ver Panicos','slug'  => 'panicos.show','description'  => 'Tabla Panicos']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Panico','slug'  => 'panicos.only','description'  => 'Detalle de Panico']);
+        DB::table('permissions')->insert(['name'  => 'Editar Panico','slug'  => 'panicos.edit','description'  => 'Editar de Panico']);
+        DB::table('permissions')->insert(['name'  => 'Crear Panico','slug'  => 'panicos.create','description'  => 'Crear de Panico']);
         //SIMS_CARDS
 
         DB::table('permissions')->insert(['name'  => 'Ver SIMs','slug'  => 'cardsims.show','description'  => 'Tabla SIMs']);

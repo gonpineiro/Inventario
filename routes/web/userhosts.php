@@ -7,7 +7,7 @@ Route::get('/only_computadora/{id}', 'HostsController@onlyComputadora')->middlew
 Route::get('/form_computadora', 'HostsController@formComputadora')->middleware('can:computadoras.create');
 Route::post('/add_computadora', 'HostsController@createComputaora')->middleware('can:computadoras.create');
 Route::post('/update_computadora/{id}', 'HostsController@updateComputadora')->middleware('can:computadoras.edit');
-Route::get('/edit_computadora/{id}', 'HostsController@editComputadora')->middleware('can:computadoras.edit');
+Route::get('/edit_computadora/{id}', 'HostsController@editComputadora')->middleware('can:computadoras.edit','VerifyHostTypeId');
 
 Route::get('/notebooks', 'HostsController@showNotebooks')->middleware('can:notebooks.show');
 Route::get('/only_notebook/{id}', 'HostsController@onlyNotebook')->middleware('can:notebooks.only');

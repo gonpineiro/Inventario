@@ -47,6 +47,13 @@ Route::post('/add_sirena', 'SdiController@createSirena')->middleware('can:sirena
 Route::post('/update_sirena/{id}', 'SdiController@updateSirena')->middleware('can:sirenas.edit');
 Route::get('/edit_sirena/{id}', 'SdiController@editSirena')->middleware('can:sirenas.edit');
 
+Route::get('/panicos', 'SdiController@showPanico')->middleware('can:panicos.edit');
+Route::get('/only_panico/{id}', 'SdiController@onlyPanico')->middleware('can:panicos.only');
+Route::get('/form_panico', 'SdiController@formPanico')->middleware('can:panicos.create');
+Route::post('/add_panico', 'SdiController@createPanico')->middleware('can:panicos.create');
+Route::post('/update_panico/{id}', 'SdiController@updatePanico')->middleware('can:panicos.edit');
+Route::get('/edit_panico/{id}', 'SdiController@editPanico')->middleware('can:panicos.edit');
+
 Route::get('/card_sims', 'CardsimController@showCardsim')->middleware('can:cardsims.show');
 Route::post('/add_card_sim', 'CardsimController@createCardsim')->middleware('can:cardsims.create');
 ////////////////////////////////////////////////////////////////////////

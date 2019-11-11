@@ -23,7 +23,7 @@
                     @if ($host->host->host_type->id == 40)
                       <td>{{$host->id}}</td>
                       @can ('sensors.only') <td><a href="/only_sensor/{{$host->id}}">{{$host->name}}</a></td> @else {{$host->name}} @endcan
-                      @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td> @else <td>{{$host->host->name}} | (P)</td> @endcan
+                      @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td> @endcan
                       <td>{{$host->host->abonado->numero}}</td>
                       <td>{{$host->host->abonado->cliente->name}}</td>
                       <td>{{$host->zona}}</td>
@@ -32,7 +32,7 @@
                     @if ($host->host->host_type->id == 41)
                       <td>{{$host->id}}</td>
                       @can ('sensors.only') <td><a href="/only_sensor/{{$host->id}}">{{$host->name}}</a></td> @else {{$host->name}} @endcan
-                      @can ('expansoras.only') <td><a href="/only_expansora/{{$host->host->id}}">{{$host->host->name}}</a> | (E)</td> @else <td>{{$host->host->name}} | (E)</td> @endcan
+                      @can ('expansoras.only') <td><a href="/only_expansora/{{$host->host->id}}">{{$host->host->name}}</a> | (E)</td> @endcan
                       <td>{{$host->host->host["abonado"]["numero"]}}</td>
                       <td>{{$host->host->host["abonado"]["cliente"]["name"]}}</td>
                       <td>{{$host->zona}}</td>
@@ -41,7 +41,7 @@
                     @if ($host->host->host_type->id == 44)
                       <td>{{$host->id}}</td>
                       @can ('sensors.only') <td><a href="/only_sensor/{{$host->id}}">{{$host->name}}</a></td> @else {{$host->name}} @endcan
-                      @can ('tecladosdis.only') <td><a href="/only_teclado/{{$host->host->id}}">{{$host->host->name}}</a> | (T)</td> @else <td>{{$host->host->name}} | (T)</td> @endcan
+                      @can ('tecladosdis.only') <td><a href="/only_teclado_sdi/{{$host->host->id}}">{{$host->host->name}}</a> | (T)</td> @else @endcan
                       <td>{{$host->host->host["abonado"]["numero"]}}</td>
                       <td>{{$host->host->host["abonado"]["cliente"]["name"]}}</td>
                       <td>{{$host->zona}}</td>
