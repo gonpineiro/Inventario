@@ -4,7 +4,8 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-          <h1>Comunicadores @can ('comunicators.create') <a href="/form_comunicator"> +</a> @endcan </h1>
+          <h3>Comunicadores @can ('comunicators.create') <a href="/form_comunicator"> +</a> @endcan </h3>
+            <br>
             <table class="table table-hover" id="host-table">
             <thead>
               <tr>

@@ -4,27 +4,28 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Modelos</h1>
-          <table class="table table-hover" id="host-table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Tipo</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($modelos as $modelo)
-                  <tr>
-                    <td>{{$modelo->id}}</td>
-                    <td>{{$modelo->name}}</td>
-                    <td>{{$modelo->marca}}</td>
-                    <td>{{$modelo->host_type->name}}</td>
-                  </tr>
-                @endforeach
-            </tbody>
-          </table>
+        <h3>Modelos</h3>
+        <br>
+        <table class="table table-hover" id="host-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach ($modelos as $modelo)
+                <tr>
+                  <td>{{$modelo->id}}</td>
+                  <td>{{$modelo->name}}</td>
+                  <td>{{$modelo->marca}}</td>
+                  <td>{{$modelo->host_type->name}}</td>
+                </tr>
+              @endforeach
+          </tbody>
+        </table>
       </div>
       @can ('marcas.create')
 

@@ -4,7 +4,8 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col-md-8 cl-8">
-        <h1>Credenciales </h1>
+        <h3>Credenciales </h3>
+          <br>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -34,9 +35,9 @@
           </table>
       </div>
       <div class="col-md-4 cl-4">
-        @can ('credcctvs.create') @if ($ver == "agregar") <h1>Agregar</h1> @endif  @endcan
-        @can ('credcctvs.edit') @if ($ver == "editar") <h1>Modificando</h1> @endif @endcan
-
+        @can ('credcctvs.create') @if ($ver == "agregar") <h3>Agregar</h3> @endif  @endcan
+        @can ('credcctvs.edit') @if ($ver == "editar") <h3>Modificando</h3> @endif @endcan
+          <br>
         @can('credcctvs.create') <div class="card"> @else @can ('credcctvs.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
             <div class="card-header">{{ __('Agregar') }}</div>
             <div class="card-body">

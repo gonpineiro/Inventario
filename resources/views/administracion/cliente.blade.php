@@ -4,27 +4,29 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Clientes </h1>
-          <table class="table table-hover" id="host-table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($clientes as $cliente)
-                  <tr>
-                    <td>{{$cliente->id}}</td>
-                    <td>{{$cliente->name}}</td>
-                  </tr>
-                @endforeach
-            </tbody>
-          </table>
+        <h3>Clientes </h3>
+        <br>
+        <table class="table table-hover" id="host-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach ($clientes as $cliente)
+                <tr>
+                  <td>{{$cliente->id}}</td>
+                  <td>{{$cliente->name}}</td>
+                </tr>
+              @endforeach
+          </tbody>
+        </table>
       </div>
       @can ('clients.create')
       <div class="col cl-6">
-        <h1>Agregar cliente</h1>
+        <h3>Agregar cliente</h3>
+        <br>
         <div class="card">
             <div class="card-header">{{ __('Registrar') }}</div>
             <div class="card-body">
