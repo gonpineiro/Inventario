@@ -11,26 +11,23 @@
                 <form action="/add_computadora" method="post" name="form">
                   {{ csrf_field() }}
                   <div class="form-row">
-
                     <div class="form-group col-md-3">
                       <label for="serial">Nombre</label>
                       <input type="text" class="form-control" id="name" name="name" placeholder="" required>
                     </div>
-
                     <div class="form-group col-md-3">
                       <label for="modelo">Modelo</label>
                         <select class="form-control" name="modelo">
+                          <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
                           @endforeach
                         </select>
                     </div>
-
                     <div class="form-group col-md-3">
                       <label for="serial">Serial</label>
                       <input type="text" class="form-control" id="serial" placeholder="" name="serial" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>
-
                     <div class="form-group col-md-3">
                       <label for="mac_adress">Clase</label>
                       <select class="form-control" name="class" required>
@@ -40,8 +37,6 @@
                       </select>
                     </div>
                   </div>
-
-
 
                   <div class="form-row">
                         <div class="form-group col-md-4">
@@ -91,5 +86,5 @@
       </div>
   </div>
 
-  
+
 @endsection

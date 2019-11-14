@@ -18,6 +18,7 @@
                     <div class="form-group col-md-3">
                       <label for="modelo">Modelo</label>
                         <select class="form-control" name="modelo">
+                          <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
                           @endforeach

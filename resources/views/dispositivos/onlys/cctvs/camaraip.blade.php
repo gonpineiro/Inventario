@@ -8,57 +8,53 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_camaraip/{{$host->id}}" method="get" name="form-edit">
-
                   <div class="form-row">
-                      <div class="form-group col-md-4">
-                         <label for="name">Nombre</label>
-                         <input type="text" class="form-control" id="name" placeholder="{{$host->name}}" disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                          <label for="modelo">Modelo</label>
-                          <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                          <label for="serial">Serial</label>
-                          <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
-                      </div>
+                    <div class="form-group col-md-4">
+                       <label for="name">Nombre</label>
+                       <input type="text" class="form-control" id="name" placeholder="{{$host->name}}" disabled>
                     </div>
-
+                    <div class="form-group col-md-4">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" class="form-control" id="modelo" placeholder={{$host->modelo->name}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="serial">Serial</label>
+                        <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
+                    </div>
+                  </div>
                   <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <label for="mac_adress">Mac address</label>
-                          <input type="text" class="form-control" id="mac_adress" placeholder={{$host->mac_adress}} disabled>
-                        </div>
-                        <div class="form-group col-md-4">
-                          <label for="ip_local">Ip local</label>
-                          <input type="text" class="form-control" id="ip_local" placeholder={{$host->ip_local}} disabled>
-                        </div>
-                        <div class="form-group col-md-4">
-                          <label for="ip_publica<">Mascara</label>
-                          <input type="text" class="form-control" id="mascara" @if (!is_null($host->mascara)) placeholder={{$host->mascara}} @else placeholder="" @endif  disabled>
-                        </div>
+                    <div class="form-group col-md-4">
+                      <label for="mac_adress">Mac address</label>
+                      <input type="text" class="form-control" id="mac_adress" placeholder={{$host->mac_adress}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="ip_local">Ip local</label>
+                      <input type="text" class="form-control" id="ip_local" placeholder={{$host->ip_local}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="ip_publica<">Mascara</label>
+                      <input type="text" class="form-control" id="mascara" @if (!is_null($host->mascara)) placeholder={{$host->mascara}} @else placeholder="" @endif  disabled>
+                    </div>
                   </div>
 
                   <div class="form-row">
-                        <div class="form-group col-md-3">
-                          <label for="mac_adress">Publica</label>
-                          <input type="text" class="form-control" id="ip_publica" @if (!is_null($host->ip_publica)) placeholder={{$host->ip_publica}} @else placeholder="" @endif  disabled>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="mac_adress">Gateway</label>
-                          <input type="text" class="form-control" id="gateway" @if (!is_null($host->gateway)) placeholder={{$host->gateway}} @else placeholder="" @endif  disabled>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="ip_local">DNS Primario</label>
-                          <input type="text" class="form-control" id="primarydns" @if (!is_null($host->primarydns)) placeholder={{$host->primarydns}} @else placeholder="" @endif  disabled>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="ip_publica<">DNS Secundario</label>
-                          <input type="text" class="form-control" id="secondarydns" @if (!is_null($host->secondarydns)) placeholder={{$host->secondarydns}} @else placeholder="" @endif  disabled>
-                        </div>
+                    <div class="form-group col-md-3">
+                      <label for="mac_adress">Publica</label>
+                      <input type="text" class="form-control" id="ip_publica" @if (!is_null($host->ip_publica)) placeholder={{$host->ip_publica}} @else placeholder="" @endif  disabled>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="mac_adress">Gateway</label>
+                      <input type="text" class="form-control" id="gateway" @if (!is_null($host->gateway)) placeholder={{$host->gateway}} @else placeholder="" @endif  disabled>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="ip_local">DNS Primario</label>
+                      <input type="text" class="form-control" id="primarydns" @if (!is_null($host->primarydns)) placeholder={{$host->primarydns}} @else placeholder="" @endif  disabled>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="ip_publica<">DNS Secundario</label>
+                      <input type="text" class="form-control" id="secondarydns" @if (!is_null($host->secondarydns)) placeholder={{$host->secondarydns}} @else placeholder="" @endif  disabled>
+                    </div>
                   </div>
-
-
 
                   <div class="form-row">
                     <div class="form-group col-md-3">
@@ -164,12 +160,12 @@
                   @else
                     <div class="form-group col-md-4">
                       <label for="cctv">Grabando en...</label>
-                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - {{$cctv->departament->name}} - {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
+                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
                     </div>
                   @endif
                   <div class="form-group col-md-3">
                     <label for="departament">Afectado</label>
-                    <input type="text" class="form-control" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
+                    <input type="text" class="form-control" placeholder="D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}" disabled>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="departament">Ubicacion/Zona</label>
@@ -218,9 +214,7 @@
                         @endforeach
                         </tbody>
                       </table>
-
                   </div>
-
                 </div>
                 <script >
                         $(document).ready(function() {
@@ -249,12 +243,11 @@
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observación</label>
-                          <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observación</label>
+                      <textarea rows="5" cols="50" type="text" class="form-control" id="comentario" name="comentario" required></textarea>
+                    </div>
                   </div>
-
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
               </div>

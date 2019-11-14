@@ -49,9 +49,9 @@
                         <div class="form-group col-md-6">
                           <label for="departament">Afectado</label>
                           <select class="form-control" name="departament" required>
-                            <option value="{{$host->departament_id}}">{{$host->departament->name}} - {{$host->departament->cliente->name}}</option>
+                            <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
                             @foreach ($departaments as $departament)
-                              <option value="{{$departament->id}}">{{$departament->name}} - {{$departament->cliente->name}}</option>
+                              <option value="{{$departament->id}}">C: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
                             @endforeach
                           </select>
                         </div>

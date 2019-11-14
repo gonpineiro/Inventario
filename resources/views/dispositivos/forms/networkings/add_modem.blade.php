@@ -18,6 +18,7 @@
                     <div class="form-group col-md-4">
                       <label for="modelo">Modelo</label>
                         <select class="form-control" name="modelo">
+                          <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
                           @endforeach
@@ -28,9 +29,6 @@
                       <input type="text" class="form-control" id="serial" placeholder="" name="serial" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>
                   </div>
-
-
-
                   <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="mac_adress">Mac address</label>
@@ -44,8 +42,9 @@
                   <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputEmail4">Afectado</label><select class="form-control" name="departament" required>
+                            <option value="">- - - Seleccione - - -</option>
                             @foreach ($departaments as $departament)
-                              <option value="{{$departament->id}}">{{$departament->name}} - {{$departament->cliente->name}}</option>
+                              <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
                             @endforeach
                           </select>
                         </div>

@@ -31,14 +31,14 @@
                   @else
                     <div class="form-group col-md-12">
                       <label for="cctv">Grabando en...</label>
-                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - {{$cctv->departament->name}} - {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
+                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
                     </div>
                   @endif
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="departament">Afectado</label>
-                      <input type="text" class="form-control" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
+                      <input type="text" class="form-control" placeholder="D: {{$host->departament->name}} - C:{{$host->departament->cliente->name}}" disabled>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="valor">Ubicacion/Zona</label>
@@ -50,10 +50,10 @@
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observaciónes</label>
-                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observaciónes</label>
+                      <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                    </div>
                   </div>
               @can ('camarasanas.edit') <button type=""  class="btn btn-dark">Modificar</button> @endcan
               </form>

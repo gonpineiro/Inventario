@@ -18,6 +18,7 @@
                     <div class="form-group col-md-4">
                       <label for="modelo">Modelo</label>
                         <select class="form-control" name="modelo">
+                          <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
                           @endforeach
@@ -115,22 +116,24 @@
                           <div class="form-group col-md-4">
                             <label for="ip_publica">Grabando en...</label>
                             <select class="form-control" name="cctv" required>
+                              <option value="">- - - Seleccione - - -</option>
                               @foreach ($cctvs as $cctv)
-                                <option value="{{$cctv->id}}">{{$cctv->name}} - {{$cctv->departament->name}}</option>
+                                <option value="{{$cctv->id}}">{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}</option>
                               @endforeach
                             </select>
                           </div>
                           <div class="form-group col-md-3">
-                            <label for="departament">Afectado</label><select class="form-control" name="departament" required>
+                            <label for="departament">Afectado</label>
+                            <select class="form-control" name="departament" required>
+                              <option value="">- - - Seleccione - - -</option>
                               @foreach ($departaments as $departament)
-                                <option value="{{$departament->id}}">{{$departament->name}} - {{$departament->cliente->name}}</option>
+                                <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
                               @endforeach
                             </select>
                           </div>
                           <div class="form-group col-md-3">
                               <label for="valor">Ubicacion/Zona</label>
                               <input type="text" class="form-control" id="valor" placeholder="" name="zona">
-                            </select>
                           </div>
                           <div class="form-group col-md-2">
                             <label for="valor">Valor</label>

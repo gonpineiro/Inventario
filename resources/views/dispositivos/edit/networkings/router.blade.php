@@ -45,7 +45,7 @@
                         </div>
                   </div>
 
-                  @if (!is_null($host->user_1))
+                  {{-- @if (!is_null($host->user_1))
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="user_1">Usuario</label>
@@ -58,16 +58,16 @@
                     </div>
                   @else
 
-                  @endif
+                  @endif --}}
 
 
                   <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputEmail4">Afectado</label>
                           <select class="form-control" name="departament" required>
-                            <option value="{{$host->departament_id}}">{{$host->departament->name}} - {{$host->departament->cliente->name}}</option>
+                            <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
                             @foreach ($departaments as $departament)
-                              <option value="{{$departament->id}}">{{$departament->name}} - {{$departament->cliente->name}}</option>
+                              <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
                             @endforeach
                           </select>
                         </div>

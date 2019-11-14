@@ -18,6 +18,7 @@
                      <div class="form-group col-md-4">
                        <label for="modelo_id">Modelo</label>
                          <select class="form-control" name="modelo_id">
+                           <option value="">- - - Seleccione - - -</option>
                            <option value="{{$host->modelo_id}}">{{$host->modelo->name}}</option>
                            @foreach ($modelos as $modelo)
                              <option value="{{$modelo->id}}">{{$modelo->name}}</option>
@@ -36,12 +37,12 @@
                          @if (is_null($host->cctv_id))
                            <option > - </option>
                            @foreach ($cctvss as $cctvs)
-                             <option value="{{$cctvs->id}}">{{$cctvs->name}} - {{$cctvs->departament->name}} - {{$cctv->departament->cliente->name}}</option>
+                             <option value="{{$cctvs->id}}">{{$cctvs->name}} - D: {{$cctvs->departament->name}} - C: {{$cctv->departament->cliente->name}}</option>
                            @endforeach
                          @else
-                           <option value="{{$cctv->id}}">{{$cctv->name}} - {{$cctv->departament->name}} - {{$cctv->departament->cliente->name}}</option>
+                           <option value="{{$cctv->id}}">{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}</option>
                            @foreach ($cctvss as $cctvs)
-                             <option value="{{$cctvs->id}}">{{$cctvs->name}} - {{$cctvs->departament->name}}</option>
+                             <option value="{{$cctvs->id}}">{{$cctvs->name}} - D: {{$cctvs->departament->name}}</option>
                            @endforeach
                          @endif
 
@@ -51,9 +52,9 @@
                    <div class="form-row">
                          <div class="form-group col-md-4">
                            <label for="inputEmail4">Afectado</label><select class="form-control" name="departament" required>
-                             <option value="{{$host->departament_id}}">{{$host->departament->name}} - {{$host->departament->cliente->name}}</option>
+                             <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
                              @foreach ($departaments as $departament)
-                               <option value="{{$departament->id}}">{{$departament->name}} - {{$host->departament->cliente->name}}</option>
+                               <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$host->departament->cliente->name}}</option>
                              @endforeach
                            </select>
                          </div>
