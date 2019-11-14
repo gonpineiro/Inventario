@@ -35,9 +35,11 @@ class AdministracionController extends Controller
   public function showUsershost(Request $request){
     $user = User_host::all();
     $departament = Departament::all();
+    $ver = "agregar";
     return view('administracion.users_host', [
       'users' => $user,
       'departaments' => $departament,
+      'ver' => $ver,
     ]);
 
   }
@@ -52,6 +54,35 @@ class AdministracionController extends Controller
       ]);
     return redirect('/users_host');
   }
+
+  public function editUserhost($id, Request $request){
+    $user = User_host::all();
+    $departament = Departament::all();
+    $onlyUserHost = $this->findByIdUserHost($id);
+    $ver = "editar";
+
+      return view('administracion.users_host', [
+          'users' => $user,
+          'onlyUserHost' => $onlyUserHost,
+          'ver' => $ver,
+          'departaments' => $departament,
+      ]);
+
+  }
+
+  public function updateUserHost($id, Request $request){
+
+      $onlyUserHost = $this->findByIdUserHost($id);
+      $onlyUserHost->name = $request->input('name');
+      $onlyUserHost->apellido = $request->input('apellido');
+      $onlyUserHost->email = $request->input('email');
+      $onlyUserHost->departament_id = $request->input('departament_id');
+      $onlyUserHost->save();
+
+      return redirect('/users_host/');
+    }
+
+
 
   public function showHistorials(Request $request){
 
@@ -88,6 +119,10 @@ class AdministracionController extends Controller
     'cliente_id' =>$request->input('cliente_id'),
   ]);
   return redirect('/departaments');
+  }
+
+  private function findByIdUserHost($id){
+      return User_host::where('id', $id)->firstOrFail();
   }
 
 }

@@ -4,7 +4,8 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Usuarios</h1>
+        <h3>Usuarios</h3>
+        <br>
           <table class="table table-hover" id="host-table">
             <thead>
               <tr>
@@ -29,9 +30,9 @@
           </table>
       </div>
       <div class="col col-md-4">
-        @can ('users.create') @if ($ver == "agregar") <h1>Agregar</h1> @endif @endcan
-        @can ('users.edit') @if ($ver == "editar") <h1>Modificando</h1> @endif @endcan
-
+        @can ('users.create') @if ($ver == "agregar") <h3>Agregar</h3> @endif @endcan
+        @can ('users.edit') @if ($ver == "editar") <h3>Modificando</h3> @endif @endcan
+          <br>
         @can('users.create') <div class="card"> @else @can ('users.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
           @if ($ver == "agregar") <div class="card-header">Agregar Usuario</div> @endif
           @if ($ver == "editar") <div class="card-header">Modificando {{$onlyUser->name}}</div> @endif
@@ -82,6 +83,7 @@
                     <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
               @endif
+
               @if ($ver == "editar")
                 <form method="POST" action="/update_user/{{$onlyUser->id}}">
                     @csrf

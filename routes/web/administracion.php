@@ -2,8 +2,12 @@
 
   //ADMINISTRACION
   Route::get('/administracion', 'AdministracionController@index')->name('administracion');
+
   Route::get('/users_host', 'AdministracionController@showUsersHost')->middleware('can:userhosts.show');
   Route::post('/add_user_host', 'AdministracionController@createUserhost')->middleware('can:userhost.create');
+  Route::get('/edit_user_host/{id}', 'AdministracionController@editUserhost')->middleware('can:userhost.edit');
+  Route::post('/update_user_host/{id}', 'AdministracionController@updateUserhost')->middleware('can:userhost.edit');
+
   Route::get('/historial', 'AdministracionController@showHistorials')->middleware('can:historials.show');
   Route::get('/modelos', 'ModelosController@show')->middleware('can:marcas.show');
   Route::post('/add_model', 'ModelosController@createModel')->middleware('can:marcas.create');

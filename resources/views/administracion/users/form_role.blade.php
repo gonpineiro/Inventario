@@ -1,7 +1,7 @@
 @extends('layouts.administracion')
 
 @section('content')
-  <div class="container">
+  <div class="container " >
     <div class="row mt-2">
       <div class="col col-md-12">
         <form method="POST" action="/create_role">
