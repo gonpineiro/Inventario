@@ -27,35 +27,34 @@
                     </div>
                   </div>
                   <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label for="inputEmail4">Usuario</label>
-                        <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
-
-                      </div>
-                          <div class="form-group col-md-4">
-                            <label for="inputEmail4">Mac address</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
-                          </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputPassword4">Ip local</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
-                      </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputEmail4">Usuario</label>
+                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputEmail4">Mac address</label>
+                      <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputPassword4">Ip local</label>
+                      <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
+                    </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="departament">Afectado</label>
-                          <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->departament->name}} - {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="valor">Valor</label>
-                          <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
-                        </div>
+                    <div class="form-group col-md-6">
+                      <label for="departament">Afectado</label>
+                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="D: {{$host->user_host->departament->name}} - C: {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="valor">Valor</label>
+                      <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
+                    </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observaciónes</label>
-                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observaciónes</label>
+                      <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
+                    </div>
                   </div>
                   @can ('computadora.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
                   @can ('entregas.create') @if (is_null($host->user_host))<a href="/form_entregas/{{$host->id}}" class="btn btn-dark">Generar documento de entrega</a> @endif @endcan
@@ -128,7 +127,7 @@
                 </div>
                 <br/>
                 @endcan
-                
+
                 <div class="card">
                   <div class="card-header text-center">QR</div>
                     <div class="card-body">

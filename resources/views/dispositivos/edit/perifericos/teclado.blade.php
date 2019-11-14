@@ -31,20 +31,17 @@
                         </select>
                       </div>
                     </div>
-
                     <div class="form-row">
                       <div class="form-group col-md-12">
                         <label for="estado">Instalado en...</label>
                         <select class="form-control" name="cctv" required>
-                            <option value="{{$cctv->id}}">{{$cctv->name}} @if (!is_null($cctv->user_host))- {{$cctv->user_host->name}} @endif </option>
+                            <option value="{{$cctv->id}}">{{$cctv->name}} @if (!is_null($cctv->user_host)) - U: {{$cctv->user_host->apellido}} {{$cctv->user_host->name}} - D: {{$cctv->user_host->departament->name}} - C: {{$cctv->user_host->departament->cliente->name}}@endif </option>
                             @foreach ($computadors as $computador)
-                              <option value="{{$computador->id}}">{{$computador->name}} @if (!is_null($computador->user_host))- {{$computador->user_host->name}} @endif</option>
+                              <option value="{{$computador->id}}">{{$computador->name}} @if (!is_null($computador->user_host)) - U: {{$computador->user_host->apellido}} {{$computador->user_host->name}} - D: {{$computador->user_host->departament->name}} - C: {{$computador->user_host->departament->cliente->name}}@endif</option>
                             @endforeach
-
                         </select>
                       </div>
                     </div>
-
                     <div class="form-row">
                           <div class="form-group col-md">
                             <label for="comentario">Observaciónes</label>

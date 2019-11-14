@@ -67,7 +67,7 @@ class PerifericoController extends Controller
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
     $departament = Departament::all();
 
-    return view('forms.add_monitor', [
+    return view('dispositivos.forms.perifericos.add_monitor', [
       'estados' => $estado,
       'departaments' => $departament,
       'modelos' => $modelo,
@@ -187,7 +187,7 @@ class PerifericoController extends Controller
 
 
     $departament = Departament::all();
-    return view('forms.add_televisor', [
+    return view('dispositivos.forms.perifericos.add_televisor', [
       'estados' => $estado,
       'departaments' => $departament,
       'modelos' => $modelo,
@@ -305,7 +305,7 @@ class PerifericoController extends Controller
 
 
     $departament = Departament::all();
-    return view('forms.add_teclado', [
+    return view('dispositivos.forms.perifericos.add_teclado', [
       'estados' => $estado,
       'departaments' => $departament,
       'modelos' => $modelo,
@@ -424,7 +424,7 @@ class PerifericoController extends Controller
 
 
     $departament = Departament::all();
-    return view('forms.add_mouse', [
+    return view('dispositivos.forms.perifericos.add_mouse', [
       'estados' => $estado,
       'departaments' => $departament,
       'modelos' => $modelo,
@@ -526,7 +526,7 @@ class PerifericoController extends Controller
 
 
     $departament = Departament::all();
-    return view('forms.add_webcam', [
+    return view('dispositivos.forms.perifericos.add_webcam', [
       'estados' => $estado,
       'departaments' => $departament,
       'modelos' => $modelo,
@@ -613,7 +613,7 @@ class PerifericoController extends Controller
       $host->comentario = $request->input('comentario');
       $host->estado_id = 1;
       $host->save();
-      
+
       $historial = Historial::create([
         'user_id' => $user->id,
         'host_id' => $host->id,

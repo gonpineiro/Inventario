@@ -43,7 +43,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="departament">Afectado</label>
-                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->departament->name}} - {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
+                      <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="D: {{$host->user_host->departament->name}} - C: {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="valor">Valor</label>

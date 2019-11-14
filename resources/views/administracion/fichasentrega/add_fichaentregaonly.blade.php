@@ -33,14 +33,13 @@
                       </tr>
                     </thead>
                     <tbody>
-
-                          <tr>
-                            <td><input type="number" class="form-control" value= 1 name="" disabled></td>
-                                <input type="number" class="form-control"  value= 1 name="detalle[0][cantidad]" hidden>
-                            <td><input type="text" class="form-control"  value="{{$host->modelo->marca}} - {{$host->modelo->name}} - {{$host->serial}}"disabled></td>
-                                <input type="text" class="form-control" value="{{$host->id}}" name="detalle[0][host_id]" hidden>
-                            <td><input type="text" class="form-control"  placeholder="" name="detalle[0][obs]" ></td>
-                          </tr>
+                      <tr>
+                        <td><input type="number" class="form-control" value= 1 name="" disabled></td>
+                            <input type="number" class="form-control"  value= 1 name="detalle[0][cantidad]" hidden>
+                        <td><input type="text" class="form-control"  value="{{$host->modelo->marca}} - {{$host->modelo->name}} - {{$host->serial}}"disabled></td>
+                            <input type="text" class="form-control" value="{{$host->id}}" name="detalle[0][host_id]" hidden>
+                        <td><input type="text" class="form-control"  placeholder="" name="detalle[0][obs]" ></td>
+                      </tr>
                     </tbody>
                   </table>
                   <input type="text" class="form-control" value=0 name="reddi" hidden>

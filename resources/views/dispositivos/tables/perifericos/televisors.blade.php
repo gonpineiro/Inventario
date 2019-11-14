@@ -13,6 +13,9 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Afectado</th>
                 <th scope="col">Modelo</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Cliente</th>
               </tr>
             </thead>
             <tbody>

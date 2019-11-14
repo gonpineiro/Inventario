@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
   <div class="container">
     <div class="row justify-content-md-center">
@@ -31,7 +32,8 @@
                     @else
                       <div class="form-group col-md-12">
                         <label for="cctv">Instalado en...</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="{{$host->host->name}} "  name="cctv" disabled>
+                        <input type="text" class="form-control" id="cctv" placeholder=
+                        "{{$host->host->name}} @if (!is_null($host->host->user_host)) U: {{$host->host->user_host->apellido}} {{$host->host->user_host->name}} - D: {{$host->host->user_host->departament->name}} - C: {{$host->host->user_host->departament->cliente->id}}  @endif "name="cctv" disabled>
                       </div>
                     @endif
                     </div>

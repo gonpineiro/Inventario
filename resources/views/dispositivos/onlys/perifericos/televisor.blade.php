@@ -8,7 +8,6 @@
             <div class="card-header">{{$host->name}}</div>
               <div class="card-body">
                 <form action="/edit_televisor/{{$host->id}}" method="get" name="form-edit">
-
                   <div class="form-row">
                       <div class="form-group col-md-4">
                           <label for="modelo">Modelo</label>
@@ -32,7 +31,8 @@
                     @else
                       <div class="form-group col-md-12">
                         <label for="cctv">Instalado en...</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="{{$host->host->name}} "  name="cctv" disabled>
+                        <input type="text" class="form-control" id="cctv" placeholder=
+                        "{{$host->host->name}} @if (!is_null($host->host->user_host)) U: {{$host->host->user_host->apellido}} {{$host->host->user_host->name}} - D: {{$host->host->user_host->departament->name}} - C: {{$host->host->user_host->departament->cliente->id}}  @endif "name="cctv" disabled>
                       </div>
                     @endif
                     </div>

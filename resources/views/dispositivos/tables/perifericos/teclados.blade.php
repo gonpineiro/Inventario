@@ -23,8 +23,8 @@
                   <tr>
                     <td>{{$host->id}}</td>
                     @can ('teclados.only') <td><a href="/only_teclado/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
-                    <td>{{$host->host->name}} </td>
                     <td>{{$host->modelo->name}}</td>
+                    <td>{{$host->host->name}} </td>
                     <td> @if (!is_null($host->host->user_host)){{$host->host->user_host->name}} {{$host->host->user_host->apellido}} @endif</td>
                     <td> @if (!is_null($host->host->user_host)){{$host->host->user_host->departament->name}} @endif</td>
                     <td> @if (!is_null($host->host->user_host)){{$host->host->user_host->departament->cliente->name}} @endif</td>

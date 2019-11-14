@@ -39,7 +39,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="departament">Afectado</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->departament->name}} - {{$host->departament->cliente->name}}" disabled>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}" disabled>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="valor">Valor</label>
