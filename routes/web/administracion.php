@@ -9,8 +9,12 @@
   Route::post('/update_user_host/{id}', 'AdministracionController@updateUserhost')->middleware('can:userhost.edit');
 
   Route::get('/historial', 'AdministracionController@showHistorials')->middleware('can:historials.show');
+
   Route::get('/modelos', 'ModelosController@show')->middleware('can:marcas.show');
-  Route::post('/add_model', 'ModelosController@createModel')->middleware('can:marcas.create');
+  Route::post('/add_modelo', 'ModelosController@createModelo')->middleware('can:marcas.create');
+  Route::get('/edit_modelo/{id}', 'ModelosController@editModelo')->middleware('can:marcas.edit');
+  Route::post('/update_modelo/{id}', 'ModelosController@updateModelo')->middleware('can:marcas.edit');
+
   Route::get('/clientes', 'ClientesController@show')->middleware('can:clients.show');
   Route::post('/add_cliente', 'ClientesController@CreateCliente')->middleware('can:clients.create');
   Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:departaments.show');

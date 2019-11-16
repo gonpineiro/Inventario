@@ -22,7 +22,7 @@
                   <td>{{$user->id}}</td>
                   <td>{{$user->name}} {{$user->apellido}}</td>
                   <td>{{$user->email}}</td>
-                  <td>{{$user->departament->name}} - {{$user->departament->cliente->name}}</td>
+                  <td>D: {{$user->departament->name}} - C: {{$user->departament->cliente->name}}</td>
                   @can ('userhosts.edit') <td><a href="/edit_user_host/{{$user->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
                 </tr>
               @endforeach
@@ -30,16 +30,15 @@
         </table>
       </div>
 
+        @can('userhosts.create') <div class="col col-md-4"> @else @can ('userhosts.edit') <div class="col col-md-4"> @else <div class="col col-md-4" hidden> @endcan @endcan
 
-        <div class="col col-md-4">
-          @can ('userhosts.create') @if ($ver == "agregar") <h3>Agregar</h3> @endif @endcan
-          @can ('userhosts.edit') @if ($ver == "editar") <h3>Modificando</h3> @endif @endcan
+         @if ($ver == "agregar") <h3>Agregar</h3> @endif
+        @if ($ver == "editar") <h3>Modificando</h3> @endif
             <br>
-          @can('userhosts.create') <div class="card"> @else @can ('userhosts.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
+        <div class="card">
             @if ($ver == "agregar") <div class="card-header">Agregar Usuario</div> @endif
             @if ($ver == "editar") <div class="card-header">Modificando {{$onlyUserHost->name}}</div> @endif
               <div class="card-body">
-
                 @if ($ver == "agregar")
                   <form method="POST" action="/add_user_host">
                       @csrf
@@ -123,10 +122,16 @@
                       <button type="submit" class="btn btn-dark">Modificar</button>
                   </form>
                 @endif
-
               </div>
+
           </div>
         </div>
+
+        <script >
+                $(document).ready(function() {
+                $('#host-table').DataTable();
+                  } );
+        </script>
     </div>
 </div>
 

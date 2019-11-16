@@ -12,15 +12,16 @@ class ModelosController extends Controller
 
           $modelo = Modelo::orderBy('name')->get();
           $host_type = Host_type::orderBy('name')->get();
-
+          $ver = "agregar";
           return view('administracion.modelos', [
 
             'modelos' => $modelo,
             'host_types' => $host_type,
+            'ver' => $ver,
           ]);
 
         }
-        public function createModel(Request $request){
+        public function createModelo(Request $request){
 
 
             $modelo = Modelo::create([
@@ -31,5 +32,35 @@ class ModelosController extends Controller
                 ]);
 
           return redirect('/modelos');
+        }
+
+        public function editModelo($id, Request $request){
+
+          $modelo = Modelo::orderBy('name')->get();
+          $onlyModelo = $this->findByIdModelo($id);
+          $host_type = Host_type::orderBy('name')->get();
+          $ver = "editar";
+
+            return view('administracion.modelos', [
+                'modelos' => $modelo,
+                'onlyModelo' => $onlyModelo,
+                'host_types' => $host_type,
+                'ver' => $ver,
+            ]);
+
+        }
+
+        public function updateModelo($id, Request $request){
+
+            $onlyModelo = $this->findByIdModelo($id);
+            $onlyModelo->name = $request->input('name');
+            $onlyModelo->marca = $request->input('marca');
+            $onlyModelo->save();
+
+            return redirect('/modelos/');
+          }
+
+        private function findByIdModelo($id){
+            return Modelo::where('id', $id)->firstOrFail();
         }
 }

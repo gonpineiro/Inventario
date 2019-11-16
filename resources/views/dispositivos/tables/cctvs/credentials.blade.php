@@ -2,9 +2,9 @@
 
 @section('content')
   <div class="container">
-    <div class="row mt-2">
-      <div class="col-md-8 cl-8">
-        <h3>Credenciales </h3>
+    <div class="row mt-2">      
+        <div class="col cl-8">
+          <h3>Credenciales</h3>
           <br>
           <table class="table table-hover" id="host-table">
             <thead>
@@ -33,15 +33,14 @@
                 @endforeach
             </tbody>
           </table>
-      </div>
-      <div class="col-md-4 cl-4">
-        @can ('credcctvs.create') @if ($ver == "agregar") <h3>Agregar</h3> @endif  @endcan
-        @can ('credcctvs.edit') @if ($ver == "editar") <h3>Modificando</h3> @endif @endcan
+        </div>
+        @can('credcctvs.create') <div class="col-md-4 cl-4"> @else @can ('credcctvs.edit') <div class="col-md-4 cl-4"> @else <div class="col-md-4 cl-4" hidden> @endcan @endcan
+
+          @if ($ver == "agregar") <h3>Agregar</h3> @elseif ($ver == "editar") @endif
           <br>
-        @can('credcctvs.create') <div class="card"> @else @can ('credcctvs.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
+          <div class="card">
             <div class="card-header">{{ __('Agregar') }}</div>
             <div class="card-body">
-              @can ('credcctvs.create')
                 @if ($ver == "agregar")
                   <form method="POST" action="/add_cred_cctv">
                       @csrf
@@ -94,9 +93,7 @@
                       </div>
                   </form>
                 @endif
-              @endcan
 
-              @can ('credcctvs.edit')
               @if ($ver == "editar")
                 <form method="POST" action="/update_cred_cctv/{{$onlyCred->id}}">
                     @csrf
@@ -140,7 +137,6 @@
                     </div>
                 </form>
                 @endif
-                @endcan
             </div>
         </div>
       </div>

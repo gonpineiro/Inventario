@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row mt-2">
-      <div class="col cl-6">
+      <div class="col cl-8">
         <h3>Usuarios</h3>
         <br>
           <table class="table table-hover" id="host-table">
@@ -29,9 +29,10 @@
             </tbody>
           </table>
       </div>
-      <div class="col col-md-4">
-        @can ('users.create') @if ($ver == "agregar") <h3>Agregar</h3> @endif @endcan
-        @can ('users.edit') @if ($ver == "editar") <h3>Modificando</h3> @endif @endcan
+      @can('users.create') <div class="col col-md-4"> @else @can ('users.edit') <div class="col col-md-4"> @else <div class="col col-md-4" hidden> @endcan @endcan
+
+        @if ($ver == "agregar") <h3>Agregar</h3> @endif
+        @if ($ver == "editar") <h3>Modificando</h3> @endif
           <br>
         @can('users.create') <div class="card"> @else @can ('users.edit') <div class="card"> @else <div class="card" hidden> @endcan @endcan
           @if ($ver == "agregar") <div class="card-header">Agregar Usuario</div> @endif
