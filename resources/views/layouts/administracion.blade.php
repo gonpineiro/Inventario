@@ -44,11 +44,11 @@
                       <p style='margin-left: 4em'></p>
                       <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Usuarios</span></a>
+                            <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre ><span class="caret" >Usuarios</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/users"><span>Usuarios del sistema</span></a>
-                                <a class="dropdown-item" href="/roles"><span>Roles</span></a>
-                                <a class="dropdown-item" href="/users_host"><span>Usuarios de host</span></a>
+                                @can ('users.show') <a class="dropdown-item" href="/users"><span>Usuarios del sistema</span></a> @endcan
+                                @can ('roles.show') <a class="dropdown-item" href="/roles"><span>Roles</span></a> @endcan
+                                @can ('userhosts.show') <a class="dropdown-item" href="/users_host"><span>Usuarios de host</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -58,20 +58,18 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Marcas</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/modelos"><span>Listar</span></a>
+                                @can ('marcas.show') <a class="dropdown-item" href="/modelos"><span>Listar</span></a> @endcan
                             </div>
                         </li>
                       </ul>
-
-
 
                       <p style='margin-left: 4em'></p>
                       <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Organizacion</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/clientes"><span>Clientes</span></a>
-                                <a class="dropdown-item" href="/departaments"><span>Departamentos</span></a>
+                                @can ('clients.show') <a class="dropdown-item" href="/clientes"><span>Clientes</span></a> @endcan
+                                @can ('departaments.show') <a class="dropdown-item" href="/departaments"><span>Departamentos</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -81,7 +79,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Historial</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/historial"><span>Consultar</span></a>
+                                @can ('historials.show') <a class="dropdown-item" href="/historial"><span>Consultar</span></a> @endcan
                             </div>
                         </li>
                       </ul><p style='margin-left: 4em'></p>
@@ -89,9 +87,9 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Entregas</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/fichas_entrega"><span>Consultar fichas</span></a>
-                                <a class="dropdown-item" href="/entregas"><span>Consultar entregas</span></a>
-                                <a class="dropdown-item" href="/form_entregas"><span>Generar entrega</span></a>
+                                @can ('entregas.show') <a class="dropdown-item" href="/fichas_entrega"><span>Consultar fichas</span></a> @endcan
+                                @can ('entregas.show') <a class="dropdown-item" href="/entregas"><span>Consultar entregas</span></a> @endcan
+                                @can ('entregas.create') <a class="dropdown-item" href="/form_entregas"><span>Generar entrega</span></a> @endcan
                             </div>
                         </li>
                       </ul>

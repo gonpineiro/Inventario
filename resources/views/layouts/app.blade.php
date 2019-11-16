@@ -65,8 +65,8 @@
                                 @can ('routers.show')<a class="dropdown-item" href="/routers"><span>Routers</span></a> @endcan
                                 @can ('switchs.show')<a class="dropdown-item" href="/switchs"><span>Switchs</span></a> @endcan
                                 @can ('accespoints.show')<a class="dropdown-item" href="/accespoints"><span>AccesPoints</span></a> @endcan
-                                <span>- - - - - - - - - - - - - -</span>
-                                @can ('crednets.show') <a class="dropdown-item" href="/form_cred_net"><span>Credenciales</span></a> @endcan
+                                @can ('crednets.show') <span>- - - - - - - - - - - - - -</span>
+                                <a class="dropdown-item" href="/form_cred_net"><span>Credenciales</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -79,8 +79,8 @@
                                 @can ('camaraips.show')<a class="dropdown-item" href="/camarasip"><span>Cámaras IP</span></a> @endcan
                                 @can ('camarasanas.show')<a class="dropdown-item" href="/camarasana"><span>Cámaras Analogicas</span></a> @endcan
                                 @can ('dvrs.show')<a class="dropdown-item" href="/dvrs"><span>DVR</span></a> @endcan
-                                <span>- - - - - - - - - - - - - -</span>
-                                @can ('credcctvs.show') <a class="dropdown-item" href="/form_cred_cctv"><span>Credenciales</span></a> @endcan
+                                @can ('credcctvs.show') <span>- - - - - - - - - - - - - -</span>
+                                <a class="dropdown-item" href="/form_cred_cctv"><span>Credenciales</span></a> @endcan
                             </div>
                         </li>
                       </ul>
@@ -98,8 +98,8 @@
                                 @can ('sirenas.show')<a class="dropdown-item" href="/sirenas"><span>Sirenas</span></a> @endcan
                                 @can ('panics.show')<a class="dropdown-item" href="/panics"><span>Panicos</span></a>@endcan
                                 @can ('trackers.show')<a class="dropdown-item" href="/trackers"><span>Trackers</span></a>@endcan
-                                <span>- - - - - - - - - - - - - -</span>
-                                @can ('cardsims.show')<a class="dropdown-item" href="/card_sims"><span>SIMS</span></a> @endcan
+                                @can ('cardsims.show')<span>- - - - - - - - - - - - - -</span>
+                                <a class="dropdown-item" href="/card_sims"><span>SIMS</span></a> @endcan
                             </div>
                         </li>
                       </ul>

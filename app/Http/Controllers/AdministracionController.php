@@ -87,14 +87,9 @@ class AdministracionController extends Controller
   public function showHistorials(Request $request){
 
     $historial = Historial::orderBy('id','desc')->get();
-        //  dd($historial[0]->id);
-        //  $user = User::all();
-        //  $host = Host::all();
 
     return view('administracion.historial', [
-      // 'users' => $user,
       'historials' => $historial,
-      //'hosts' => $host,
     ]);
 
   }
@@ -103,12 +98,12 @@ class AdministracionController extends Controller
   public function showDepartaments(Request $request){
     $departament = Departament::all();
     $cliente = Cliente::all();
-    //dd($cliente);
-    //dd($departament);
+    $ver = "agregar";
 
     return view('administracion.departaments', [
       'clientes' => $cliente,
       'departaments' => $departament,
+      'ver' => $ver,
     ]);
 
   }
@@ -121,8 +116,37 @@ class AdministracionController extends Controller
   return redirect('/departaments');
   }
 
+  public function editDepartament($id, Request $request){
+    $departament = Departament::all();
+    $cliente = Cliente::all();
+    $onlyDerpartament = $this->findByIdDepartament($id);
+    $ver = "editar";
+
+      return view('administracion.departaments', [
+          'clientes' => $cliente,
+          'onlyDerpartament' => $onlyDerpartament,
+          'ver' => $ver,
+          'departaments' => $departament,
+      ]);
+
+  }
+
+  public function updateDepartament($id, Request $request){
+
+      $onlyDerpartament = $this->findByIdDepartament($id);
+      $onlyDerpartament->name = $request->input('name');
+      $onlyDerpartament->cliente_id = $request->input('cliente_id');
+      $onlyDerpartament->save();
+
+      return redirect('/departaments/');
+    }
+
   private function findByIdUserHost($id){
       return User_host::where('id', $id)->firstOrFail();
+  }
+
+  private function findByIdDepartament($id){
+      return Departament::where('id', $id)->firstOrFail();
   }
 
 }

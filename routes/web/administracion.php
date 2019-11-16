@@ -22,6 +22,8 @@
 
   Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:departaments.show');
   Route::post('/add_departament', 'AdministracionController@createDepartament')->middleware('can:departaments.create');
+  Route::get('/edit_departament/{id}', 'AdministracionController@editDepartament')->middleware('can:departaments.edit');
+  Route::post('/update_departament/{id}', 'AdministracionController@updateDepartament')->middleware('can:departaments.edit');
   //////////////////////////////////////////////////////////////////////////REGISTRO DE TRABAJOS POR HOST
   Route::post('/add_work/{id}', 'HostworksController@createHostwork');
   ////////////////////////////////////////////////////////////////////////
