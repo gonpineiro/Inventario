@@ -1,33 +1,23 @@
 
-# Inventario v1.3.1  - Entregas 
+# Inventario v1.3.2
+
+Terminar Modulo de entregas:
+
+- Realizar la logica de la devolución.
 
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
 
-### Esta rama esta en  modo de prueba
-####  1.  Se Agrego la libreria de shinobi.
 
-  ```
-  composer require caffeinated/shinobi
-  ```
-
-####  2.  Publish de la configuracion para traer las migration
-
-  ```
-  php artisan vendor:publish --provider="Caffeinated\Shinobi\ShinobiServiceProvider" --tag="config"
-  ```
-
-####  3.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
+####  1.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
 
   ```
   BigInt(20)
   ```
 
-####  4.  Cambiar a NULL la columna departament_id en la Tabla fichas_entregas
 
-
-####  5. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
+####  2. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
 
   ```
   public function persmissions(){
@@ -42,14 +32,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   /vendor/caffeinated/shinobi/src/Models/Role.php
   ```
 
-####  6. Modifico la linea 90 del archivo: config/shinobi
-
-
-  ```
-  'migrate' => false,
-  ```
-
-####  7. Creacion del Seeder de PermissionsTable
+####  3. Creacion del Seeder de PermissionsTable
 
   ```
   php artisan db:seed --class="PermissionsTableSeeder"

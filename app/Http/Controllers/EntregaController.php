@@ -82,6 +82,7 @@ class EntregaController extends Controller
         'user_host_id' => $request->input('user_host_id'),
         'detalle'=> $request->input('detalle'),
         'fecha'=> $request->input('fecha'),
+        'type'=> 1,
       ]);
 
         for ($i=0; $i < count($detalle); $i++) {
@@ -152,7 +153,7 @@ class EntregaController extends Controller
       //dd($cliente->id." ".$cliente->name);
 
       $cliente_id = $fichasentrega->user_host->departament->cliente->id;
-      $view =  \View::make('pdf.fichadeentega',
+      $view =  \View::make('administracion.fichasentrega.pdf.fichadeentega',
       compact('fichasentrega','host_01','modelo_01','host_02','modelo_02','host_03','modelo_03','host_04','modelo_04','host_05','modelo_05','cliente_id'
       ))->render();
       $pdf = \App::make('dompdf.wrapper');

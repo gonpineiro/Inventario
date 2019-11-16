@@ -1,4 +1,4 @@
-@extends('layouts.pdf_entrega')
+@extends('administracion.fichasentrega.layouts.pdf_entrega')
 
 @section('content')
   <div class="container">
