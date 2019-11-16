@@ -83,7 +83,7 @@ class EntregaController extends Controller
         'detalle'=> $request->input('detalle'),
         'fecha'=> $request->input('fecha'),
       ]);
-      
+
         for ($i=0; $i < count($detalle); $i++) {
           $host_id = (int)$detalle[$i]['host_id'];
           if ($host_id != 0) {

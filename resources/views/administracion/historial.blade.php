@@ -11,6 +11,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Fecha</th>
+              <th scope="col">Dispositivo</th>
               <th scope="col">Usuario</th>
               <th scope="col">Tipo</th>
             </tr>
@@ -18,8 +19,10 @@
           <tbody>
               @foreach ($historials as $historial)
                 <tr>
+
                   <td>{{$historial->id}}</td>
                   <td>{{$historial->created_at->format('d/m/Y')}}</td>
+                  @if (!is_null($historial->host)) <td>{{$historial->host->id}} - N: {{$historial->host->name}} - T: {{$historial->host->host_type->name}}</td> @else <td> </td> @endif
                   <td>{{$historial->user->name}}</td>
                   <td>
                       @switch($historial->type)
