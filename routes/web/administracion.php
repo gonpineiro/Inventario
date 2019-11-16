@@ -17,6 +17,9 @@
 
   Route::get('/clientes', 'ClientesController@show')->middleware('can:clients.show');
   Route::post('/add_cliente', 'ClientesController@CreateCliente')->middleware('can:clients.create');
+  Route::get('/edit_cliente/{id}', 'ClientesController@editCliente')->middleware('can:clients.edit');
+  Route::post('/update_cliente/{id}', 'ClientesController@updateCliente')->middleware('can:clients.edit');
+
   Route::get('/departaments', 'AdministracionController@showDepartaments')->middleware('can:departaments.show');
   Route::post('/add_departament', 'AdministracionController@createDepartament')->middleware('can:departaments.create');
   //////////////////////////////////////////////////////////////////////////REGISTRO DE TRABAJOS POR HOST
