@@ -10,27 +10,12 @@ class StartSRV extends Seeder
      * @return void
      */
     public function run()  {
-      //unserialize
-    #  DB::table('users')->insert(['name' => 'Gonzalo Piñeiro'],['email' => 'gonzalopineiro@sab5.com.ar'],['password' => '$10$IR3KNbtcV6MXrFq6KAvW2u6bX.T7kA7WaDj9I6S1XcO7.yk4A7JD.']);
-      //estados
+
+      DB::table('users')->insert(['name' => 'administrador','email' => 'administrador@sab5.com.ar','password' => '$2y$10$6gJTsnUyPc8XJ7J/C1f14euqL1pgDKnQt8xzPkNbkgZo53syKl3aK']);
+
+      //ESTADOS
       DB::table('estados')->insert(['name' => 'Operando']);
       DB::table('estados')->insert(['name' => 'Baja']);
-      //CLIENTES
-      DB::table('clientes')->insert(['name' => 'SAB-5']);
-      DB::table('clientes')->insert(['name' => 'Consisa']);
-      DB::table('clientes')->insert(['name' => 'BrouClean']);
-      DB::table('clientes')->insert(['name' => 'Netshoes']);
-      DB::table('clientes')->insert(['name' => 'Sanatorio']);
-      DB::table('clientes')->insert(['name' => 'Violetta']);
-
-
-      //DEPARTAMENTS
-      DB::table('departaments')->insert(['name' => 'IT','cliente_id' => 1]);
-      DB::table('departaments')->insert(['name' => 'COP','cliente_id' => 1]);
-      DB::table('departaments')->insert(['name' => 'Tesoreria','cliente_id' => 2]);
-      DB::table('departaments')->insert(['name' => 'Legales','cliente_id' => 1]);
-      DB::table('departaments')->insert(['name' => 'RRHH','cliente_id' => 2]);
-
 
       //HOST TYPE (Host de Usuarios)
       DB::table('host_types')->insert(['name' => 'Computadora','id' => 1]);
@@ -50,6 +35,7 @@ class StartSRV extends Seeder
       DB::table('host_types')->insert(['name' => 'NVR','id' => 22]);
       DB::table('host_types')->insert(['name' => 'XVR','id' => 23]);
       DB::table('host_types')->insert(['name' => 'Cámara analógica','id' => 24]);
+
       //HOST TYPE (Perifericos)
       DB::table('host_types')->insert(['name' => 'Monitor','id' => 30]);
       DB::table('host_types')->insert(['name' => 'Televisor','id' => 31]);
@@ -63,12 +49,8 @@ class StartSRV extends Seeder
       DB::table('host_types')->insert(['name' => 'Sensor','id' => 43]);
       DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
       DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
-    }
-
-      DB::table('users')->insert(['name' => 'administrador','email' => 'administrador@sab5.com.ar','password' => '$2y$10$6gJTsnUyPc8XJ7J/C1f14euqL1pgDKnQt8xzPkNbkgZo53syKl3aK']);
 
       //MODELOS
-
       DB::table('modelos')->insert(['marca' => 'Dahua','name' => 'DVR-12CH720','host_type_id' => 21]);
       DB::table('modelos')->insert(['marca' => 'Dahua','name' => 'DVR-12CH1080','host_type_id' => 21]);
       DB::table('modelos')->insert(['marca' => 'Dahua','name' => 'CAMIP-720','host_type_id' => 20]);
@@ -79,15 +61,22 @@ class StartSRV extends Seeder
       DB::table('modelos')->insert(['marca' => 'Net','name' => 'ASUS151','host_type_id' => 1]);
       DB::table('modelos')->insert(['marca' => 'ZAP','name' => 'E900','host_type_id' => 12]);
 
-      //cctvs
-      /*DB::table('cctvs')->insert(['name' => 'DV1']);
-      DB::table('cctvs')->insert(['name' => 'DVR2']);
-      DB::table('cctvs')->insert(['name' => 'DVR3']);
-      DB::table('cctvs')->insert(['name' => 'NVR1']);
-      DB::table('cctvs')->insert(['name' => 'NVR2']);
-      DB::table('cctvs')->insert(['name' => 'NVR3']);
-      DB::table('cctvs')->insert(['name' => 'XVR1']);
-      DB::table('cctvs')->insert(['name' => 'XVR3']);*/
+      //CLIENTES
+      DB::table('clientes')->insert(['name' => 'SAB-5']);
+      DB::table('clientes')->insert(['name' => 'Consisa']);
+      DB::table('clientes')->insert(['name' => 'BrouClean']);
+      DB::table('clientes')->insert(['name' => 'Netshoes']);
+      DB::table('clientes')->insert(['name' => 'Sanatorio']);
+      DB::table('clientes')->insert(['name' => 'Violetta']);
+
+      //DEPARTAMENTS
+      DB::table('departaments')->insert(['name' => 'IT','cliente_id' => 1]);
+      DB::table('departaments')->insert(['name' => 'COP','cliente_id' => 1]);
+      DB::table('departaments')->insert(['name' => 'Tesoreria','cliente_id' => 2]);
+      DB::table('departaments')->insert(['name' => 'Legales','cliente_id' => 1]);
+      DB::table('departaments')->insert(['name' => 'RRHH','cliente_id' => 2]);
+
+
 
 
 

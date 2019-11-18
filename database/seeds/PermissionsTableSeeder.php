@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Caffeinated\Shinobi\Models\Permission;
+use Caffeinated\Shinobi\Models\Role;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
 
+        Role::create(['name'  => 'Admin','slug'  => 'admin','special'  => 'all-access',]);  //ADMIN ROLL
+        DB::table('role_user')->insert(['role_id' => '1','user_id' => 1]);                  //ASOCIANDO AL ADMIN USER
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //HOST DE USUARIOS
         //COMPUTADORAS
@@ -40,9 +43,6 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Editar Telefono-IP','slug'  => 'phoneips.edit','description'  => 'Editar de Telefono-IP']);
         DB::table('permissions')->insert(['name'  => 'Crear Telefono-IP','slug'  => 'phoneips.create','description'  => 'Crear de Telefono-IP']);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
         //NETWORKING
         //MODEM
@@ -76,9 +76,6 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Crear Credencial','slug'  => 'crednets.create','description'  => 'Crear de Credencial']);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
         //CCTV
         //CAMARA-IP
         DB::table('permissions')->insert(['name'  => 'Ver Camara-IP','slug'  => 'camaraips.show','description'  => 'Tabla Camara-IP']);
@@ -103,9 +100,6 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Credencial','slug'  => 'credcctvs.only','description'  => 'Detalle de Credencial']);
         DB::table('permissions')->insert(['name'  => 'Editar Credencial','slug'  => 'credcctvs.edit','description'  => 'Editar de Credencial']);
         DB::table('permissions')->insert(['name'  => 'Crear Credencial','slug'  => 'credcctvs.create','description'  => 'Crear de Credencial']);
-
-
-
 
         //PERIFERICOS
         //MONITOR
@@ -137,9 +131,6 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Web Cam','slug'  => 'webcams.only','description'  => 'Detalle de Web Cam']);
         DB::table('permissions')->insert(['name'  => 'Editar Web Cam','slug'  => 'webcams.edit','description'  => 'Editar de Web Cam']);
         DB::table('permissions')->insert(['name'  => 'Crear Web Cam','slug'  => 'webcams.create','description'  => 'Crear de Web Cam']);
-
-
-
 
         //SDI
         //PANEL DE ALARMA
@@ -195,9 +186,6 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle SIM','slug'  => 'cardsims.only','description'  => 'Detalle de SIM']);
         DB::table('permissions')->insert(['name'  => 'Editar SIM','slug'  => 'cardsims.edit','description'  => 'Editar de SIM']);
         DB::table('permissions')->insert(['name'  => 'Crear SIM','slug'  => 'cardsims.create','description'  => 'Crear de SIM']);
-
-
-
 
         //ADMINISTRACION
         //USUARIOS DEL SISTEMA

@@ -4,20 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartamentsTable extends Migration
+class CreateHistorialsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
-        Schema::create('departaments', function (Blueprint $table) {
+        Schema::create('historials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
-            $table->string('name',25);
-            $table->string('comentario')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->integer('host_id')->unsigned();
+            $table->integer('type')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateDepartamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departaments');
+        Schema::dropIfExists('historials');
     }
 }

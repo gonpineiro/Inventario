@@ -16,10 +16,10 @@ class CreateCredentialsTable extends Migration
         Schema::create('credentials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('host_id')->unsigned();
-            $table->string('username');
-            $table->string('password');
-            $table->string('type');
-            $table->string('comentario');
+            $table->string('username',10);
+            $table->string('password',20);
+            $table->string('type',10);
+            $table->string('comentario',100);
             $table->timestamps();
         });
     }

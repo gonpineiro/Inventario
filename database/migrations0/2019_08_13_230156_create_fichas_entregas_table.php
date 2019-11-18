@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartamentsTable extends Migration
+class CreateFichasEntregasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateDepartamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departaments', function (Blueprint $table) {
+        Schema::create('fichas_entregas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
-            $table->string('name',25);
-            $table->string('comentario')->nullable();
+            $table->string('name');
+            $table->timestamp('fecha');
+            $table->integer('departament_id')->unsigned();
+            $table->integer('user_host_id')->unsigned();
+            $table->json('detalle');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateDepartamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departaments');
+        Schema::dropIfExists('fichas_entregas');
     }
 }

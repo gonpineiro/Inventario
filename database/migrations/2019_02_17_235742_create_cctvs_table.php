@@ -15,7 +15,7 @@ class CreateCctvsTable extends Migration
     {
         Schema::create('cctvs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');      
+            $table->string('name',25);      
             $table->timestamps();
         });
     }

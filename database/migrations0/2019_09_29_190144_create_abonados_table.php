@@ -18,7 +18,6 @@ class CreateAbonadosTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->string('type')->nullable();
             $table->string('email')->nullable();
-            $table->string('numero')->nullable();
 
             $table->string('direccion')->nullable();
             $table->string('localidad')->nullable();

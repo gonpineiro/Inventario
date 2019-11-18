@@ -15,9 +15,10 @@ class CreateUsersHostTable extends Migration
     {
         Schema::create('user_hosts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('departament_id')->unsigned();
             $table->string('name');
+            $table->string('apellido');
             $table->string('email');
-            $table->string('puesto');
             $table->timestamps();
         });
     }

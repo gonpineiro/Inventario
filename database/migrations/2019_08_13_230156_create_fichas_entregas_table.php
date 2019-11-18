@@ -17,9 +17,10 @@ class CreateFichasEntregasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->timestamp('fecha');
-            $table->integer('departament_id')->unsigned();
+            $table->integer('departament_id')->unsigned()->nullable();
+            $table->integer('type')->unsigned();
             $table->integer('user_host_id')->unsigned();
-            $table->json('detalle');
+            $table->json('detalle',50);
             $table->timestamps();
         });
     }

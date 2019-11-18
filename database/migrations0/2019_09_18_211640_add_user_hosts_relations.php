@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadosTable extends Migration
+class AddUserHostsRelations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateEstadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estados', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name',15);
-            $table->timestamps();
+      Schema::table('user_hosts', function (Blueprint $table) {
+          $table->foreign('departament_id')->references('id')->on('departaments');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateEstadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estados');
+      Schema::table('user_hosts', function (Blueprint $table) {
+          $table->dropForeign('user_hosts_departament_id_foreign');
+      });
     }
 }

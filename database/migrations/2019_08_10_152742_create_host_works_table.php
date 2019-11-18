@@ -16,8 +16,8 @@ class CreateHostWorksTable extends Migration
         Schema::create('host_works', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('host_id')->unsigned();
-            $table->string('trabajo');
-            $table->string('comentario');
+            $table->string('trabajo',50);
+            $table->string('comentario',100);
             $table->timestamp('fecha');
             $table->timestamps();
         });

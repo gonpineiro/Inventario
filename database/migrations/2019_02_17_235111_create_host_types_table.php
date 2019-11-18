@@ -15,7 +15,7 @@ class CreateHostTypesTable extends Migration
     {
         Schema::create('host_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',25);
             $table->string('comentario')->nullable();
             $table->timestamps();
         });
