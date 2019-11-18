@@ -12,13 +12,6 @@ Route::post('/add_panel_alarm', 'SdiController@createPanelAlarm')->middleware('c
 Route::post('/update_panel_alarm/{id}', 'SdiController@updatePanelAlarm')->middleware('can:panelalarms.edit');
 Route::get('/edit_panel_alarm/{id}', 'SdiController@editPanelAlarm')->middleware('can:panelalarms.edit');
 
-Route::get('/teclado_sdis', 'SdiController@showTeclado')->middleware('can:tecladosdis.show');
-Route::get('/only_teclado_sdi/{id}', 'SdiController@onlyTeclado')->middleware('can:tecladosdis.only');
-Route::get('/form_teclado_sdi', 'SdiController@formTeclado')->middleware('can:tecladosdis.create');
-Route::post('/add_teclado_sdi', 'SdiController@createTeclado')->middleware('can:tecladosdis.create');
-Route::post('/update_teclado_sdi/{id}', 'SdiController@updateTeclado')->middleware('can:tecladosdis.edit');
-Route::get('/edit_teclado_sdi/{id}', 'SdiController@editTeclado')->middleware('can:tecladosdis.edit');
-
 Route::get('/expansoras', 'SdiController@showExpansora')->middleware('can:expansoras.show');
 Route::get('/only_expansora/{id}', 'SdiController@onlyExpansora')->middleware('can:expansoras.only');
 Route::get('/form_expansora', 'SdiController@formExpansora')->middleware('can:expansoras.create');
@@ -39,6 +32,13 @@ Route::get('/form_sensor', 'SdiController@formSensor')->middleware('can:sensors.
 Route::post('/add_sensor', 'SdiController@createSensor')->middleware('can:sensors.create');
 Route::post('/update_sensor/{id}', 'SdiController@updateSensor')->middleware('can:sensors.edit');
 Route::get('/edit_sensor/{id}', 'SdiController@editSensor')->middleware('can:sensors.edit');
+
+Route::get('/teclado_sdis', 'SdiController@showTeclado')->middleware('can:tecladosdis.show');
+Route::get('/only_teclado_sdi/{id}', 'SdiController@onlyTeclado')->middleware('can:tecladosdis.only');
+Route::get('/form_teclado_sdi', 'SdiController@formTeclado')->middleware('can:tecladosdis.create');
+Route::post('/add_teclado_sdi', 'SdiController@createTeclado')->middleware('can:tecladosdis.create');
+Route::post('/update_teclado_sdi/{id}', 'SdiController@updateTeclado')->middleware('can:tecladosdis.edit');
+Route::get('/edit_teclado_sdi/{id}', 'SdiController@editTeclado')->middleware('can:tecladosdis.edit');
 
 Route::get('/sirenas', 'SdiController@showSirena')->middleware('can:sirenas.edit');
 Route::get('/only_sirena/{id}', 'SdiController@onlySirena')->middleware('can:sirenas.only');

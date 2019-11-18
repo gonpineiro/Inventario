@@ -77,8 +77,8 @@
                       <label class="custom-control-label" for="defaultUnchecked">Retirar Host al usuario</label>
                   </div>
                   <br>
-                  <br>
                   <div class="form-row" id="div_devolucion" style="display:none">
+                  
                     <div class="form-group col-md-3">
                       <label for="valor">Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha">
@@ -110,12 +110,10 @@
             div_devolucion.style.display = "block";
             document.getElementById("fecha").required = true;
             document.getElementById("comentario_entrega").required = true;
-            console.log('T');
           } else {
             div_devolucion.style.display = "none";
             document.getElementById("fecha").required = false;
             document.getElementById("comentario_entrega").required = false;
-            console.log('F');
           }
     }
 </script>
