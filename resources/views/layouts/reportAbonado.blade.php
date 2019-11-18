@@ -6,7 +6,7 @@
       <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <!-- Styles -->
-      <link href="{{ asset('css/reportAbonado.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/reportes/abonado.css') }}" rel="stylesheet">
 </head>
 
 <body>

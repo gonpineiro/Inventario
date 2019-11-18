@@ -12,7 +12,7 @@
 <body>
   <header class="clearfix">
     <div id="ficha_header">
-      <img src="imgfichas/SAB-5Header.png">jgghj
+      <img src="imgfichas/SAB-5Header.png">
     </div>
     <br><br>
     <div id="ficha_leyenda"><img src="imgfichas/Leyenda.png"></div>

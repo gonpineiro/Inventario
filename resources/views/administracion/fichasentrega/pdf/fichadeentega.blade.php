@@ -42,7 +42,7 @@
                   <td>{{$modelo_02->marca}}</td>
                   <td>{{$modelo_02->name}}</td>
                   <td>{{$host_02->serial}}</td>
-                  <td>{{$fichasentrega->detalle[0]["obs"]}}</td>
+                  <td>{{$fichasentrega->detalle[1]["obs"]}}</td>
                 </tr>
               @else
                 <tr>
@@ -61,7 +61,7 @@
                   <td>{{$modelo_03->marca}}</td>
                   <td>{{$modelo_03->name}}</td>
                   <td>{{$host_03->serial}}</td>
-                  <td>{{$fichasentrega->detalle[0]["obs"]}}</td>
+                  <td>{{$fichasentrega->detalle[2]["obs"]}}</td>
                 </tr>
               @else
                 <tr>
@@ -80,7 +80,7 @@
                   <td>{{$modelo_04->marca}}</td>
                   <td>{{$modelo_04->name}}</td>
                   <td>{{$host_04->serial}}</td>
-                  <td>{{$fichasentrega->detalle[0]["obs"]}}</td>
+                  <td>{{$fichasentrega->detalle[3]["obs"]}}</td>
                 </tr>
               @else
                 <tr>
@@ -99,7 +99,7 @@
                   <td>{{$modelo_05->marca}}</td>
                   <td>{{$modelo_05->name}}</td>
                   <td>{{$host_05->serial}}</td>
-                  <td>{{$fichasentrega->detalle[0]["obs"]}}</td>
+                  <td>{{$fichasentrega->detalle[4]["obs"]}}</td>
                 </tr>
               @else
                 <tr>

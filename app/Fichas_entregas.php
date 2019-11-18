@@ -15,6 +15,7 @@ class Fichas_entregas extends Model
       'departament_id' => 'int',
       'name'=> 'string',
       'user_host_id' => 'int',
+      'type' => 'int',
       'detalle' => 'array',
       'fecha' => 'date',
       ];
@@ -25,8 +26,9 @@ class Fichas_entregas extends Model
       'detalle',
       'departament_id',
       'user_host_id',
+      'type',
       'detalle' => 'array',
-      'fecha' => 'date',
+      'fecha',
       ];
       public function departament(){
 

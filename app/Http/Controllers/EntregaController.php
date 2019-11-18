@@ -16,7 +16,7 @@ class EntregaController extends Controller
 {
 
   public function showFichaentrega(Request $request){
-    $ficha = Fichas_entregas::orderBy('id','DESC')->get();
+    $ficha = Fichas_entregas::orderBy('id')->get();
 
     return view('administracion.fichasentrega.fichasentrega', [
       'fichas' => $ficha,
@@ -25,7 +25,7 @@ class EntregaController extends Controller
   }
 
   public function showEntregas(Request $request){
-    $host_mov = Host_mov::orderBy('ficha_entrega_id','DESC')->get();
+    $host_mov = Host_mov::orderBy('ficha_entrega_id')->get();
 
     return view('administracion.fichasentrega.entregas', [
       'host_movs' => $host_mov,
@@ -82,8 +82,10 @@ class EntregaController extends Controller
         'user_host_id' => $request->input('user_host_id'),
         'detalle'=> $request->input('detalle'),
         'fecha'=> $request->input('fecha'),
-        'type'=> 1,
+        'type'=> 1, //ENTREGA
       ]);
+
+      //dd($request->input('fecha'));
 
         for ($i=0; $i < count($detalle); $i++) {
           $host_id = (int)$detalle[$i]['host_id'];
@@ -120,7 +122,6 @@ class EntregaController extends Controller
 
 
       $fichasentrega = Fichas_entregas::where('id',$id)->firstOrFail();
-
       if (isset($fichasentrega->detalle[0]["host_id"])) {
         $host_01 = Host::where('id',$fichasentrega->detalle[0]["host_id"])->firstOrFail();
         $modelo_01 = Modelo::where('id',$host_01->modelo_id)->firstOrFail();

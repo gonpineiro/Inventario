@@ -4,7 +4,8 @@
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h1>Entregas realizadas</h1>
+        <h3>Entregas realizadas</h3>
+          <br>
           <table class="table table-hover" style="width:100%" id="host-table">
             <thead>
               <tr>
@@ -19,7 +20,7 @@
                 @foreach ($fichas as $ficha)
                   <tr>
                     <td>{{$ficha->id}}</td>
-                    <td>{{$ficha->created_at->format('d/m/Y')}}</td>
+                    <td>{{$ficha->fecha->format('d/m/Y')}}</td>
                     <td>{{$ficha->user_host->apellido}} {{$ficha->user_host->name}}</td>
                     <td><a href="entregas/{{$ficha->id}}/d" target="_blank"><img src="logos/pdf-logo.png" style="width: 17px;"></a></td>
                     <td><a href="entregas/{{$ficha->id}}/v" target="_blank"><img src="logos/pdf-logo.png" style="width: 17px;"></a></td>
@@ -29,7 +30,9 @@
           </table>
           <script >
             $(document).ready(function() {
-            $('#host-table').DataTable();
+            $('#host-table').DataTable({
+              "order": [[ 0, "desc" ]]
+            });
               } );
           </script>
       </div>

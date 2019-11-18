@@ -1,9 +1,12 @@
 
-# Inventario v1.3.2
+# Inventario v1.3.3
 
-Terminar Modulo de entregas:
+Modulo de entregas:
 
-- Realizar la logica de la devolución.
+----------------------------------------------
+
++ Agrego Script para mostrar los input de "FECHA" y "COMENTARIO" - "edit_".
++ Agrego Script para cambio el valor del input "CANTIDAD"  1  - "form_entregas"
 
 
 ## Proyecto

@@ -6,13 +6,13 @@
       <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <!-- Styles -->
-      <link href="{{ asset('css/pdf.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/reportes/fichaDeEntrega.css') }}" rel="stylesheet">
 </head>
 
 <body>
   <header class="clearfix">
     <div id="ficha_header">
-      <img src="imgfichas/SAB-5Header.png">jgghj
+      <img src="imgfichas/SAB-5Header.png">
     </div>
     <br><br>
     <div id="ficha_leyenda"><img src="imgfichas/Leyenda.png"></div>
@@ -39,7 +39,7 @@
     </div>
 
     <footer>
-      <div id="logo_ficha_footer">
+      <div id="logo_ficha_footer_firma">
         <img src="imgfichas/Firma.png">
     </div>
       <div id="logo_ficha_footer">

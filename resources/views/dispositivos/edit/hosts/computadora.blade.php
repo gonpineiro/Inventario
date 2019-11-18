@@ -73,10 +73,21 @@
                 @can ('entrega.create') {{-- generar algoritmo inverso --}}
                 @if (!is_null($host->user_host))
                   <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="retirar_host">
+                      <input type="checkbox" class="custom-control-input" id="defaultUnchecked" onclick="myFunction()" name="retirar_host">
                       <label class="custom-control-label" for="defaultUnchecked">Retirar Host al usuario</label>
                   </div>
                   <br>
+                  <br>
+                  <div class="form-row" id="div_devolucion" style="display:none">
+                    <div class="form-group col-md-3">
+                      <label for="valor">Fecha</label>
+                      <input type="date" class="form-control" id="fecha" name="fecha">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="valor">Observacione</label>
+                      <input type="text" class="form-control" id="comentario_entrega"  name="comentario_entrega">
+                    </div>
+                  </div>
                 @endif
                 @endcan
                 <button type="submit" class="btn btn-dark">Aceptar</button>
@@ -86,3 +97,25 @@
       </div>
   </div>
 @endsection
+
+<script type="text/javascript">
+    function myFunction() {
+        // Get the checkbox
+        var checkBox = document.getElementById("defaultUnchecked");
+        // Get the output text
+        var div_devolucion = document.getElementById("div_devolucion");
+
+          // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+            div_devolucion.style.display = "block";
+            document.getElementById("fecha").required = true;
+            document.getElementById("comentario_entrega").required = true;
+            console.log('T');
+          } else {
+            div_devolucion.style.display = "none";
+            document.getElementById("fecha").required = false;
+            document.getElementById("comentario_entrega").required = false;
+            console.log('F');
+          }
+    }
+</script>

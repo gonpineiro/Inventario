@@ -11,6 +11,7 @@ use App\Cliente;
 use App\Host_work;
 use App\User_host;
 use App\Host_mov;
+use App\Fichas_entregas;
 use Carbon\Carbon;
 use App\Credential;
 
@@ -138,13 +139,30 @@ class HostsController extends Controller
             $host->comentario = $request->input('comentario');
             $host->class = $request->input('class');
             $host->estado_id = 1;
+
             if ($request->input('retirar_host') == TRUE) {
+
+              //CREAMOS EL ARRAY QUE CONTIENE EL DETALLE DE LA DEVOLUCION PARA LA FICHA
+              $detalle[0] = [
+                "cantidad" => "1",
+                "host_id" => $host->id,
+                "obs" => $request->input('comentario_entrega')];
+                //dd($detalle);
+              $fichas = Fichas_entregas::create([
+                'name' => Carbon::now()->format('Ymd')."USH".$request->input('user_host_id')."DPR".User_host::where('id',$host->user_host_id)->firstOrFail()->departament->name,
+                'user_host_id' => $host->user_host_id,
+                'detalle'=> $detalle,
+                'fecha'=> $request->input('fecha'),
+                'type'=> 0, //DEVOLUCION
+              ]);
+
+
               $host->user_host_id = NULL;
               $entrega = Host_mov::create([
                 'host_id' => $host->id,
-                //'ficha_entrega_id' => $fichas->id,
+                'ficha_entrega_id' => $fichas->id,
                 'user_host_id' => $request->input('user_host_id'),
-                'type' => 0,
+                'type' => 0, //DEVOLUCION
               ]);
             }
 
@@ -268,14 +286,31 @@ class HostsController extends Controller
             $host->comentario = $request->input('comentario');
             $host->class = $request->input('class');
             $host->estado_id = 1;
+
+
             if ($request->input('retirar_host') == TRUE) {
+
+              //CREAMOS EL ARRAY QUE CONTIENE EL DETALLE DE LA DEVOLUCION PARA LA FICHA
+              $detalle[0] = [
+                "cantidad" => "1",
+                "host_id" => $host->id,
+                "obs" => $request->input('comentario_entrega')];
+                //dd($detalle);
+              $fichas = Fichas_entregas::create([
+                'name' => Carbon::now()->format('Ymd')."USH".$request->input('user_host_id')."DPR".User_host::where('id',$host->user_host_id)->firstOrFail()->departament->name,
+                'user_host_id' => $host->user_host_id,
+                'detalle'=> $detalle,
+                'fecha'=> $request->input('fecha'),
+                'type'=> 0, //DEVOLUCION
+              ]);
+
               $host->user_host_id = NULL;
 
               $entrega = Host_mov::create([
                 'host_id' => $host->id,
-                //'ficha_entrega_id' => $fichas->id,
+                'ficha_entrega_id' => $fichas->id,
                 'user_host_id' => $request->input('user_host_id'),
-                'type' => 0,
+                'type' => 0, //DEVOLUCION
               ]);
             }
             $host->save();

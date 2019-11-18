@@ -21,7 +21,7 @@
               @foreach ($host_movs as $host_mov)
                 <tr>
                   <td>{{$host_mov->id}}</td>
-                  <td>{{$host_mov->created_at->format('d/m/Y')}}</td>
+                  <td>@if (!is_null($host_mov->ficha_entrega['fecha'])) {{$host_mov->ficha_entrega['fecha']->format('d/m/Y')}} @endif</td>
                   <td><a href=@php hostLink($host_mov->host) @endphp>{{$host_mov->host->name}}</a></td>
                   <td>{{$host_mov->user_host->apellido}} {{$host_mov->user_host->name}}</td>
                   <td>@if (!is_null($host_mov->ficha_entrega)) <a href="entregas/{{$host_mov->ficha_entrega->id}}/v">{{$host_mov->ficha_entrega->id}}</a> @endif</td>
@@ -34,7 +34,9 @@
         </table>
         <script >
           $(document).ready(function() {
-          $('#host-table').DataTable();
+          $('#host-table').DataTable({
+            "order": [[ 0, "desc" ]]
+          });
             } );
         </script>
       </div>

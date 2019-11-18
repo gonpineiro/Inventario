@@ -38,10 +38,11 @@ header {
 #ficha_header {
   text-align: center;
   margin-bottom: 10px;
+  margin-right: 15px;
 }
 
 #ficha_header img {
-  width: 100%;
+  width: 90%;
 }
 
 #ficha_leyenda {
@@ -50,13 +51,22 @@ header {
 }
 
 #ficha_leyenda img {
-  width: 80%;
+  width: 70%;
 }
 
 
 #logo_ficha_footer {
   text-align: center;
   margin-bottom: 10px;
+}
+
+#logo_ficha_footer_firma {
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+#logo_ficha_footer_firma img {
+  width: 60%;
 }
 
 #logo_ficha_footer img {
