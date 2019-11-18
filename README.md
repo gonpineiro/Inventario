@@ -1,13 +1,7 @@
 
-# Inventario v1.3.3
+# Inventario v1.3.4
 
-Modulo de entregas:
-
-----------------------------------------------
-
-+ Agrego Script para mostrar los input de "FECHA" y "COMENTARIO" - "edit_".
-+ Agrego Script para cambio el valor del input "CANTIDAD"  1  - "form_entregas"
-
+Emprolijamiento Migration
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
