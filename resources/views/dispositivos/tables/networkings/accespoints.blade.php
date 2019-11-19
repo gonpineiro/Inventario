@@ -24,7 +24,7 @@
                     @can ('accespoints.only') <td><a href="/only_accespoint/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->mac_adress}}</td>
-                    <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
+                    <td>D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</td>
                     <td>{{$host->modelo->name}}</td>
                   </tr>
                 @endforeach
