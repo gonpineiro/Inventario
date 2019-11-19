@@ -22,7 +22,7 @@
                   <tr>
                     <td>{{$host->id}}</td>
                     @can ('dvrs.only') <td><a href="/only_dvr/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
-                    <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
+                    <td>D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</td>
                     <td>{{$host->modelo->name}}</td>
                     @can ('dvrs.only')  <td><a href="/report_dvr/{{$host->id}}" target="_blank"><img src={{asset("logos/pdf-logo.png")}} style="width: 17px;"></a></td>  @endcan
                     <td>
