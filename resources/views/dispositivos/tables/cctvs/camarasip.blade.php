@@ -26,7 +26,7 @@
                     @can ('camaraips.only') <td><a href="/only_camaraip/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td> @endcan
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
-                    @can ('dvrs.only') <td><a href="/only_dvr/{{$host->host->id}}">{{$host->host->name}}</a></td> @else <td>{{$host->host->name}}</td> @endcan
+                    <td> @if (!is_null($host->host)) @can ('dvrs.only')  <a href="/only_dvr/{{$host->host->id}}">{{$host->host->name}}</a> @else {{$host->host->name}} @endcan </td> @endif
                     <td>{{$host->modelo->name}}</td>
                     <td>{{$host->tcp_ext}}</td>
                     <td>

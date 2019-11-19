@@ -31,7 +31,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="ip_publica">Grabando en...</label>
-                      <select class="form-control" name="cctv" required>
+                      <select class="form-control" name="cctv" >
                         <option value="">- - - Seleccione - - -</option>
                         @foreach ($cctvs as $cctv)
                           <option value="{{$cctv->id}}">{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}</option>

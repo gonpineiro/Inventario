@@ -1,5 +1,5 @@
 
-# Inventario v1.3.4
+# Inventario v1.3.5
 
 Emprolijamiento Migration
 
@@ -7,29 +7,13 @@ Emprolijamiento Migration
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
 
 
-####  1.  Cambiar la tipo de la datos de la columna ID en la Tabla Users a:
-
-  ```
-  BigInt(20)
-  ```
-
-
-####  2. Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
-
-  ```
-  public function persmissions(){
-
-    return $this->belongsToMany('Caffeinated\Shinobi\Models\Permission');
-  }
-  ```
-
 #####  Ubicación:
 
   ```
   /vendor/caffeinated/shinobi/src/Models/Role.php
   ```
 
-####  3. Creacion del Seeder de PermissionsTable
+####  Creacion del Seeder de PermissionsTable
 
   ```
   php artisan db:seed --class="PermissionsTableSeeder"
