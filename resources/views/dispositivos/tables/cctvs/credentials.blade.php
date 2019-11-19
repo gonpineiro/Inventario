@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <div class="row mt-2">      
+    <div class="row mt-2">
         <div class="col cl-8">
           <h3>Credenciales</h3>
           <br>
@@ -142,7 +142,9 @@
       </div>
       <script >
               $(document).ready(function() {
-              $('#host-table').DataTable();
+              $('#host-table').DataTable({
+                "order": [[ 0, "desc" ]]
+              });
                 } );
       </script>
     </div>

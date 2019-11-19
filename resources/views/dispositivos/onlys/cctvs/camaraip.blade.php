@@ -218,7 +218,9 @@
                 </div>
                 <script >
                         $(document).ready(function() {
-                        $('#host-table').DataTable();
+                        $('#host-table').DataTable({
+                          "order": [[ 0, "desc" ]]
+                        });
                           } );
                 </script>
               </div>
@@ -260,7 +262,7 @@
               <div class="card-header">Registros de trabajo</div>
                 <div class="card-body">
                   <div class="col cl-6">
-                      <table class="table table-hover" id="host-table">
+                      <table class="table table-hover" id="host-work">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -284,7 +286,9 @@
                 </div>
                 <script >
                         $(document).ready(function() {
-                        $('#host-table').DataTable();
+                        $('#host-work').DataTable({
+                          "order": [[ 0, "desc" ]]
+                        });
                           } );
                 </script>
               </div>

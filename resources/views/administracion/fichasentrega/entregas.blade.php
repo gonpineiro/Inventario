@@ -37,7 +37,7 @@
           $('#host-table').DataTable({
             "order": [[ 0, "desc" ]]
           });
-            } );
+            });
         </script>
       </div>
     </div>

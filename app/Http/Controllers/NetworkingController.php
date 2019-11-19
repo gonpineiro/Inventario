@@ -440,8 +440,6 @@ class NetworkingController extends Controller
         'estado_id' => $request->input('estado'),
         'mac_adress' => $request->input('mac_adress'),
         'ip_local' => $request->input('ip_local'),
-        'user_1' => $request->input('user_1'),
-        'pass_1' => $request->input('pass_1'),
         'departament_id' => $request->input('departament'),
         'acceso' => $request->input('acceso'),
         'ssids' => $request->input('ssid'),
@@ -489,8 +487,6 @@ class NetworkingController extends Controller
       $host->estado_id = $request->input('estado');
       $host->mac_adress = $request->input('mac_adress');
       $host->ip_publica = $request->input('ip_publica');
-      $host->user_1 = $request->input('user_1');
-      $host->pass_1 = $request->input('pass_1');
       $host->ssids = $request->input('ssid');
       $host->ssid_pass = $request->input('ssid_pass');
       $host->acceso = $request->input('acceso');

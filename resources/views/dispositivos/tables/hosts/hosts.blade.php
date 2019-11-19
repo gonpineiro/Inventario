@@ -24,7 +24,7 @@
                       @if ($host->host_type->id == 1) <a href="/only_computadora/{{$host->id}}">{{$host->name}}</a> @endif
                       @if ($host->host_type->id == 2) <a href="/only_notebook/{{$host->id}}">{{$host->name}}</a> @endif
                       @if ($host->host_type->id == 3) <a href="/only_impresora/{{$host->id}}">{{$host->name}}</a> @endif
-                      @if ($host->host_type->id == 4) <a href="/only_telefonoip/{{$host->id}}">{{$host->name}}</a> @endif  
+                      @if ($host->host_type->id == 4) <a href="/only_telefonoip/{{$host->id}}">{{$host->name}}</a> @endif
 
                     </td>
                     <td>{{$host->host_type->name}}</td>
@@ -38,7 +38,9 @@
       </div>
       <script >
               $(document).ready(function() {
-              $('#host-table').DataTable();
+              $('#host-table').DataTable({
+                "order": [[ 0, "desc" ]]
+              });
                 } );
       </script>
     </div>

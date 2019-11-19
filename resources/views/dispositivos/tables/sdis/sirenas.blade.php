@@ -36,7 +36,9 @@
           </table>
           <script >
                   $(document).ready(function() {
-                  $('#host-table').DataTable();
+                  $('#host-table').DataTable({
+                    "order": [[ 0, "desc" ]]
+                  });
                     } );
           </script>
       </div>
