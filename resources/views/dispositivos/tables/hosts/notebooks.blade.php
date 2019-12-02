@@ -14,6 +14,7 @@
                 <th scope="col">Usuario</th>
                 <th scope="col">Afectado</th>
                 <th scope="col">Modelo</th>
+                <th scope="col">Serial</th>
               </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     @if (!is_null($host->user_host_id)) <td>{{$host->user_host->name}} {{$host->user_host->apellido}}</td> @else <td></td> @endif
                     @if (!is_null($host->user_host_id)) <td>{{$host->user_host->departament->name}} {{$host->user_host->departament->cliente->name}}</td> @else <td></td> @endif
                     <td>{{$host->modelo->name}}</td>
+                    <td>{{$host->serial}}</td>
                   </tr>
                 @endforeach
             </tbody>
