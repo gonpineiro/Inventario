@@ -11,8 +11,8 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Modelo</th>
                 <th scope="col">Instalado</th>
+                <th scope="col">Modelo</th>
                 <th scope="col">Usuario</th>
                 <th scope="col">Departamento</th>
                 <th scope="col">Cliente</th>
