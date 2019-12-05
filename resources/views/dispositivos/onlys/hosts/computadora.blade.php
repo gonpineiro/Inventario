@@ -56,7 +56,7 @@
                       <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" disabled >{{$host->comentario}} </textarea>
                     </div>
                   </div>
-                  @can ('computadora.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
+                  @can ('computadoras.edit') <button type="" href="/edit/{{$host->id}}" class="btn btn-dark">Modificar</button> @endcan
                   @can ('entregas.create') @if (is_null($host->user_host))<a href="/form_entregas/{{$host->id}}" class="btn btn-dark">Generar documento de entrega</a> @endif @endcan
                   </form>
                 </div>
