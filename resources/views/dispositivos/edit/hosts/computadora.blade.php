@@ -70,7 +70,7 @@
                     <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" name="comentario" >{{$host->comentario}} </textarea>
                   </div>
                 </div>
-                @can ('entrega.create') {{-- generar algoritmo inverso --}}
+                @can ('entregas.create') {{-- generar algoritmo inverso --}}
                 @if (!is_null($host->user_host))
                   <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="defaultUnchecked" onclick="myFunction()" name="retirar_host">
@@ -78,7 +78,7 @@
                   </div>
                   <br>
                   <div class="form-row" id="div_devolucion" style="display:none">
-                  
+
                     <div class="form-group col-md-3">
                       <label for="valor">Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha">
