@@ -1,7 +1,7 @@
 
-# Inventario v1.3.5
+# Inventario v1.4.0
 
-Emprolijamiento Migration
+Mejora de modulo de los modeos
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes

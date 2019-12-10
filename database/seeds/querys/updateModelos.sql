@@ -1,0 +1,1 @@
+INSERT INTO `modelos` (`id`, `name`, `marca`, `host_type_id`, `comentario`, `created_at`, `updated_at`, `marca_id`) VALUES (NULL, '', '123', '', NULL, NULL, NULL, NULL), (NULL, '123', '', '', NULL, NULL, NULL, NULL);

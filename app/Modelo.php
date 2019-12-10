@@ -12,4 +12,9 @@ class Modelo extends Model
 
       return $this->belongsTo('App\Host_type');
     }
+
+    public function marca(){
+
+      return $this->belongsTo('App\Marca');
+    }
 }

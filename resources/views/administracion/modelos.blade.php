@@ -21,7 +21,7 @@
                 <tr>
                   <td>{{$modelo->id}}</td>
                   <td>{{$modelo->name}}</td>
-                  <td>{{$modelo->marca}}</td>
+                  <td>{{$modelo->marca->name}}</td>
                   <td>{{$modelo->host_type->name}}</td>
                   @can ('marcas.edit') <td><a href="/edit_modelo/{{$modelo->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
               </tr>
