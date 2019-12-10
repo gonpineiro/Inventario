@@ -37,7 +37,7 @@ class PerifericoController extends Controller
 
   public function showMonitors(Request $request){
 
-    $host = Host::where('host_type_id', 30)->paginate(10);
+    $host = Host::where('host_type_id', 30)->get();
 
     return view('dispositivos.tables.perifericos.monitors', [
       'hosts' => $host,
@@ -157,7 +157,7 @@ class PerifericoController extends Controller
 
   public function showTelevisors(Request $request){
 
-    $host = Host::where('host_type_id', 31)->paginate(10);
+    $host = Host::where('host_type_id', 31)->get();
 
     return view('dispositivos.tables.perifericos.televisors', [
       'hosts' => $host,
@@ -275,7 +275,7 @@ class PerifericoController extends Controller
 
   public function showTeclados(Request $request){
 
-    $host = Host::where('host_type_id', 32)->paginate(10);
+    $host = Host::where('host_type_id', 32)->get();
 
     return view('dispositivos.tables.perifericos.teclados', [
       'hosts' => $host,
@@ -393,7 +393,7 @@ class PerifericoController extends Controller
 
   public function showMouses(Request $request){
 
-    $host = Host::where('host_type_id', 33)->paginate(10);
+    $host = Host::where('host_type_id', 33)->get();
 
     return view('dispositivos.tables.perifericos.mouses', [
       'hosts' => $host,
@@ -511,7 +511,7 @@ class PerifericoController extends Controller
 
   public function showWebcam(Request $request){
 
-    $host = Host::where('host_type_id', 34)->paginate(10);
+    $host = Host::where('host_type_id', 34)->get();
 
     return view('dispositivos.tables.perifericos.webcams', [
       'hosts' => $host,
