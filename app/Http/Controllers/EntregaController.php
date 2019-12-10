@@ -44,7 +44,7 @@ class EntregaController extends Controller
       ->get();
 
     $departament = Departament::all();
-    $userhost = User_host::all();
+    $userhost = User_host::orderBy('name')->get();
     $cliente = Cliente::all();
     $entrega_id = Fichas_entregas::all()->max('id') + 1;
 
@@ -63,7 +63,7 @@ class EntregaController extends Controller
 
     $last = Fichas_entregas::all()->max('id')+1;
     $host = Host::where('id',$id)->firstOrFail();
-    $userhost = User_host::all();
+    $userhost = User_host::orderBy('name')->get();
 
     return view('administracion.fichasentrega.add_fichaentregaonly', [
       'userhosts' => $userhost,

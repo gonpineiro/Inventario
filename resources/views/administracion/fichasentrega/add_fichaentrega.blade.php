@@ -15,7 +15,7 @@
                       <select class="form-control" name="user_host_id">
                         <option value="">- - - Seleccione - - -</option>
                         @foreach ($userhosts as $userhost)
-                          <option value="{{$userhost->id}}">U: {{$userhost->name}} {{$userhost->apellido}} - D: {{$userhost->departament->name}} - C: {{$userhost->departament->cliente->name}}</option>
+                          <option value="{{$userhost->id}}">{{$userhost->name}} {{$userhost->apellido}} - D: {{$userhost->departament->name}} - C: {{$userhost->departament->cliente->name}}</option>
                         @endforeach
                       </select>
                     </div>
