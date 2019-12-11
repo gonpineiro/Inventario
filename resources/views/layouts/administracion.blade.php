@@ -56,9 +56,10 @@
                       <p style='margin-left: 4em'></p>
                       <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Marcas</span></a>
+                            <a id="navbarDropdownAmbientes" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span class="caret">Modelos/Marcas</span></a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @can ('marcas.show') <a class="dropdown-item" href="/modelos"><span>Listar</span></a> @endcan
+                                @can ('marcas.show') <a class="dropdown-item" href="/modelos"><span>Modelos</span></a> @endcan
+                                @can ('marcas.show') <a class="dropdown-item" href="/marcas"><span>Marcas</span></a> @endcan
                             </div>
                         </li>
                       </ul>

@@ -20,7 +20,7 @@
                 <tr>
                   <td>{{$fichasentrega->detalle[0]["cantidad"]}}</td>
                   <td>{{$host_01->host_type->name}}</td>
-                  <td>{{$modelo_01->marca}}</td>
+                  <td>{{$modelo_01->marca->name}}</td>
                   <td>{{$modelo_01->name}}</td>
                   <td>{{$host_01->serial}}</td>
                   <td>{{$fichasentrega->detalle[0]["obs"]}}</td>
@@ -39,7 +39,7 @@
                 <tr>
                   <td>{{$fichasentrega->detalle[1]["cantidad"]}}</td>
                   <td>{{$host_02->host_type->name}}</td>
-                  <td>{{$modelo_02->marca}}</td>
+                  <td>{{$modelo_02->marca->name}}</td>
                   <td>{{$modelo_02->name}}</td>
                   <td>{{$host_02->serial}}</td>
                   <td>{{$fichasentrega->detalle[1]["obs"]}}</td>
@@ -58,7 +58,7 @@
                 <tr>
                   <td>{{$fichasentrega->detalle[2]["cantidad"]}}</td>
                   <td>{{$host_03->host_type->name}}</td>
-                  <td>{{$modelo_03->marca}}</td>
+                  <td>{{$modelo_03->marca->name}}</td>
                   <td>{{$modelo_03->name}}</td>
                   <td>{{$host_03->serial}}</td>
                   <td>{{$fichasentrega->detalle[2]["obs"]}}</td>
@@ -77,7 +77,7 @@
                 <tr>
                   <td>{{$fichasentrega->detalle[3]["cantidad"]}}</td>
                   <td>{{$host_04->host_type->name}}</td>
-                  <td>{{$modelo_04->marca}}</td>
+                  <td>{{$modelo_04->marca->name}}</td>
                   <td>{{$modelo_04->name}}</td>
                   <td>{{$host_04->serial}}</td>
                   <td>{{$fichasentrega->detalle[3]["obs"]}}</td>
@@ -96,7 +96,7 @@
                 <tr>
                   <td>{{$fichasentrega->detalle[4]["cantidad"]}}</td>
                   <td>{{$host_05->host_type->name}}</td>
-                  <td>{{$modelo_05->marca}}</td>
+                  <td>{{$modelo_05->marca->name}}</td>
                   <td>{{$modelo_05->name}}</td>
                   <td>{{$host_05->serial}}</td>
                   <td>{{$fichasentrega->detalle[4]["obs"]}}</td>

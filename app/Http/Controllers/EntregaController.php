@@ -119,32 +119,45 @@ class EntregaController extends Controller
   }
 
   public function downdFichaentrega($id,$type, Request $request){
-
-
+      $host_02 = "";
       $fichasentrega = Fichas_entregas::where('id',$id)->firstOrFail();
+
       if (isset($fichasentrega->detalle[0]["host_id"])) {
         $host_01 = Host::where('id',$fichasentrega->detalle[0]["host_id"])->firstOrFail();
         $modelo_01 = Modelo::where('id',$host_01->modelo_id)->firstOrFail();
+
       }
 
       if (isset($fichasentrega->detalle[1]["host_id"])) {
         $host_02 = Host::where('id',$fichasentrega->detalle[1]["host_id"])->firstOrFail();
         $modelo_02 = Modelo::where('id',$host_02->modelo_id)->firstOrFail();
+      }else {
+        $host_02 = NULL;
+        $modelo_02 = NULL;
       }
 
       if (isset($fichasentrega->detalle[2]["host_id"])) {
         $host_03 = Host::where('id',$fichasentrega->detalle[2]["host_id"])->firstOrFail();
         $modelo_03 = Modelo::where('id',$host_03->modelo_id)->firstOrFail();
+      }else {
+        $host_03 = NULL;
+        $modelo_03 = NULL;
       }
 
       if (isset($fichasentrega->detalle[3]["host_id"])) {
         $host_04 = Host::where('id',$fichasentrega->detalle[3]["host_id"])->firstOrFail();
         $modelo_04 = Modelo::where('id',$host_04->modelo_id)->firstOrFail();
+      }else {
+        $host_04 = NULL;
+        $modelo_04 = NULL;
       }
 
       if (isset($fichasentrega->detalle[4]["host_id"])) {
         $host_05 = Host::where('id',$fichasentrega->detalle[4]["host_id"])->firstOrFail();
         $modelo_05 = Modelo::where('id',$host_05->modelo_id)->firstOrFail();
+      }else {
+        $host_05 = NULL;
+        $modelo_05 = NULL;
       }
 
       //$departament = Departament::where('id',$fichasentrega->departament_id)->firstOrFail();

@@ -41,7 +41,7 @@
                               <select class="form-control" name="detalle[{{ $i }}][host_id]" id="host_{{$i}}" onclick="setCantidad{{$i}}()">
                                 <option value="">- - - Seleccione - - -</option>
                                 @foreach ($hosts as $host)
-                                  <option value="{{$host->id}}"  >{{$host->id}}  |  {{$host->modelo->name}}  |  {{$host->modelo->marca}}  |  {{$host->serial}}</option>
+                                  <option value="{{$host->id}}"  >{{$host->id}}  |  {{$host->modelo->name}}  |  {{$host->modelo->marca->name}}  |  {{$host->serial}}</option>
                                 @endforeach
                               </select>
                             </td>

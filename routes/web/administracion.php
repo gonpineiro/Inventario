@@ -10,10 +10,15 @@
 
   Route::get('/historial', 'AdministracionController@showHistorials')->middleware('can:historials.show');
 
-  Route::get('/modelos', 'ModelosController@show')->middleware('can:marcas.show');
+  Route::get('/modelos', 'ModelosController@showModelos')->middleware('can:marcas.show');
   Route::post('/add_modelo', 'ModelosController@createModelo')->middleware('can:marcas.create');
   Route::get('/edit_modelo/{id}', 'ModelosController@editModelo')->middleware('can:marcas.edit');
   Route::post('/update_modelo/{id}', 'ModelosController@updateModelo')->middleware('can:marcas.edit');
+
+  Route::get('/marcas', 'ModelosController@showMarcas')->middleware('can:marcas.show');
+  Route::post('/add_marca', 'ModelosController@createMarca')->middleware('can:marcas.create');
+  Route::get('/edit_marca/{id}', 'ModelosController@editMarca')->middleware('can:marcas.edit');
+  Route::post('/update_marca/{id}', 'ModelosController@updateMarca')->middleware('can:marcas.edit');
 
   Route::get('/clientes', 'ClientesController@show')->middleware('can:clients.show');
   Route::post('/add_cliente', 'ClientesController@CreateCliente')->middleware('can:clients.create');
