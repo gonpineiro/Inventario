@@ -19,7 +19,7 @@
                       <label for="modelo">Modelo</label>
                         <select class="form-control" name="modelo">
                           @foreach ($modelos as $modelo)
-                            <option value="{{$modelo->id}}">{{$modelo->name}}</option>
+                            <option value="{{$modelo->id}}">{{$modelo->marca->name}} - {{$modelo->name}}</option>
                           @endforeach
                         </select>
                     </div>

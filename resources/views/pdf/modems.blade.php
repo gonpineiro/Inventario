@@ -21,7 +21,7 @@
                     <td>{{$host->name}}</td>
                     <td>{{$host->ip_publica}}</td>
                     <td>{{($host->departament->name)}} - {{$host->departament->cliente->name}}</td>
-                    <td>{{$host->modelo->marca}} - {{$host->modelo->name}}</td>
+                    <td>{{$host->modelo->marca->name}} - {{$host->modelo->name}}</td>
                   </tr>
                 @endforeach
             </tbody>

@@ -63,7 +63,7 @@ class PerifericoController extends Controller
 
   public function formMonitor(Request $request){
     $estado = Estado::all();
-    $modelo = Modelo::where('host_type_id', 30)->get();
+    $modelo = Modelo::where('host_type_id', 30)->orderBy('marca_id')->get();
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
     $departament = Departament::all();
 
@@ -182,7 +182,7 @@ class PerifericoController extends Controller
 
   public function formTelevisor(Request $request){
     $estado = Estado::all();
-    $modelo = Modelo::where('host_type_id', 31)->get();
+    $modelo = Modelo::where('host_type_id', 31)->orderBy('marca_id')->get();
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
 
 
@@ -300,7 +300,7 @@ class PerifericoController extends Controller
 
   public function formTeclado(Request $request){
     $estado = Estado::all();
-    $modelo = Modelo::where('host_type_id', 32)->get();
+    $modelo = Modelo::where('host_type_id', 32)->orderBy('marca_id')->get();
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
 
 
@@ -419,7 +419,7 @@ class PerifericoController extends Controller
 
   public function formMouse(Request $request){
     $estado = Estado::all();
-    $modelo = Modelo::where('host_type_id', 33)->get();
+    $modelo = Modelo::where('host_type_id', 33)->orderBy('marca_id')->get();
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
 
 
@@ -521,7 +521,7 @@ class PerifericoController extends Controller
 
   public function formWebcam(Request $request){
     $estado = Estado::all();
-    $modelo = Modelo::where('host_type_id', 34)->get();
+    $modelo = Modelo::where('host_type_id', 34)->orderBy('marca_id')->get();
     $host = Host::where('host_type_id',1)->orwhere('host_type_id',2)->get();
 
 

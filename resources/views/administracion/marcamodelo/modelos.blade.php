@@ -39,7 +39,7 @@
             <br>
 
             <div class="card">
-            @if ($ver == "agregar") <div class="card-header">Agregar Usuario</div> @endif
+            @if ($ver == "agregar") <div class="card-header">Agregar modelo</div> @endif
             @if ($ver == "editar") <div class="card-header">Modificando {{$onlyModelo->name}}</div> @endif
               <div class="card-body">
 
@@ -52,10 +52,16 @@
                               <input id="name" type="text" class="form-control" name="name" value="" required>
                           </div>
                       </div>
-                      <div class="form-row">
-                          <div class="form-group col-md-12">
-                              <label for="marca">Marca</label>
-                              <input id="marca" type="text" class="form-control" name="marca" value="" required>
+                      <div class="form-group row">
+                          <div class="col-md-12">
+                            <label for="name">Marca</label>
+                            <select class="form-control" name="marca_id" required>
+                              <option value="">- - - Seleccione - - -</option>
+                              <option disabled>Marca</option>
+                              @foreach ($marcas as $marca)
+                                <option value="{{$marca->id}}">{{$marca->name}}</option>
+                              @endforeach
+                            </select>
                           </div>
                       </div>
                       <div class="form-group row">
@@ -83,10 +89,16 @@
                               <input id="name" type="text" class="form-control" name="name" value="{{$onlyModelo->name}}">
                           </div>
                       </div>
-                      <div class="form-row">
-                          <div class="form-group col-md-12">
-                              <label for="marca">Marca</label>
-                              <input id="marca" type="text" class="form-control" name="marca" value="{{$onlyModelo->marca}}">
+                      <div class="form-group row">
+                          <div class="col-md-12">
+                            <label for="name">Marca</label>
+                            <select class="form-control" name="marca_id" required>
+                              <option value={{$onlyModelo->marca_id}}>{{$onlyModelo->marca->name}}</option>
+                              <option disabled>Departamento</option>
+                              @foreach ($marcas as $marca)
+                                <option value="{{$marca->id}}">{{$marca->name}}</option>
+                              @endforeach
+                            </select>
                           </div>
                       </div>
                       <div class="form-group row">

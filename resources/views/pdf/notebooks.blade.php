@@ -22,7 +22,7 @@
                     <td>{{$host->name}}</td>
                     @if (!is_null($host->user_host_id)) <td>{{$host->user_host->name}} {{$host->user_host->apellido}}</td> @else <td></td> @endif
                     @if (!is_null($host->user_host_id)) <td>{{$host->user_host->departament->name}} {{$host->user_host->departament->cliente->name}}</td> @else <td></td> @endif
-                    <td>{{$host->modelo->marca}} - {{$host->modelo->name}}</td>
+                    <td>{{$host->modelo->marca->name}} - {{$host->modelo->name}}</td>
                     <td>$ {{$host->valor}}</td>
                   </tr>
                 @endforeach

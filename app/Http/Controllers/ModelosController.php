@@ -13,11 +13,13 @@ class ModelosController extends Controller
 
           $modelo = Modelo::orderBy('name')->get();
           $host_type = Host_type::orderBy('name')->get();
+          $marca = Marca::orderBy('name')->get();
           $ver = "agregar";
           return view('administracion.marcamodelo.modelos', [
 
             'modelos' => $modelo,
             'host_types' => $host_type,
+            'marcas' => $marca,
             'ver' => $ver,
           ]);
 
@@ -28,7 +30,7 @@ class ModelosController extends Controller
             $modelo = Modelo::create([
 
               'name' => $request->input('name'),
-              'marca' => $request->input('marca'),
+              'marca_id' => $request->input('marca_id'),
               'host_type_id' =>$request->input('host_type_id'),
                 ]);
 
@@ -40,12 +42,14 @@ class ModelosController extends Controller
           $modelo = Modelo::orderBy('name')->get();
           $onlyModelo = $this->findByIdModelo($id);
           $host_type = Host_type::orderBy('name')->get();
+          $marca = Marca::orderBy('name')->get();
           $ver = "editar";
 
             return view('administracion.marcamodelo.modelos', [
                 'modelos' => $modelo,
                 'onlyModelo' => $onlyModelo,
                 'host_types' => $host_type,
+                'marcas' => $marca,
                 'ver' => $ver,
             ]);
 
@@ -55,7 +59,8 @@ class ModelosController extends Controller
 
           $onlyModelo = $this->findByIdModelo($id);
           $onlyModelo->name = $request->input('name');
-          $onlyModelo->marca = $request->input('marca');
+          $onlyModelo->marca_id = $request->input('marca_id');
+          $onlyModelo->host_type_id = $request->input('host_type_id');
           $onlyModelo->save();
 
           return redirect('/modelos/');

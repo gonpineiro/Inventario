@@ -22,7 +22,7 @@
                     <td>{{$host->name}}</td>
                     <td>{{$host->interno}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
-                    <td>{{$host->modelo->marca}} - {{$host->modelo->name}}</td>
+                    <td>{{$host->modelo->marca->name}} - {{$host->modelo->name}}</td>
                     <td>{{$host->valor}}</td>
                   </tr>
                 @endforeach

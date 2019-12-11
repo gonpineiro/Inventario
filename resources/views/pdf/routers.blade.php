@@ -22,16 +22,16 @@
                     <td>{{$host->name}}</td>
                     <td>{{$host->ip_local}}</td>
                     <td>{{$host->departament->name}} - {{$host->departament->cliente->name}}</td>
-                    <td>{{$host->modelo->marca}} - {{$host->modelo->name}}</td>
+                    <td>{{$host->modelo->marca->name}} - {{$host->modelo->name}}</td>
                     <td>$ {{$host->valor}}</td>
                   </tr>
                 @endforeach
                 <tr>
-                  <td colspan="6" class="grand total">CANTIDAD</td>
+                  <td colspan="5" class="grand total">CANTIDAD</td>
                   <td colspan="1"class="grand total">{{$cantHosts}}</td>
                 </tr>
                 <tr>
-                  <td colspan="6" class="grand total">VALOR TOTAL</td>
+                  <td colspan="5" class="grand total">VALOR TOTAL</td>
                   <td colspan="1"class="grand total">$ {{$sumPrice}}</td>
                 </tr>
             </tbody>

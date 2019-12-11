@@ -15,7 +15,7 @@
               </thead>
               <tbody>
                     <tr>
-                      <td>{{$dvr->modelo->marca}}</td>
+                      <td>{{$dvr->modelo->marca->name}}</td>
                       <td>{{$dvr->modelo->name}}</td>
                       <td>{{$dvr->serial}}</td>
                     </tr>
@@ -121,7 +121,7 @@
                     @foreach ($camaras as $camara)
                       <tr>
                         <td>{{$camara->id}}</td>
-                        <td>{{$camara->modelo->marca}}</td>
+                        <td>{{$camara->modelo->marca->name}}</td>
                         <td>{{$camara->modelo->name}}</td>
                         <td>{{$camara->serial}}</td>
                         <td>ZONA</td>

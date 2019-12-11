@@ -20,7 +20,7 @@
                         <select class="form-control" name="modelo">
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
-                            <option value="{{$modelo->id}}">{{$modelo->name}}</option>
+                            <option value="{{$modelo->id}}">{{$modelo->marca->name}} - {{$modelo->name}}</option>
                           @endforeach
                         </select>
                     </div>
