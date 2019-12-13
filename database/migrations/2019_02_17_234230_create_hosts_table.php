@@ -30,13 +30,13 @@ class CreateHostsTable extends Migration
             $table->integer('udp')->nullable();
             $table->integer('http')->nullable();
             $table->integer('rtsp')->nullable();
-            $table->string('https')->nullable();
+            $table->integer('https')->nullable();
             $table->integer('tcp_ext')->nullable();
             $table->integer('udp_ext')->nullable();
             $table->integer('http_ext')->nullable();
             $table->integer('rtsp_ext')->nullable();
-            $table->string('https_ext')->nullable();
-            $table->integer('mascara')->nullable();
+            $table->integer('https_ext')->nullable();
+            $table->string('mascara')->nullable();
             $table->string('gateway')->nullable();
             $table->string('primarydns')->nullable();
             $table->string('secondarydns')->nullable();

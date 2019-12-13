@@ -42,14 +42,14 @@
 
                     <div class="form-group col-md-4">
                       <label for="ip_publica">Mascara</label>
-                      <input type="number" min=0 max=32  class="form-control" id="mascara" placeholder="" name="mascara">
+                      <input type="text" class="form-control" id="mascara" value="255.255.255.0"  name="mascara" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$">
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-3">
                       <label for="mac_adress">Publica</label>
-                      <input type="text" class="form-control" id="ip_publica" placeholder=""  name="ip_publica" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$">
+                      <input type="text" class="form-control" id="ip_publica" placeholder=""  name="ip_publica" >
                     </div>
                     <div class="form-group col-md-3">
                       <label for="mac_adress">Gateway</label>

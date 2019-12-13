@@ -56,35 +56,83 @@
                         </div>
                   </div>
 
-
-
-                  <div class="form-row">
-                    <div class="form-group col-md-3">
-                      <label for="tcp">TCP</label>
-                      <input type="text" class="form-control" id="tcp" placeholder="{{$host->tcp}}" name="tcp" disabled>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label for="udp">UDP</label>
-                      <input type="text" class="form-control" id="udp" placeholder="{{$host->udp}}"  name="udp" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="http">HTTP</label>
-                      <input type="text" class="form-control" id="http" placeholder="{{$host->http}}"  name="http" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="https">HTTPs</label>
-                      <input type="text" class="form-control" id="https" placeholder="{{$host->https}}"  name="https" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="rtsp">RTSP</label>
-                      <input type="text" class="form-control" id="rtsp" placeholder="{{$host->rtsp}}"  name="rtsp" disabled>
-                    </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    @php
+                    if ($host->ip_local != "127.0.0.1" && !is_null($host->ip_local) && !is_null($host->tcp)) {
+                      if (!is_null(ping($host->ip_local, $host->tcp))) {
+                        echo '<label for="tcp" style="color: green; font-weight: bold;">TCP</label>';
+                      }else{
+                        echo  '<label for="tcp" style="color: red; font-weight: bold;">TCP</label>';
+                      }
+                    }else {
+                      echo '<label for="tcp">TCP</label>';
+                    }
+                    @endphp
+                    <input type="text" class="form-control" id="tcp" placeholder="{{$host->tcp}}" name="tcp" disabled>
+                  </div>
+                  <div class="form-group col-md-3">
+                    @php
+                    if ($host->ip_local != "127.0.0.1" && !is_null($host->ip_local) && !is_null($host->udp)) {
+                      if (!is_null(ping($host->ip_local, $host->udp))) {
+                        echo '<label for="udp" style="color: green; font-weight: bold;">UDP</label>';
+                      }else{
+                        echo  '<label for="udp" style="color: red; font-weight: bold;">UDP</label>';
+                      }
+                    }else {
+                      echo '<label for="udp">UDP</label>';
+                    }
+                    @endphp
+                    <input type="text" class="form-control" id="udp" placeholder="{{$host->udp}}"  name="udp" disabled>
+                  </div>
+                  <div class="form-group col-md-2">
+                    @php
+                    if ($host->ip_local != "127.0.0.1" && !is_null($host->ip_local) && !is_null($host->http)) {
+                      if (!is_null(ping($host->ip_local, $host->http))) {
+                        echo '<label for="http" style="color: green; font-weight: bold;">HTTP</label>';
+                      }else{
+                        echo  '<label for="http" style="color: red; font-weight: bold;">HTTP</label>';
+                      }
+                    }else {
+                      echo '<label for="http">HTTP</label>';
+                    }
+                    @endphp
+                    <input type="text" class="form-control" id="http" placeholder="{{$host->http}}"  name="http" disabled>
+                  </div>
+                  <div class="form-group col-md-2">
+                    @php
+                    if ($host->ip_local != "127.0.0.1" && !is_null($host->ip_local) && !is_null($host->https)) {
+                      if (!is_null(ping($host->ip_local, $host->https))) {
+                        echo '<label for="https" style="color: green; font-weight: bold;">HTTPs</label>';
+                      }else{
+                        echo  '<label for="https" style="color: red; font-weight: bold;">HTTPs</label>';
+                      }
+                    }else {
+                      echo '<label for="https">HTTPs</label>';
+                    }
+                    @endphp
+                    <input type="text" class="form-control" id="https" placeholder="{{$host->https}}"  name="https" disabled>
+                  </div>
+                  <div class="form-group col-md-2">
+                    @php
+                    if ($host->ip_local != "127.0.0.1" && !is_null($host->ip_local) && !is_null($host->rtsp)) {
+                      if (!is_null(ping($host->ip_local, $host->rtsp))) {
+                        echo '<label for="rtsp" style="color: green; font-weight: bold;">RTSP</label>';
+                      }else{
+                        echo  '<label for="rtsp" style="color: red; font-weight: bold;">RTSP</label>';
+                      }
+                    }else {
+                      echo '<label for="rtsp">RTSP</label>';
+                    }
+                    @endphp
+                    <input type="text" class="form-control" id="rtsp" placeholder="{{$host->rtsp}}"  name="rtsp" disabled>
+                  </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-3">
                     @php
-                    if ($host->ip_publica != "127.0.0.1") {
+                    if ($host->ip_publica != "127.0.0.1" && !is_null($host->ip_publica) && !is_null($host->tcp_ext)) {
                       if (!is_null(ping($host->ip_publica, $host->tcp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">TCP (ext)</label>';
                       }else{
@@ -98,7 +146,7 @@
                   </div>
                   <div class="form-group col-md-3">
                     @php
-                    if ($host->ip_publica != "127.0.0.1") {
+                    if ($host->ip_publica != "127.0.0.1" && !is_null($host->ip_publica) && !is_null($host->udp_ext)) {
                       if (!is_null(ping($host->ip_publica, $host->udp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">UDP (ext)</label>';
                       }else{
@@ -112,7 +160,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     @php
-                    if ($host->ip_publica != "127.0.0.1") {
+                    if ($host->ip_publica != "127.0.0.1" && !is_null($host->ip_publica) && !is_null($host->http_ext)) {
                       if (!is_null(ping($host->ip_publica, $host->http_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">HTTP (ext)</label>';
                       }else{
@@ -126,7 +174,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     @php
-                    if ($host->ip_publica != "127.0.0.1") {
+                    if ($host->ip_publica != "127.0.0.1" && !is_null($host->ip_publica) && !is_null($host->https_ext)) {
                       if (!is_null(ping($host->ip_publica, $host->https_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">HTTPs (ext)</label>';
                       }else{
@@ -140,7 +188,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     @php
-                    if ($host->ip_publica != "127.0.0.1") {
+                    if ($host->ip_publica != "127.0.0.1" && !is_null($host->ip_publica) && !is_null($host->rtsp_ext)) {
                       if (!is_null(ping($host->ip_publica, $host->rtsp_ext))) {
                         echo '<label for="tcp" style="color: green; font-weight: bold;">RTSP (ext)</label>';
                       }else{

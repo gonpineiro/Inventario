@@ -38,7 +38,7 @@
                     <tr>
                       <td>{{$dvr->ip_local}}</td>
                       <td>{{$dvr->mac_adress}}</td>
-                      <td>{{$dvr->mascara}} Bits</td>
+                      <td>{{$dvr->mascara}}</td>
                       <td>{{$dvr->gateway}}</td>
                       <td>{{$dvr->ip_publica}}</td>
                       <td>{{$dvr->primarydns}}</td>
