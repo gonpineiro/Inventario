@@ -22,7 +22,7 @@
                     <td><a href="/computadoras_pdf/2">B</a> - <a href="/computadoras_pdf/1">V</a></td>
                   </tr>
                   <tr>
-                    <td><a href="/computadoras">Notebooks</a></td>
+                    <td><a href="/notebooks">Notebooks</a></td>
                     <td>{{$cantNotebooks}}</td>
                     <td><a href="/notebooks_pdf/2">B</a> - <a href="/notebooks_pdf/1">V</a></td>
                   </tr>
