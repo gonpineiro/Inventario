@@ -63,6 +63,41 @@
               </div>
               </div>
               <br/>
+              @can('licensekey.edit')
+                <div class="card">
+                  <div class="card-header">Licensias</div>
+                    <div class="card-body">
+                      <div class="col cl-6">
+                          <table class="table table-hover" id="lic-table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Key</th>
+                                <th scope="col">Tipo</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach ($licenses as $license)
+                                  <tr>
+                                    <td>{{$license->id}}</td>
+                                    <td>{{$license->key}}</td>
+                                    <td>{{$license->type}}</td>
+                                  </tr>
+                            @endforeach
+                            </tbody>
+                          </table>
+                      </div>
+                    </div>
+                    <script >
+                            $(document).ready(function() {
+                            $('#lic-table').DataTable({
+                              "order": [[ 0, "desc" ]]
+                            });
+                              } );
+                    </script>
+                  </div>
+                  <br/>
+              @endcan
 
             @can ('hostworks.create')
             <div class="card">

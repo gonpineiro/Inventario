@@ -21,4 +21,5 @@
     require __DIR__ . '/web/reports.php';
     require __DIR__ . '/web/users.php';
     require __DIR__ . '/web/administracion.php';
+    require __DIR__ . '/web/licenses.php';
 });

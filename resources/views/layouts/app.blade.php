@@ -51,6 +51,8 @@
                                 @can ('notebooks.show') <a class="dropdown-item" href="/notebooks"><span>Notebooks</span></a>@endcan
                                 @can ('impresoras.show') <a class="dropdown-item" href="/impresoras"><span>Impresoras</span></a>@endcan
                                 @can ('phoneips.show') <a class="dropdown-item" href="/telefoniaip"><span>Telefonía IP</span></a>@endcan
+                                @can ('licencias.show') <span>- - - - - - - - - - - - - -</span>
+                                <a class="dropdown-item" href="/licencias"><span>Licencias</span></a> @endcan
                             </div>
                         </li>
                       </ul>

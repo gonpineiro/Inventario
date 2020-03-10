@@ -14,6 +14,7 @@ use App\Host_mov;
 use App\Fichas_entregas;
 use Carbon\Carbon;
 use App\Credential;
+use App\Licensekey;
 
 
 
@@ -49,12 +50,14 @@ class HostsController extends Controller
 
           $host = $this->findByIdHost($id);
           $hostwork = Host_work::where('host_id', $id)->get();
+          $license = Licensekey::where('host_id', $id)->get();
           $now = Carbon::now();
 
           return view('dispositivos.onlys.hosts.computadora', [
               'host' => $host,
               'hostworks' => $hostwork,
               'now' => $now,
+              'licenses' => $license,
           ]);
           }
 
@@ -196,12 +199,14 @@ class HostsController extends Controller
 
           $host = $this->findByIdHost($id);
           $hostwork = Host_work::where('host_id', $id)->get();
+          $license = Licensekey::where('host_id', $id)->get();
           $now = Carbon::now();
 
           return view('dispositivos.onlys.hosts.notebook', [
               'host' => $host,
               'hostworks' => $hostwork,
               'now' => $now,
+              'licenses' => $license,
           ]);
           }
 
