@@ -64,7 +64,7 @@
               <br/>
               @can('licensekey.edit')
                 <div class="card">
-                  <div class="card-header">Licensias</div>
+                  <div class="card-header">Licencias</div>
                     <div class="card-body">
                       <div class="col cl-6">
                           <table class="table table-hover" id="lic-table">
