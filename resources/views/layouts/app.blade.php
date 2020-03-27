@@ -16,6 +16,7 @@
     <script src="{{ asset('js/jquery.dataTables.min.js') }}" ></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}" ></script>
     <script src="{{ asset('serviceworker.js') }}" ></script>
+    <script src="{{ asset('js/Chart.min.js') }}" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -165,5 +166,10 @@
 
 
 </body>
+<footer class="page-footer font-small blue pt-4">
+  <div class="footer-copyright text-center py-3">
+    © 2020 Copyright. Version 1.4
+    </div>
+</footer>
 
 </html>
