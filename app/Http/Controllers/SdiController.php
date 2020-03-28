@@ -56,7 +56,7 @@ class SdiController extends Controller
 
 
     public function showPanelAlarm(Request $request){
-      $host = Host::where('host_type_id',40)->get();
+      $host = Host::where('host_type_id',40)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.panel_alarms', [
         'hosts' => $host,
       ]);
@@ -157,7 +157,7 @@ class SdiController extends Controller
 
 
     public function showTeclado(Request $request){
-      $host = Host::where('host_type_id',44)->get();
+      $host = Host::where('host_type_id',44)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.teclados', [
         'hosts' => $host,
       ]);
@@ -257,7 +257,7 @@ class SdiController extends Controller
 
 
     public function showExpansora(Request $request){
-      $host = Host::where('host_type_id',41)->get();
+      $host = Host::where('host_type_id',41)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.expansoras', [
         'hosts' => $host,
       ]);
@@ -356,7 +356,7 @@ class SdiController extends Controller
 
 
     public function showComunicator(Request $request){
-        $host = Host::where('host_type_id',42)->get();
+        $host = Host::where('host_type_id',42)->where('estado_id', 1)->get();
         return view('dispositivos.tables.sdis.comunicators', [
           'hosts' => $host,
         ]);
@@ -553,7 +553,7 @@ class SdiController extends Controller
 
 
     public function showSirena(Request $request){
-      $host = Host::where('host_type_id',45)->get();
+      $host = Host::where('host_type_id',45)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.sirenas', [
         'hosts' => $host,
       ]);
@@ -652,7 +652,7 @@ class SdiController extends Controller
 
 
     public function showSensor(Request $request){
-      $host = Host::where('host_type_id',43)->get();
+      $host = Host::where('host_type_id',43)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.sensors', [
         'hosts' => $host,
       ]);

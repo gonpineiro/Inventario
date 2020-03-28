@@ -5,6 +5,19 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h3>Teclados @can ('teclados.create') <a href="/form_teclado"> +</a></h1>  @endcan </h3>
+          @switch($_SERVER["REQUEST_URI"])
+            @case("/teclados")
+                Habilitadas / <a href="/teclados_disable">Deshabilitadas</a> / <a href="/teclados_stock">Stock</a>
+                @break
+            @case("/teclados_disable")
+                <a href="/teclados">Habilitadas</a> / Deshabilitadas / <a href="/teclados_stock">Stock</a>
+                @break
+            @case("/teclados_stock")
+                <a href="/teclados">Habilitadas</a> / <a href="/teclados_disable">Deshabilitadas</a> / Stock
+                @break
+          @endswitch
+          <br>
+
           <br>
           <table class="table table-hover" id="host-table">
             <thead>

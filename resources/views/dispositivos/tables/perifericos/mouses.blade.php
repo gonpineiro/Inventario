@@ -5,6 +5,19 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h3>Mouses @can ('mouses.create') <a href="/form_mouse"> +</a> @endcan </h3>
+          @switch($_SERVER["REQUEST_URI"])
+            @case("/mouses")
+                Habilitadas / <a href="/mouses_disable">Deshabilitadas</a> / <a href="/mouses_stock">Stock</a>
+                @break
+            @case("/mouses_disable")
+                <a href="/mouses">Habilitadas</a> / Deshabilitadas / <a href="/mouses_stock">Stock</a>
+                @break
+            @case("/mouses_stock")
+                <a href="/mouses">Habilitadas</a> / <a href="/mouses_disable">Deshabilitadas</a> / Stock
+                @break
+          @endswitch
+          <br>
+
           <br>
           <table class="table table-hover" id="host-table">
             <thead>

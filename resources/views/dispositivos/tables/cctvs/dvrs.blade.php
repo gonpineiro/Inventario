@@ -5,6 +5,19 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h3>DVRs @can ('dvrs.create') <a href="/form_dvr"> +</a> @endcan</h3>
+          @switch($_SERVER["REQUEST_URI"])
+            @case("/dvrs")
+                Habilitadas / <a href="/dvrs_disable">Deshabilitadas</a> / <a href="/dvrs_stock">Stock</a>
+                @break
+            @case("/dvrs_disable")
+                <a href="/dvrs">Habilitadas</a> / Deshabilitadas / <a href="/dvrs_stock">Stock</a>
+                @break
+            @case("/dvrs_stock")
+                <a href="/dvrs">Habilitadas</a> / <a href="/dvrs_disable">Deshabilitadas</a> / Stock
+                @break
+          @endswitch
+          <br>
+
           <br>
           <table class="table table-hover" id="host-table">
             <thead>

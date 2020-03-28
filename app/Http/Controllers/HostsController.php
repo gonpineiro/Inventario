@@ -24,6 +24,7 @@ class HostsController extends Controller
             ->orWhere('host_type_id', 2)
             ->orWhere('host_type_id', 3)
             ->orWhere('host_type_id', 4)
+            ->where('estado_id', 1)
             ->get();
 
           return view('dispositivos.tables.hosts.hosts', [
@@ -36,7 +37,27 @@ class HostsController extends Controller
         //COMPUTADORAS CONTROLLER
         public function showComputadoras(Request $request){
 
-          $host = Host::where('host_type_id', 1)->get();
+          $host = Host::where('host_type_id', 1)->where('estado_id', 1)->get();
+
+          return view('dispositivos.tables.hosts.computadoras', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showComputadorasDisable(Request $request){
+
+          $host = Host::where('host_type_id', 1)->where('estado_id', 2)->get();
+
+          return view('dispositivos.tables.hosts.computadoras', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showComputadorasStock(Request $request){
+
+          $host = Host::where('host_type_id', 1)->where('estado_id', 3)->get();
 
           return view('dispositivos.tables.hosts.computadoras', [
             'hosts' => $host,
@@ -185,7 +206,27 @@ class HostsController extends Controller
 
         public function showNotebooks(Request $request){
 
-          $host = Host::where('host_type_id', 2)->get();
+          $host = Host::where('host_type_id', 2)->where('estado_id', 1)->get();
+
+          return view('dispositivos.tables.hosts.notebooks', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showNotebooksDisable(Request $request){
+
+          $host = Host::where('host_type_id', 2)->where('estado_id', 2)->get();
+
+          return view('dispositivos.tables.hosts.notebooks', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showNotebooksStock(Request $request){
+
+          $host = Host::where('host_type_id', 2)->where('estado_id', 3)->get();
 
           return view('dispositivos.tables.hosts.notebooks', [
             'hosts' => $host,
@@ -332,7 +373,25 @@ class HostsController extends Controller
         //IMPRESORAS CONTROLLER
         public function showImpresoras(Request $request){
 
-          $host = Host::where('host_type_id', 3)->get();
+          $host = Host::where('host_type_id', 3)->where('estado_id', 1)->get();
+          return view('dispositivos.tables.hosts.impresoras', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showImpresorasDisable(Request $request){
+
+          $host = Host::where('host_type_id', 3)->where('estado_id', 2)->get();
+          return view('dispositivos.tables.hosts.impresoras', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showImpresorasStock(Request $request){
+
+          $host = Host::where('host_type_id', 3)->where('estado_id', 3)->get();
           return view('dispositivos.tables.hosts.impresoras', [
             'hosts' => $host,
           ]);
@@ -451,7 +510,25 @@ class HostsController extends Controller
         //TELEFONOSIP CONTROLLER
         public function showTelefoniaips(Request $request){
 
-          $host = Host::where('host_type_id', 4)->get();
+          $host = Host::where('host_type_id', 4)->where('estado_id', 1)->get();
+          return view('dispositivos.tables.hosts.telefoniaips', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showTelefoniaipsDisable(Request $request){
+
+          $host = Host::where('host_type_id', 4)->where('estado_id', 2)->get();
+          return view('dispositivos.tables.hosts.telefoniaips', [
+            'hosts' => $host,
+          ]);
+
+        }
+
+        public function showTelefoniaipsStock(Request $request){
+
+          $host = Host::where('host_type_id', 4)->where('estado_id', 3)->get();
           return view('dispositivos.tables.hosts.telefoniaips', [
             'hosts' => $host,
           ]);

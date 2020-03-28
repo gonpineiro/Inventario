@@ -5,6 +5,19 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h3>Routers @can ('routers.create') <a href="/form_router"> +</a> @endcan </h3>
+          @switch($_SERVER["REQUEST_URI"])
+            @case("/routers")
+                Habilitadas / <a href="/routers_disable">Deshabilitadas</a> / <a href="/routers_stock">Stock</a>
+                @break
+            @case("/routers_disable")
+                <a href="/routers">Habilitadas</a> / Deshabilitadas / <a href="/routers_stock">Stock</a>
+                @break
+            @case("/routers_stock")
+                <a href="/routers">Habilitadas</a> / <a href="/routers_disable">Deshabilitadas</a> / Stock
+                @break
+          @endswitch
+          <br>
+
           <br>
           <table class="table table-hover" id="host-table">
             <thead>

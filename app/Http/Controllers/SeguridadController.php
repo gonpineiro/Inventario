@@ -19,6 +19,7 @@ class SeguridadController extends Controller{
       ->orWhere('host_type_id', 21)
       ->orWhere('host_type_id', 22)
       ->orWhere('host_type_id', 23)
+      ->where('estado_id', 1)
       ->get();
 
     return view('dispositivos.tables.cctvs.cctvs', [
@@ -31,7 +32,29 @@ class SeguridadController extends Controller{
 
   public function showCamarasIp(Request $request){
 
-    $host = Host::where('host_type_id', 20)->get();
+    $host = Host::where('host_type_id', 20)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.cctvs.camarasip', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showCamarasIpDisable(Request $request){
+
+    $host = Host::where('host_type_id', 20)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.cctvs.camarasip', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showCamarasIpStock(Request $request){
+
+    $host = Host::where('host_type_id', 20)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.cctvs.camarasip', [
       'hosts' => $host,
@@ -197,7 +220,29 @@ class SeguridadController extends Controller{
 
   public function showCamarasAna(Request $request){
 
-    $host = Host::where('host_type_id', 24)->get();
+    $host = Host::where('host_type_id', 24)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.cctvs.camarasana', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showCamarasAnaDisable(Request $request){
+
+    $host = Host::where('host_type_id', 24)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.cctvs.camarasana', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showCamarasAnaStock(Request $request){
+
+    $host = Host::where('host_type_id', 24)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.cctvs.camarasana', [
       'hosts' => $host,
@@ -319,7 +364,29 @@ class SeguridadController extends Controller{
 
   public function showDvrs(Request $request){
 
-    $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->get();
+    $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.cctvs.dvrs', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showDvrsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.cctvs.dvrs', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showDvrsStock(Request $request){
+
+    $host = Host::where('host_type_id', 21)->orwhere('host_type_id', 22)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.cctvs.dvrs', [
       'hosts' => $host,

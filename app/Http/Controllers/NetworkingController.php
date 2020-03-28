@@ -19,6 +19,7 @@ class NetworkingController extends Controller
       ->orWhere('host_type_id', 11)
       ->orWhere('host_type_id', 12)
       ->orWhere('host_type_id', 13)
+      ->where('estado_id', 1)
       ->get();
 
       return view('dispositivos.tables.networkings.networkings', [
@@ -31,7 +32,33 @@ class NetworkingController extends Controller
 
   public function showModems(Request $request){
 
-    $host = Host::where('host_type_id', 10)->get();
+    $host = Host::where('host_type_id', 10)->where('estado_id', 1)->get();
+    $dephost = Departament::all();
+
+    return view('dispositivos.tables.networkings.modems', [
+      'hosts' => $host,
+      'dephost' => $dephost,
+
+     ]);
+
+  }
+
+  public function showModemsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 10)->where('estado_id', 2)->get();
+    $dephost = Departament::all();
+
+    return view('dispositivos.tables.networkings.modems', [
+      'hosts' => $host,
+      'dephost' => $dephost,
+
+     ]);
+
+  }
+
+  public function showModemsStock(Request $request){
+
+    $host = Host::where('host_type_id', 10)->where('estado_id', 3)->get();
     $dephost = Departament::all();
 
     return view('dispositivos.tables.networkings.modems', [
@@ -148,7 +175,29 @@ class NetworkingController extends Controller
 
   public function showRouters(Request $request){
 
-    $host = Host::where('host_type_id', 11)->get();
+    $host = Host::where('host_type_id', 11)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.networkings.routers', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showRoutersDisable(Request $request){
+
+    $host = Host::where('host_type_id', 11)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.networkings.routers', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showRoutersStock(Request $request){
+
+    $host = Host::where('host_type_id', 11)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.networkings.routers', [
       'hosts' => $host,
@@ -263,7 +312,29 @@ class NetworkingController extends Controller
 
   public function showSwitchs(Request $request){
 
-    $host = Host::where('host_type_id', 12)->get();
+    $host = Host::where('host_type_id', 12)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.networkings.switchs', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showSwitchsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 12)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.networkings.switchs', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showSwitchsStock(Request $request){
+
+    $host = Host::where('host_type_id', 12)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.networkings.switchs', [
       'hosts' => $host,
@@ -381,7 +452,29 @@ class NetworkingController extends Controller
 
   public function showAccespoints(Request $request){
 
-    $host = Host::where('host_type_id', 13)->get();
+    $host = Host::where('host_type_id', 13)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.networkings.accespoints', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showAccespointsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 13)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.networkings.accespoints', [
+      'hosts' => $host,
+
+     ]);
+
+  }
+
+  public function showAccespointsStock(Request $request){
+
+    $host = Host::where('host_type_id', 13)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.networkings.accespoints', [
       'hosts' => $host,

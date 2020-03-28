@@ -25,6 +25,7 @@ class PerifericoController extends Controller
       ->orWhere('host_type_id', 32)
       ->orWhere('host_type_id', 33)
       ->orWhere('host_type_id', 34)
+      ->where('estado_id', 1)
       ->paginate(25);
 
     return view('dispositivos.tables.perifericos.perifericos', [
@@ -37,7 +38,27 @@ class PerifericoController extends Controller
 
   public function showMonitors(Request $request){
 
-    $host = Host::where('host_type_id', 30)->get();
+    $host = Host::where('host_type_id', 30)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.perifericos.monitors', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showMonitorsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 30)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.perifericos.monitors', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showMonitorsStock(Request $request){
+
+    $host = Host::where('host_type_id', 30)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.perifericos.monitors', [
       'hosts' => $host,
@@ -157,7 +178,27 @@ class PerifericoController extends Controller
 
   public function showTelevisors(Request $request){
 
-    $host = Host::where('host_type_id', 31)->get();
+    $host = Host::where('host_type_id', 31)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.perifericos.televisors', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showTelevisorsDisable(Request $request){
+
+    $host = Host::where('host_type_id', 31)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.perifericos.televisors', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showTelevisorsStock(Request $request){
+
+    $host = Host::where('host_type_id', 31)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.perifericos.televisors', [
       'hosts' => $host,
@@ -275,7 +316,27 @@ class PerifericoController extends Controller
 
   public function showTeclados(Request $request){
 
-    $host = Host::where('host_type_id', 32)->get();
+    $host = Host::where('host_type_id', 32)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.perifericos.teclados', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showTecladosDisable(Request $request){
+
+    $host = Host::where('host_type_id', 32)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.perifericos.teclados', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showTecladosStock(Request $request){
+
+    $host = Host::where('host_type_id', 32)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.perifericos.teclados', [
       'hosts' => $host,
@@ -393,7 +454,27 @@ class PerifericoController extends Controller
 
   public function showMouses(Request $request){
 
-    $host = Host::where('host_type_id', 33)->get();
+    $host = Host::where('host_type_id', 33)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.perifericos.mouses', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showMousesDisable(Request $request){
+
+    $host = Host::where('host_type_id', 33)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.perifericos.mouses', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showMousesStock(Request $request){
+
+    $host = Host::where('host_type_id', 33)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.perifericos.mouses', [
       'hosts' => $host,
@@ -511,7 +592,27 @@ class PerifericoController extends Controller
 
   public function showWebcam(Request $request){
 
-    $host = Host::where('host_type_id', 34)->get();
+    $host = Host::where('host_type_id', 34)->where('estado_id', 1)->get();
+
+    return view('dispositivos.tables.perifericos.webcams', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showWebcamDisable(Request $request){
+
+    $host = Host::where('host_type_id', 34)->where('estado_id', 2)->get();
+
+    return view('dispositivos.tables.perifericos.webcams', [
+      'hosts' => $host,
+    ]);
+
+  }
+
+  public function showWebcamStock(Request $request){
+
+    $host = Host::where('host_type_id', 34)->where('estado_id', 3)->get();
 
     return view('dispositivos.tables.perifericos.webcams', [
       'hosts' => $host,

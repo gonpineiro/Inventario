@@ -5,6 +5,19 @@
     <div class="row mt-2">
       <div class="col cl-6">
         <h3>Telefonía IP @can ('phoneips.create') <a href="/form_telefonoip"> +</a> @endcan </h3>
+          @switch($_SERVER["REQUEST_URI"])
+            @case("/telefoniaip")
+                Habilitadas / <a href="/telefoniaip_disable">Deshabilitadas</a> / <a href="/telefoniaip_stock">Stock</a>
+                @break
+            @case("/telefoniaip_disable")
+                <a href="/telefoniaip">Habilitadas</a> / Deshabilitadas / <a href="/telefoniaip_stock">Stock</a>
+                @break
+            @case("/telefoniaip_stock")
+                <a href="/telefoniaip">Habilitadas</a> / <a href="/telefoniaip_disable">Deshabilitadas</a> / Stock
+                @break
+          @endswitch
+          <br>
+
           <br>
           <table class="table table-hover" id="host-table">
             <thead>
