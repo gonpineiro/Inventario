@@ -179,9 +179,10 @@ class SeguridadController extends Controller{
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->zona = $request->input('zona');
       $host->save();
+
 
       $historial = Historial::create([
           'user_id' => $user->id,
@@ -301,7 +302,7 @@ class SeguridadController extends Controller{
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->zona = $request->input('zona');
       $host->save();
 
@@ -453,7 +454,7 @@ class SeguridadController extends Controller{
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([

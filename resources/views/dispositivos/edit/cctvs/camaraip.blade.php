@@ -108,8 +108,9 @@
                       <input type="text" class="form-control" id="rtsp_ext" value="{{$host->rtsp_ext}}"  name="rtsp_ext" min="1" max="65535">
                     </div>
                   </div>
+                  
                   <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                       <label for="estado">Grabando en...</label>
                       <select class="form-control" name="cctv" required>
                         @if (is_null($host->cctv_id))
@@ -125,7 +126,14 @@
                         @endif
                       </select>
                     </div>
-                    <div class="form-group col-md-3">
+                      <div class="form-group col-md-6">
+                        <label for="valor">Ubicacion/Zona</label>
+                        <input type="text" class="form-control" id="zona" value="{{$host->zona}}" name="zona" required>
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
                       <label for="inputEmail4">Afectado</label>
                       <select class="form-control" name="departament" required>
                         <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
@@ -134,20 +142,26 @@
                         @endforeach
                       </select>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label for="valor">Ubicacion/Zona</label>
-                      <input type="text" class="form-control" id="zona" value="{{$host->zona}}" name="zona" required>
-                    </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-4">
                       <label for="valor">Valor</label>
                       <input type="number" min="10" class="form-control" id="valor" value="{{$host->valor}}" name="valor" required>
                     </div>
+                    <div class="form-group col-md-4">
+                      <label for="valor">Estado</label>
+                      <select class="form-control" name="estado" required>
+                        <option value="{{$host->estado->id}}">{{$host->estado->name}}</option>
+                        @foreach ($estados as $estado)
+                          <option value="{{$estado->id}}">{{$estado->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
                   </div>
+
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observaciónes</label>
-                          <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" name="comentario" >{{$host->comentario}} </textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observaciónes</label>
+                      <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" name="comentario" >{{$host->comentario}} </textarea>
+                    </div>
                   </div>
                   <button type="submit" class="btn btn-dark" >Agregar</button>
                </form>

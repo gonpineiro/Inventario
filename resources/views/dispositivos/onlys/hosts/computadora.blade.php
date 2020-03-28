@@ -32,22 +32,26 @@
                       <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="inputEmail4">Mac address</label>
-                      <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
+                      <label for="mac_adress">Mac address</label>
+                      <input type="text" class="form-control" id="mac_adress" placeholder="{{$host->mac_adress}}" disabled>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="inputPassword4">Ip local</label>
-                      <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
+                      <label for="ip_local">Ip local</label>
+                      <input type="text" class="form-control" id="ip_local" placeholder="{{$host->ip_local}}" disabled>
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label for="departament">Afectado</label>
                       <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="D: {{$host->user_host->departament->name}} - C: {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label for="valor">Valor</label>
-                      <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
+                      <input type="text" class="form-control" id="valor" placeholder={{$host->valor}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="serial">Estado</label>
+                      <input type="text" class="form-control" id="estado" placeholder={{$host->estado->name}} disabled>
                     </div>
                   </div>
                   <div class="form-row">

@@ -54,14 +54,23 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="departament">Afectado</label>
                     <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="D: {{$host->user_host->departament->name}} - C: {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
 
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="valor">Valor</label>
                     <input type="number" min="10" class="form-control" id="valor" value="{{$host->valor}}" name="valor" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="valor">Estado</label>
+                    <select class="form-control" name="estado" required>
+                      <option value="{{$host->estado->id}}">{{$host->estado->name}}</option>
+                      @foreach ($estados as $estado)
+                        <option value="{{$estado->id}}">{{$estado->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
                 <div class="form-row">

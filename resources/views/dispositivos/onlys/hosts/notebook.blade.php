@@ -41,13 +41,17 @@
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label for="departament">Afectado</label>
                       <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="D: {{$host->user_host->departament->name}} - C: {{$host->user_host->departament->cliente->name}}" @else placeholder="" @endif disabled>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label for="valor">Valor</label>
                       <input type="text" class="form-control" id="inputPassword4" placeholder={{$host->valor}} disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="serial">Estado</label>
+                      <input type="text" class="form-control" id="estado" placeholder={{$host->estado->name}} disabled>
                     </div>
                   </div>
                   <div class="form-row">

@@ -17,8 +17,6 @@ use App\Credential;
 use App\Licensekey;
 
 
-
-
 class HostsController extends Controller
 {
         public function show(Request $request){
@@ -141,7 +139,7 @@ class HostsController extends Controller
             $host->valor = $request->input('valor');
             $host->comentario = $request->input('comentario');
             $host->class = $request->input('class');
-            $host->estado_id = 1;
+            $host->estado_id = $request->input('estado');
 
             if ($request->input('retirar_host') == TRUE) {
 
@@ -290,7 +288,7 @@ class HostsController extends Controller
             $host->valor = $request->input('valor');
             $host->comentario = $request->input('comentario');
             $host->class = $request->input('class');
-            $host->estado_id = 1;
+            $host->estado_id = $request->input('estado');
 
 
             if ($request->input('retirar_host') == TRUE) {
@@ -431,7 +429,7 @@ class HostsController extends Controller
             $host->valor = $request->input('valor');
             $host->comentario = $request->input('comentario');
             $host->class = $request->input('class');
-            $host->estado_id = 1;
+            $host->estado_id = $request->input('estado');
             if ($request->input('retirar_host') == TRUE) {
               $host->user_host_id = NULL;
             }else {
@@ -551,7 +549,7 @@ class HostsController extends Controller
             $host->departament_id = $request->input('departament');
             $host->valor = $request->input('valor');
             $host->comentario = $request->input('comentario');
-            $host->estado_id = 1;
+            $host->estado_id = $request->input('estado');
             $host->save();
 
             $historial = Historial::create([

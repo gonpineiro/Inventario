@@ -138,7 +138,7 @@ class PerifericoController extends Controller
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([
@@ -259,7 +259,7 @@ class PerifericoController extends Controller
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([
@@ -376,7 +376,7 @@ class PerifericoController extends Controller
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([
@@ -494,7 +494,7 @@ class PerifericoController extends Controller
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([
@@ -611,7 +611,7 @@ class PerifericoController extends Controller
       $host->departament_id = $request->input('departament');
       $host->valor = $request->input('valor');
       $host->comentario = $request->input('comentario');
-      $host->estado_id = 1;
+      $host->estado_id = $request->input('estado');
       $host->save();
 
       $historial = Historial::create([

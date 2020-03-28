@@ -55,29 +55,28 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="user_1">Usuario</label>
-                          <input type="ssid" class="form-control" id="user_1" value="{{$host->user_1}}" name="user_1" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="pass_1">Password</label>
-                          <input type="text" class="form-control" id="pass_1" value="{{$host->pass_1}}" name="pass_1" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputEmail4">Afectado</label>
-                            <select class="form-control" name="departament" required>
-                              <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
-                              @foreach ($departaments as $departament)
-                                <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
-                              @endforeach
-                            </select>
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="valor">Valor</label>
-                            <input type="number" min="10" class="form-control" id="valor" value="{{$host->valor}}" name="valor" required>
-                          </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputEmail4">Afectado</label>
+                        <select class="form-control" name="departament" required>
+                          <option value="{{$host->departament_id}}">D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}</option>
+                          @foreach ($departaments as $departament)
+                            <option value="{{$departament->id}}">D: {{$departament->name}} - C: {{$departament->cliente->name}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="valor">Valor</label>
+                        <input type="number" min="10" class="form-control" id="valor" value="{{$host->valor}}" name="valor" required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="valor">Estado</label>
+                        <select class="form-control" name="estado" required>
+                          <option value="{{$host->estado->id}}">{{$host->estado->name}}</option>
+                          @foreach ($estados as $estado)
+                            <option value="{{$estado->id}}">{{$estado->name}}</option>
+                          @endforeach
+                        </select>
+                      </div>
                     </div>
                     <div class="form-row">
                           <div class="form-group col-md">

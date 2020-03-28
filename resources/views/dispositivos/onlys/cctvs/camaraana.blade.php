@@ -22,33 +22,40 @@
                       <input type="text" class="form-control" id="serial" placeholder={{$host->serial}} disabled>
                     </div>
                   </div>
+
                   <div class="form-row">
-                  @if (is_null($host->cctv_id))
-                    <div class="form-group col-md-3">
-                      <label for="cctv">Grabando en...</label>
-                      <input type="text" class="form-control" id="cctv" placeholder="  "  name="cctv" disabled>
+                    @if (is_null($host->cctv_id))
+                      <div class="form-group col-md-6">
+                        <label for="cctv">Grabando en...</label>
+                        <input type="text" class="form-control" id="cctv" placeholder="  "  name="cctv" disabled>
+                      </div>
+                    @else
+                      <div class="form-group col-md-6">
+                        <label for="cctv">Grabando en...</label>
+                        <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
+                      </div>
+                    @endif
+                    <div class="form-group col-md-6">
+                      <label for="departament">Ubicacion/Zona</label>
+                      <input type="text" class="form-control" placeholder="{{$host->zona}}" disabled>
                     </div>
-                  @else
-                    <div class="form-group col-md-12">
-                      <label for="cctv">Grabando en...</label>
-                      <input type="text" class="form-control" id="cctv" placeholder="{{$cctv->name}} - D: {{$cctv->departament->name}} - C: {{$cctv->departament->cliente->name}}"  name="cctv" disabled>
-                    </div>
-                  @endif
                   </div>
+
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="departament">Afectado</label>
-                      <input type="text" class="form-control" placeholder="D: {{$host->departament->name}} - C:{{$host->departament->cliente->name}}" disabled>
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label for="valor">Ubicacion/Zona</label>
-                      <input type="text" class="form-control"  placeholder={{$host->zona}} disabled>
+                      <input type="text" class="form-control" placeholder="D: {{$host->departament->name}} - C: {{$host->departament->cliente->name}}" disabled>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="valor">Valor</label>
-                      <input type="text" class="form-control" placeholder={{$host->valor}} disabled>
+                      <input type="text" class="form-control" placeholder="{{$host->valor}}" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="serial">Estado</label>
+                      <input type="text" class="form-control" id="estado" placeholder={{$host->estado->name}} disabled>
                     </div>
                   </div>
+
                   <div class="form-row">
                     <div class="form-group col-md">
                       <label for="comentario">Observaciónes</label>
