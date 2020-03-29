@@ -14,8 +14,9 @@ class StartSRV extends Seeder
       DB::table('users')->insert(['name' => 'administrador','email' => 'administrador@sab5.com.ar','password' => '$2y$10$6gJTsnUyPc8XJ7J/C1f14euqL1pgDKnQt8xzPkNbkgZo53syKl3aK']);
 
       //ESTADOS
-      DB::table('estados')->insert(['name' => 'Operando']);
-      DB::table('estados')->insert(['name' => 'Baja']);
+      DB::table('estados')->insert(['name' => 'Habilitado']);
+      DB::table('estados')->insert(['name' => 'Deshabilitado']);
+      DB::table('estados')->insert(['name' => 'Stock']);
 
       //HOST TYPE (Host de Usuarios)
       DB::table('host_types')->insert(['name' => 'Computadora','id' => 1]);

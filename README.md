@@ -1,11 +1,19 @@
 
-# Inventario v1.4.0
+# Inventario v1.4.9
 
-Mejora de modulo de los modeos
++ Implementacion de Dashborad con CharJs. 
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
 
+#### Hay que agregar la siguente funcion en el Modelo del Rol dentro de la libreria:
+
+  ```
+  public function persmissions(){
+
+    return $this->belongsToMany('Caffeinated\Shinobi\Models\Permission');
+  }
+  ```
 
 #####  Ubicación:
 
@@ -20,7 +28,7 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   ```
 
 
-## Referencias
+## Referencias de los dispositivos.
 
 ### Host de usuarios:
 
@@ -60,3 +68,9 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   43 Sensores <br>
   44 Teclados <br>
   45 Sirenas <br>
+
+## Referencias de los estados.
+
+  1 Habilitado <br>
+  2 Deshabilitado <br>
+  3 Stock <br>

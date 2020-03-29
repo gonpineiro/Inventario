@@ -16,7 +16,8 @@
     <script src="{{ asset('js/jquery.dataTables.min.js') }}" ></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}" ></script>
     <script src="{{ asset('serviceworker.js') }}" ></script>
-    <script src="{{ asset('js/Chart.min.js') }}" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
