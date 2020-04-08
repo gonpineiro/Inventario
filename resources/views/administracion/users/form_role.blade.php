@@ -79,6 +79,21 @@
                   @endforeach
                 </ul>
               </div>
+              <br>
+              <div class="form-row justify-content-around">
+                <ul class="list-group" style="margin-left: 13px; width: 20%">
+                  <h6>Licencias</h6>
+                  @foreach ($permissions as $permission)
+                    @if (stristr($permission->slug, '.', true) == 'licensekey')
+                    <li class="list-group-item">
+                        {{Form::checkbox('permissions[]',$permission->id,null)}}
+                        {{$permission->name}}
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+                <br>
+              </div>
 
               <br><h3>Networking</h3><br>
               <div class="form-row justify-content-around">

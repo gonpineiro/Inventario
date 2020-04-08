@@ -239,6 +239,12 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Registro de Trabajo','slug'  => 'hostworks.only','description'  => 'Detalle de Registro de Trabajo']);
         DB::table('permissions')->insert(['name'  => 'Editar Registro de Trabajo','slug'  => 'hostworks.edit','description'  => 'Editar de Registro de Trabajo']);
         DB::table('permissions')->insert(['name'  => 'Crear Registro de Trabajo','slug'  => 'hostworks.create','description'  => 'Crear de Registro de Trabajo']);
+        //LICENCIAS
+
+        DB::table('permissions')->insert(['name'  => 'Ver licencias','slug'  => 'licensekey.show','description'  => 'Tabla de Licencias']);
+        DB::table('permissions')->insert(['name'  => 'Detalle de Licencia','slug'  => 'licensekey.only','description'  => 'Detalle de Licencia']);
+        DB::table('permissions')->insert(['name'  => 'Editar de Licencia','slug'  => 'licensekey.edit','description'  => 'Editar de Licencia']);
+        DB::table('permissions')->insert(['name'  => 'Crear de Licencias','slug'  => 'licensekey.create','description'  => 'Crear de Licencias']);
 
 
     }
