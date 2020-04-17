@@ -13,7 +13,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-2">
                       <label for="type">Número</label>
-                      <input type="text" class="form-control" id="numero" name="numero" required>
+                      <input type="text" class="form-control" id="numero" name="numero" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="departament_id">Departamento/Cliente</label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label for="localidad">Teléfono</label>
-                      <input type="text" class="form-control" id="localidad" name="telefono" required>
+                      <input type="number" min="10000" class="form-control" id="localidad" name="telefono" required>
                     </div>
                   </div>
                   <div class="form-row">

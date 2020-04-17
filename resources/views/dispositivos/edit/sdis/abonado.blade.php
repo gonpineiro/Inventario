@@ -13,7 +13,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-2">
                       <label for="name">Número</label>
-                      <input type="text" class="form-control" id="name" name="numero" value="{{$abonado->numero}}" required>
+                      <input type="text" class="form-control" id="name" name="numero" value="{{$abonado->numero}}" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="modelo_id">Departamento/Cliente</label>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label for="localidad">Teléfono</label>
-                      <input type="text" min="10" class="form-control" id="localidad" value="{{$abonado->telefono}}" name="telefono" required>
+                      <input type="number" min="10000" class="form-control" id="localidad" value="{{$abonado->telefono}}" name="telefono" required>
                     </div>
                   </div>
 
