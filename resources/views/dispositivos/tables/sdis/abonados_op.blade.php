@@ -1,12 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.operaciones')
 
 @section('content')
   <div class="container">
     <div class="row mt-2">
       <div class="col cl-6">
-        <h3>Abonados @can ('abonados.create') <a href="/form_abonado"> +</a> @endcan  </h3>
-          <br>
-          <table class="table  table-hover" id="host-table">
+          <table class="table table-hover" id="host-table">
             <thead>
               <tr>
                 @can ('abonados.only') <th scope="col">#</th> @endcan
@@ -42,7 +40,8 @@
       <script >
               $(document).ready(function() {
               $('#host-table').DataTable({
-                "order": [[ 0, "desc" ]]
+                "order": [[ 0, "desc" ]],
+                "lengthMenu": [[25, 50, -1], [25, 50, "All"]]
               });
                 } );
       </script>

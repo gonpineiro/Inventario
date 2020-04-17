@@ -13,15 +13,27 @@ use App\Historial;
 use App\Card_sim;
 use App\Plataforma;
 use App\Abonadotype;
+use App\Password_abonado;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SdiController extends Controller
 {
     public function showAbonados(Request $request){
+      $user = $request->user();
       $abonado = Abonado::all();
+      //dd($user->roles[0]->name == 'OPERACIONES');
+      if ($user->roles[0]->name == 'OPERACIONES') {
+        //dd('asd');
+        return view('dispositivos.tables.sdis.abonados_op', [
+          'abonados' => $abonado,
+          'user' => $user,
+        ]);
+
+      }
       return view('dispositivos.tables.sdis.abonados', [
         'abonados' => $abonado,
+        'user' => $user,
       ]);
 
     }
@@ -29,10 +41,12 @@ class SdiController extends Controller
     public function onlyAbonado($id, Request $request){
 
       $abonado = $this->findByIdAbonado($id);
+      $password_abonado = Password_abonado::where('abonado_id', $abonado->id)->get();
       $now = Carbon::now();
-
+      //dd($password_abonado);
       return view('dispositivos.onlys.sdis.abonado', [
           'abonado' => $abonado,
+          'password_abonados' => $password_abonado,
           'now' => $now,
       ]);
       }
@@ -63,8 +77,10 @@ class SdiController extends Controller
           'cp' => $request->input('cp'),
           'localidad' => $request->input('localidad'),
           'numero' => $request->input('numero'),
+          'palabra_clave' => $request->input('palabra_clave'),
           'partido' => $request->input('partido'),
           'provincia' => $request->input('provincia'),
+          'telefono' => $request->input('telefono'),
           'comentario' => $request->input('comentario'),
             ]);
 
@@ -103,6 +119,8 @@ class SdiController extends Controller
         $abonado->numero = $request->input('numero');
         $abonado->partido = $request->input('partido');
         $abonado->provincia = $request->input('provincia');
+        $abonado->palabra_clave = $request->input('palabra_clave');
+        $abonado->telefono = $request->input('telefono');
         $abonado->comentario = $request->input('comentario');
         $abonado->save();
 
@@ -917,6 +935,33 @@ class SdiController extends Controller
       }
 
 
+    //PASSWOR ABONADOS
+    public function showPasswordAbonado($id, Request $request){
+      $abonado = $this->findByIdAbonado($id);
+
+      $passwordAbonado = Password_abonado::where('abonado_id', $abonado->id)->get();
+      $ver = "agregar";
+      return view('dispositivos.tables.sdis.password_abonados', [
+        'abonado' => $abonado,
+        'passwordAbonados' => $passwordAbonado,
+        'ver' => $ver,
+      ]);
+
+    }
+
+    public function createPasswordAbonado(Request $request){
+        //dd($request->input('abonado_id'));
+        $user = $request->user();
+        $password_abonado = Password_abonado::create([
+          'abonado_id' => $request->input('abonado_id'),
+          'password' => $request->input('password'),
+          'particion' => $request->input('particion'),
+          ]);
+
+      return redirect('/passwords_abonado/' . $request->input('abonado_id'));
+    }
+
+
 
 
 
@@ -938,6 +983,10 @@ class SdiController extends Controller
     }
 
     private function findByIdAbonadoType($id){
+        return Abonadotype::where('id', $id)->firstOrFail();
+    }
+
+    private function findByIdPasswordAbonado($id){
         return Abonadotype::where('id', $id)->firstOrFail();
     }
 

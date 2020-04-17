@@ -16,7 +16,7 @@
                     <input type="text" class="form-control" id="name" name="name" value="{{$host->name}}" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="modelo_id">Modelo</label>
+                    <label for="modelo_id">Modelo</label> <a href="/modelos" target=_blank> + </a>
                       <select class="form-control" name="modelo_id">
                         <option value="{{$host->modelo_id}}">{{$host->modelo->name}}</option>
                         @foreach ($modelos as $modelo)
@@ -108,10 +108,10 @@
                       <input type="text" class="form-control" id="rtsp_ext" value="{{$host->rtsp_ext}}"  name="rtsp_ext" min="1" max="65535">
                     </div>
                   </div>
-                  
+
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="estado">Grabando en...</label>
+                      <label for="estado">Grabando en...</label> <a href="/form_dvr" target=_blank> + </a>
                       <select class="form-control" name="cctv" required>
                         @if (is_null($host->cctv_id))
                           <option > - </option>

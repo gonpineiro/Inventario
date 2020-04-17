@@ -14,16 +14,10 @@ class CreatePlataformasTable extends Migration
     public function up()
     {
         Schema::create('plataformas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->String('name');
             $table->timestamps();
         });
-
-        Schema::table('abonados', function (Blueprint $table) {
-            //$table->foreign('departament_id')->references('id')->on('departaments');
-            //$table->foreign('plataforma_id')->references('id')->on('plataformas');
-        });
-
 
     }
 
@@ -34,10 +28,6 @@ class CreatePlataformasTable extends Migration
      */
     public function down()
     {
-      Schema::table('abonados', function (Blueprint $table) {
-          $table->dropForeign('abonados_cliente_id_foreign');
-      });
-
-        Schema::dropIfExists('plataformas');
+              Schema::dropIfExists('plataformas');
     }
 }

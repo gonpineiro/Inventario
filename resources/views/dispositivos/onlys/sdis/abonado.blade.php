@@ -35,11 +35,16 @@
                         <label for="cctv">Direccion</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->direccion}}"  name="zona" disabled>
                       </div>
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-2">
                         <label for="cctv">Localidad</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->localidad}}"  name="zona" disabled>
                       </div>
+                      <div class="form-group col-md-2">
+                        <label for="cctv">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" placeholder="{{$abonado->telefono}}"  name="telefono" disabled>
+                      </div>
                     </div>
+
                     <div class="form-row">
                       <div class="form-group col-md-5">
                         <label for="cctv">Partido</label>
@@ -54,6 +59,14 @@
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->cp}}"  name="zona" disabled>
                       </div>
                     </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-5">
+                        <label for="palabra_clave">Palabra clave</label>
+                        <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->palabra_clave}}" name="palabra_clave" disabled>
+                      </div>
+                    </div>
+
                     <div class="form-row">
                       <div class="form-group col-md">
                         <label for="comentario">Observaciónes</label>
@@ -64,6 +77,46 @@
                 </form>
              </div>
            </div>
+
+        @can ('abonados.show')
+        <div class="card">
+         <div class="card-header">Contraseñas/Particiones <a href="/passwords_abonado/{{$abonado->id}}" target= _blank> + </a> </div>
+           <div class="card-body">
+             <div class="col cl-6">
+                 <table class="table table-hover" id="host-table">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Particion</th>
+                       <th scope="col">Contraseña</th>
+                       <th scope="col">Editar</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     @foreach ($password_abonados as $password_abonado)
+                         <tr>
+                           <td>{{$password_abonado->id}}</td>
+                           <td>{{$password_abonado->particion}}</td>
+                           <td>{{$password_abonado->password}}</td>
+                           @can ('abonados.edit') <td><a href="/edit_password_abonado/{{$password_abonado->id}}" ><img src={{asset("logos/edit-logo.png")}} style="width: 17px;"></a></td> @endcan
+                         </tr>
+                   @endforeach
+                   </tbody>
+                 </table>
+
+             </div>
+           </div>
+           <script >
+                   $(document).ready(function() {
+                   $('#host-table').DataTable({
+                     "order": [[ 0, "desc" ]]
+                   });
+                     } );
+           </script>
+         </div>
+         <br/>
+         @endcan
+
       </div>
 
 

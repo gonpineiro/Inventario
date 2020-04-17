@@ -18,6 +18,9 @@ Route::post('/create_abonado_type', 'SdiController@createAbonadoType')->middlewa
 Route::get('/edit_abonado_type/{id}', 'SdiController@editAbonadoType')->middleware('can:abonados.edit');
 Route::post('/update_abonado_type/{id}', 'SdiController@updateAbonadoType')->middleware('can:abonados.edit');
 
+Route::get('/passwords_abonado/{id}', 'SdiController@showPasswordAbonado')->middleware('can:abonados.create');
+Route::post('/create_password_abonado', 'SdiController@createPasswordAbonado')->middleware('can:abonados.create');
+
 Route::get('/panel_alarms', 'SdiController@showPanelAlarm')->middleware('can:panelalarms.show');
 Route::get('/only_panel_alarm/{id}', 'SdiController@onlyPanelAlarm')->middleware('can:panelalarms.only');
 Route::get('/form_panel_alarm', 'SdiController@formPanelAlarm')->middleware('can:panelalarms.create');

@@ -22,8 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+      if ($request->user()->roles[0]->name == 'OPERACIONES') {
+        return redirect('/abonados');
+      }
+
       $computadoras = Host::where('host_type_id',1)->where('estado_id', 1)->count();
       $computadorasDisable = Host::where('host_type_id',1)->where('estado_id', 2)->count();
       $computadorasStock = Host::where('host_type_id',1)->where('estado_id', 3)->count();

@@ -1,7 +1,7 @@
 <?php
 
   //ADMINISTRACION
-  Route::get('/administracion', 'AdministracionController@index')->name('administracion');
+  Route::get('/administracion', 'AdministracionController@index')->middleware('can:userhosts.show');
 
   Route::get('/users_host', 'AdministracionController@showUsersHost')->middleware('can:userhosts.show');
   Route::post('/add_user_host', 'AdministracionController@createUserhost')->middleware('can:userhosts.create');

@@ -17,13 +17,15 @@ class CreateAbonadosTable extends Migration
             $table->increments('id');
             $table->integer('departament_id')->unsigned();
             $table->integer('plataforma_id')->unsigned();
-            $table->integer('type_id')->unsigned();
-            $table->string('type')->nullable();
+            $table->integer('abonadotype_id')->unsigned();
+            $table->string('palabra_clave', 25)->nullable();
             $table->string('email')->nullable();
             $table->string('numero')->nullable();
+            $table->string('palabra_clave');
 
             $table->string('direccion')->nullable();
             $table->string('localidad')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('partido')->nullable();
             $table->string('provincia')->nullable();
             $table->integer('cp')->nullable();

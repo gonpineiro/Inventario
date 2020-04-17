@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="modelo">Modelo</label>
-                        <select class="form-control" name="modelo">
+                        <select class="form-control" name="modelo"> <a href="/modelos" target=_blank> + </a>
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
@@ -115,7 +115,7 @@
 
                     <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="inputEmail4">Afectado</label>
+                            <label for="inputEmail4">Afectado</label> <a href="/departaments" target=_blank> + </a>
                             <select class="form-control" name="departament" required>
                               <option value="">- - - Seleccione - - -</option>
                               @foreach ($departaments as $departament)

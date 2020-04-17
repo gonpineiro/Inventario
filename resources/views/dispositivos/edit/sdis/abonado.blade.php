@@ -53,9 +53,13 @@
                       <label for="valor">Direccion</label>
                       <input type="text" class="form-control" id="direccion" value="{{$abonado->direccion}}" name="direccion" required>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-2">
                       <label for="localidad">Localidad</label>
                       <input type="text" min="10" class="form-control" id="localidad" value="{{$abonado->localidad}}" name="localidad" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="localidad">Teléfono</label>
+                      <input type="text" min="10" class="form-control" id="localidad" value="{{$abonado->telefono}}" name="telefono" required>
                     </div>
                   </div>
 
@@ -71,6 +75,13 @@
                     <div class="form-group col-md-4">
                       <label for="localidad">Codigo Postal</label>
                       <input type="number" min="1" class="form-control" id="cp" value="{{$abonado->cp}}" name="cp" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="palabra_clave">Palabra clave</label>
+                      <input type="palabra_clave" class="form-control" id="palabra_clave" value="{{$abonado->palabra_clave}}" name="palabra_clave" required>
                     </div>
                   </div>
 

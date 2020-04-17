@@ -50,9 +50,13 @@
                       <label for="direccion">Direccion</label>
                       <input type="text"class="form-control" id="direccion" name="direccion" required>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-2">
                       <label for="localidad">Localidad</label>
                       <input type="text" class="form-control" id="localidad" name="localidad" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="localidad">Teléfono</label>
+                      <input type="text" class="form-control" id="localidad" name="telefono" required>
                     </div>
                   </div>
                   <div class="form-row">
@@ -69,6 +73,13 @@
                     <div class="form-group col-md-2">
                       <label for="cp">Codigo Postal</label>
                       <input type="number" min = 1 class="form-control" id="cp" name="cp" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <label for="partido">Palabra Clave</label>
+                      <input type="text" class="form-control" id="partido" name="palabra_clave" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>
                   </div>
 

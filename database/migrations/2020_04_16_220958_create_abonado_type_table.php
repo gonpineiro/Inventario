@@ -21,6 +21,8 @@ class CreateAbonadoTypeTable extends Migration
 
         Schema::table('abonados', function (Blueprint $table) {
             $table->foreign('abonadotype_id')->references('id')->on('abonadotypes');
+            $table->foreign('departament_id')->references('id')->on('departaments');
+            $table->foreign('plataforma_id')->references('id')->on('plataformas');
         });
     }
 

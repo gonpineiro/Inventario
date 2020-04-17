@@ -3,8 +3,11 @@ label[type=not_user] {
   font-weight: bold;
 }
 table {
-    font-size: 0.8rem;
+    font-size: 0.785rem;
 }
 .table td {
     padding: 0.25rem;
+}
+.form-control {
+  font-size: 0.7rem;
 }

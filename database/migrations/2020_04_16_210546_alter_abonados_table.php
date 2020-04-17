@@ -16,10 +16,14 @@ class AlterAbonadosTable extends Migration
       Schema::table('abonados', function (Blueprint $table) {
           //$table->dropForeign('abonados_cliente_id_foreign');
           //$table->dropForeign('abonados_plataforma_id_foreign');
-          //$table->renameColumn('cliente_id', 'departament_id')->unsigned();
-          //$table->dropColumn('type');
-          //$table->integer('abonado_type_id')->unsigned();
-           // $table->Integer('abonadotype_id');
+          $table->dropColumn('cliente_id');
+          $table->dropColumn('type');
+
+          $table->integer('departament_id')->unsigned();
+          $table->integer('abonadotype_id')->unsigned();
+          $table->integer('plataforma_id')->unsigned();
+          $table->string('telefono')->nullable();
+          $table->string('palabra_clave');
           // $table->foreign('departament_id')->references('id')->on('departaments');
           //$table->foreign('plataforma_id')->references('id')->on('plataformas');
       });

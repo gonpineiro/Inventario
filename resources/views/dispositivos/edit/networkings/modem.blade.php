@@ -16,7 +16,7 @@
                         <input type="text" class="form-control" id="name" name="name" value="{{$host->name}}" required>
                       </div>
                       <div class="form-group col-md-4">
-                        <label for="modelo_id">Modelo</label>
+                        <label for="modelo_id">Modelo</label> <a href="/modelos" target=_blank> + </a>
                           <select class="form-control" name="modelo_id">
                             <option value="{{$host->modelo_id}}">{{$host->modelo->name}}</option>
                             @foreach ($modelos as $modelo)

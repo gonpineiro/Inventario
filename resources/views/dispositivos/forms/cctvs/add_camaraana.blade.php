@@ -15,7 +15,7 @@
                       <input type="text" class="form-control" id="name" name="name" placeholder="" required>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="modelo">Modelo</label>
+                      <label for="modelo">Modelo</label> <a href="/modelos" target=_blank> + </a>
                         <select class="form-control" name="modelo">
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
@@ -30,7 +30,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="ip_publica">Grabando en...</label>
+                      <label for="ip_publica">Grabando en...</label> <a href="/form_dvr" target=_blank> + </a>
                       <select class="form-control" name="cctv" >
                         <option value="">- - - Seleccione - - -</option>
                         @foreach ($cctvs as $cctv)
@@ -41,7 +41,7 @@
                   </div>
                   <div class="form-row">
                         <div class="form-group col-md-4">
-                          <label for="departament">Afectado</label>
+                          <label for="departament">Afectado</label> <a href="/departaments" target=_blank> + </a>
                           <select class="form-control" name="departament" required>
                             <option value="">- - - Seleccione - - -</option>
                             @foreach ($departaments as $departament)
