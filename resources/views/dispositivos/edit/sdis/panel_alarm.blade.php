@@ -39,9 +39,9 @@
                         <div class="form-group col-md-5">
                           <label for="abonado_id">Abonado</label>
                             <select class="form-control" name="abonado_id">
-                              <option value={{$host->abonado_id}}>AB: {{$host->abonado->numero}} - C: {{$host->abonado->cliente->name}}</option>
+                              <option value={{$host->abonado_id}}>AB: {{$host->abonado->numero}} - C: {{$host->abonado->departament->cliente->name}}</option>
                               @foreach ($abonados as $abonado)
-                                <option value={{$abonado->id}}>AB: {{$abonado->numero}} - C: {{$abonado->cliente->name}}</option>
+                                <option value={{$abonado->id}}>AB: {{$abonado->numero}} - C: {{$abonado->departament->cliente->name}}</option>
                               @endforeach
                             </select>
                         </div>

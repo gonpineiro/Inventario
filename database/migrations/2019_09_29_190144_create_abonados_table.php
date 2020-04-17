@@ -15,7 +15,9 @@ class CreateAbonadosTable extends Migration
     {
         Schema::create('abonados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
+            $table->integer('departament_id')->unsigned();
+            $table->integer('plataforma_id')->unsigned();
+            $table->integer('type_id')->unsigned();
             $table->string('type')->nullable();
             $table->string('email')->nullable();
             $table->string('numero')->nullable();
@@ -34,7 +36,7 @@ class CreateAbonadosTable extends Migration
           $table->foreign('abonado_id')->references('id')->on('abonados');
         });
         Schema::table('abonados', function (Blueprint $table) {
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('departament_id')->references('id')->on('departaments');
           });
     }
 
@@ -46,7 +48,8 @@ class CreateAbonadosTable extends Migration
     public function down()
     {
         Schema::table('abonados', function (Blueprint $table) {
-            $table->dropForeign('abonados_cliente_id_foreign');
+            $table->dropForeign('abonados_departament_id_foreign');
+            $table->dropForeign('abonados_plataforma_id_foreign');
         });
         Schema::dropIfExists('abonados');
     }

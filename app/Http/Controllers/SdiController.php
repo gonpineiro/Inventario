@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Abonado;
 use App\Cliente;
+use App\Abonado;
+use App\Departament;
 use App\Modelo;
 use App\Host;
 use App\Host_work;
 use App\Estado;
 use App\Historial;
 use App\Card_sim;
+use App\Plataforma;
+use App\Abonadotype;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -23,11 +26,25 @@ class SdiController extends Controller
 
     }
 
-    public function formAbonado(Request $request){
-      $cliente = Cliente::orderBy('name')->get();
+    public function onlyAbonado($id, Request $request){
 
+      $abonado = $this->findByIdAbonado($id);
+      $now = Carbon::now();
+
+      return view('dispositivos.onlys.sdis.abonado', [
+          'abonado' => $abonado,
+          'now' => $now,
+      ]);
+      }
+
+    public function formAbonado(Request $request){
+      $departament = Departament::orderBy('name')->get();
+      $plataforma = Plataforma::orderBy('name')->get();
+      $abonado_type = Abonadotype::orderBy('name')->get();
       return view('dispositivos.forms.sdis.add_abonado', [
-        'clientes' => $cliente,
+        'departaments' => $departament,
+        'plataformas' => $plataforma,
+        'abonado_types' => $abonado_type,
 
        ]);
 
@@ -38,8 +55,9 @@ class SdiController extends Controller
         $user = $request->user();
         $abonado = Abonado::create([
 
-          'cliente_id' => $request->input('cliente_id'),
-          'type' => $request->input('type'),
+          'departament_id' => $request->input('departament_id'),
+          'abonadotype_id' => $request->input('abonadotype_id'),
+          'plataforma_id' => $request->input('plataforma_id'),
           'email' => $request->input('email'),
           'direccion' => $request->input('direccion'),
           'cp' => $request->input('cp'),
@@ -53,6 +71,50 @@ class SdiController extends Controller
       return redirect('/abonados');
     }
 
+    public function editAbonado($id, Request $request){
+
+      $abonado = $this->findByIdAbonado($id);
+      $departament = Departament::orderBy('name')->get();
+      $plataforma = Plataforma::orderBy('name')->get();
+      $abonado_type = Abonadotype::orderBy('name')->get();
+      //$estado = Estado::all();
+
+        return view('dispositivos.edit.sdis.abonado', [
+            'abonado' => $abonado,
+            'plataformas' => $plataforma,
+            'abonado_types' => $abonado_type,
+            'departaments' => $departament,
+        ]);
+
+    }
+
+    public function updateAbonado($id, Request $request){
+
+        $user = $request->user();
+        $abonado = $this->findByIdAbonado($id);
+
+        $abonado->departament_id = $request->input('departament_id');
+        $abonado->abonadotype_id = $request->input('abonadotype_id');
+        $abonado->plataforma_id = $request->input('plataforma_id');
+        $abonado->email = $request->input('email');
+        $abonado->direccion = $request->input('direccion');
+        $abonado->cp = $request->input('cp');
+        $abonado->localidad = $request->input('localidad');
+        $abonado->numero = $request->input('numero');
+        $abonado->partido = $request->input('partido');
+        $abonado->provincia = $request->input('provincia');
+        $abonado->comentario = $request->input('comentario');
+        $abonado->save();
+
+        // $historial = Historial::create([
+        //     'user_id' => $user->id,
+        //     'host_id' => $host->id,
+        //     'type' => 1,
+        //   ]);
+
+
+        return redirect('/only_abonado/' . $id);
+        }
 
 
     public function showPanelAlarm(Request $request){
@@ -154,8 +216,6 @@ class SdiController extends Controller
         }
 
 
-
-
     public function showTeclado(Request $request){
       $host = Host::where('host_type_id',44)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.teclados', [
@@ -253,9 +313,6 @@ class SdiController extends Controller
       return redirect('/only_teclado_sdi/' . $id);
       }
 
-
-
-
     public function showExpansora(Request $request){
       $host = Host::where('host_type_id',41)->where('estado_id', 1)->get();
       return view('dispositivos.tables.sdis.expansoras', [
@@ -352,8 +409,6 @@ class SdiController extends Controller
 
       return redirect('/only_expansora/' . $id);
       }
-
-
 
     public function showComunicator(Request $request){
         $host = Host::where('host_type_id',42)->where('estado_id', 1)->get();
@@ -756,8 +811,116 @@ class SdiController extends Controller
       }
 
 
+    //ADMINISTRACION SDI
+    public function showPlataformas(Request $request){
+      $plataforma = Plataforma::all();
+      $ver = "agregar";
+      return view('dispositivos.tables.sdis.plataformas', [
+        'plataformas' => $plataforma,
+        'ver' => $ver,
+      ]);
+
+    }
+
+    public function createPlataforma(Request $request){
+
+        $user = $request->user();
+        $plataforma = Plataforma::create([
+        'name' => $request->input('name'),
+          ]);
+
+      return redirect('/plataformas');
+    }
+
+    public function editPlataforma($id, Request $request){
+      $plataforma = Plataforma::all();
+      $onlyPlataforma = $this->findByIdPlataforma($id);
+      $ver = "editar";
+
+        return view('dispositivos.tables.sdis.plataformas', [
+            'onlyPlataforma' => $onlyPlataforma,
+            'ver' => $ver,
+            'plataformas' => $plataforma,
+        ]);
+
+    }
+
+    public function updatePlataforma($id, Request $request){
+
+      $user = $request->user();
+      $plataforma = $this->findByIdPlataforma($id);
+      $plataforma->name = $request->input('name');
+      $plataforma->save();
+
+      // $historial = Historial::create([
+      //     'user_id' => $user->id,
+      //     'host_id' => $host->id,
+      //     'type' => 1,
+      //   ]);
 
 
+      return redirect('/plataformas');
+      }
+
+
+
+
+    public function showAbonadoTypes(Request $request){
+      $abonado_type = Abonadotype::all();
+      $ver = "agregar";
+      return view('dispositivos.tables.sdis.abonados_type', [
+        'abonado_types' => $abonado_type,
+        'ver' => $ver,
+      ]);
+
+    }
+
+    public function createAbonadoType(Request $request){
+
+        $user = $request->user();
+        $abonado_type = Abonadotype::create([
+        'name' => $request->input('name'),
+          ]);
+
+      return redirect('/abonado_types');
+    }
+
+    public function editAbonadoType($id, Request $request){
+      $abonado_type = Abonadotype::all();
+      $onlyAbonadoType = $this->findByIdAbonadoType($id);
+      $ver = "editar";
+
+        return view('dispositivos.tables.sdis.abonados_type', [
+            'onlyAbonadoType' => $onlyAbonadoType,
+            'abonado_types' => $abonado_type,
+            'ver' => $ver,
+
+        ]);
+
+    }
+
+    public function updateAbonadoType($id, Request $request){
+
+      $user = $request->user();
+      $abonado = $this->findByIdAbonadoType($id);
+      $abonado->name = $request->input('name');
+      $abonado->save();
+
+      // $historial = Historial::create([
+      //     'user_id' => $user->id,
+      //     'host_id' => $host->id,
+      //     'type' => 1,
+      //   ]);
+
+
+      return redirect('/abonado_types');
+      }
+
+
+
+
+
+    //FUNCIONES
     private function findByIdHost($id){
         return Host::where('id', $id)->firstOrFail();
     }
@@ -768,6 +931,14 @@ class SdiController extends Controller
 
     private function findByIdCardsim($id){
         return Card_sim::where('id', $id)->firstOrFail();
+    }
+
+    private function findByIdPlataforma($id){
+        return Plataforma::where('id', $id)->firstOrFail();
+    }
+
+    private function findByIdAbonadoType($id){
+        return Abonadotype::where('id', $id)->firstOrFail();
     }
 
 }

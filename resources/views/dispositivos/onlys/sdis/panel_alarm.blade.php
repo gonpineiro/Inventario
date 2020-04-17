@@ -28,8 +28,8 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="cctv">Abonado</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="AB: {{$host->abonado->numero}} - C: {{$host->abonado->cliente->name}}"  name="zona" disabled>
+                        <label for="cctv">Abonado/Cliente</label>
+                        <input type="text" class="form-control" id="cctv" placeholder="AB: {{$host->abonado->numero}} - C: {{$host->abonado->departament->cliente->name}}"  name="zona" disabled>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="cctv">Ubicacion</label>

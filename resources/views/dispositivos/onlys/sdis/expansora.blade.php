@@ -25,7 +25,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-5">
                         <label for="cctv">Conectado</label>
-                        <input type="text" class="form-control" id="cctv" placeholder="P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->cliente->name}}"  name="zona" disabled>
+                        <input type="text" class="form-control" id="cctv" placeholder="P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->departament->cliente->name}}"  name="zona" disabled>
                       </div>
                       <div class="form-group col-md-5">
                         <label for="cctv">Ubicacion</label>

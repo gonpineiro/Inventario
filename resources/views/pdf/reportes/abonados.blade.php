@@ -20,6 +20,7 @@
               </tbody>
             </table>
 
+            
             @foreach ($abonado->host as $host)
             @if (!is_null($host))
             <h1 class="int">PANEL</h1>

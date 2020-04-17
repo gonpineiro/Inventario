@@ -2,8 +2,21 @@
 //SDI
 
 Route::get('/abonados', 'SdiController@showAbonados')->middleware('can:abonados.show');
+Route::get('/only_abonado/{id}', 'SdiController@onlyAbonado')->middleware('can:abonados.only');
 Route::get('/form_abonado', 'SdiController@formAbonado')->middleware('can:abonados.create');
 Route::post('/add_abonado', 'SdiController@createAbonado')->middleware('can:abonados.create');
+Route::post('/update_abonado/{id}', 'SdiController@updateAbonado')->middleware('can:abonados.edit');
+Route::get('/edit_abonado/{id}', 'SdiController@editAbonado')->middleware('can:abonados.edit');
+
+Route::get('/plataformas', 'SdiController@showPlataformas')->middleware('can:abonados.create');
+Route::post('/create_plataforma', 'SdiController@createPlataforma')->middleware('can:abonados.create');
+Route::get('/edit_plataforma/{id}', 'SdiController@editPlataforma')->middleware('can:abonados.edit');
+Route::post('/update_plataforma/{id}', 'SdiController@updatePlataforma')->middleware('can:abonados.edit');
+
+Route::get('/abonado_types', 'SdiController@showAbonadoTypes')->middleware('can:abonados.create');
+Route::post('/create_abonado_type', 'SdiController@createAbonadoType')->middleware('can:abonados.create');
+Route::get('/edit_abonado_type/{id}', 'SdiController@editAbonadoType')->middleware('can:abonados.edit');
+Route::post('/update_abonado_type/{id}', 'SdiController@updateAbonadoType')->middleware('can:abonados.edit');
 
 Route::get('/panel_alarms', 'SdiController@showPanelAlarm')->middleware('can:panelalarms.show');
 Route::get('/only_panel_alarm/{id}', 'SdiController@onlyPanelAlarm')->middleware('can:panelalarms.only');

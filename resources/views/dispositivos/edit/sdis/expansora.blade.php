@@ -39,9 +39,9 @@
                         <div class="form-group col-md-5">
                           <label for="abonado_id">Conectado</label>
                             <select class="form-control" name="cctv_id">
-                              <option value="{{$host->cctv_id}}">P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->cliente->name}}</option>
+                              <option value="{{$host->cctv_id}}">P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->departament->cliente->name}}</option>
                               @foreach ($cctvs as $cctv)
-                                <option value="{{$cctv->id}}">P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}}- C: {{$cctv->abonado->cliente->name}}</option>
+                                <option value="{{$cctv->id}}">P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}}- C: {{$cctv->abonado->departament->cliente->name}}</option>
                               @endforeach
                             </select>
                         </div>

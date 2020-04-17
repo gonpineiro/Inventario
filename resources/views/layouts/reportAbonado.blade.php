@@ -13,7 +13,8 @@
 <header class="clearfix">
   <div id="project">
     <div><span>Reporte del abonado:</span><a class="">{{$abonado->numero}}</a></div>
-    <div><span> Afectado: </span><a class="">{{$abonado->cliente->name}} </a></div>
+    <div><span>Cliente: </span><a class="">{{$abonado->departament->cliente->name}} </a></div>
+    <div><span>Afectado: </span><a class="">{{$abonado->departament->name}} </a></div>
   </div>
 </header>
 

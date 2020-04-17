@@ -26,13 +26,13 @@
                       <div class="form-group col-md-5">
                         <label for="cctv">Conectado</label>
                         @if ($host->host->host_type_id == 40)
-                          <input type="text" class="form-control" id="cctv" placeholder="P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->cliente->name}}"  name="zona" disabled>
+                          <input type="text" class="form-control" id="cctv" placeholder="P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->departament->cliente->name}}"  name="zona" disabled>
                         @endif
                         @if ($host->host->host_type_id == 41)
-                          <input type="text" class="form-control" id="cctv" placeholder="E: {{$host->host->id}} - P: {{$host->host->host["id"]}} - AB: {{$host->host->host["abonado"]["numero"]}} - C: {{$host->host->host["abonado"]["cliente"]["name"]}}"  name="zona" disabled>
+                          <input type="text" class="form-control" id="cctv" placeholder="E: {{$host->host->id}} - P: {{$host->host->host["id"]}} - AB: {{$host->host->host["abonado"]["numero"]}} - C: {{$host->host->host["abonado"]["departament"]["cliente"]["name"]}}"  name="zona" disabled>
                         @endif
                         @if ($host->host->host_type_id == 44)
-                          <input type="text" class="form-control" id="cctv" placeholder="T: {{$host->host->id}} - P: {{$host->host->host["id"]}} - AB: {{$host->host->host["abonado"]["numero"]}} - C: {{$host->host->host["abonado"]["cliente"]["name"]}}"  name="zona" disabled>
+                          <input type="text" class="form-control" id="cctv" placeholder="T: {{$host->host->id}} - P: {{$host->host->host["id"]}} - AB: {{$host->host->host["abonado"]["numero"]}} - C: {{$host->host->host["abonado"]["departament"]["cliente"]["name"]}}"  name="zona" disabled>
                         @endif
                       </div>
                       <div class="form-group col-md-5">

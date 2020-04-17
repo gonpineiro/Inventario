@@ -26,7 +26,7 @@
                     @can ('sirenas.only') <td><a href="/only_sirena/{{$host->id}}">{{$host->name}}</a></td> @else {{$host->name}} @endcan
                     @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a> | (P)</td> @else <td>{{$host->host->name}} | (P)</td> @endcan
                     <td>{{$host->host->abonado->numero}}</td>
-                    <td>{{$host->host->abonado->cliente->name}}</td>
+                    <td>{{$host->host->abonado->departament->cliente->name}}</td>
                     <td>{{$host->zona}}</td>
                     <td>{{$host->host->modelo->name}}</td>
                   @endif

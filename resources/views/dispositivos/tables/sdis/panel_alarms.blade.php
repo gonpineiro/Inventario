@@ -12,6 +12,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Abonado</th>
+                <th scope="col">Departamento</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Zonas</th>
                 <th scope="col">Modelo</th>
@@ -23,7 +24,8 @@
                     <td>{{$host->id}}</td>
                     @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
                     <td>{{$host->abonado->numero}}</td>
-                    <td>{{$host->abonado->cliente->name}}</td>
+                    <td>{{$host->abonado->departament->name}}</td>
+                    <td>{{$host->abonado->departament->cliente->name}}</td>
                     <td>{{$host->cantzona}}</td>
                     <td>{{$host->modelo->name}}</td>
                   </tr>

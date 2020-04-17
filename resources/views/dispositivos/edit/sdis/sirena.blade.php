@@ -33,11 +33,11 @@
                         <div class="form-group col-md-5">
                           <label for="abonado_id">Conectado</label>
                             <select class="form-control" name="cctv_id">
-                              @if ($host->host->host_type_id == 40) <option value="{{$host->cctv_id}}">P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->cliente->name}}</option> @endif
+                              @if ($host->host->host_type_id == 40) <option value="{{$host->cctv_id}}">P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->departament->cliente->name}}</option> @endif
 
                               <option disabled>Paneles</option>
                               @foreach ($panel_alarms as $panel_alarm)
-                                <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->id}} - C: {{$panel_alarm->abonado->cliente->name}}</option>
+                                <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->id}} - C: {{$panel_alarm->abonado->departament->cliente->name}}</option>
                               @endforeach
                             </select>
                         </div>

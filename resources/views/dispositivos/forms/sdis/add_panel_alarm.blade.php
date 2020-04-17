@@ -41,7 +41,7 @@
                             <select class="form-control" name="abonado_id">
                               <option value="">- - - Seleccione - - -</option>
                               @foreach ($abonados as $abonado)
-                                <option value="{{$abonado->id}}">AB: {{$abonado->numero}}   - C: {{$abonado->cliente->name}}</option>
+                                <option value="{{$abonado->id}}">AB: {{$abonado->numero}} - D: {{$abonado->departament->name}} - C: {{$abonado->departament->cliente->name}}</option>
                               @endforeach
                             </select>
                         </div>

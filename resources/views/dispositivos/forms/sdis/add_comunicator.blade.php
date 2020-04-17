@@ -65,7 +65,7 @@
                         <select class="form-control" name="cctv_id">
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($cctvs as $cctv)
-                            <option value={{$cctv->id}}>P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}} - C: {{$cctv->abonado->cliente->name}}</option>
+                            <option value={{$cctv->id}}>P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}} - C: {{$cctv->abonado->departament->cliente->name}}</option>
                           @endforeach
                         </select>
                     </div>

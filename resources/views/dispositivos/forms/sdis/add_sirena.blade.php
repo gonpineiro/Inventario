@@ -36,7 +36,7 @@
                           <option selected disabled>- - - Seleccione - - -</option>
                           <option disabled>Paneles</option>
                           @foreach ($panel_alarms as $panel_alarm)
-                            <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->numero}} - C: {{$panel_alarm->abonado->cliente->name}}</option>
+                            <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->numero}} - C: {{$panel_alarm->abonado->departament->cliente->name}}</option>
                           @endforeach
                         </select>
                     </div>

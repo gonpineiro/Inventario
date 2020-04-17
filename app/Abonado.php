@@ -7,9 +7,19 @@ class Abonado extends Model
 {
     protected $guarded = [];
 
-    public function cliente(){
+    public function departament(){
 
-      return $this->belongsTo('App\Cliente');
+      return $this->belongsTo('App\Departament');
+    }
+
+    public function plataforma(){
+
+      return $this->belongsTo('App\Plataforma');
+    }
+
+    public function abonadotype(){
+
+      return $this->belongsTo('App\Abonadotype');
     }
 
     public function host(){

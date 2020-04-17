@@ -36,15 +36,15 @@
                           <option selected disabled>- - - Seleccione - - -</option>
                           <option disabled>Paneles</option>
                           @foreach ($panel_alarms as $panel_alarm)
-                            <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->numero}} - C: {{$panel_alarm->abonado->cliente->name}}</option>
+                            <option value={{$panel_alarm->id}}>P: {{$panel_alarm->id}} - AB: {{$panel_alarm->abonado->numero}} - C: {{$panel_alarm->abonado->departament->cliente->name}}</option>
                           @endforeach
                           <option disabled>Expansoras</option>
                           @foreach ($expansoras as $expansora)
-                            <option value={{$expansora->id}}>E: {{$expansora->id}} - P: {{$expansora->host->id}} - AB: {{$expansora->host->abonado->id}} - C: {{$expansora->host->abonado->cliente->name}}</option>
+                            <option value={{$expansora->id}}>E: {{$expansora->id}} - P: {{$expansora->host->id}} - AB: {{$expansora->host->abonado->numero}} - C: {{$expansora->host->abonado->departament->cliente->name}}</option>
                           @endforeach
                           <option disabled>Tecladdos</option>
                           @foreach ($teclados as $teclado)
-                            <option value={{$teclado->id}}>T: {{$teclado->id}} - P: {{$teclado->host->id}} - AB: {{$teclado->host->abonado->id}} - C: {{$teclado->host->abonado->cliente->name}}</option>
+                            <option value={{$teclado->id}}>T: {{$teclado->id}} - P: {{$teclado->host->id}} - AB: {{$teclado->host->abonado->numero}} - C: {{$teclado->host->abonado->departament->cliente->name}}</option>
                           @endforeach
                         </select>
                     </div>

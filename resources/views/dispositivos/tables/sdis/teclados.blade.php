@@ -25,7 +25,7 @@
                   @can ('tecladosdis.only') <td><a href="/only_teclado_sdi/{{$host->id}}">{{$host->name}}</a></td> @else <td>{{$host->name}}</td>  @endcan
                   @can ('panelalarms.only') <td><a href="/only_panel_alarm/{{$host->host->id}}">{{$host->host->name}}</a></td> @else <td>{{$host->host->name}}</td> @endcan
                   <td>{{$host->host->abonado->numero}}</td>
-                  <td>{{$host->host->abonado->cliente->name}}</td>
+                  <td>{{$host->host->abonado->departament->cliente->name}}</td>
                   <td>{{$host->cantzona}}</td>
                   <td>{{$host->host->modelo->name}}</td>
                 </tr>
