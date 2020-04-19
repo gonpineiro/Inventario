@@ -105,5 +105,15 @@ class Host extends Model
       return $this->hasMany('App\Host','cctv_id', 'id')->where('host_type_id',43);
     }
 
+    public function panico(){
+
+      return $this->hasMany('App\Host','cctv_id', 'id')->where('host_type_id',46);
+    }
+
+    public function tracker(){
+
+      return $this->hasMany('App\Host','cctv_id', 'id')->where('host_type_id',47);
+    }
+
 
 }

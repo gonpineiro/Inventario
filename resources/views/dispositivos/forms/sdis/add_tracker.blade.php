@@ -6,10 +6,11 @@
     <div class="row justify-content-md-center">
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header">Agregar Comunicador</div>
+          <div class="card-header">Agregar Tracker</div>
             <div class="card-body">
-                <form action="/add_comunicator" method="post" name="form">
+                <form action="/add_tracker" method="post" name="form">
                   {{ csrf_field() }}
+
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="name">Nombre</label>
@@ -33,45 +34,45 @@
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="abonado_id">SIM I</label> <a href="/card_sims">+</a>
-                        <select class="form-control" name="card_sim_i" id="card_sim_i" onclick="disableSimI()">
-                          <option value="">- - - Seleccione - - -</option>
-                          @foreach ($cardsims as $cardsim)
-                            <option value={{$cardsim->id}} >{{$cardsim->line_phone}}</option>
-                          @endforeach
-                        </select>
+                      <select class="form-control" name="card_sim_i" id="card_sim_i" onclick="disableSimI()">
+                        <option value="">- - - Seleccione - - -</option>
+                        @foreach ($cardsims as $cardsim)
+                          <option value={{$cardsim->id}} >{{$cardsim->line_phone}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="zona">SIM II</label>
-                        <select class="form-control" name="card_sim_ii" id="card_sim_ii" onclick="disableSimII()">
-                          <option value="">- - - Seleccione - - -</option>
-                          @foreach ($cardsims as $cardsim)
-                            <option value={{$cardsim->id}}>{{$cardsim->line_phone}}</option>
-                          @endforeach
-                        </select>
+                      <select class="form-control" name="card_sim_ii" id="card_sim_ii" onclick="disableSimII()">
+                        <option value="">- - - Seleccione - - -</option>
+                        @foreach ($cardsims as $cardsim)
+                          <option value={{$cardsim->id}}>{{$cardsim->line_phone}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="valor">SIM III</label>
-                        <select class="form-control" name="card_sim_iii" id="card_sim_iii" onclick="disableSimIII()">
-                          <option value="">- - - Seleccione - - -</option>
-                          @foreach ($cardsims as $cardsim)
-                            <option value={{$cardsim->id}}>{{$cardsim->line_phone}}</option>
-                          @endforeach
-                        </select>
+                      <select class="form-control" name="card_sim_iii" id="card_sim_iii" onclick="disableSimIII()">
+                        <option value="">- - - Seleccione - - -</option>
+                        @foreach ($cardsims as $cardsim)
+                          <option value={{$cardsim->id}}>{{$cardsim->line_phone}}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-5">
-                      <label for="abonado_id">Panel/Abonado/Cliente</label>
-                        <select class="form-control" name="cctv_id">
-                          <option value="">- - - Seleccione - - -</option>
-                          @foreach ($cctvs as $cctv)
-                            <option value={{$cctv->id}}>P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}} - C: {{$cctv->abonado->departament->cliente->name}}</option>
-                          @endforeach
-                        </select>
+                      <label for="abonado_id">Abonado</label>
+                      <select class="form-control" name="abonado_id" required>
+                        <option selected disabled>- - - Seleccione - - -</option>
+                        @foreach ($abonados as $abonado)
+                          <option value={{$abonado->id}}>{{$abonado->numero}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group col-md-5">
-                      <label for="zona">Ubicacion</label>
+                      <label for="zona">Zona</label>
                       <input type="text" class="form-control" id="zona" placeholder="" name="zona" required>
                     </div>
                     <div class="form-group col-md-2">
@@ -81,11 +82,12 @@
                   </div>
 
                   <div class="form-row">
-                        <div class="form-group col-md">
-                          <label for="comentario">Observaciónes</label>
-                          <textarea rows="10" cols="50" type="text" min="10" class="form-control" id="comentario" placeholder="" name="comentario" > </textarea>
-                        </div>
+                    <div class="form-group col-md">
+                      <label for="comentario">Observaciónes</label>
+                      <textarea rows="10" cols="50" type="text" min="10" class="form-control" id="comentario" placeholder="" name="comentario" > </textarea>
+                    </div>
                   </div>
+
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
               </div>
@@ -94,8 +96,6 @@
   </div>
 
 @endsection
-
-
 <script >
   function disableSimI() {
     var sim_i_value = document.getElementById("card_sim_i").value

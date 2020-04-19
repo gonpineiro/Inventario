@@ -1,7 +1,7 @@
 
-# Inventario v1.4.9
+# Inventario v1.5.0
 
-+ Implementacion de Dashborad con CharJs. 
++ Modulo de SDI Completo.
 
 ## Proyecto
 Es un proyecto creado gracias a la necesidad de poder realizar un inventario completo del parque tecnologico en el que se vincula con clientes
@@ -68,6 +68,8 @@ Es un proyecto creado gracias a la necesidad de poder realizar un inventario com
   43 Sensores <br>
   44 Teclados <br>
   45 Sirenas <br>
+  46 Panicos <br>
+  47 Trackers <br>
 
 ## Referencias de los estados.
 

@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-header">Modificando {{$host->name}}</div>
             <div class="card-body">
-                <form action="/update_comunicator/{{$host->id}}" method="post" name="form">
+                <form action="/update_panico/{{$host->id}}" method="post" name="form">
                   {{ csrf_field() }}
                   <div class="form-row">
                     <div class="form-group col-md-4">
@@ -76,11 +76,11 @@
                   </div>
                   <div class="form-row">
                         <div class="form-group col-md-5">
-                          <label for="abonado_id">Conectado</label>
-                            <select class="form-control" name="cctv_id">
-                              <option value="{{$host->cctv_id}}">P: {{$host->host->id}} - AB: {{$host->host->abonado->numero}} - C: {{$host->host->abonado->departament->cliente->name}}</option>
-                              @foreach ($cctvs as $cctv)
-                                <option value="{{$cctv->id}}">P: {{$cctv->id}} - AB: {{$cctv->abonado->numero}}- C: {{$cctv->abonado->departament->cliente->name}}</option>
+                          <label for="abonado_id">Abonado</label>
+                            <select class="form-control" name="abonado_id">
+                              <option value="{{$host->abonado_id}}">{{$host->abonado->numero}}</option>
+                              @foreach ($abonados as $abonado)
+                                <option value="{{$abonado->id}}">{{$abonado->numero}}</option>
                               @endforeach
                             </select>
                         </div>

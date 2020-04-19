@@ -6,7 +6,7 @@
     <div class="row justify-content-md-center">
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header">Modificandosa {{$host->name}}</div>
+          <div class="card-header">Modificando {{$host->name}}</div>
             <div class="card-body">
                 <form action="/update_sensor/{{$host->id}}" method="post" name="form">
                   {{ csrf_field() }}

@@ -20,7 +20,18 @@
                     <td>{{$cardSim->id}}</td>
                     <td>{{$cardSim->line_phone}}</td>
                     <td>{{$cardSim->cod_sim}}</td>
-                    <td><a href="/only_comunicator/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                    @if ($cardSim->host["host_type"]["id"] == 46)
+                      <td><a href="/only_panico/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                    @endif
+                    @if ($cardSim->host["host_type"]["id"] == 42)
+                      <td><a href="/only_comunicator/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                    @endif
+                    @if ($cardSim->host["host_type"]["id"] == 47)
+                      <td><a href="/only_tracker/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                    @endif
+                    @if (is_null($cardSim->host["host_type"]["id"]))
+                      <td></td>
+                    @endif
                   </tr>
                 @endforeach
             </tbody>

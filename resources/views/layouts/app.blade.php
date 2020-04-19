@@ -102,7 +102,7 @@
                                 @can ('comunicators.show')<a class="dropdown-item" href="/comunicators"><span>Comunicadores</span></a> @endcan
                                 @can ('sensors.show')<a class="dropdown-item" href="/sensors"><span>Sensores</span></a> @endcan
                                 @can ('sirenas.show')<a class="dropdown-item" href="/sirenas"><span>Sirenas</span></a> @endcan
-                                @can ('panics.show')<a class="dropdown-item" href="/panics"><span>Panicos</span></a>@endcan
+                                @can ('panicos.show')<a class="dropdown-item" href="/panicos"><span>Panicos</span></a>@endcan
                                 @can ('trackers.show')<a class="dropdown-item" href="/trackers"><span>Trackers</span></a>@endcan
                                 @can ('cardsims.show')<span>- - - - - - - - - - - - - -</span>
                                 <a class="dropdown-item" href="/card_sims"><span>SIMS</span></a> @endcan
@@ -171,7 +171,7 @@
 </body>
 <footer class="page-footer font-small blue pt-4">
   <div class="footer-copyright text-center py-3">
-    © 2020 Copyright. Version 1.4
+    © 2020 - Version: 1.5
     </div>
 </footer>
 

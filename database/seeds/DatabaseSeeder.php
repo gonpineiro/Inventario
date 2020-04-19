@@ -17,15 +17,19 @@ class DatabaseSeeder extends Seeder
       //$this->call(PermissionsTableSeeder::class);
 
 
-      DB::table('host_types')->insert(['name' => 'Panel de alarma','id' => 40]);
-      DB::table('host_types')->insert(['name' => 'Expansora','id' => 41]);
-      DB::table('host_types')->insert(['name' => 'Comunicador','id' => 42]);
-      DB::table('host_types')->insert(['name' => 'Sensor','id' => 43]);
-      DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
-      DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
+      DB::table('host_types')->insert(['name' => 'Tracker','id' => 47]);
+
+      // DB::table('host_types')->insert(['name' => 'Panel de alarma','id' => 40]);
+      // DB::table('host_types')->insert(['name' => 'Expansora','id' => 41]);
+      // DB::table('host_types')->insert(['name' => 'Comunicador','id' => 42]);
+      // DB::table('host_types')->insert(['name' => 'Sensor','id' => 43]);
+      // DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
+      // DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
+      // DB::table('host_types')->insert(['name' => 'Panico','id' => 46]);
+      // DB::table('host_types')->insert(['name' => 'Tracker','id' => 47]);
 
       //LICENCIAS
-      // 
+      //
       // DB::table('permissions')->insert(['name'  => 'Ver licencias','slug'  => 'licensekey.show','description'  => 'Tabla de Licencias']);
       // DB::table('permissions')->insert(['name'  => 'Detalle de Licencia','slug'  => 'licensekey.only','description'  => 'Detalle de Licencia']);
       // DB::table('permissions')->insert(['name'  => 'Editar de Licencia','slug'  => 'licensekey.edit','description'  => 'Editar de Licencia']);

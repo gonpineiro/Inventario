@@ -473,45 +473,47 @@ class SdiController extends Controller
 
         $user = $request->user();
         $host = Host::create([
+          'host_type_id' => 42,
+          'estado_id' => 1,
+          'name' => $request->input('name'),
+          'modelo_id' => $request->input('modelo_id'),
+          'cctv_id' => $request->input('cctv_id'),
+          'serial' => $request->input('serial'),
+          'abonado_id' => $request->input('abonado_id'),
+          'card_sim_i' => $request->input('card_sim_i'),
+          'card_sim_ii' => $request->input('card_sim_ii'),
+          'card_sim_iii' => $request->input('card_sim_iii'),
+          'zona' => $request->input('zona'),
+          'valor' => $request->input('valor'),
+          'comentario' => $request->input('comentario'),
+            ]);
 
-        'host_type_id' => 42,
-        'estado_id' => 1,
-        'name' => $request->input('name'),
-        'modelo_id' => $request->input('modelo_id'),
-        'cctv_id' => $request->input('cctv_id'),
-        'serial' => $request->input('serial'),
-        'abonado_id' => $request->input('abonado_id'),
-        'card_sim_i' => $request->input('card_sim_i'),
-        'card_sim_ii' => $request->input('card_sim_ii'),
-        'card_sim_iii' => $request->input('card_sim_iii'),
-        'zona' => $request->input('zona'),
-        'valor' => $request->input('valor'),
-        'comentario' => $request->input('comentario'),
-          ]);
+            if (!is_null($request->input('card_sim_i'))) {
 
-        if (!is_null($request->input('card_sim_i'))) {
+              $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
+              $cardsim_i->host_id = $host->id;
+              $cardsim_i->save();
 
-          $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
-          $cardsim_i->host_id = $host->id;
-          $cardsim_i->save();
+            }
 
-        }
-        if (!is_null($request->input('card_sim_ii'))) {
+            if (!is_null($request->input('card_sim_ii'))) {
 
-          $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
-          $cardsim_ii->host_id = $host->id;
-          $cardsim_ii->save();
+              $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
+              $cardsim_ii->host_id = $host->id;
+              $cardsim_ii->save();
 
-        }
-        if (!is_null($request->input('card_sim_iii'))) {
+            }
 
-          $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
-          $cardsim_iii->host_id = $host->id;
-          $cardsim_iii->save();
+            if (!is_null($request->input('card_sim_iii'))) {
 
-        }
+              $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
+              $cardsim_iii->host_id = $host->id;
+              $cardsim_iii->save();
 
-      return redirect('/comunicators');
+            }
+
+
+        return redirect('/comunicators');
     }
 
     public function editComunicator($id, Request $request){
@@ -538,6 +540,7 @@ class SdiController extends Controller
 
         $user = $request->user();
         $host = $this->findByIdHost($id);
+
         if (!is_null($request->input('card_sim_i'))) {
 
           if (!is_null($host->sim_i)) {
@@ -829,6 +832,390 @@ class SdiController extends Controller
       }
 
 
+
+
+    public function showPanicos(Request $request){
+      $host = Host::where('host_type_id',46)->where('estado_id', 1)->get();
+      return view('dispositivos.tables.sdis.panicos', [
+        'hosts' => $host,
+      ]);
+
+    }
+
+    public function onlyPanico($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $hostwork = Host_work::where('host_id', $id)->get();
+      $now = Carbon::now();
+
+      return view('dispositivos.onlys.sdis.panico', [
+          'host' => $host,
+          'hostworks' => $hostwork,
+          'now' => $now,
+      ]);
+      }
+
+    public function formPanico(Request $request){
+      $abonado = Abonado::all();
+      $cardsim = Card_sim::where('host_id', NULL)->get();
+      $modelo = Modelo::where('host_type_id',46)->get();
+      //dd($abonado);
+
+      return view('dispositivos.forms.sdis.add_panico', [
+        'abonados' => $abonado,
+        'modelos'  => $modelo,
+        'cardsims'  => $cardsim,
+
+       ]);
+
+    }
+
+    public function createPanico(Request $request){
+
+        $user = $request->user();
+        $host = Host::create([
+
+        'host_type_id' => 46,
+        'estado_id' => 1,
+        'name' => $request->input('name'),
+        'modelo_id' => $request->input('modelo_id'),
+        'serial' => $request->input('serial'),
+        'abonado_id' => $request->input('abonado_id'),
+        'card_sim_i' => $request->input('card_sim_i'),
+        'card_sim_ii' => $request->input('card_sim_ii'),
+        'card_sim_iii' => $request->input('card_sim_iii'),
+        'valor' => $request->input('valor'),
+        'zona' => $request->input('zona'),
+        'comentario' => $request->input('comentario'),
+          ]);
+
+          if (!is_null($request->input('card_sim_i'))) {
+
+            $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
+            $cardsim_i->host_id = $host->id;
+            $cardsim_i->save();
+
+          }
+
+          if (!is_null($request->input('card_sim_ii'))) {
+
+            $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
+            $cardsim_ii->host_id = $host->id;
+            $cardsim_ii->save();
+
+          }
+
+          if (!is_null($request->input('card_sim_iii'))) {
+
+            $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
+            $cardsim_iii->host_id = $host->id;
+            $cardsim_iii->save();
+
+          }
+
+
+      return redirect('/panicos');
+    }
+
+    public function editPanico($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $abonado = Abonado::all();
+      $estado = Estado::all();
+      $modelo = Modelo::where('host_type_id',46)->get();
+      $cardsim = Card_sim::where('host_id', NULL)->get();
+
+        return view('dispositivos.edit.sdis.panico', [
+            'host' => $host,
+            'abonados' => $abonado,
+            'estados' => $estado,
+            'modelos' => $modelo,
+            'cardsims' => $cardsim,
+        ]);
+
+    }
+
+    public function updatePanico($id, Request $request){
+
+      $user = $request->user();
+      $host = $this->findByIdHost($id);
+
+
+      if (!is_null($request->input('card_sim_i'))) {
+
+        if (!is_null($host->sim_i)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_i->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
+        $cardsim_i->host_id = $host->id;
+        $cardsim_i->save();
+      }else {
+          if (!is_null($host->sim_i)) {
+            $cardsim_i = $this->findByIdCardsim($host->sim_i->id);
+            $cardsim_i->host_id = NULL;
+            $cardsim_i->save();
+          }
+        }
+
+      if (!is_null($request->input('card_sim_ii'))) {
+
+        if (!is_null($host->sim_ii)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_ii->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
+        $cardsim_ii->host_id = $host->id;
+        $cardsim_ii->save();
+      }else {
+          if (!is_null($host->sim_ii)) {
+            $cardsim_ii = $this->findByIdCardsim($host->sim_ii->id);
+            $cardsim_ii->host_id = NULL;
+            $cardsim_ii->save();
+          }
+        }
+
+      if (!is_null($request->input('card_sim_iii'))) {
+
+        if (!is_null($host->sim_iii)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_iii->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
+        $cardsim_iii->host_id = $host->id;
+        $cardsim_iii->save();
+      }else {
+          if (!is_null($host->sim_iii)) {
+            $cardsim_iii = $this->findByIdCardsim($host->sim_iii->id);
+            $cardsim_iii->host_id = NULL;
+            $cardsim_iii->save();
+          }
+        }
+
+
+      $host->name = $request->input('name');
+      $host->serial = $request->input('serial');
+      $host->estado_id = $request->input('estado');
+      $host->modelo_id = $request->input('modelo_id');
+      $host->abonado_id = $request->input('abonado_id');
+      $host->card_sim_i = $request->input('card_sim_i');
+      $host->card_sim_ii = $request->input('card_sim_ii');
+      $host->card_sim_iii = $request->input('card_sim_iii');
+      $host->zona = $request->input('zona');
+      $host->valor = $request->input('valor');
+      $host->comentario = $request->input('comentario');
+      $host->estado_id = 1;
+      $host->save();
+
+      $historial = Historial::create([
+          'user_id' => $user->id,
+          'host_id' => $host->id,
+          'type' => 1,
+        ]);
+
+
+      return redirect('/only_panico/' . $id);
+      }
+
+
+
+    public function showTrackers(Request $request){
+      $host = Host::where('host_type_id',47)->where('estado_id', 1)->get();
+      return view('dispositivos.tables.sdis.trackers', [
+        'hosts' => $host,
+      ]);
+
+    }
+
+    public function onlyTracker($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $hostwork = Host_work::where('host_id', $id)->get();
+      $now = Carbon::now();
+
+      return view('dispositivos.onlys.sdis.tracker', [
+          'host' => $host,
+          'hostworks' => $hostwork,
+          'now' => $now,
+      ]);
+      }
+
+    public function formTracker(Request $request){
+      $abonado = Abonado::all();
+      $cardsim = Card_sim::where('host_id', NULL)->get();
+      $modelo = Modelo::where('host_type_id',47)->get();
+      //dd($abonado);
+
+      return view('dispositivos.forms.sdis.add_tracker', [
+        'abonados' => $abonado,
+        'modelos'  => $modelo,
+        'cardsims'  => $cardsim,
+
+       ]);
+
+    }
+
+    public function createTracker(Request $request){
+
+        $user = $request->user();
+        $host = Host::create([
+
+        'host_type_id' => 47,
+        'estado_id' => 1,
+        'name' => $request->input('name'),
+        'modelo_id' => $request->input('modelo_id'),
+        'serial' => $request->input('serial'),
+        'abonado_id' => $request->input('abonado_id'),
+        'card_sim_i' => $request->input('card_sim_i'),
+        'card_sim_ii' => $request->input('card_sim_ii'),
+        'card_sim_iii' => $request->input('card_sim_iii'),
+        'valor' => $request->input('valor'),
+        'zona' => $request->input('zona'),
+        'comentario' => $request->input('comentario'),
+          ]);
+
+          if (!is_null($request->input('card_sim_i'))) {
+
+            $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
+            $cardsim_i->host_id = $host->id;
+            $cardsim_i->save();
+
+          }
+
+          if (!is_null($request->input('card_sim_ii'))) {
+
+            $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
+            $cardsim_ii->host_id = $host->id;
+            $cardsim_ii->save();
+
+          }
+
+          if (!is_null($request->input('card_sim_iii'))) {
+
+            $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
+            $cardsim_iii->host_id = $host->id;
+            $cardsim_iii->save();
+
+          }
+
+
+      return redirect('/trackers');
+    }
+
+    public function editTracker($id, Request $request){
+
+      $host = $this->findByIdHost($id);
+      $abonado = Abonado::all();
+      $estado = Estado::all();
+      $modelo = Modelo::where('host_type_id',46)->get();
+      $cardsim = Card_sim::where('host_id', NULL)->get();
+
+        return view('dispositivos.edit.sdis.panico', [
+            'host' => $host,
+            'abonados' => $abonado,
+            'estados' => $estado,
+            'modelos' => $modelo,
+            'cardsims' => $cardsim,
+        ]);
+
+    }
+
+    public function updateTracker($id, Request $request){
+
+      $user = $request->user();
+      $host = $this->findByIdHost($id);
+
+
+      if (!is_null($request->input('card_sim_i'))) {
+
+        if (!is_null($host->sim_i)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_i->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_i = $this->findByIdCardsim($request->input('card_sim_i'));
+        $cardsim_i->host_id = $host->id;
+        $cardsim_i->save();
+      }else {
+          if (!is_null($host->sim_i)) {
+            $cardsim_i = $this->findByIdCardsim($host->sim_i->id);
+            $cardsim_i->host_id = NULL;
+            $cardsim_i->save();
+          }
+        }
+
+      if (!is_null($request->input('card_sim_ii'))) {
+
+        if (!is_null($host->sim_ii)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_ii->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_ii = $this->findByIdCardsim($request->input('card_sim_ii'));
+        $cardsim_ii->host_id = $host->id;
+        $cardsim_ii->save();
+      }else {
+          if (!is_null($host->sim_ii)) {
+            $cardsim_ii = $this->findByIdCardsim($host->sim_ii->id);
+            $cardsim_ii->host_id = NULL;
+            $cardsim_ii->save();
+          }
+        }
+
+      if (!is_null($request->input('card_sim_iii'))) {
+
+        if (!is_null($host->sim_iii)) {
+        $deletehostid = $this->findByIdCardsim($host->sim_iii->id);
+        $deletehostid->host_id = NULL;
+        $deletehostid->save();
+        }
+
+        $cardsim_iii = $this->findByIdCardsim($request->input('card_sim_iii'));
+        $cardsim_iii->host_id = $host->id;
+        $cardsim_iii->save();
+      }else {
+          if (!is_null($host->sim_iii)) {
+            $cardsim_iii = $this->findByIdCardsim($host->sim_iii->id);
+            $cardsim_iii->host_id = NULL;
+            $cardsim_iii->save();
+          }
+        }
+
+
+      $host->name = $request->input('name');
+      $host->serial = $request->input('serial');
+      $host->estado_id = $request->input('estado');
+      $host->modelo_id = $request->input('modelo_id');
+      $host->abonado_id = $request->input('abonado_id');
+      $host->card_sim_i = $request->input('card_sim_i');
+      $host->card_sim_ii = $request->input('card_sim_ii');
+      $host->card_sim_iii = $request->input('card_sim_iii');
+      $host->zona = $request->input('zona');
+      $host->valor = $request->input('valor');
+      $host->comentario = $request->input('comentario');
+      $host->estado_id = 1;
+      $host->save();
+
+      $historial = Historial::create([
+          'user_id' => $user->id,
+          'host_id' => $host->id,
+          'type' => 1,
+        ]);
+
+
+      return redirect('/only_tracker/' . $id);
+      }
+
+
+
     //ADMINISTRACION SDI
     public function showPlataformas(Request $request){
       $plataforma = Plataforma::all();
@@ -990,4 +1377,14 @@ class SdiController extends Controller
         return Abonadotype::where('id', $id)->firstOrFail();
     }
 
+    private function deleteCardSim(){
+
+
+
+    }
+
+    private function saveHostIdCardSim(){
+
+
+    }
 }
