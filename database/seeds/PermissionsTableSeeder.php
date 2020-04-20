@@ -144,44 +144,50 @@ class PermissionsTableSeeder extends Seeder
         DB::table('permissions')->insert(['name'  => 'Detalle Panel','slug'  => 'panelalarms.only','description'  => 'Detalle de Panel']);
         DB::table('permissions')->insert(['name'  => 'Editar Panel','slug'  => 'panelalarms.edit','description'  => 'Editar de Panel']);
         DB::table('permissions')->insert(['name'  => 'Crear Panel','slug'  => 'panelalarms.create','description'  => 'Crear de Panel']);
-        //EXPANSORA
 
+        //EXPANSORA
         DB::table('permissions')->insert(['name'  => 'Ver Expansoras','slug'  => 'expansoras.show','description'  => 'Tabla Expansoras']);
         DB::table('permissions')->insert(['name'  => 'Detalle Expansora','slug'  => 'expansoras.only','description'  => 'Detalle de Expansora']);
         DB::table('permissions')->insert(['name'  => 'Editar Expansora','slug'  => 'expansoras.edit','description'  => 'Editar de Expansora']);
         DB::table('permissions')->insert(['name'  => 'Crear Expansora','slug'  => 'expansoras.create','description'  => 'Crear de Expansora']);
-        //COMUNICADOR
 
+        //COMUNICADOR
         DB::table('permissions')->insert(['name'  => 'Ver Comunicadores','slug'  => 'comunicators.show','description'  => 'Tabla Comunicadores']);
         DB::table('permissions')->insert(['name'  => 'Detalle Comunicador','slug'  => 'comunicators.only','description'  => 'Detalle de Comunicador']);
         DB::table('permissions')->insert(['name'  => 'Editar Comunicador','slug'  => 'comunicators.edit','description'  => 'Editar de Comunicador']);
         DB::table('permissions')->insert(['name'  => 'Crear Comunicador','slug'  => 'comunicators.create','description'  => 'Crear de Comunicador']);
-        //SENSOR
 
+        //SENSOR
         DB::table('permissions')->insert(['name'  => 'Ver Sensores','slug'  => 'sensors.show','description'  => 'Tabla Sensores']);
         DB::table('permissions')->insert(['name'  => 'Detalle Sensor','slug'  => 'sensors.only','description'  => 'Detalle de Sensor']);
         DB::table('permissions')->insert(['name'  => 'Editar Sensor','slug'  => 'sensors.edit','description'  => 'Editar de Sensor']);
         DB::table('permissions')->insert(['name'  => 'Crear Sensor','slug'  => 'sensors.create','description'  => 'Crear de Sensor']);
-        //TECLADO-SDI
 
+        //TECLADO-SDI
         DB::table('permissions')->insert(['name'  => 'Ver Teclados-SDI','slug'  => 'tecladosdis.show','description'  => 'Tabla Teclados-SDI']);
         DB::table('permissions')->insert(['name'  => 'Detalle Teclado-SDI','slug'  => 'tecladosdis.only','description'  => 'Detalle de Teclado-SDI']);
         DB::table('permissions')->insert(['name'  => 'Editar Teclado-SDI','slug'  => 'tecladosdis.edit','description'  => 'Editar de Teclado-SDI']);
         DB::table('permissions')->insert(['name'  => 'Crear Teclado-SDI','slug'  => 'tecladosdis.create','description'  => 'Crear de Teclado-SDI']);
-        //SIRENA
 
+        //SIRENA
         DB::table('permissions')->insert(['name'  => 'Ver Sirenas','slug'  => 'sirenas.show','description'  => 'Tabla Sirenas']);
         DB::table('permissions')->insert(['name'  => 'Detalle Sirena','slug'  => 'sirenas.only','description'  => 'Detalle de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Editar Sirena','slug'  => 'sirenas.edit','description'  => 'Editar de Sirena']);
         DB::table('permissions')->insert(['name'  => 'Crear Sirena','slug'  => 'sirenas.create','description'  => 'Crear de Sirena']);
-        //PANICOS
 
+        //PANICOS
         DB::table('permissions')->insert(['name'  => 'Ver Panicos','slug'  => 'panicos.show','description'  => 'Tabla Panicos']);
         DB::table('permissions')->insert(['name'  => 'Detalle Panico','slug'  => 'panicos.only','description'  => 'Detalle de Panico']);
         DB::table('permissions')->insert(['name'  => 'Editar Panico','slug'  => 'panicos.edit','description'  => 'Editar de Panico']);
         DB::table('permissions')->insert(['name'  => 'Crear Panico','slug'  => 'panicos.create','description'  => 'Crear de Panico']);
-        //SIMS_CARDS
 
+        //TRACKERS
+        DB::table('permissions')->insert(['name'  => 'Ver Trackers','slug'  => 'trackers.show','description'  => 'Tabla Trackers']);
+        DB::table('permissions')->insert(['name'  => 'Detalle Tracker','slug'  => 'trackers.only','description'  => 'Detalle de Tracker']);
+        DB::table('permissions')->insert(['name'  => 'Editar Tracker','slug'  => 'trackers.edit','description'  => 'Editar de Tracker']);
+        DB::table('permissions')->insert(['name'  => 'Crear Tracker','slug'  => 'trackers.create','description'  => 'Crear de Tracker']);
+
+        //SIMS_CARDS
         DB::table('permissions')->insert(['name'  => 'Ver SIMs','slug'  => 'cardsims.show','description'  => 'Tabla SIMs']);
         DB::table('permissions')->insert(['name'  => 'Detalle SIM','slug'  => 'cardsims.only','description'  => 'Detalle de SIM']);
         DB::table('permissions')->insert(['name'  => 'Editar SIM','slug'  => 'cardsims.edit','description'  => 'Editar de SIM']);
