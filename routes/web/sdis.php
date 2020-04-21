@@ -79,5 +79,6 @@ Route::get('/edit_tracker/{id}', 'SdiController@editTracker')->middleware('can:t
 
 Route::get('/card_sims', 'CardsimController@showCardsim')->middleware('can:cardsims.show');
 Route::post('/add_card_sim', 'CardsimController@createCardsim')->middleware('can:cardsims.create');
+Route::post('/add_sim_deposito', 'CardsimController@createDeposito')->middleware('can:cardsims.create');
 ////////////////////////////////////////////////////////////////////////
  ?>

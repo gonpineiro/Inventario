@@ -159,6 +159,7 @@
     <div class="tab-pane fade active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       ...
     </div>
+
   </div>
 
 

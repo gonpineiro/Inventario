@@ -2,70 +2,152 @@
 
 @section('content')
   <div class="container">
-    <div class="row mt-2">
-      <div class="col col-md-8">
-        <h1>Sims </h1>
-          <table class="table table-hover" id="host-table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Número</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Dispositivo</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($cardSims as $cardSim)
+    {{-- SOLAPAS --}}
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="cardsims-tab" data-toggle="tab" href="#cardsims" role="tab" aria-controls="cardsims" aria-selected="true">SIMs </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="sim_depositos-tab" data-toggle="tab" href="#sim_depositos" role="tab" aria-controls="sim_depositos" aria-selected="true">Depositos</a>
+      </li>
+    </ul>
+
+  {{-- CONTENIDO --}}
+    <div class="tab-content" id="myTabContent">
+      {{-- PRIMER CONTENIDO --}}
+      <div class="tab-pane fade show active" id="cardsims" role="tabpanel" aria-labelledby="cardsims-tab">
+        <div class="row mt-2">
+          <div class="col col-md-8">
+              <table class="table table-hover" id="sims-table">
+                <thead>
                   <tr>
-                    <td>{{$cardSim->id}}</td>
-                    <td>{{$cardSim->line_phone}}</td>
-                    <td>{{$cardSim->cod_sim}}</td>
-                    @if ($cardSim->host["host_type"]["id"] == 46)
-                      <td><a href="/only_panico/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
-                    @endif
-                    @if ($cardSim->host["host_type"]["id"] == 42)
-                      <td><a href="/only_comunicator/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
-                    @endif
-                    @if ($cardSim->host["host_type"]["id"] == 47)
-                      <td><a href="/only_tracker/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
-                    @endif
-                    @if (is_null($cardSim->host["host_type"]["id"]))
-                      <td></td>
-                    @endif
+                    <th scope="col">#</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Deposito</th>
+                    <th scope="col">Dispositivo</th>
                   </tr>
-                @endforeach
-            </tbody>
-          </table>
-      </div>
-      <div class="col col-md-4">
-        <h1>Agregar SIM</h1>
-        <div class="card">
-            <div class="card-header">Agregar SIMs</div>
-            <div class="card-body">
-                <form method="POST" action="/add_card_sim">
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="line_phone">Número</label>
-                            <input id="line_phone" type="number" class="form-control" name="line_phone" value="" required>
+                </thead>
+                <tbody>
+                    @foreach ($cardSims as $cardSim)
+                      <tr>
+                        <td>{{$cardSim->id}}</td>
+                        <td>{{$cardSim->line_phone}}</td>
+                        <td>{{sprintf("%01.0f", $cardSim->cod_sim) - 0}}</td>
+                        <td>{{$cardSim->sim_deposito->name}}</td>
+                        @if ($cardSim->host["host_type"]["id"] == 46)
+                          <td><a href="/only_panico/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                        @endif
+                        @if ($cardSim->host["host_type"]["id"] == 42)
+                          <td><a href="/only_comunicator/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                        @endif
+                        @if ($cardSim->host["host_type"]["id"] == 47)
+                          <td><a href="/only_tracker/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
+                        @endif
+                        @if (is_null($cardSim->host["host_type"]["id"]))
+                          <td></td>
+                        @endif
+                      </tr>
+                    @endforeach
+                </tbody>
+              </table>
+          </div>
+          <div class="col col-md-4">
+            <div class="card">
+                <div class="card-header">Agregar SIMs</div>
+                <div class="card-body">
+                    <form method="POST" action="/add_card_sim">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="line_phone">Número</label>
+                                <input id="line_phone" type="number" class="form-control" name="line_phone" value="" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="cod_sim">Código</label>
-                            <input id="cod_sim" type="number" class="form-control" name="cod_sim" value="" required>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="cod_sim">Código</label>
+                                <input id="cod_sim" type="number" class="form-control" name="cod_sim" value="" required>
+                            </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Agregar</button>
-                </form>
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label for="departament_id">Deposito</label>
+                            <select class="form-control" name="sim_deposito_id" >
+                              <option value="">- - - Seleccione - - -</option>
+                              @foreach ($depositos as $deposito)
+                                <option value="{{$deposito->id}}">{{$deposito->name}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Agregar</button>
+                    </form>
+                </div>
             </div>
+          </div>
         </div>
       </div>
-      <script >
-              $(document).ready(function() {
-              $('#host-table').DataTable();
-                } );
-      </script>
+
+      {{-- PRIMER CONTENIDO --}}
+      <div class="tab-pane fade active" id="sim_depositos" role="tabpanel" aria-labelledby="sim_depositos-tab">
+        <div class="row mt-2">
+          <div class="col col-md-8">
+              <table class="table table-hover" id="depositos-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad Instaladas</th>
+                    <th scope="col">Cantidad en Stock</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($depositos as $deposito)
+
+                      <tr>
+                        <td>{{$deposito->id}}</td>
+                        <td>{{$deposito->name}}</td>
+                        <td>{{$deposito->card_sim_instaladas->count()}}</td>
+                        <td>{{$deposito->card_sim_total->count() - $deposito->card_sim_instaladas->count()}}</td>
+                        <td>{{$deposito->card_sim_total->count()}}</td>
+                      </tr>
+                    @endforeach
+                </tbody>
+              </table>
+          </div>
+          <div class="col col-md-4">
+            <div class="card">
+                <div class="card-header">Agregar Deposito de SIMs</div>
+                <div class="card-body">
+                    <form method="POST" action="/add_sim_deposito">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="line_phone">Nombre</label>
+                                <input id="line_phone" type="text" class="form-control" name="name" value="" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Agregar</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 </div>
+
+<script >
+  $(document).ready(function() {
+  $('#sims-table').DataTable();
+    } );
+
+  $(document).ready(function() {
+  $('#depositos-table').DataTable();
+    } );
+</script>
+
 @endsection
