@@ -33,7 +33,7 @@
                       <tr>
                         <td>{{$cardSim->id}}</td>
                         <td>{{$cardSim->line_phone}}</td>
-                        <td>{{sprintf("%01.0f", $cardSim->cod_sim) - 0}}</td>
+                        <td>{{$cardSim->cod_sim}}</td>
                         <td>{{$cardSim->sim_deposito->name}}</td>
                         @if ($cardSim->host["host_type"]["id"] == 46)
                           <td><a href="/only_panico/{{$cardSim->host["id"]}}">{{$cardSim->host["name"]}}</td>
@@ -61,24 +61,39 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="line_phone">Número</label>
-                                <input id="line_phone" type="number" class="form-control" name="line_phone" value="" required>
+                                <input id="line_phone" type="number" class="form-control{{ $errors->has('line_phone') ? ' is-invalid' : '' }}" name="line_phone" value="{{old('line_phone')}}">
+                                @if ($errors->has('line_phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('line_phone') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="cod_sim">Código</label>
-                                <input id="cod_sim" type="number" class="form-control" name="cod_sim" value="" required>
+                                <input id="cod_sim" type="number" class="form-control{{ $errors->has('cod_sim') ? ' is-invalid' : '' }}" name="cod_sim" value="{{old('cod_sim')}}">
+                                @if ($errors->has('cod_sim'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('cod_sim') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-md-12">
-                            <label for="departament_id">Deposito</label>
-                            <select class="form-control" name="sim_deposito_id" >
+                            <label for="sim_deposito_id">Deposito</label>
+                            <select class="form-control{{ $errors->has('sim_deposito_id') ? ' is-invalid' : '' }}" name="sim_deposito_id" >
                               <option value="">- - - Seleccione - - -</option>
                               @foreach ($depositos as $deposito)
                                 <option value="{{$deposito->id}}">{{$deposito->name}}</option>
                               @endforeach
                             </select>
+                            @if ($errors->has('sim_deposito_id'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('sim_deposito_id') }}</strong>
+                                </span>
+                            @endif
                           </div>
                         </div>
                         <button type="submit" class="btn btn-dark">Agregar</button>
