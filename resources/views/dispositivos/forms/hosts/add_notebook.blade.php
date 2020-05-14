@@ -38,7 +38,7 @@
                     </div>
                   </div>
                   <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                           <label for="mac_adress">Usuario</label>
                             <select class="form-control" name="user_host_id" disabled>
                               <option value="">- - - Seleccione - - -</option>
@@ -47,13 +47,17 @@
                             @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                           <label for="mac_adress">Mac address</label>
                           <input type="text" class="form-control" id="mac_adress" placeholder="" name="mac_adress" pattern="^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                           <label for="ip_local">Ip local</label>
                           <input type="text" class="form-control" id="ip_local" placeholder=""  name="ip_local" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="ip_local">Credencial</label>
+                          <input type="text" class="form-control" id="os_cred" placeholder=""  name="os_cred" >
                         </div>
                   </div>
 

@@ -37,5 +37,8 @@ Route::get('/form_telefonoip', 'HostsController@formTelefonoip')->middleware('ca
 Route::post('/add_telefonoip', 'HostsController@createTelefonoip')->middleware('can:phoneips.create');
 Route::post('/update_telefonoip/{id}', 'HostsController@updateTelefonoip')->middleware('can:phoneips.edit');
 Route::get('/edit_telefonoip/{id}', 'HostsController@editTelefonoip')->middleware('can:phoneips.edit');
+
+
+Route::get('/host-cred', 'HostsController@showHostCred')->middleware('can:phoneips.edit');
 ////////////////////////////////////////////////////////////////////////
  ?>

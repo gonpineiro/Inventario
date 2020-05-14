@@ -27,17 +27,21 @@
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                       <label for="inputEmail4">Usuario</label>
                       <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
                     </div>
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-3">
                         <label for="inputEmail4">Mac address</label>
                         <input type="text" class="form-control" id="inputEmail4" placeholder="{{$host->mac_adress}}" disabled>
                       </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                       <label for="inputPassword4">Ip local</label>
                       <input type="text" class="form-control" id="inputPassword4" placeholder="{{$host->ip_local}}" disabled>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="ip_local">Credencial</label>
+                      <input type="text" class="form-control" id="os_cred" placeholder="{{$host->os_cred}}" disabled>
                     </div>
                   </div>
                   <div class="form-row">

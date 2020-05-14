@@ -39,18 +39,22 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="departament">Usuario</label>
                     <input type="text" class="form-control" @if (!is_null($host->user_host)) placeholder="{{$host->user_host->name}} {{$host->user_host->apellido}}" @else placeholder="" @endif disabled>
                     <input type="text" name="user_host_id" value="{{$host->user_host_id}}" hidden>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="mac_adress">Mac address</label>
                     <input type="text" class="form-control" id="mac_adress" value="{{$host->mac_adress}}" name="mac_adress" pattern="^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="ip_local">Ip local</label>
                     <input type="text" class="form-control" id="ip_local" value="{{$host->ip_local}}"  name="ip_local" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$"required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="os_cred">Credencial</label>
+                    <input type="text" class="form-control" id="os_cred" value="{{$host->os_cred}}"  name="os_cred" >
                   </div>
                 </div>
                 <div class="form-row">

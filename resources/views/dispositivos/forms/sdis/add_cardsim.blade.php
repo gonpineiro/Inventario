@@ -124,8 +124,8 @@
                       <tr>
                         <td>{{$deposito->id}}</td>
                         <td>{{$deposito->name}}</td>
-                        <td>{{$deposito->card_sim_instaladas->count()}}</td>
                         <td>{{$deposito->card_sim_total->count() - $deposito->card_sim_instaladas->count()}}</td>
+                        <td>{{$deposito->card_sim_instaladas->count()}}</td>
                         <td>{{$deposito->card_sim_total->count()}}</td>
                       </tr>
                     @endforeach
