@@ -2,12 +2,19 @@ label[type=not_user] {
   color: red;
   font-weight: bold;
 }
+
 table {
     font-size: 0.785rem;
 }
+
 .table td {
     padding: 0.25rem;
 }
+
 .form-control {
   font-size: 0.8rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

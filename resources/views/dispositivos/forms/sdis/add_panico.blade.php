@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="modelo_id">Modelo</label>
-                        <select class="form-control" name="modelo_id">
+                        <select class="form-control" name="modelo_id" required>
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
@@ -65,14 +65,14 @@
                     <div class="form-group col-md-5">
                       <label for="abonado_id">Abonado</label>
                         <select class="form-control" name="abonado_id" required>
-                          <option selected disabled>- - - Seleccione - - -</option>
+                          <option value="" selected disabled>- - - Seleccione - - -</option>
                           @foreach ($abonados as $abonado)
-                            <option value={{$abonado->id}}>{{$abonado->numero}}</option>
+                          <option value={{$abonado->id}}>{{$abonado->numero}} - D: {{$abonado->departament->name}} - C: {{$abonado->departament->cliente->name}}</option>
                           @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-5">
-                      <label for="zona">Zona</label>
+                      <label for="zona">Ubicación</label>
                       <input type="text" class="form-control" id="zona" placeholder="" name="zona" required>
                     </div>
                     <div class="form-group col-md-2">

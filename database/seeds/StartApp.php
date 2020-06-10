@@ -51,6 +51,8 @@ class StartSRV extends Seeder
       DB::table('host_types')->insert(['name' => 'Teclado (SDI)','id' => 44]);
       DB::table('host_types')->insert(['name' => 'Sirena','id' => 45]);
       DB::table('host_types')->insert(['name' => 'Panico','id' => 46]);
+      DB::table('host_types')->insert(['name' => 'Tracker','id' => 47]);
+
 
       //MODELOS
       DB::table('modelos')->insert(['marca' => 'Dahua','name' => 'DVR-12CH720','host_type_id' => 21]);

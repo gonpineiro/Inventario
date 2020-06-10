@@ -49,7 +49,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-5">
-                      <label for="zona">Zona</label>
+                      <label for="zona">Zona/Ubicación</label>
                       <input type="text" class="form-control" id="zona" placeholder="" name="zona" required>
                     </div>
                     <div class="form-group col-md-2">

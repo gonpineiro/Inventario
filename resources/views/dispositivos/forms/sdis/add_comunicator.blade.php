@@ -16,8 +16,8 @@
                       <input type="text" class="form-control" id="name" name="name" placeholder="" required>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="modelo_id">Modelo</label>
-                        <select class="form-control" name="modelo_id">
+                      <label for="modelo_id">Modelo</label> <a href="/modelos" target= _blank>+</a>
+                        <select class="form-control" name="modelo_id" required>
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
@@ -62,7 +62,7 @@
 
                   <div class="form-row">
                     <div class="form-group col-md-5">
-                      <label for="abonado_id">Panel/Abonado/Cliente</label>
+                      <label for="abonado_id">Panel/Abonado/Cliente</label> <a href="/form_panel_alarm" target= _blank>+</a>
                         <select class="form-control" name="cctv_id">
                           <option value="">- - - Seleccione - - -</option>
                           @foreach ($cctvs as $cctv)
@@ -71,7 +71,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-5">
-                      <label for="zona">Ubicacion</label>
+                      <label for="zona">Ubicación</label>
                       <input type="text" class="form-control" id="zona" placeholder="" name="zona" required>
                     </div>
                     <div class="form-group col-md-2">

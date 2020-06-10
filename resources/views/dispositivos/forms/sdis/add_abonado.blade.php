@@ -62,22 +62,19 @@
                   <div class="form-row">
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-3">
                       <label for="partido">Partido</label>
                       <input type="text" class="form-control" id="partido" name="partido" required>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-3">
                       <label for="provincia">Provincia</label>
                       <input type="text"class="form-control" id="provincia" name="provincia" required>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label for="cp">Codigo Postal</label>
+                    <div class="form-group col-md-3">
+                      <label for="cp">Código Postal</label>
                       <input type="number" min = 1 class="form-control" id="cp" name="cp" required>
                     </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-3">
                       <label for="partido">Palabra Clave</label>
                       <input type="text" class="form-control" id="partido" name="palabra_clave" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                     </div>

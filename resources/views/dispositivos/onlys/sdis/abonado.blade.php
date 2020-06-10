@@ -46,22 +46,19 @@
                     </div>
 
                     <div class="form-row">
-                      <div class="form-group col-md-5">
+                      <div class="form-group col-md-3">
                         <label for="cctv">Partido</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->partido}}" name="zona" disabled>
                       </div>
-                      <div class="form-group col-md-5">
+                      <div class="form-group col-md-3">
                         <label for="cctv">Povincia</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->provincia}}"  name="zona" disabled>
                       </div>
-                      <div class="form-group col-md-2">
-                        <label for="cctv">Codigo Postal</label>
+                      <div class="form-group col-md-3">
+                        <label for="cctv">Código Postal</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->cp}}"  name="zona" disabled>
                       </div>
-                    </div>
-
-                    <div class="form-row">
-                      <div class="form-group col-md-5">
+                      <div class="form-group col-md-3">
                         <label for="palabra_clave">Palabra clave</label>
                         <input type="text" class="form-control" id="cctv" placeholder="{{$abonado->palabra_clave}}" name="palabra_clave" disabled>
                       </div>

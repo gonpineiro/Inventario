@@ -2,11 +2,10 @@
 
 @section('content')
   <div class="container">
-
     <div class="row justify-content-md-center">
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header">Modificando {{$host->name}}</div>
+            <div class="card-header">Modificando {{$host->name}}</div>
             <div class="card-body">
                 <form action="/update_comunicator/{{$host->id}}" method="post" name="form">
                   {{ csrf_field() }}
@@ -17,7 +16,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="modelo_id">Modelo</label>
-                        <select class="form-control" name="modelo_id">
+                        <select class="form-control" name="modelo_id" >
                           <option value="{{$host->modelo_id}}">{{$host->modelo->name}}</option>
                           @foreach ($modelos as $modelo)
                             <option value="{{$modelo->id}}">{{$modelo->name}}</option>
@@ -74,6 +73,7 @@
                         </select>
                     </div>
                   </div>
+                  
                   <div class="form-row">
                         <div class="form-group col-md-5">
                           <label for="abonado_id">Conectado</label>
@@ -93,12 +93,14 @@
                           <input type="number" min="10" class="form-control" id="valor" value="{{$host->valor}}" name="valor" required>
                         </div>
                   </div>
+                  
                   <div class="form-row">
                     <div class="form-group col-md">
                       <label for="comentario">Observaciónes</label>
                       <textarea rows="10" cols="50" type="text" class="form-control" id="comentario" name="comentario" >{{$host->comentario}} </textarea>
                     </div>
                   </div>
+                  
                   <button type="submit" class="btn btn-dark">Agregar</button>
                 </form>
               </div>

@@ -77,7 +77,7 @@
                   <div class="form-row">
                         <div class="form-group col-md-5">
                           <label for="abonado_id">Abonado</label>
-                            <select class="form-control" name="abonado_id">
+                            <select class="form-control" name="abonado_id" required>
                               <option value="{{$host->abonado_id}}">{{$host->abonado->numero}}</option>
                               @foreach ($abonados as $abonado)
                                 <option value="{{$abonado->id}}">{{$abonado->numero}}</option>
@@ -85,7 +85,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-5">
-                          <label for="valor">Ubicacion</label>
+                          <label for="valor">Ubicación</label>
                           <input type="text" class="form-control" id="zona" value="{{$host->zona}}" name="zona" required>
                         </div>
                         <div class="form-group col-md-2">

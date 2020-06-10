@@ -42,7 +42,7 @@
                         <input type="text" class="form-control" id="abonado" placeholder="{{$host->abonado->numero}}"  name="abonado" disabled>
                       </div>
                       <div class="form-group col-md-5">
-                        <label for="cctv">Ubicacion</label>
+                        <label for="cctv">Ubicación</label>
                         <input type="text" class="form-control" id="zona" placeholder="{{$host->zona}}"  name="zona" disabled>
                       </div>
                       <div class="form-group col-md-2">
