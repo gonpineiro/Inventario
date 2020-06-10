@@ -36,7 +36,7 @@
 
             <div class="form-row">
               <div class="form-group col-md-5">
-                <label for="abonado_id">Panel/Abonado/Cliente</label> <a href="/form_panel_alarm" target=_blank>+</a>
+                <label for="abonado_id">Panel/Abonado/Cliente </label> <a href="/form_panel_alarm" target=_blank> +</a>
                 <select class="form-control" name="cctv_id" required>
                   <option value="">- - - Seleccione - - -</option>
                   @foreach ($cctvs as $cctv)

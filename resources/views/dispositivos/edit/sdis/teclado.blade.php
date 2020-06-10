@@ -15,7 +15,7 @@
                 <input type="text" class="form-control" name="name" value="{{$host->name}}" required>
               </div>
               <div class="form-group col-md-3">
-                <label for="modelo_id">Modelo</label>
+                <label for="modelo_id">Modelo </label><a href="/modelos" target=_blank> +</a>
                 <select class="form-control" name="modelo_id">
                   <option value="{{$host->modelo_id}}">{{$host->modelo->name}}</option>
                   @foreach ($modelos as $modelo)
@@ -25,21 +25,19 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="serial">Serial</label>
-                <input type="text" class="form-control" id="serial" value="{{$host->serial}}" name="serial"
-                  style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                <input type="text" class="form-control uppercase" value="{{$host->serial}}" name="serial" required>
               </div>
 
               <div class="form-group col-md-3">
                 <label for="cantzona">Zonas</label>
-                <input type="text" class="form-control" id="cantzona" value="{{$host->cantzona}}" name="cantzona"
-                  required>
+                <input type="text" class="form-control" value="{{$host->cantzona}}" name="cantzona" required>
                 </select>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-5">
-                <label for="abonado_id">Conectado</label>
+                <label for="abonado_id">Panel/Abonado/Cliente </label><a href="/form_panel_alarm" target=_blank>+</a>
                 <select class="form-control" name="cctv_id">
                   <option value="{{$host->cctv_id}}">{{$host->host->name}} - AB: {{$host->host->abonado->numero}} - C:
                     {{$host->host->abonado->departament->cliente->name}}</option>
