@@ -45,7 +45,7 @@
             <div class="form-row">
               <div class="form-group col-md">
                 <label for="comentario">Observaciónes</label>
-                <textarea rows="10" cols="50" type="text" class="form-control" id="comentario"
+                <textarea rows="10" cols="50" type="text" class="form-control"
                   readonly>{{$host->comentario}} </textarea>
               </div>
             </div>
@@ -54,6 +54,6 @@
         </div>
       </div>
     </div>
-
-
-    @endsection
+  </div>
+</div>
+@endsection
