@@ -18,3 +18,10 @@ table {
 .uppercase {
   text-transform: uppercase;
 }
+
+.accion_logo {
+  width: 17px;
+}
+
+
+/* <a href="/modelos" target=_blank>+</a> */
