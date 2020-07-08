@@ -65,7 +65,7 @@
                   <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputEmail4">Afectado</label>
-                            <select class="form-control" name="departament" disabled>
+                            <select class="form-control" name="departament_id" disabled>
                               <option value="">- - - Seleccione - - -</option>
                               @foreach ($departaments as $departament)
                                 <option value="{{$departament->id}}">{{$departament->name}} - {{$departament->cliente->name}}</option>

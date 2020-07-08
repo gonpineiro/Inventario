@@ -42,15 +42,15 @@
             </div>
 
             <div class="form-row">
-              <div class="form-group col-md-5">
+              {{-- <div class="form-group col-md-5">
                 <label for="cctv">Abonado </label>
                 <input type="text" class="form-control" value="{{$host->abonado->numero}}" name="abonado" readonly>
               </div>
               <div class="form-group col-md-5">
                 <label for="cctv">Ubicación</label>
                 <input type="text" class="form-control" value="{{$host->zona}}" name="zona" readonly>
-              </div>
-              <div class="form-group col-md-2">
+              </div> --}}
+              <div class="form-group col-md-4">
                 <label for="valor">Valor</label>
                 <input type="text" class="form-control" value="{{$host->valor}}" name="valor" readonly>
               </div>

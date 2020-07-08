@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserHostsRelations extends Migration
+class CreateAbonadoTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddUserHostsRelations extends Migration
      */
     public function up()
     {
-      Schema::table('user_hosts', function (Blueprint $table) {
-          $table->foreign('departament_id')->references('id')->on('departaments');
+        Schema::create('abonadotypes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->String('name');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddUserHostsRelations extends Migration
      */
     public function down()
     {
-      Schema::table('user_hosts', function (Blueprint $table) {
-          $table->dropForeign('user_hosts_departament_id_foreign');
-      });
+        Schema::dropIfExists('abonado_type');
     }
 }

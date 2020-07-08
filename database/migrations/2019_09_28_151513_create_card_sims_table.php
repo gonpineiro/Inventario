@@ -16,21 +16,14 @@ class CreateCardSimsTable extends Migration
         Schema::create('card_sims', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('host_id')->unsigned()->nullable();
+            $table->integer('sim_deposito_id')->unsigned();
             $table->integer('line_phone')->nullable();
             $table->bigInteger('cod_sim')->nullable();
+
             $table->timestamps();
-        });
 
-        Schema::table('hosts', function (Blueprint $table) {
-          $table->foreign('card_sim_i')->references('id')->on('card_sims');
-          $table->foreign('card_sim_ii')->references('id')->on('card_sims');
-          $table->foreign('card_sim_iii')->references('id')->on('card_sims');
+            $table->foreign('sim_deposito_id')->references('id')->on('sim_depositos');
         });
-
-        Schema::table('card_sims', function (Blueprint $table) {
-          $table->foreign('host_id')->references('id')->on('hosts');
-        });
-
     }
 
     /**
@@ -40,10 +33,6 @@ class CreateCardSimsTable extends Migration
      */
     public function down()
     {
-
-        Schema::table('hosts', function (Blueprint $table) {
-            $table->dropForeign('hosts_sim_id_foreign');
-        });
         Schema::dropIfExists('card_sims');
     }
 }

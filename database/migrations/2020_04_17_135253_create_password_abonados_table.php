@@ -18,10 +18,8 @@ class CreatePasswordAbonadosTable extends Migration
             $table->integer('abonado_id')->unsigned();
             $table->string('particion');
             $table->string('password');
-
             $table->timestamps();
-        });
-        Schema::table('password_abonados', function (Blueprint $table) {
+
             $table->foreign('abonado_id')->references('id')->on('abonados');
         });
     }

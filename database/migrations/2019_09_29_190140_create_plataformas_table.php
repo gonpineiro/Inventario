@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCredentialsRelations extends Migration
+class CreatePlataformasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddCredentialsRelations extends Migration
      */
     public function up()
     {
-      Schema::table('Credentials', function (Blueprint $table) {
-          $table->foreign('host_id')->references('id')->on('hosts');
+        Schema::create('plataformas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->String('name');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +27,6 @@ class AddCredentialsRelations extends Migration
      */
     public function down()
     {
-        $table->dropForeign('credentials_host_id_foreign');
+        Schema::dropIfExists('plataformas');
     }
 }

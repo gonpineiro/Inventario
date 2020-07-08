@@ -21,25 +21,19 @@ class CreateAbonadosTable extends Migration
             $table->string('palabra_clave', 25)->nullable();
             $table->string('email')->nullable();
             $table->string('numero')->nullable();
-            $table->string('palabra_clave');
-
             $table->string('direccion')->nullable();
             $table->string('localidad')->nullable();
             $table->string('telefono')->nullable();
             $table->string('partido')->nullable();
             $table->string('provincia')->nullable();
             $table->integer('cp')->nullable();
-
             $table->string('comentario')->nullable();
             $table->timestamps();
-        });
 
-        Schema::table('hosts', function (Blueprint $table) {
-          $table->foreign('abonado_id')->references('id')->on('abonados');
-        });
-        Schema::table('abonados', function (Blueprint $table) {
+            $table->foreign('abonadotype_id')->references('id')->on('abonadotypes');
             $table->foreign('departament_id')->references('id')->on('departaments');
-          });
+            $table->foreign('plataforma_id')->references('id')->on('plataformas');
+        });
     }
 
     /**
@@ -49,10 +43,10 @@ class CreateAbonadosTable extends Migration
      */
     public function down()
     {
-        Schema::table('abonados', function (Blueprint $table) {
+        /* Schema::table('abonados', function (Blueprint $table) {
             $table->dropForeign('abonados_departament_id_foreign');
             $table->dropForeign('abonados_plataforma_id_foreign');
-        });
+        }); */
         Schema::dropIfExists('abonados');
     }
 }

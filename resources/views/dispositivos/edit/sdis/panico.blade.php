@@ -72,10 +72,11 @@
                   @endforeach
                 </select>
               </div>
+              
             </div>
 
             <div class="form-row">
-              <div class="form-group col-md-5">
+              {{-- <div class="form-group col-md-5">
                 <label for="abonado_id">Abonado </label><a href="/form_abonado" target=_blank> +</a>
                 <select class="form-control" name="abonado_id" required>
                   <option value="{{$host->abonado_id}}">{{$host->abonado->numero}}</option>
@@ -87,8 +88,8 @@
               <div class="form-group col-md-5">
                 <label for="valor">Ubicación</label>
                 <input type="text" class="form-control" value="{{$host->zona}}" name="zona" required>
-              </div>
-              <div class="form-group col-md-2">
+              </div> --}}
+              <div class="form-group col-md-4">
                 <label for="valor">Valor</label>
                 <input type="number" min="10" class="form-control" value="{{$host->valor}}" name="valor" required>
               </div>

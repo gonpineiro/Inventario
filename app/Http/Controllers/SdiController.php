@@ -859,12 +859,14 @@ class SdiController extends Controller
       $abonado = Abonado::all();
       $cardsim = Card_sim::where('host_id', NULL)->get();
       $modelo = Modelo::where('host_type_id',46)->get();
+      $departament = Departament::orderBy('name')->get();
       //dd($abonado);
 
       return view('dispositivos.forms.sdis.add_panico', [
         'abonados' => $abonado,
         'modelos'  => $modelo,
         'cardsims'  => $cardsim,
+        'departaments' => $departament
 
        ]);
 
@@ -874,20 +876,29 @@ class SdiController extends Controller
 
         $user = $request->user();
         $host = Host::create([
-
-        'host_type_id' => 46,
-        'estado_id' => 1,
-        'name' => $request->input('name'),
-        'modelo_id' => $request->input('modelo_id'),
-        'serial' => $request->input('serial'),
-        'abonado_id' => $request->input('abonado_id'),
-        'card_sim_i' => $request->input('card_sim_i'),
-        'card_sim_ii' => $request->input('card_sim_ii'),
-        'card_sim_iii' => $request->input('card_sim_iii'),
-        'valor' => $request->input('valor'),
-        'zona' => $request->input('zona'),
-        'comentario' => $request->input('comentario'),
+          'host_type_id' => 46,
+          'estado_id' => 1,
+          'name' => $request->input('name'),
+          'modelo_id' => $request->input('modelo_id'),
+          'serial' => $request->input('serial'),
+          /* 'abonado_id' => $request->input('abonado_id'), */
+          'card_sim_i' => $request->input('card_sim_i'),
+          'card_sim_ii' => $request->input('card_sim_ii'),
+          'card_sim_iii' => $request->input('card_sim_iii'),
+          'valor' => $request->input('valor'),
+          'zona' => $request->input('zona'),
+          'comentario' => $request->input('comentario'),
           ]);
+
+          if($request->input('abonado_id')){
+            $host->abonado_id = $request->input('abonado_id');
+          }
+
+          if ($request->input('departament_id')) {
+              $host->departament_id = $request->input('departament_id');
+          }
+          $host->save();
+
 
           if (!is_null($request->input('card_sim_i'))) {
 

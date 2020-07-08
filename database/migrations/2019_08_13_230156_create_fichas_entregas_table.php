@@ -15,13 +15,16 @@ class CreateFichasEntregasTable extends Migration
     {
         Schema::create('fichas_entregas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('departament_id')->unsigned()->nullable();
+            $table->integer('user_host_id')->unsigned();
             $table->string('name');
             $table->timestamp('fecha');
-            $table->integer('departament_id')->unsigned()->nullable();
             $table->integer('type')->unsigned();
-            $table->integer('user_host_id')->unsigned();
             $table->json('detalle',50);
             $table->timestamps();
+
+            $table->foreign('departament_id')->references('id')->on('departaments');
+            $table->foreign('user_host_id')->references('id')->on('user_hosts');
         });
     }
 

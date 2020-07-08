@@ -15,11 +15,14 @@ class CreateModelosTable extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('marca_id')->unsigned()->nullable();
             $table->string('name',25);
             $table->string('marca',25);
             $table->string('host_type_id',20);
             $table->string('comentario')->nullable();
             $table->timestamps();
+
+            $table->foreign('marca_id')->references('id')->on('marcas');
         });
     }
 

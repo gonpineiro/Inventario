@@ -107,7 +107,7 @@ class HostsController extends Controller
               'estado_id' => $request->input('estado'),
               'mac_adress' => $request->input('mac_adress'),
               'ip_local' => $request->input('ip_local'),
-              'departament_id' => $request->input('departament'),
+              'departament_id' => $request->input('departament_id'),
               'comentario' => $request->input('comentario'),
               'valor' => $request->input('valor'),
               'estado_id' => 1,

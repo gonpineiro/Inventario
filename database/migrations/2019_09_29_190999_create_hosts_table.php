@@ -15,12 +15,17 @@ class CreateHostsTable extends Migration
     {
         Schema::create('hosts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('host_type_id')->unsigned();
             $table->integer('departament_id')->unsigned()->nullable();
             $table->integer('user_host_id')->unsigned()->nullable();
-            $table->string('name');
-            $table->string('mac_adress')->nullable();
+            $table->integer('estado_id')->unsigned();
+            $table->integer('abonado_id')->unsigned()->nullable();
+            $table->integer('cctv_id')->unsigned()->nullable();
+            $table->integer('modelo_id')->unsigned();
+            $table->string('os_cred')->nullable();
             $table->integer('interno')->nullable();
+            $table->string('mac_adress')->nullable();
             $table->string('ip_local')->nullable();
             $table->string('ssids')->nullable();
             $table->string('ssid_pass')->nullable();
@@ -43,19 +48,41 @@ class CreateHostsTable extends Migration
             $table->integer('card_sim_i')->unsigned()->nullable();
             $table->integer('card_sim_ii')->unsigned()->nullable();
             $table->integer('card_sim_iii')->unsigned()->nullable();
-            $table->integer('abonado_id')->unsigned()->nullable();
             $table->integer('cantzona')->nullable();
             $table->string('zona')->nullable();
             $table->string('p2p')->nullable();
             $table->string('acceso')->nullable();
-            $table->integer('cctv_id')->unsigned()->nullable();
-            $table->integer('modelo_id')->unsigned();
             $table->string('serial')->nullable();
             $table->string('afectado')->nullable();
             $table->integer('valor')->nullable();
-            $table->integer('estado_id')->unsigned();
             $table->string('comentario')->nullable();
             $table->timestamps();
+
+
+            // Relaciones
+            $table->foreign('departament_id')->references('id')->on('departaments');
+            $table->foreign('host_type_id')->references('id')->on('host_types');
+            $table->foreign('modelo_id')->references('id')->on('modelos');
+            $table->foreign('cctv_id')->references('id')->on('hosts');
+            $table->foreign('estado_id')->references('id')->on('estados');
+            $table->foreign('user_host_id')->references('id')->on('user_hosts');
+            $table->foreign('abonado_id')->references('id')->on('abonados');
+
+            $table->foreign('card_sim_i')->references('id')->on('card_sims');
+            $table->foreign('card_sim_ii')->references('id')->on('card_sims');
+            $table->foreign('card_sim_iii')->references('id')->on('card_sims');
+        });
+
+        Schema::table('host_works', function (Blueprint $table) {
+            $table->foreign('host_id')->references('id')->on('hosts');
+        });
+            
+        Schema::table('card_sims', function (Blueprint $table) {
+            $table->foreign('host_id')->references('id')->on('hosts');
+        });
+
+        Schema::table('credentials', function (Blueprint $table) {
+            $table->foreign('host_id')->references('id')->on('hosts');
         });
     }
 
@@ -66,6 +93,18 @@ class CreateHostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('host_works', function (Blueprint $table) {
+            $table->dropForeign('host_works_host_id_foreign');
+        });
+            
+        Schema::table('card_sims', function (Blueprint $table) {
+            $table->dropForeign('card_sims_host_id_foreign');
+        });
+
+        Schema::table('credentials', function (Blueprint $table) {
+            $table->dropForeign('credentials_host_id_foreign');
+        });
+
         Schema::dropIfExists('hosts');
     }
 }

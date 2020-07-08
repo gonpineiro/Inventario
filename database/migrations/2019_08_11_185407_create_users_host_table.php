@@ -20,6 +20,8 @@ class CreateUsersHostTable extends Migration
             $table->string('apellido');
             $table->string('email');
             $table->timestamps();
+
+            $table->foreign('departament_id')->references('id')->on('departaments');
         });
     }
 

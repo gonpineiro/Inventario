@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterHostsTable extends Migration
+class CreateSimDepositosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AlterHostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('hosts', function (Blueprint $table) {
-            $table->string('os_cred')->nullable();
-            });
+        Schema::create('sim_depositos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +27,6 @@ class AlterHostsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('sim_depositos');
     }
 }
