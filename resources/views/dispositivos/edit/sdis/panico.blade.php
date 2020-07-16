@@ -72,24 +72,38 @@
                   @endforeach
                 </select>
               </div>
-              
+
             </div>
 
             <div class="form-row">
-              {{-- <div class="form-group col-md-5">
+              <div class="form-group col-md-5">
                 <label for="abonado_id">Abonado </label><a href="/form_abonado" target=_blank> +</a>
-                <select class="form-control" name="abonado_id" required>
+                <select class="form-control" name="abonado_id" onclick="selectedAbonado()" id="abonado" required>
+                  @if ($host->abonado_id)
                   <option value="{{$host->abonado_id}}">{{$host->abonado->numero}}</option>
+                  @else
+                  <option value="" selected>- - - Seleccione - - -</option>
+                  @endif
                   @foreach ($abonados as $abonado)
                   <option value="{{$abonado->id}}">{{$abonado->numero}}</option>
                   @endforeach
                 </select>
               </div>
               <div class="form-group col-md-5">
-                <label for="valor">Ubicación</label>
-                <input type="text" class="form-control" value="{{$host->zona}}" name="zona" required>
-              </div> --}}
-              <div class="form-group col-md-4">
+                <label for="abonado_id">Cliente </label><a href="/form_abonado" target=_blank> +</a>
+                <select class="form-control" name="abonado_id" onclick="selectedDepartament()" id="departament" required>
+                  @if ($host->cliente_id)
+                  <option value="{{$host->cliente_id}}">{{$host->cliente->name}}</option>
+                  @else
+                  <option value="" selected>- - - Seleccione - - -</option>
+                  @endif
+                  @foreach ($departaments as $departament)
+                  <option value="{{$departament->id}}">{{$departament->cliente->name}} -
+                    {{$departament->name}} -</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group col-md-2">
                 <label for="valor">Valor</label>
                 <input type="number" min="10" class="form-control" value="{{$host->valor}}" name="valor" required>
               </div>
@@ -138,5 +152,24 @@
     if ((sim_iii_value == sim_i_value) | (sim_iii_value == sim_ii_value)) {
       document.getElementById("card_sim_iii").value = 0;
     }
+  }
+
+  const selectedAbonado = () => {
+  const abonadoValue = document.getElementById("abonado").value
+  if (abonadoValue) {
+  document.getElementById("departament").disabled = true;
+  document.getElementById("departament").value = 0;
+  }else{
+  document.getElementById("departament").disabled = false;
+  }
+  }
+  const selectedDepartament = () => {
+  const abonadoValue = document.getElementById("departament").value
+  if (abonadoValue) {
+  document.getElementById("abonado").disabled = true;
+  document.getElementById("abonado").value = 0;
+  }else{
+  document.getElementById("abonado").disabled = false;
+  }
   }
 </script>
